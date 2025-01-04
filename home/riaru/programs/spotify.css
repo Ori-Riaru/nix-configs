@@ -1,0 +1,204 @@
+:root {
+  --text-base: white;
+
+  --corner-radius: 8px !important;
+
+  --num-buttons: 3;
+  --button-top-offset: 14px;
+  --button-size: 39px;
+
+  --encore-button-corner-radius: 12px;
+}
+
+.Root__right-sidebar {
+  border-radius: 10px !important;
+  overflow: hidden;
+  margin-left: 8px;
+}
+
+.global-nav .Root__top-container {
+  grid-template-areas:
+    "global-nav global-nav right-sidebar"
+    "left-sidebar main-view right-sidebar"
+    "left-sidebar now-playing-bar right-sidebar" !important;
+}
+
+.main-nowPlayingBar-container {
+  background: transparent !important;
+}
+
+#dribbblish-back-shadow {
+  box-shadow: none !important;
+}
+
+button[aria-label="Marketplace"]:after {
+  content: "Extensions";
+  margin-left: 23px;
+  font-size: 16px;
+  color: white;
+}
+
+button[aria-label="Home"]:after {
+  content: "Home";
+  margin-left: 18px;
+  z-index: 0;
+  width: 50px;
+  font-size: 16px;
+  color: white;
+}
+
+button[aria-label="History"]:after {
+  content: "History";
+  margin-left: 23px;
+  font-size: 16px;
+  color: white;
+}
+
+button[aria-label="Statistics"]:after {
+  content: "Statistics";
+  margin-left: 23px;
+  font-size: 16px;
+  color: white;
+}
+
+.Root__globalNav {
+  z-index: 2;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+.Root__globalNav .main-globalNav-historyButtonsContainer,
+.Root__globalNav .main-globalNav-searchSection,
+.Root__globalNav .main-topBar-topbarContentRight {
+  -webkit-transform: revert !important;
+  transform: revert !important;
+}
+
+.main-globalNav-historyButtons {
+  margin-left: -10px;
+  padding-left: 10px !important;
+  background: var(--spice-main) !important;
+  border-radius: var(--corner-radius) 0;
+}
+
+.custom-navlinks-scrollable_container
+  > .search-searchCategory-contentArea
+  > .search-searchCategory-categoryGrid
+  > div[role="presentation"] {
+  position: fixed !important;
+
+  top: 66px;
+  left: 12px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  /*translate: calc(0px - calc(var(--left-sidebar-width) * 1px)) !important;*/
+}
+
+.main-globalNav-searchContainer > button[aria-label="Home"] {
+  position: fixed !important;
+
+  top: 18px;
+  left: 5px;
+
+  z-index: 0 !important;
+}
+
+.custom-navlinks-scrollable_container > div > div > div > button:nth-child(2) {
+  margin-left: -7px !important;
+}
+
+#Desktop_LeftSidebar_Id {
+  margin-top: calc(var(--num-buttons) * var(--button-size));
+}
+
+/* Remove search bar underline*/
+.main-globalNav-searchInputSection > div > form > input {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.Root__main-view,
+Root__globalNav {
+  z-index: 2;
+}
+
+/* Square sidebar icons */
+.x-entityImage-imageContainer {
+  border-radius: 6px !important;
+}
+
+/* Remove nav button background*/
+.Root__globalNav .main-globalNav-link-icon {
+  background: transparent;
+}
+
+/* hide bottom buttons*/
+button:has(
+    path[d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16V2.45z"]
+  ) {
+  display: none;
+}
+
+button:has(
+    path[d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"]
+  ) {
+  display: none;
+}
+
+.main-nowPlayingBar-extraControls > button:first-child,
+.main-repeatButton-button,
+.main-repeatButton-active {
+  display: none;
+}
+
+.main-contextMenu-tippyWrapper {
+  display: none;
+}
+
+.playback-bar {
+  margin-top: -20px;
+  background: var(--spice-main);
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.playback-progressbar {
+  width: 93%;
+  margin: auto;
+}
+
+.x-progressBar-progressBarBg {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.x-progressBar-fillColor,
+.x-progressBar-sliderArea {
+  height: 10px;
+  border-radius: 12px;
+}
+
+.main-nowPlayingView-section,
+.main-nowPlayingView-aboutArtistV2Button {
+  background: transparent !important;
+}
+
+.player-controls__left
+  > .PopoverTrigger__PopoverTriggerContainer-sc-yux5vv-0
+  > div
+  > button {
+  display: none;
+}
+
+.main-nowPlayingWidget-nowPlaying {
+  z-index: 1;
+}
+
+.main-avatar-image,
+.main-userWidget-box {
+  border-radius: 12px;
+}

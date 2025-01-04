@@ -1,0 +1,7 @@
+.vscode
+.vscode/*
+
+/pkgs/result/*
+/result/*
+
+/hosts/fujin/services/password.txt

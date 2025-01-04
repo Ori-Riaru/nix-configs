@@ -1,0 +1,52 @@
+{...}: {
+  imports = [
+    ./global
+
+    # CLI
+    ./programs/starship.nix
+    ./programs/zoxide.nix
+    ./programs/screen-savers.nix
+    ./programs/cli-tools.nix
+    ./programs/fish.nix
+
+    # Tools
+    ./programs/firefox
+    ./programs/chromium.nix
+    ./programs/kitty.nix
+    ./programs/obsidian.nix
+    ./programs/blender.nix
+    ./programs/inkscape.nix
+    ./programs/libre-office.nix
+    ./programs/gimp.nix
+    ./programs/krita.nix
+    ./programs/thunderbird.nix
+
+    # Development
+    ./programs/java.nix
+    ./programs/postgres.nix
+    ./programs/nix.nix
+    ./programs/git.nix
+    ./programs/vscodium.nix
+
+    # Communication
+    ./programs/discord.nix
+    
+    # Media
+    ./programs/spotify.nix
+    ./programs/suwayomi.nix
+    ./programs/gaming.nix
+
+    # System
+    ./programs/kdeconnect.nix
+    ./programs/xremap.nix
+    ./programs/file-viewers.nix
+    ./programs/fonts.nix
+    ./programs/kde.nix
+    ./programs/mouse.nix
+    ./programs/stylix.nix
+    ./programs/touchegg.nix
+    ./programs/kdiskmark.nix
+  ];
+
+  home.stateVersion = "24.05";
+}
