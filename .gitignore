@@ -1,7 +1,7 @@
 .vscode
 .vscode/*
 
-/pkgs/result/*
+/packages/result/*
 /result/*
 
 /system/fujin/services/password.txt

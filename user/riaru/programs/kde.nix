@@ -15,7 +15,7 @@
     kara
     tela-icon-theme
     bibata-cursors
-    (callPackage ../../../pkgs/simple-kickoff.nix {})
+    (callPackage ../../../packages/simple-kickoff.nix {})
   ];
 
   programs.plasma = {

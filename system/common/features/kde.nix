@@ -21,10 +21,10 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (callPackage ../../../pkgs/sddm-theme-corners.nix {})
+    (callPackage ../../../packages/sddm-theme-corners.nix {})
 
     kde-rounded-corners
-    (callPackage ../../../pkgs/kde-geometry-change.nix {})
+    (callPackage ../../../packages/kde-geometry-change.nix {})
 
 
     #kdePackages.qtstyleplugin-kvantum
