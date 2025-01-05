@@ -13,7 +13,7 @@
   ];
 
   environment.sessionVariables = {
-    FLAK = "~/Projects/nix-configs";
+    FLAKEREF = "~/Projects/nix-configs";
   };
 
   nix = let

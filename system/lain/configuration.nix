@@ -3,24 +3,23 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
-  pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
 
     ../common/global
-    ../common/optional/systemd-boot.nix
-    ../common/optional/audio.nix
-    ../common/optional/kde.nix
-    ../common/optional/bluetooth.nix
-    ../common/optional/printing.nix
-    ../common/optional/flatpak.nix
-    ../common/optional/steam.nix
+    ../common/features/systemd-boot.nix
+    ../common/features/audio.nix
+    ../common/features/kde.nix
+    ../common/features/bluetooth.nix
+    ../common/features/printing.nix
+    ../common/features/flatpak.nix
+    ../common/features/steam.nix
 
-    ../common/users/riaru
-    ../common/optional/virtulization.nix
-    ../common/optional/kdeconnect.nix
+    ../common/users/riaru.nix
+    ../common/features/virtulization.nix
+    ../common/features/kdeconnect.nix
   ];
 
   networking.hostName = "lain";

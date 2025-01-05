@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
 
     ../common/global
-    ../common/users/riaru
+    ../common/users/riaru.nix
 
     ./services/nextcloud.nix
     #./services/homeassistant.nix
