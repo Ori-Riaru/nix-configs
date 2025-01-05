@@ -19,10 +19,9 @@
       s = "fzf -q";
 
       g = "git";
-      ga = "git add .";
+      ga = "git add";
+      gs = "git status";
       gc = "git commit -m";
-
-      nrs = "sudo nixos-rebuild switch --flake ~/Projects/nix-configs/#shizuku";
 
       code = "codium";
       configs = "codium ~/Projects/nix-configs";
