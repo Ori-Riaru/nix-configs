@@ -28,6 +28,7 @@
     ./programs/nix.nix
     ./programs/git.nix
     ./programs/vscodium.nix
+    ./programs/rust.nix
 
     # Communication
     ./programs/discord.nix
