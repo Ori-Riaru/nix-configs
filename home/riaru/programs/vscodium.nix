@@ -48,6 +48,12 @@
         # Java
         redhat.java
 
+        # Rust
+        rust-lang.rust-analyzer
+        vadimcn.vscode-lldb
+        tamasfe.even-better-toml
+        serayuzgur.crates
+
         # Python
         ms-python.python
         ms-toolsai.jupyter
@@ -64,6 +70,7 @@
         eamodio.gitlens
       ]
       ++ (with extensions.open-vsx; [
+        tauri-apps.tauri-vscode
         littensy.charmed-icons
       ]) ++ (with extensions.vscode-marketplace; [
         bbenoist.qml

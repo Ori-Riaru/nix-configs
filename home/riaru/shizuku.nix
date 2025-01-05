@@ -47,6 +47,7 @@
     ./programs/mouse.nix
     ./programs/stylix.nix
     ./programs/touchegg.nix
+    ./programs/kdiskmark.nix 
   ];
 
   home.stateVersion = "24.05";
