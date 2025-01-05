@@ -6,5 +6,6 @@
     lsd
     btop
     speedtest-cli
+    lf
   ];
 }
