@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    
     nur.url = "github:nix-community/nur";
 
     home-manager = {
@@ -11,17 +12,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
-    xremap-flake.url = "github:xremap/nix-flake";
-
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    stylix.url = "github:danth/stylix";
+    xremap-flake.url = "github:xremap/nix-flake";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -38,10 +31,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     # kwin-effects-forceblur = {
     #   url = "github:taj-ny/kwin-effects-forceblur";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+
+    stylix.url = "github:danth/stylix";
+
   };
 
   outputs = {
@@ -63,7 +65,7 @@
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs outputs;};
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
