@@ -1,0 +1,379 @@
+{pkgs, ...}: {
+  programs.firefox = {
+    profiles.riaru.search.engines = {
+      "Nix" = {
+        urls = [
+          {
+            template = "https://mynixos.com/search";
+            params = [
+              {
+                name = "q";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+        definedAliases = [
+          "@np"
+          "@packages"
+          "@package"
+          "@nix"
+          "@nixos"
+          "@program"
+          "@app"
+          "@home"
+          "@homemanager"
+          "np:"
+          "packages:"
+          "package:"
+          "nix:"
+          "nixos:"
+          "program:"
+          "app:"
+          "home:"
+          "homemanager:"
+        ];
+      };
+
+      "Youtube" = {
+        urls = [
+          {
+            template = "https://www.youtube.com/results";
+            params = [
+              {
+                name = "search_query";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://www.youtube.com/s/desktop/28bb7000/img/favicon_48x48.png";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@yt"
+          "@youtube"
+          "@video"
+          "yt:"
+          "youtube:"
+          "video:"
+        ];
+      };
+
+      "AlternativeTo" = {
+        urls = [
+          {
+            template = "https://alternativeto.net/browse/search";
+            params = [
+              {
+                name = "q";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://alternativeto.net/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@at"
+          "@alternative"
+          "@alternativeto"
+          "at:"
+          "alternative:"
+          "alternativeto:"
+        ];
+      };
+
+      "Reddit" = {
+        urls = [
+          {
+            template = "https://www.reddit.com/search";
+            params = [
+              {
+                name = "type";
+                value = "link&c";
+              }
+              {
+                name = "q";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://reddit.com/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@r"
+          "@reddit"
+          "r:"
+          "reddit:"
+        ];
+      };
+
+      "Amazon" = {
+        urls = [
+          {
+            template = "https://www.amazon.ca/s";
+            params = [
+              {
+                name = "k";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://www.amazon.ca/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@am"
+          "@amazon"
+          "am:"
+          "amazon:"
+        ];
+      };
+
+      "Lemmy" = {
+        urls = [
+          {
+            template = "https://phtn.app/search";
+            params = [
+              {
+                name = "q";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://reddit.com/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@l"
+          "@lemmy"
+          "l:"
+          "lemmy:"
+        ];
+      };
+
+      "Anilist" = {
+        urls = [
+          {
+            template = "https://anilist.co/search/anime";
+            params = [
+              {
+                name = "search";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://anilist.co/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@al"
+          "@anilist"
+          "al:"
+          "anilist:"
+        ];
+      };
+
+      # TODO: Update to miruro.tv
+      "Aniwave" = {
+        urls = [
+          {
+            template = "https://aniwave.to/filter";
+            params = [
+              {
+                name = "keyword";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://aniwave.to/assets/sites/aniwave/favicon1.png";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@anime"
+          "@ani"
+          "@aniwave"
+          "anime:"
+          "ani:"
+          "aniwave:"
+        ];
+      };
+
+      "Ovagames" = {
+        urls = [
+          {
+            template = "https://www.ovagames.com";
+            params = [
+              {
+                name = "s";
+                value = "{searchTerms}";
+              }
+              {
+                name = "x";
+                value = "0";
+              }
+              {
+                name = "y";
+                value = "0";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://www.ovagames.com/wp-content/uploads/2020/01/OG-Gaming-web-logo.png";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@ova"
+          "@games"
+          "@game"
+          "@ovagames"
+          "ova:"
+          "games:"
+          "game:"
+          "ovagames:"
+        ];
+      };
+
+      "csrinru" = {
+        urls = [
+          {
+            template = "https://cs.rin.ru/forum/search.php";
+            params = [
+              {
+                name = "keywords";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://cs.rin.ru/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@cs"
+          "@csrin"
+          "@csrinru"
+          "cs:"
+          "csrin:"
+          "csrinru:"
+        ];
+      };
+
+      "online-fix" = {
+        urls = [
+          {
+            template = "https://online-fix.me/index.php";
+            params = [
+              {
+                name = "do";
+                value = "search";
+              }
+              {
+                name = "subaction";
+                value = "search";
+              }
+              {
+                name = "story";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://online-fix.me/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@of"
+          "@onlinefix"
+          "of:"
+          "onlinefix:"
+        ];
+      };
+
+      "Steam" = {
+        urls = [
+          {
+            template = "https://store.steampowered.com/search";
+            params = [
+              {
+                name = "term";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://store.steampowered.com/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@steam"
+          "@s"
+          "steam:"
+          "s:"
+        ];
+      };
+
+      "github" = {
+        urls = [
+          {
+            template = "https://github.com/search";
+            params = [
+              {
+                name = "type";
+                value = "repositories";
+              }
+              {
+                name = "q";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://github.com/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@git"
+          "@github"
+          "git:"
+          "github:"
+        ];
+      };
+
+      "newegg" = {
+        urls = [
+          {
+            template = "https://www.newegg.ca/p/pl";
+            params = [
+              {
+                name = "d";
+                value = "{searchTerms}";
+              }
+            ];
+          }
+        ];
+
+        iconUpdateURL = "https://github.com/favicon.ico";
+        updateInterval = 7 * 24 * 60 * 60 * 1000;
+        definedAliases = [
+          "@new"
+          "@egg"
+          "@newegg"
+          "new:"
+          "egg:"
+          "newegg:"
+        ];
+      };
+    };
+  };
+}
