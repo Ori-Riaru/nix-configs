@@ -5,7 +5,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 ## Structure
 
 - `flake.nix`: Entrypoint for System and Home Manager configurations
-- `system` System configuration usable with `nh os switch`
+- `systems` System configuration usable with `nh os switch`
   - `common`: Configurations shared across multiple system
     - `global`: Configurations shared across all systems
     - `features`: Optional configurations shared across some systems
@@ -13,7 +13,7 @@ My personal Nixos configurations. They are not intended to be used by others how
   - `shizuku`: Laptop Configuration
   - `fujin`: Server Configuration
     - `services`: Services hosted on this machine
-- `user/riaru`: home-manager configuration usable with `nh home switch`
+- `users/riaru`: home-manager configuration usable with `nh home switch`
   - `global`: home-manager configurations shared across all machines
   - `programs`: Optional programs installed and configured with home-manager
 - `packages`: Custom packages for programs unavailable from nixpkgs

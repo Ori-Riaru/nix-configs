@@ -74,7 +74,7 @@
       lain = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./system/lain/configuration.nix
+          ./systems/lain/configuration.nix
         ];
       };
 
@@ -82,7 +82,7 @@
       shizuku = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./system/shizuku/configuration.nix
+          ./systems/shizuku/configuration.nix
         ];
       };
 
@@ -90,7 +90,7 @@
       fujin = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./system/fujin/configuration.nix
+          ./systems/fujin/configuration.nix
         ];
       };
     };
@@ -101,7 +101,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./user/riaru/lain.nix
+          ./users/riaru/lain.nix
         ];
       };
 
@@ -110,7 +110,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./user/riaru/shizuku.nix
+          ./users/riaru/shizuku.nix
         ];
       };
 
@@ -119,7 +119,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./user/riaru/fujin.nix
+          ./users/riaru/fujin.nix
         ];
       };
     };
