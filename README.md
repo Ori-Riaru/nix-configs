@@ -19,7 +19,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 - `packages`: Custom packages for programs unavailable from nixpkgs
 - `overlays`: Patches and version overrides for packages
 
-## Features / Configurations / Themes
+## Featured Configurations
 
 - KDE / (karousel, krohnkite) / touchegg
 
