@@ -1,25 +1,25 @@
 # My NixOS Configuration
 
-These are my personal Nixos configurations.
+My personal Nixos configurations. They are not intended to be used by others however feel free to take parts for your own configuration. Most application have been styled to match my color scheme Neutral Dark.
 
-# Structure
+## Structure
 
 - `flake.nix`: Entrypoint for System and Home Manager configurations
 - `system` System configuration usable with `nh os switch`
-    - `common`: configurations shared across multiple system 
-        - `global`:  configurations shared across all systems
-        - `features`: optional configurations shared across some configurations
-    - `lain`: Desktop PC Configuration
-    - `shizuku`: Laptop Configuration
-    - `fujin`: Server Configuration
-        - `services`: Services hosted on this machine
+  - `common`: Configurations shared across multiple system
+    - `global`: Configurations shared across all systems
+    - `features`: Optional configurations shared across some systems
+  - `lain`: Desktop PC Configuration
+  - `shizuku`: Laptop Configuration
+  - `fujin`: Server Configuration
+    - `services`: Services hosted on this machine
 - `user/riaru`: home-manager configuration usable with `nh home switch`
-    - `global`: home-manager configurations shared across all machines
-    - `programs`: optional programs installed and configured with home-manager
-- `packages`: custom packages for programs unavailable from nixpkgs
-- `overlays`
+  - `global`: home-manager configurations shared across all machines
+  - `programs`: Optional programs installed and configured with home-manager
+- `packages`: Custom packages for programs unavailable from nixpkgs
+- `overlays`: Patches and version overrides for packages
 
-## Features
+## Features / Configurations / Themes
 
 - KDE / (karousel, krohnkite) / touchegg
 
@@ -33,7 +33,7 @@ These are my personal Nixos configurations.
 
 <!-- TODO: add demo -->
 
-- Kitty / Fish / Starship / Zoxide 
+- Kitty / Fish / Starship / Zoxide
 
 <!-- TODO: add demo -->
 
@@ -49,3 +49,6 @@ These are my personal Nixos configurations.
 
 <!-- TODO: add demo -->
 
+- Selfhosted Nextcloud
+
+<!-- TODO: add demo -->
