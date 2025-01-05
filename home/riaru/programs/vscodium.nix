@@ -72,9 +72,17 @@
       ++ (with extensions.open-vsx; [
         tauri-apps.tauri-vscode
         littensy.charmed-icons
-      ]) ++ (with extensions.vscode-marketplace; [
+
+        # Python
+        kevinrose.vsc-python-indent
+        charliermarsh.ruff
+      ])
+      ++ (with extensions.vscode-marketplace; [
         bbenoist.qml
+
+        # Typescript
         oven.bun-vscode
+        wallabyjs.quokka-vscode
       ]);
 
     userSettings = {
@@ -82,15 +90,7 @@
       "editor.formatOnSave" = true;
       "editor.formatOnPaste" = true;
 
-      "[javascript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      "[jsonc]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      "[css][scss][less]" = {
+      "[css][scss][less][jsonc][javascript][typescript][html]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
 
