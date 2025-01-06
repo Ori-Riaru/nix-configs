@@ -1,0 +1,361 @@
+:root {
+  --sidebar-width-collapsed: 36px;
+  --sidebar-width-expanded: 250px;
+
+  --bookmark-columns: 3;
+}
+
+:root {
+    --font: Inter;
+	  --font-mono-space: JetBrainsMono Nerd Font;
+    
+    --accent-primary-1: var(--purple-1);
+    --accent-primary-2: var(--purple-2);
+    --accent-primary-3: var(--purple-3);
+
+    --accent-secondary: var(--blue-1);
+    --accent-tertiary: var(--yellow-1);
+    
+    --base: var(--black-0);
+    --card: var(--black-1);
+    --card2: var(--black-2);
+    --input: var(--black-2);
+    --overlay: var(--black-2);
+
+    --size-0: 1em;
+    --size-1: 2em;
+    --size-2: 3em;
+    --size-3: 4em;
+    --size-4: 5em;
+
+    --spacing-0: 3px;
+    --spacing-1: 6px;
+    --spacing-2: 12px;
+    --spacing-3: 18px;
+
+    --border-1: 0px;
+    --border-2: 3px;
+
+    --radius-1: 6px;
+    --radius-2: 12px;
+
+    --selection-background: var(--accent-primary);
+
+    --link: var(var(--purple-1));
+    --link-visited: var(--purple-3);
+
+    /* Main text, Headlines */
+    --text: var(--white-3);
+
+	/* Subtext, Sub Headline, comment */
+    --subtext: var(--white-1);
+    
+    /* error, remove, close, delete */
+    --error: var(--red-1);
+
+    /* neutral */
+    --neutral: var(--blue-1);
+
+    /* warning */
+    --warning: var(--orange-1);
+    
+    /* success, new, add */
+    --success: var(--green-1);
+    
+    /* modified, changed, edit */
+    --modified: var(--purple-1);
+    
+    /* info, help */
+    --info: var(--teal-1);
+
+    
+    /* Syntax Highlighting */
+
+    /* Keywords, reserved words, important terms */
+    --keyword: var(--purple-1);
+    
+    /* Function names, declarations */
+    --function: var(--blue-1);
+    
+    /* Variable names, constants */
+    --variable: var(--teal-1);
+    
+    /* Strings, text content */
+    --string: var(--green-1);
+    
+    /* Numbers, numeric literals */
+    --number: var(--orange-1);
+    
+    /* Comments */
+    --comment: var(--white-4);
+    
+    /* Operators (+, -, *, etc.) */
+    --operator: var(--pink-1);
+    
+    /* Classes, constructors, special types */
+    --class: var(--yellow-1);
+    
+    /* Tags (HTML/XML), annotations */
+    --tag: var(--red-1);
+    
+    /* Attributes, properties (HTML/CSS/JSX) */
+    --attribute: var(--cyan-1);
+    
+    /* Punctuation (brackets, semicolons, etc.) */
+    --punctuation: var(--white-3);
+
+    /* color palette */
+
+    /* black */
+    --black-4: #515151;
+    --black-3: #404040;
+    --black-2: #303030;
+    --black-1: #1d1d1d;
+    --black-0: #141414;
+
+    /* white */
+    --white-4: #ffffff;
+    --white-3: #f0f0f0;
+    --white-2: #dfdfdf;
+    --white-1: #cacaca;
+    --white-0: #ababab;
+
+
+    /* red */
+    --red-4: #ffdfe0;
+    --red-3: #feb2b5;
+    --red-2: #fb7f8a;
+    --red-1: #ff596b;
+    --red-0: #fe5970;
+
+    /* orange */
+    --orange-4: #fde0ce;
+    --orange-3: #fccaab;
+    --orange-2: #fdb78b;
+    --orange-1: #ffa062;
+    --orange-0: #ff9851;
+
+    /* yellow */
+    --yellow-4: #fdfdd3;
+    --yellow-3: #fefdba;
+    --yellow-2: #fefb95;
+    --yellow-1: #fffb77;
+    --yellow-0: #fef63a;
+
+    /* green */
+    --green-4: #d9ffd0;
+    --green-3: #cdffc2;
+    --green-2: #b1fea0;
+    --green-1: #99ff82;
+    --green-0: #89ff6e;
+
+    /* teal */
+    --teal-4: #d0ffe4;
+    --teal-3: #b6fed7;
+    --teal-2: #9affcb;
+    --teal-1: #80ffc1;
+    --teal-0: #65ffb9;
+
+    /* cyan */
+    --cyan-4: #cefcfe;
+    --cyan-3: #c0fbfe;
+    --cyan-2: #a8faff;
+    --cyan-1: #7ef8fe;
+    --cyan-0: #5bf6fe;
+
+    /* blue */
+    --blue-4: #cee4ff;
+    --blue-3: #a9cefb;
+    --blue-2: #91c1fd;
+    --blue-1: #83bbff;
+    --blue-0: #6aacfc;
+
+    /* purple */
+    --purple-4: #d6cffe;
+    --purple-3: #c9bdff;
+    --purple-2: #b7a4ff;
+    --purple-1: #a386ff;
+    --purple-0: #946bfb;
+
+    /* pink */
+    --pink-4: #fdd3fb;
+    --pink-3: #fcbbf9;
+    --pink-2: #ffacfc;
+    --pink-1: #fe99fe;
+    --pink-0: #ff91fd;
+}
+
+@property --sidebar-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+body {
+  --sidebar-width: var(--sidebar-width-collapsed);
+    transition: --sidebar-width 0.15s ease-out 0.05s;
+
+  /* Expand sidebar on hover */
+  &:has(> #navigator-toolbox:hover),
+  &:has(> #browser > #sidebar-box:hover) {
+    --sidebar-width: var(--sidebar-width-expanded);
+  }
+}
+
+/* Position tab window To the right of sidebar */
+#tabbrowser-tabbox {
+  position: absolute !important;
+  top: 0;
+  left: var(--sidebar-width-collapsed);
+
+  width: calc(100% - var(--sidebar-width-collapsed));
+  height: 100%;
+}
+
+/* Permanant Expanded Sidebar Toggle */
+:root[titlepreface="᠎"] {
+  body {
+    --sidebar-width: var(--sidebar-width-expanded) !important;
+  }
+
+  #tabbrowser-tabbox {
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+}
+
+:root[inFullscreen] #tabbrowser-tabbox {
+  left: 0;
+  width: 100%;
+}
+
+body {
+  background: var(--base) !important;
+}
+
+/* Define Sidebar Layout*/
+#navigator-toolbox {
+  margin: var(--spacing-1) var(--spacing-1) 0 var(--spacing-1) !important;
+  background: var(--input) !important;
+  display: grid;
+  grid-template-areas:
+    "nav spacer"
+    "nav bookmark"
+    "nav extension";
+  grid-template-columns: var(--sidebar-width-collapsed) 1fr;
+  grid-template-rows: var(--urlbar-min-height) 1fr auto;
+
+  width: var(--sidebar-width);
+
+  z-index: 3 !important;
+
+  border: none !important;
+}
+
+#sidebar-box {
+  margin: 0 var(--spacing-1) var(--spacing-1) var(--spacing-1) !important;
+
+  min-width: 0 !important;
+  width: var(--sidebar-width) !important;
+  z-index: 2;
+  border-radius: 0 0 var(--radius-1) var(--radius-1);
+  overflow: clip;
+}
+
+#sidebar-splitter,
+#sidebar-header {
+  display: none;
+}
+
+#nav-bar {
+  grid-area: nav;
+  flex-direction: column;
+  overflow: visible !important;
+  background: transparent !important;
+}
+
+#nav-bar-customization-target {
+  display: contents;
+}
+
+/* Urlbar */
+#urlbar-container {
+  order: -1;
+  width: var(--sidebar-width) !important;
+}
+
+#urlbar:not([breakout-extend="true"]) {
+  #page-action-buttons,
+  #identity-box,
+  #tracking-protection-icon-container,
+  #identity-icon-box,
+  #picture-in-picture-button,
+  #pageAction-urlbar-side-view_mozilla_org,
+  #pageAction-urlbar-firefoxpwa_filips_si {
+    display: none;
+  }
+}
+
+/* Expand searchbar when active */
+#urlbar[breakout-extend="true"] {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  min-width: min(900px, calc(100vw - 12px)) !important;
+}
+
+/* Hide Unecessary url bar notifications */
+#nav-bar-customization-target > * {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Hide original tab elements */
+#tabbrowser-tabs,
+#alltabs-button,
+.titlebar-buttonbox-container,
+.titlebar-spacer {
+  display: none !important;
+}
+
+/* Bookmark bar */
+#PersonalToolbar {
+  grid-area: bookmark;
+  padding: 0 !important;
+  max-height: unset !important;
+  background: transparent !important;
+}
+
+#PlacesToolbarItems {
+  display: grid;
+  grid-template-columns: repeat(var(--bookmark-columns), 1fr);
+}
+
+/* Hide bookmark label */
+.bookmark-item .toolbarbutton-text {
+  display: none !important;
+}
+
+/* Extensions bar */
+#TabsToolbar {
+  grid-area: extension;
+
+  overflow: clip;
+  min-width: 0;
+}
+
+#unified-extensions-button {
+  order: 100;
+}
+
+/* #userchrome-toggle_joolee_nl-BAP {
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+} */
+
+/* Visuals */
+#PlacesToolbarItems {
+  > .bookmark-item {
+    background: var(--black-4) !important;
+  }
+}

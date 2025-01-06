@@ -1,0 +1,478 @@
+:root {
+    --font: Inter;
+	  --font-mono-space: JetBrainsMono Nerd Font;
+    
+    --accent-primary-1: var(--purple-1);
+    --accent-primary-2: var(--purple-2);
+    --accent-primary-3: var(--purple-3);
+
+    --accent-secondary: var(--blue-1);
+    --accent-tertiary: var(--yellow-1);
+    
+    --base: var(--black-0);
+    --card: var(--black-1);
+    --card2: var(--black-2);
+    --input: var(--black-2);
+    --overlay: var(--black-2);
+
+    --size-0: 1em;
+    --size-1: 2em;
+    --size-2: 3em;
+    --size-3: 4em;
+    --size-4: 5em;
+
+    --spacing-0: 3px;
+    --spacing-1: 6px;
+    --spacing-2: 12px;
+    --spacing-3: 18px;
+
+    --border-1: 0px;
+    --border-2: 3px;
+
+    --radius-1: 6px;
+    --radius-2: 12px;
+
+    --selection-background: var(--accent-primary);
+
+    --link: var(var(--purple-1));
+    --link-visited: var(--purple-3);
+
+    /* Main text, Headlines */
+    --text: var(--white-3);
+
+	/* Subtext, Sub Headline, comment */
+    --subtext: var(--white-1);
+    
+    /* error, remove, close, delete */
+    --error: var(--red-1);
+
+    /* neutral */
+    --neutral: var(--blue-1);
+
+    /* warning */
+    --warning: var(--orange-1);
+    
+    /* success, new, add */
+    --success: var(--green-1);
+    
+    /* modified, changed, edit */
+    --modified: var(--purple-1);
+    
+    /* info, help */
+    --info: var(--teal-1);
+
+    
+    /* Syntax Highlighting */
+
+    /* Keywords, reserved words, important terms */
+    --keyword: var(--purple-1);
+    
+    /* Function names, declarations */
+    --function: var(--blue-1);
+    
+    /* Variable names, constants */
+    --variable: var(--teal-1);
+    
+    /* Strings, text content */
+    --string: var(--green-1);
+    
+    /* Numbers, numeric literals */
+    --number: var(--orange-1);
+    
+    /* Comments */
+    --comment: var(--white-4);
+    
+    /* Operators (+, -, *, etc.) */
+    --operator: var(--pink-1);
+    
+    /* Classes, constructors, special types */
+    --class: var(--yellow-1);
+    
+    /* Tags (HTML/XML), annotations */
+    --tag: var(--red-1);
+    
+    /* Attributes, properties (HTML/CSS/JSX) */
+    --attribute: var(--cyan-1);
+    
+    /* Punctuation (brackets, semicolons, etc.) */
+    --punctuation: var(--white-3);
+
+    /* color palette */
+
+    /* black */
+    --black-4: #515151;
+    --black-3: #404040;
+    --black-2: #303030;
+    --black-1: #1d1d1d;
+    --black-0: #141414;
+
+    /* white */
+    --white-4: #ffffff;
+    --white-3: #f0f0f0;
+    --white-2: #dfdfdf;
+    --white-1: #cacaca;
+    --white-0: #ababab;
+
+
+    /* red */
+    --red-4: #ffdfe0;
+    --red-3: #feb2b5;
+    --red-2: #fb7f8a;
+    --red-1: #ff596b;
+    --red-0: #fe5970;
+
+    /* orange */
+    --orange-4: #fde0ce;
+    --orange-3: #fccaab;
+    --orange-2: #fdb78b;
+    --orange-1: #ffa062;
+    --orange-0: #ff9851;
+
+    /* yellow */
+    --yellow-4: #fdfdd3;
+    --yellow-3: #fefdba;
+    --yellow-2: #fefb95;
+    --yellow-1: #fffb77;
+    --yellow-0: #fef63a;
+
+    /* green */
+    --green-4: #d9ffd0;
+    --green-3: #cdffc2;
+    --green-2: #b1fea0;
+    --green-1: #99ff82;
+    --green-0: #89ff6e;
+
+    /* teal */
+    --teal-4: #d0ffe4;
+    --teal-3: #b6fed7;
+    --teal-2: #9affcb;
+    --teal-1: #80ffc1;
+    --teal-0: #65ffb9;
+
+    /* cyan */
+    --cyan-4: #cefcfe;
+    --cyan-3: #c0fbfe;
+    --cyan-2: #a8faff;
+    --cyan-1: #7ef8fe;
+    --cyan-0: #5bf6fe;
+
+    /* blue */
+    --blue-4: #cee4ff;
+    --blue-3: #a9cefb;
+    --blue-2: #91c1fd;
+    --blue-1: #83bbff;
+    --blue-0: #6aacfc;
+
+    /* purple */
+    --purple-4: #d6cffe;
+    --purple-3: #c9bdff;
+    --purple-2: #b7a4ff;
+    --purple-1: #a386ff;
+    --purple-0: #946bfb;
+
+    /* pink */
+    --pink-4: #fdd3fb;
+    --pink-3: #fcbbf9;
+    --pink-2: #ffacfc;
+    --pink-1: #fe99fe;
+    --pink-0: #ff91fd;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    background: var(--base);
+}
+
+.card {
+    width: 100%;
+    background: var(--card);
+    padding: 1rem;
+
+    border: var(--border-1) solid var(--black-2);
+    border-radius: var(--radius-2);
+}
+
+.card-2 {
+    background: var(--card2);
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    margin: auto;
+    margin-top: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+    width: 800px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+h1 {
+    margin: var(--spacing-0);
+}
+
+h2 {
+    margin: var(--spacing-0);
+}
+
+a {
+    color: var(--link);
+}
+
+a:visited {
+    color: var(--link-visited);
+}
+
+/* Inputs */
+
+textarea, input, button, select {
+    border: var(--border-1) solid var(--black-3) !important; 
+    color: var(--text);
+    border: none;
+    background: var(--input);
+    padding: var(--spacing-1);
+    border-radius: var(--radius-1);
+}
+
+input[type="color"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: var(--size-3);
+  height: var(--size-2);
+  cursor: pointer;
+
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+/* For WebKit browsers: ensure no extra area around the swatch */
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 5px; /* Match parent border-radius */
+}
+
+/* For Firefox: ensure no extra area around the swatch */
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 5px;
+}
+
+
+
+input:focus, button:focus, a:focus, textarea:focus, select:focus {
+    outline-style: solid;
+    outline-width: var(--border-1);
+    outline-color: var(--accent-primary-1);
+
+    &.primary {
+        outline-color: var(--accent-primary-2) !important;
+        outline-width: var(--border-2) !important;
+    }
+}
+
+
+textarea {
+    height: 400px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.primary {
+    background: var(--accent-primary-1);
+
+    &:hover {
+      background: var(--accent-primary-2);
+    }
+
+    &:active {
+      background: var(--accent-primary-3);
+    }
+}
+
+
+.secondary {
+    background: var(--accent-secondary-1);
+}
+
+/* Syntax Highlighting */
+
+code {
+    overflow: hidden;
+    font-family: var(--font-mono-space);
+}
+
+.hljs {
+  color: var(--text);
+  background: transparent;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: var(--keyword);
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: var(--function);
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: var(--number);
+}
+
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: var(--string);
+}
+
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: var(--variable);
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: var(--comment);
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: var(--tag);
+}
+
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: var(--variable);
+}
+
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: var(--selection-background);
+  font-weight: bold;
+}
+
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: var(--selection-background);
+}
+
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: var(--selection-background);
+  font-style: italic;
+}
+
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: var(--selection-background);
+  font-weight: bold;
+}
+
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: var(--success);
+  background-color: var(--base);
+}
+
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: var(--error);
+  background-color: var(--base);
+}
+
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+}
+
+@-moz-document url("about:home"), url("about:newtab") {
+  :root {
+      color: blue !important;
+  }
+    
+  .outer-wrapper {
+        padding: 0 !important;
+    }
+    
+  main {
+      margin: 0 !important;
+      width: 100% !important;
+  }
+    
+  .activity-stream {
+    background-color: var(--base) !important;
+  }
+    
+  .logo-and-wordmark-wrapper {
+        display: none;
+  }
+  
+  .search-handoff-button {
+     background: var(--input) !important;  
+      height: 4em;
+  }
+    
+  
+   
+}
+  
+@-moz-document url("about:blank") {
+  html {
+    background-color: var(--base) !important;
+  }
+}
+
+@-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html") { 
+    body {
+        --s-frame-bg: var(--card) !important;
+        --tabs-normal-bg: transparent !important;
+    }
+}

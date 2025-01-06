@@ -54,9 +54,8 @@
         "browser.toolbars.bookmarks.visibility" = "always";
       };
 
-      userChrome = builtins.readFile ./userchrome.css;
-      userContent = ''
-      '';
+      userChrome = builtins.readFile ./userChrome.css;
+      userContent = builtins.readFile ./userContext.css;
     };
   };
 }
