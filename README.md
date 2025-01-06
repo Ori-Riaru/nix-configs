@@ -1,6 +1,6 @@
 # My NixOS Configuration
 
-My personal Nixos configurations. They are not intended to be used by others however feel free to take parts for your own configuration. Most application have been styled to match my color scheme Neutral Dark.
+My personal Nixos configurations. They are not intended to be used by others however feel free to take parts for your own configuration. Most application have been styled to match my color scheme [Neutral Dark](https://github.com/RiaruAzaki/neutral-dark).
 
 ## Structure
 
