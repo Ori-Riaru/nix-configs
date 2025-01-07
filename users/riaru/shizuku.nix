@@ -21,6 +21,7 @@
     ./programs/gimp.nix
     ./programs/krita.nix
     ./programs/thunderbird.nix
+    ./programs/cura.nix
 
     # Development
     ./programs/java.nix
