@@ -22,6 +22,8 @@
       ga = "git add";
       gs = "git status";
       gc = "git commit -m";
+      gp = "git push";
+      gl = "git pull";
 
       code = "codium";
       configs = "codium ~/Projects/nix-configs";
