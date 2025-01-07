@@ -17,7 +17,7 @@
     --accent-tertiary: var(--yellow-1);
     
     --base: var(--black-0);
-    --card: var(--black-1);
+    --card: var(--black-2);
     --card2: var(--black-2);
     --input: var(--black-2);
     --overlay: var(--black-2);
@@ -33,10 +33,10 @@
     --spacing-2: 12px;
     --spacing-3: 18px;
 
-    --border-1: 0px;
+    --border-1: 1px;
     --border-2: 3px;
 
-    --radius-1: 6px;
+    --radius-1: 5px;
     --radius-2: 12px;
 
     --selection-background: var(--accent-primary);
@@ -236,7 +236,10 @@ body {
 /* Define Sidebar Layout*/
 #navigator-toolbox {
   margin: var(--spacing-1) var(--spacing-1) 0 var(--spacing-1) !important;
-  background: var(--input) !important;
+  border: 1px solid var(--black-2) !important;
+  border-bottom: 0px;
+  border-radius: var(--radius-1) var(--radius-1) 0 0 !important;
+  background: var(--card) !important;
   display: grid;
   grid-template-areas:
     "nav spacer"
@@ -248,13 +251,13 @@ body {
   width: var(--sidebar-width);
 
   z-index: 3 !important;
-
-  border: none !important;
 }
 
 #sidebar-box {
+  border: var(--border-1) solid var(--black-2) !important;
   margin: 0 var(--spacing-1) var(--spacing-1) var(--spacing-1) !important;
-
+  border-top: 0px;
+  
   min-width: 0 !important;
   width: var(--sidebar-width) !important;
   z-index: 2;

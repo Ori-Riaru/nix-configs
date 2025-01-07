@@ -10,7 +10,7 @@
     --accent-tertiary: var(--yellow-1);
     
     --base: var(--black-0);
-    --card: var(--black-1);
+    --card: var(--black-);
     --card2: var(--black-2);
     --input: var(--black-2);
     --overlay: var(--black-2);
