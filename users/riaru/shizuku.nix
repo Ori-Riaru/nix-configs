@@ -28,8 +28,9 @@
     ./programs/postgres.nix
     ./programs/nix.nix
     ./programs/git.nix
-    ./programs/vscodium.nix
+    ./programs/vscodium
     ./programs/rust.nix
+    ./programs/cpp.nix
 
     # Communication
     ./programs/discord.nix

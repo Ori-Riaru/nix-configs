@@ -25,7 +25,7 @@
         jnoortheen.nix-ide
         kamadorueda.alejandra
 
-        # HTML CSS
+        # Web
         ecmel.vscode-html-css
         ms-vscode.live-server
         naumovs.color-highlight
@@ -54,6 +54,9 @@
         tamasfe.even-better-toml
         serayuzgur.crates
 
+        # C++
+        llvm-vs-code-extensions.vscode-clangd
+
         # Python
         ms-python.python
         ms-toolsai.jupyter
@@ -72,6 +75,11 @@
       ++ (with extensions.open-vsx; [
         tauri-apps.tauri-vscode
         littensy.charmed-icons
+
+        # dtoplak.vscode-glsllint
+        slevesque.shader
+
+        yandeu.five-server
 
         # Python
         kevinrose.vsc-python-indent
