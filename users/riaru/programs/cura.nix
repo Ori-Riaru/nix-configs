@@ -8,7 +8,7 @@
           url = "https://github.com/Ultimaker/Cura/releases/download/${version}/Ultimaker-Cura-${version}-linux-X64.AppImage";
           hash = "sha256-STtVeM4Zs+PVSRO3cI0LxnjRDhOxSlttZF+2RIXnAp4=";
         };
-        extraPkgs = pkgs: with pkgs; [];
+        extraPkgs = pkgs: [];
       };
     in
       writeScriptBin "cura" ''
