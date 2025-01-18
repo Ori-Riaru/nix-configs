@@ -46,7 +46,6 @@
     ./programs/fonts.nix
     ./programs/kde.nix
     ./programs/mouse.nix
-    ./programs/stylix.nix
     ./programs/touchegg.nix
     ./programs/kdiskmark.nix
   ];

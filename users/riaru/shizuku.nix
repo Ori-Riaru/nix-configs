@@ -37,7 +37,7 @@
 
     # Media
     ./programs/spotify.nix
-    ./programs/suwayomi.nix
+    # ./programs/suwayomi.nix
     ./programs/gaming.nix
 
     # System 
@@ -48,7 +48,6 @@
     ./programs/fonts.nix
     # ./programs/kde.nix
     ./programs/mouse.nix
-    ./programs/stylix.nix
     ./programs/touchegg.nix
     ./programs/kdiskmark.nix 
   ];
