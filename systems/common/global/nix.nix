@@ -24,6 +24,8 @@
       flake-registry = "";
 
       nix-path = config.nix.nixPath;
+
+      auto-optimise-store = true;
     };
 
     channel.enable = false;
@@ -34,7 +36,9 @@
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 1w";
     };
+
+
   };
 }
