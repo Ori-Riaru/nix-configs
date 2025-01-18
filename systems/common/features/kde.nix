@@ -21,11 +21,9 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    (callPackage ../../../packages/sddm-theme-corners.nix {})
-
     kde-rounded-corners
-    (callPackage ../../../packages/kde-geometry-change.nix {})
-
+    sddm-theme-corners
+    kde-geometry-change
 
     #kdePackages.qtstyleplugin-kvantum
     #xdg-desktop-portal-gtk
