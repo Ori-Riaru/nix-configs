@@ -23,32 +23,32 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 - KDE / (karousel, krohnkite) / touchegg
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - Firefox
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - VSCodium
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - Kitty / Fish / Starship / Zoxide
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - Discord
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - Spotify
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - Obsidian
 
-<!-- TODO: add demo -->
+TODO: add demo
 
 - Selfhosted Nextcloud
 
-<!-- TODO: add demo -->
+TODO: add demo
