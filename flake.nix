@@ -54,6 +54,46 @@
     home-manager,
     ...
   } @ inputs: let
+    # --- USER SETTINGS ---
+    settings = rec {
+      username = "riaru";
+      email = "riaruazaki@proton.me";
+
+      # --- THEMEING ---
+      accent = purple;
+      secondary = teal;
+
+      radius-1 = 6;
+      radius-2 = 12;
+      radius-3 = 18;
+
+      text = white;
+      subtext = grey;
+      
+      base = "#202020";
+      section = "#1e1e1e";
+      card = "#1e1e1e";
+
+      red = "#ff596b";
+      orange = "#ffa062";
+      yellow = "#fffb77";
+      green = "#99ff82";
+      teal = "#80ffc1";
+      cyan = "#7ef8fe";
+      blue = "#83bbff";
+      purple = "#a386ff";
+      pink = "#fe99fe";
+      brown = "#ba8d70";
+      white = "#ffffff";
+      grey = "#272727";
+      black = "#000000";
+
+      font = "Inter";
+      font-monospace = "JetBrainsMono";
+
+      keyboard = "dvorak";
+    };
+
     inherit (self) outputs;
 
     systems = [
@@ -73,7 +113,7 @@
     nixosConfigurations = {
       # Desktop
       lain = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs settings;};
         modules = [
           ./systems/lain/configuration.nix
         ];
@@ -81,7 +121,7 @@
 
       # Laptop
       shizuku = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs settings;};
         modules = [
           ./systems/shizuku/configuration.nix
         ];
@@ -89,7 +129,7 @@
 
       # Server
       fujin = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs settings;};
         modules = [
           ./systems/fujin/configuration.nix
         ];
@@ -100,7 +140,7 @@
       # Desktop
       "riaru@lain" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
           ./users/riaru/lain.nix
         ];
@@ -109,7 +149,7 @@
       # Laptop
       "riaru@shizuku" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
           ./users/riaru/shizuku.nix
         ];
@@ -118,7 +158,7 @@
       # Server
       "riaru@fujin" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
           ./users/riaru/fujin.nix
         ];

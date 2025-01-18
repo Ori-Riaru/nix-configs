@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   home.packages = with pkgs; [
     kitty
   ];
@@ -9,44 +13,46 @@
       name = "Jetbrains Mono Nerd Font";
       size = 11;
     };
+
     settings = {
       confirm_os_window_close = 0;
     };
+
     shellIntegration.enableFishIntegration = true;
 
     extraConfig = ''
-      background #202020
-      foreground #FFFFFF
-      cursor #A080FF
-      selection_foreground #202020
-      selection_background #A080FF
+      background ${settings.base}
+      foreground ${settings.text}
+      cursor ${settings.accent}
+      selection_foreground ${settings.base}
+      selection_background ${settings.accent}
 
-      color1 #FF2954
+      color1 ${settings.red}
       color9 #FF5271
 
       #: green
-      color2  #61FFB3
+      color2  ${settings.teal}
       color10 #9FFFBC
 
       #: yellow
-      color3  #FFA062
-      color11 #FFFB77
+      color3  ${settings.orange}
+      color11 ${settings.yellow}
 
       #: blue
-      color4  #80B9FF
+      color4  ${settings.blue}
       color12 #ACD1FF
 
       #: magenta
-      color5  #A080FF
+      color5  ${settings.purple}
       color13 #ADA0FF
 
       #: cyan
-      color6  #8BF9FF
+      color6  ${settings.cyan}
       color14 #B9F7FF
 
       #: white
-      color7  #aaaaaa
-      color15 #ffffff
+      color7  ${settings.subtext}
+      color15 ${settings.text}
     '';
   };
 }

@@ -22,6 +22,7 @@
     ./programs/krita.nix
     ./programs/thunderbird.nix
     ./programs/cura.nix
+    ./programs/boxes.nix
 
     # Development
     ./programs/java.nix

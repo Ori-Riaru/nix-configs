@@ -5,9 +5,8 @@ My personal Nixos configurations. They are not intended to be used by others how
 ## Structure
 
 - `flake.nix`: Entrypoint for System and Home Manager configurations
-- `starters`: Templates for setting up new projects
 - `systems` System configuration usable with `nh os switch`
-  - `common`: Configurations shared across multiple system
+  - `share`: Configurations shared across multiple system
     - `global`: Configurations shared across all systems
     - `features`: Optional configurations shared across some systems
   - `lain`: Desktop PC Configuration
@@ -16,7 +15,8 @@ My personal Nixos configurations. They are not intended to be used by others how
     - `services`: Services hosted on this machine
 - `users/riaru`: home-manager configuration usable with `nh home switch`
   - `global`: home-manager configurations shared across all machines
-  - `programs`: Optional programs installed and configured with home-manager
+  - `programs`: Programs installed and configured with home-manager
+- `templates`: Templates for setting up new projects
 - `packages`: Custom packages for programs unavailable from nixpkgs
 - `overlays`: Patches and version overrides for packages
 

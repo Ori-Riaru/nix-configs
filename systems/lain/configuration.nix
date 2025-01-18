@@ -14,7 +14,6 @@
     ../share/features/kde.nix
     ../share/features/bluetooth.nix
     ../share/features/printing.nix
-    ../share/features/flatpak.nix
     ../share/features/steam.nix
 
     ../share/users/riaru.nix
@@ -55,5 +54,5 @@
   users.groups.uinput.members = ["riaru"];
   users.groups.input.members = ["riaru"];
   
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }

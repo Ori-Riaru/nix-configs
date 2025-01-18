@@ -10,8 +10,5 @@
 
     # Audio Player
     amberol
-
-    # Other
-    gnome-boxes
   ];
 }

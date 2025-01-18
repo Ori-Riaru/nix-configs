@@ -11,7 +11,6 @@
     ../share/features/kde.nix
     ../share/features/bluetooth.nix
     ../share/features/printing.nix
-    ../share/features/flatpak.nix
     ../share/features/steam.nix
 
     ../share/users/riaru.nix

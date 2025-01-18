@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
+    ./panels.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,7 +16,7 @@
     kara
     tela-icon-theme
     bibata-cursors
-    (callPackage ../../../packages/simple-kickoff.nix {})
+    simple-kickoff
   ];
 
   programs.plasma = {
@@ -28,7 +29,7 @@
       };
 
       iconTheme = "Tela-black-dark";
-      
+
       clickItemTo = "open";
 
       wallpaperPlainColor = "21,21,21,255";
@@ -41,173 +42,6 @@
         pointSize = 12;
       };
     };
-
-    panels = [
-      {
-        location = "top";
-        height = 26;
-
-        widgets = [
-          "org.kde.plasma.notifications"
-
-          {
-            digitalClock = {
-              settings = {
-                showDate = false;
-              };
-            };
-          }
-
-          {
-            name = "org.dhruv8sh.kara";
-            config = {
-              General = {
-                activeText = "■";
-                inactiveText = "▢";
-                dotSizeCustom = 22;
-                spacingHorizontal = 14;
-              };
-            };
-          }
-
-          "org.kde.plasma.panelspacer"
-
-          {
-            plasmusicToolbar = {
-              panelIcon = {
-                albumCover = {
-                  useAsIcon = true;
-                  radius = 6;
-                };
-              };
-              musicControls.showPlaybackControls = false;
-              songText = {
-                maximumWidth = 125;
-                scrolling = {
-                  behavior = "alwaysScroll";
-                  speed = 3;
-                };
-              };
-            };
-          }
-
-          {
-            iconTasks = {
-              launchers = [];
-
-              behavior = {
-                sortingMethod = "manually";
-                showTasks = {
-                  onlyMinimized = true;
-                };
-              };
-            };
-          }
-
-          {
-            name = "org.kde.plasma.taskmanager";
-            config = {
-              General = {
-                groupingStrategy = 0;
-                showOnlyCurrentScreen = true;
-                fill = false;
-                launchers = "";
-              };
-            };
-          }
-
-          {
-            applicationTitleBar = {
-              layout = {
-                elements = ["windowCloseButton"];
-              };
-            };
-          }
-
-          # Close button
-          {
-            name = "org.kde.plasma.simplekickoff";
-            config = {
-              General = {
-                icon = "add";
-              };
-            };
-          }
-
-          "org.kde.plasma.panelspacer"
-
-          "org.kde.plasma.clipboard"
-
-          "org.kde.plasma.colorpicker"
-
-          {
-            systemTray.items = {
-              # We explicitly show bluetooth and battery
-              shown = [
-                "org.kde.plasma.volume"
-              ];
-              # And explicitly hide networkmanagement and volume
-              hidden = [
-                "steam"
-                "chrome_status_icon_1" # Discord icon
-                "org.kde.plasma.battery"
-                "org.kde.plasma.bluetooth"
-                "org.kde.plasma.networkmanagement"
-                "org.kde.plasma.brightness"
-                "org.kde.plasma.mediacontroller"
-                "org.kde.plasma.clipboard"
-              ];
-            };
-          }
-
-          {
-            plasmaPanelColorizer = {
-              general = {
-                hideWidget = true;
-              };
-
-              widgetBackground = {
-                enable = true;
-
-                colors = {
-                  source = "customList";
-                  customColorList = ["#9f80ff" "#9b8cff" "#9598ff" "#202020" "#202020" "#202020" "#202020" "#FF2954" "#61FFB3" "#202020" "#8fa3ff" "#88aeff" "#80b9ff "];
-                };
-
-                shape = {
-                  opacity = 1;
-                  radius = 6;
-                  outline = {
-                    colorSource = "custom";
-                    customColor = "#ffffff";
-                    opacity = 0.1;
-                    width = 2;
-                  };
-                };
-              };
-
-              panelBackground = {
-                originalBackground = {
-                  hide = true;
-                };
-              };
-
-              layout = {
-                enable = true;
-                backgroundMargin = {
-                  spacing = 4;
-                  vertical = 0;
-                  horizontal = 2;
-                };
-              };
-            };
-          }
-        ];
-
-        floating = false;
-        hiding = "dodgewindows";
-      }
-    ];
 
     shortcuts = {
       kwin = {
@@ -260,7 +94,7 @@
 
       # One of these will have to be disabled
       "kwinrc"."Plugins"."krohnkiteEnabled" = true;
-      
+
       # Karousel
       "kwinrc"."Plugins"."karouselEnabled" = false;
 
@@ -351,6 +185,7 @@
       "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
       "ksmserverrc"."General"."confirmLogout" = false;
 
+      #! SYSTEM SPECIFIC
       "kcminputrc"."Libinput/1133/49970/Logitech Gaming Mouse G502"."PointerAccelerationProfile" = 1;
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."ClickMethod" = 2;
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."DisableWhileTyping" = false;

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   home.packages = with pkgs; [
     starship
   ];
@@ -7,18 +11,18 @@
     enable = true;
     enableFishIntegration = true;
     settings = {
-      palette = "gruvbox_dark";
-      palettes.gruvbox_dark = {
-        text = "#ffffff";
-        subtext = "#000000";
-        background = "#282828";
-        red = "#ED254E";
-        orange = "#FFA062";
-        yellow = "#FFFB77";
-        green = "#61FFB3";
-        cyan = "#B9F7FF";
-        blue = "#80B9FF";
-        purple = "#a080ff";
+      palette = "neutral_dark";
+      palettes.neutral_dark = {
+        text = "${settings.text}";
+        subtext = "${settings.subtext}";
+        background = "${settings.base}";
+        red = "${settings.red}";
+        orange = "${settings.orange}";
+        yellow = "${settings.yellow}";
+        green = "${settings.teal}";
+        cyan = "${settings.cyan}";
+        blue = "${settings.blue}";
+        purple = "${settings.purple}";
       };
 
       format = ''
@@ -33,10 +37,6 @@
         success_symbol = "[](fg:green)[](bold bg:green)[](fg:green) ";
         error_symbol = "[](fg:red)[](bold bg:red)[](fg:red) ";
 
-        vimcmd_symbol = "[](bold fg:green)";
-        vimcmd_replace_one_symbol = "[](bold fg:purple)";
-        vimcmd_replace_symbol = "[](bold fg:purple)";
-        vimcmd_visual_symbol = "[](bold fg:yellow)";
       };
 
       cmd_duration = {

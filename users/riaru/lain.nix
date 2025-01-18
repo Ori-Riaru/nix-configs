@@ -44,7 +44,7 @@
     ./programs/xremap.nix
     ./programs/file-viewers.nix
     ./programs/fonts.nix
-    ./programs/kde.nix
+    ./programs/kde
     ./programs/mouse.nix
     ./programs/touchegg.nix
     ./programs/kdiskmark.nix

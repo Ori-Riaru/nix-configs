@@ -183,29 +183,36 @@
         ];
       };
 
-      # TODO: Update to miruro.tv
-      "Aniwave" = {
+      "miruro" = {
         urls = [
           {
-            template = "https://aniwave.to/filter";
+            template = "https://www.miruro.tv";
             params = [
               {
-                name = "keyword";
+                name = "query";
                 value = "{searchTerms}";
+              }
+              {
+                name = "sort";
+                value = "POPULARITY_DESC";
+              }
+              {
+                name = "type";
+                value = "ANIME";
               }
             ];
           }
         ];
 
-        iconUpdateURL = "https://aniwave.to/assets/sites/aniwave/favicon1.png";
+        iconUpdateURL = "https://www.miruro.to/icons/favicon-32x32.png";
         updateInterval = 7 * 24 * 60 * 60 * 1000;
         definedAliases = [
           "@anime"
-          "@ani"
-          "@aniwave"
+          "@miru"
+          "@miruro"
           "anime:"
-          "ani:"
-          "aniwave:"
+          "miru:"
+          "miruro:"
         ];
       };
 
