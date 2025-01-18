@@ -8,18 +8,18 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../common/global
-    ../common/features/systemd-boot.nix
-    ../common/features/audio.nix
-    ../common/features/kde.nix
-    ../common/features/bluetooth.nix
-    ../common/features/printing.nix
-    ../common/features/flatpak.nix
-    ../common/features/steam.nix
+    ../share/global
+    ../share/features/systemd-boot.nix
+    ../share/features/audio.nix
+    ../share/features/kde.nix
+    ../share/features/bluetooth.nix
+    ../share/features/printing.nix
+    ../share/features/flatpak.nix
+    ../share/features/steam.nix
 
-    ../common/users/riaru.nix
-    ../common/features/virtulization.nix
-    ../common/features/kdeconnect.nix
+    ../share/users/riaru.nix
+    ../share/features/virtulization.nix
+    ../share/features/kdeconnect.nix
   ];
 
   networking.hostName = "lain";

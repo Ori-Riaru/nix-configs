@@ -2,7 +2,7 @@
   description = "Riaru's Nixos Configuration Flake";
 
   inputs = {
-    # Pakages repsoitories
+    # Package Repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
@@ -25,7 +25,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    # Application additons
+    # Application Additions
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -125,6 +125,12 @@
       };
     };
 
-
+    templates = {
+      web.path = ./templates/web;
+      cpp.path = ./templates/cpp;
+      rust.path = ./templates/rust;
+      python.path = ./templates/python;
+      typescript.path = ./templates/typescript;
+    };
   };
 }

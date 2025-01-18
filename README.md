@@ -5,6 +5,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 ## Structure
 
 - `flake.nix`: Entrypoint for System and Home Manager configurations
+- `starters`: Templates for setting up new projects
 - `systems` System configuration usable with `nh os switch`
   - `common`: Configurations shared across multiple system
     - `global`: Configurations shared across all systems
