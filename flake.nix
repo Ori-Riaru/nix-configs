@@ -69,15 +69,15 @@
       spacing-3 = 12; # px
 
       radius-1 = 6; # px
-      radius-2 = 12;  # px
-      radius-3 = 18;  # px
+      radius-2 = 12; # px
+      radius-3 = 18; # px
 
       text = white;
       subtext = grey;
 
-      base = "#202020";
-      section = "#1e1e1e";
-      card = "#1e1e1e";
+      base = "#141414";
+      section = "#1d1d1d";
+      card = "#303030";
 
       red = "#ff596b";
       orange = "#ffa062";
