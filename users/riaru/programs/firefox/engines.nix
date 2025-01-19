@@ -1,6 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   programs.firefox = {
-    profiles.riaru.search.engines = {
+    profiles.${settings.username}.search.engines = {
       "Nix" = {
         urls = [
           {

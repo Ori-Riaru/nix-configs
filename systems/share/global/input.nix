@@ -1,8 +1,8 @@
-{
+{settings, ...}: {
   services.xserver.xkb = {
     layout = "us";
-    variant = "dvorak";
+    variant = "${settings.keyboard}";
   };
 
-  console.keyMap = "dvorak";
+  console.keyMap = "${settings.keyboard}";
 }

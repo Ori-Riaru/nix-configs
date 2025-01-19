@@ -1,9 +1,9 @@
 {
   inputs,
   outputs,
+  settings,
   ...
 }: {
-
   nixpkgs = {
     overlays = [
       inputs.nur.overlays.default
@@ -19,8 +19,8 @@
   };
 
   home = {
-    username = "riaru";
-    homeDirectory = "/home/riaru";
+    username = "${settings.username}";
+    homeDirectory = "/home/${settings.username}";
   };
 
   programs.home-manager.enable = true;

@@ -1,6 +1,6 @@
 {
   pkgs,
-  inputs,
+  settings,
   ...
 }: {
   home.packages = with pkgs; [
@@ -40,16 +40,18 @@
 
       "options" = {
         "home_manager" = {
-          "expr" = "(builtins.getFlake \"/home/riaru/Projects/nix-configs/\").homeConfigurations.riaru@shizuku.options";
+          "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").homeConfigurations.${settings.username}@shizuku.options";
         };
         "nixos" = {
-          "expr" = "(builtins.getFlake \"/home/riaru/Projects/nix-configs/\").nixosConfigurations.shizuku.options";
+          "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.shizuku.options";
         };
       };
 
       "cSpell.userWords" = [
+        "${settings.username}"
+        "${settings.username-full}"
         "riaru"
-        "azaki"
+        "aki"
         "shizuku"
         "nixpkgs"
         "nixos"

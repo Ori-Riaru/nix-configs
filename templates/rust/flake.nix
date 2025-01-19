@@ -22,8 +22,7 @@
         ];
 
         shellHook = ''
-          echo "Rust development environment loaded!"
-          echo "Available tools: rustc, cargo, rustfmt, clippy, rust-analyzer"
+
         '';
       };
     });

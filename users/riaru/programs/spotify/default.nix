@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  settings,
   ...
 }: let
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
@@ -11,27 +12,29 @@ in {
     enable = true;
 
     # Theming
-    theme = spicePkgs.themes.dribbblish;
+    theme = spicePkgs.themes.dribbblish // {
+      additionalCss = builtins.readFile ./spotify.css;
+    };
 
     colorScheme = "custom";
 
     customColorScheme = {
-      text = "FFFFFF";
-      subtext = "FFFFFF";
-      sidebar-text = "ffffff";
-      main = "202020";
-      sidebar = "151515";
-      player = "202020";
-      card = "202020";
-      shadow = "1f1f1f";
-      selected-row = "797979";
-      button = "a080ff";
-      button-active = "a080ff";
-      button-disabled = "555169";
-      tab-active = "252525";
-      notification = "1db954";
-      notification-error = "eb6f92";
-      misc = "6e6a86";
+      text = "${settings.text}";
+      subtext = "${settings.subtext}";
+      sidebar-text = "${settings.text}";
+      main = "${settings.section}";
+      sidebar = "${settings.base}";
+      player = "${settings.section}";
+      card = "${settings.section}";
+      shadow = "${settings.black}";
+      selected-row = "${settings.accent}";
+      button = "${settings.accent}";
+      button-active = "${settings.accent}";
+      button-disabled = "${settings.grey}";
+      tab-active = "${settings.card}";
+      notification = "${settings.accent}";
+      notification-error = "${settings.red}";
+      misc = "${settings.pink}";
     };
 
     # Extensions

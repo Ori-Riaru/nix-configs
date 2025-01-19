@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
+  settings,
   ...
 }: {
   imports = [
@@ -51,8 +52,8 @@
 
   
   hardware.uinput.enable = true;
-  users.groups.uinput.members = ["riaru"];
-  users.groups.input.members = ["riaru"];
+  users.groups.uinput.members = ["${settings.username}"];
+  users.groups.input.members = ["${settings.username}"];
   
   system.stateVersion = "24.05";
 }

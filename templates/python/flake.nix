@@ -16,13 +16,22 @@
       };
     in {
       devShells.default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          python3
+        packages = with pkgs; [
+          (
+            python3.withPackages (python-pkgs:
+              with python-pkgs; [
+                ruff
+                # numpy
+                # scipy
+                # pandas
+                # matplotlib
+                # requests
+              ])
+          )
         ];
 
         shellHook = ''
-          echo "Python development environment loaded!"
-          echo "Available tools: python, pip, poetry, black, pylint, pytest"
+
         '';
       };
     });

@@ -3,6 +3,7 @@
   lib,
   inputs,
   config,
+  settings,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -13,7 +14,7 @@
   ];
 
   environment.sessionVariables = {
-    FLAKE = "/home/riaru/Projects/nix-configs";
+    FLAKE = "/home/${settings.username}/Projects/nix-configs";
   };
 
   nix = let

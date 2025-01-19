@@ -15,7 +15,7 @@
       palettes.neutral_dark = {
         text = "${settings.text}";
         subtext = "${settings.subtext}";
-        background = "${settings.base}";
+        background = "${settings.card}";
         red = "${settings.red}";
         orange = "${settings.orange}";
         yellow = "${settings.yellow}";

@@ -20,11 +20,6 @@
 
     xremap-flake.url = "github:xremap/nix-flake";
 
-    # kwin-effects-forceblur = {
-    #   url = "github:taj-ny/kwin-effects-forceblur";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     # Application Additions
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -46,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # kwin-effects-forceblur = {
+    #   url = "github:taj-ny/kwin-effects-forceblur";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = {
@@ -54,22 +54,27 @@
     home-manager,
     ...
   } @ inputs: let
-    # --- USER SETTINGS ---
     settings = rec {
+      # --- Primary User Settings ---
       username = "riaru";
+      username-full = "Aki Riaru";
       email = "riaruazaki@proton.me";
 
-      # --- THEMEING ---
+      # --- Themeing ---
       accent = purple;
       secondary = teal;
 
-      radius-1 = 6;
-      radius-2 = 12;
-      radius-3 = 18;
+      spacing-1 = 2; # px
+      spacing-2 = 6; # px
+      spacing-3 = 12; # px
+
+      radius-1 = 6; # px
+      radius-2 = 12;  # px
+      radius-3 = 18;  # px
 
       text = white;
       subtext = grey;
-      
+
       base = "#202020";
       section = "#1e1e1e";
       card = "#1e1e1e";
@@ -138,7 +143,7 @@
 
     homeConfigurations = {
       # Desktop
-      "riaru@lain" = home-manager.lib.homeManagerConfiguration {
+      "${settings.username}@lain" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
@@ -147,7 +152,7 @@
       };
 
       # Laptop
-      "riaru@shizuku" = home-manager.lib.homeManagerConfiguration {
+      "${settings.username}@shizuku" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
@@ -156,7 +161,7 @@
       };
 
       # Server
-      "riaru@fujin" = home-manager.lib.homeManagerConfiguration {
+      "${settings.username}@fujin" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [

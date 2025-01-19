@@ -35,7 +35,7 @@
     ./programs/discord.nix
     
     # Media
-    ./programs/spotify.nix
+    ./programs/spotify
     ./programs/suwayomi.nix
     ./programs/gaming.nix
 

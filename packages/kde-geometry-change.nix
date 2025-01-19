@@ -31,7 +31,7 @@ stdenv.mkDerivation rec {
     description = "A KWin animation for windows moved or resized by programs or scripts";
     homepage = "https://github.com/peterfajdiga/kwin4_effect_geometry_change";
     license = licenses.gpl3Only;
-    maintainers = with maintainers; [ RiaruAzaki ];
+    maintainers = with maintainers; [ AkiRiaru  ];
     platforms = platforms.linux;
   };
 }

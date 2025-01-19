@@ -1,5 +1,6 @@
 {
   pkgs,
+  settings,
   ...
 }: {
   imports = [
@@ -19,7 +20,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    samba 
+    samba
   ];
   services.postgresql = {
     enable = true;
@@ -51,8 +52,8 @@
   services.touchegg.enable = true;
 
   hardware.uinput.enable = true;
-  users.groups.uinput.members = ["riaru"];
-  users.groups.input.members = ["riaru"];
+  users.groups.uinput.members = ["${settings.username}"];
+  users.groups.input.members = ["${settings.username}"];
 
   networking.hostName = "shizuku";
 

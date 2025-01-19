@@ -33,7 +33,6 @@
       clickItemTo = "open";
 
       wallpaperPlainColor = "21,21,21,255";
-      #wallpaper = "/home/riaru/wallpaper.jpg";
     };
 
     fonts = {

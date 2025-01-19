@@ -20,7 +20,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   installPhase = ''
     runHook preInstall
-    
+
     mkdir -p $out/share/plasma/plasmoids/org.kde.plasma.simplekickoff
     cp -r contents/ $out/share/plasma/plasmoids/org.kde.plasma.simplekickoff
     cp metadata.desktop $out/share/plasma/plasmoids/org.kde.plasma.simplekickoff
@@ -35,7 +35,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     homepage = "https://github.com/HimDek/Simple-Kickoff-for-Plasma";
     changelog = "https://github.com/HimDek/Simple-Kickoff-for-Plasma/releases/tag/${finalAttrs.version}";
     license = lib.licenses.gpl2;
-    maintainers = with lib.maintainers; [RiaruAzaki];
+    maintainers = with lib.maintainers; [AkiRiaru];
     inherit (kdePackages.kwindowsystem.meta) platforms;
   };
 })

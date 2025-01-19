@@ -16,11 +16,11 @@
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            
+            linux.dev
           ];
 
           shellHook = ''
-
+            export KERNEL_DIR="${pkgs.linux.dev}/lib/modules/*/build"
           '';
         };
       }
