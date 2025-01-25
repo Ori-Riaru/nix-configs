@@ -109,20 +109,27 @@
       ]);
   };
 
-  nixpkgs.overlays = [
+  nixpkgs.overlays = let
+    customCss = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./custom.css);
+    customJs = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./scripts.js);
+  in [
     (self: super: {
       vscodium = super.vscodium.overrideAttrs (attrs: {
         postInstall = ''
-                  workbenchPath="$out/lib/vscode/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html"
+          workbenchPath="$out/lib/vscode/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html"
 
-                  # Inject custom CSS
-                  sed -i '/<\/html>/i\
-                  <style>\
-          '"$(printf '%s' "${builtins.readFile ./custom.css}")"'\
-                  </style>' "$workbenchPath"
+          # Modify workbench.html to inject custom CSS
+          sed -i '/<\/html>/i\
+          <!-- nix vscode styling -->\
+          <style>\
+            ${customCss}\
+          </style>' "$workbenchPath"
+          <script>\
+            ${customJs}\
+          </script>' "$workbenchPath"
 
-                  # Remove Content Security Policy
-                  sed -i '/<meta http-equiv="Content-Security-Policy".*\/>/d' "$workbenchPath"
+          # Remove Content Security Policy
+          sed -i '/<meta http-equiv="Content-Security-Policy".*\/>/d' "$workbenchPath"
         '';
       });
     })

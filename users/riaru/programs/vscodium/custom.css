@@ -1,3 +1,20 @@
-  * {
-    background: blue !important;
-  }
+.tabs-container {
+    gap: 2px;
+}
+
+.tab {
+    border-radius: 8px;
+}
+
+.part {
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.editor {
+    margin-left: 0 !important;
+}
+
+.content {
+    width: 100% !important;
+}
