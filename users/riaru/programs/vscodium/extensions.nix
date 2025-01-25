@@ -65,6 +65,8 @@
         eamodio.gitlens
         gruntfuggly.todo-tree
 
+        ms-vsliveshare.vsliveshare
+
         # Look at later
         # https://marketplace.visualstudio.com/items?itemName=usernamehw.commands
         # https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils
@@ -79,11 +81,11 @@
         tauri-apps.tauri-vscode
         littensy.charmed-icons
 
-        dtoplak.vscode-glsllint # TODO: fix dependency
+        # dtoplak.vscode-glsllint
         slevesque.shader
         hideoo.toggler
         yandeu.five-server
-        # gencer.html-slim-scss-css-class-completion # TODO confirm working
+        # gencer.html-slim-scss-css-class-completion
 
         # Python
         kevinrose.vsc-python-indent
@@ -97,11 +99,32 @@
         # Typescript
         oven.bun-vscode
         wallabyjs.quokka-vscode
-        wallabyjs.console-ninja # TODO: fix dependency
+        wallabyjs.console-ninja
 
         csstools.postcss
         joy-yu.css-snippets
         formulahendry.auto-rename-tag
+
+        be5invis.vscode-custom-css
       ]);
   };
+
+  nixpkgs.overlays = [
+    (self: super: {
+      vscodium = super.vscodium.overrideAttrs (attrs: {
+        postInstall = ''
+                  workbenchPath="$out/lib/vscode/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html"
+
+                  # Inject custom CSS
+                  sed -i '/<\/html>/i\
+                  <style>\
+          '"$(printf '%s' "${builtins.readFile ./custom.css}")"'\
+                  </style>' "$workbenchPath"
+
+                  # Remove Content Security Policy
+                  sed -i '/<meta http-equiv="Content-Security-Policy".*\/>/d' "$workbenchPath"
+        '';
+      });
+    })
+  ];
 }

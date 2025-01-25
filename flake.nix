@@ -4,7 +4,7 @@
   inputs = {
     # Package Repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/24.05";
 
     nur = {
       url = "github:nix-community/nur";
@@ -75,8 +75,8 @@
       text = white;
       subtext = grey;
 
-      base = "#141414";
-      section = "#1d1d1d";
+      base = "#000000";
+      section = "#111111";
       card = "#303030";
 
       red = "#ff596b";

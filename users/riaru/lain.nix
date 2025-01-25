@@ -21,6 +21,7 @@
     ./programs/krita.nix
     ./programs/thunderbird.nix
     ./programs/cura.nix
+    ./programs/meshlab.nix
 
     # Development
     ./programs/java.nix
@@ -33,7 +34,7 @@
 
     # Communication
     ./programs/discord.nix
-    
+
     # Media
     ./programs/spotify
     ./programs/suwayomi.nix

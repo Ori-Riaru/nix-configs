@@ -28,14 +28,14 @@
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
 
+      "formatting" = {
+        "command" = ["alejandra"];
+      };
+
       "nix.serverPath" = "nixd";
       "nix.enableLanguageServer" = true;
       "nixpkgs" = {
         "expr" = "import <nixpkgs> {}";
-      };
-
-      "formatting" = {
-        "command" = ["alejandra"];
       };
 
       "options" = {
@@ -46,6 +46,10 @@
           "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.shizuku.options";
         };
       };
+
+      "terminal.integrated.env.linux" = {};
+
+      "console-ninja.featureSet" = "Community";
 
       "cSpell.userWords" = [
         "${settings.username}"
@@ -81,7 +85,6 @@
       "symbols.hidesExplorerArrows" = true;
 
       "breadcrumbs.enabled" = false;
-      "workbench.editor.showTabs" = "single";
       "workbench.statusBar.visible" = false;
 
       "window.customTitleBarVisibility" = "never";

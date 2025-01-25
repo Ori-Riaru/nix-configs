@@ -23,6 +23,7 @@
     ./programs/thunderbird.nix
     ./programs/cura.nix
     ./programs/boxes.nix
+    ./programs/meshlab.nix
 
     # Development
     ./programs/java.nix
