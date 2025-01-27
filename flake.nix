@@ -63,21 +63,21 @@
       # --- Themeing ---
       accent = purple;
       secondary = teal;
+      tertiary = red;
 
-      spacing-1 = 2; # px
-      spacing-2 = 6; # px
-      spacing-3 = 12; # px
+      gap-s = 2; # px
+      gap-m = 6; # px
+      gap-l = 12; # px
 
-      radius-1 = 6; # px
-      radius-2 = 12; # px
-      radius-3 = 18; # px
+      radius-s = 6; # px
+      radius = 8; # px
 
       text = white;
       subtext = grey;
 
-      base = "#000000";
-      section = "#111111";
-      card = "#303030";
+      base = "#080808";
+      section = "#181818";
+      card = "#222222";
 
       red = "#ff596b";
       orange = "#ffa062";

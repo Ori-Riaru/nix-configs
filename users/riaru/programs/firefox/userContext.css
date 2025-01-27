@@ -1,4 +1,10 @@
 :root {
+  /* Firefox variables */
+  --sidebar-width-collapsed: 36px;
+  --sidebar-width-expanded: 250px;
+
+  --bookmark-columns: 3;
+
   /* Generic variables */
   --font: Inter;
   --font-mono-space: JetBrainsMono Nerd Font;
@@ -9,41 +15,41 @@
   --accent-tertiary: var(--yellow-1);
 
   /* Backgrounds */
-  --base: var(--black-0);
-  --section: var(--black-1);
-  --card: var(--black-2);
+  --base: #080808; /* @nix settings.base */
+  --section: #181818; /* @nix settings.section */
+  --card: #353535; /* @nix settings.card */
 
   --input: var(--black-2);
   --overlay: var(--black-2);
 
   /* Layout */
   --spacing-0: 3px;
-  --spacing-1: 5px;
+  --spacing-1: 8px;
   --spacing-2: 12px;
 
-  --border-1: 1px;
-  --border-2: 3px;
+  --border-1: 0px;
+  --border-2: 0px;
 
-  --radius-1: 6px;
-  --radius-2: 12px;
-  --radius-3: 18px;
+  --radius-1: 8px; /* @nix settings.radius-1 */
+  --radius-2: 12px; /* @nix settings.radius-2 */
+  --radius-3: 18px; /* @nix settings.radius-3 */
 
   /* Main text, Headlines */
   /* Punctuation (brackets, semicolons, etc.) */
-  --text: var(--white-3);
+  --text: var(--white-3); /* @nix settings.text */
 
   /* Subtext, Sub Headline, comment */
-  --subtext: var(--white-1);
+  --subtext: var(--white-1); /* @nix settings.subtext */
 
   /* black */
   --black-4: #515151;
   --black-3: #404040;
   --black-2: #303030;
   --black-1: #1d1d1d;
-  --black-0: #141414;
+  --black-0: #141414; /* @nix settings.black */
 
   /* white */
-  --white-4: #ffffff;
+  --white-4: #ffffff; /* @nix settings.white */
   --white-3: #f0f0f0;
   --white-2: #dfdfdf;
   --white-1: #cacaca;
@@ -51,38 +57,38 @@
 
   /* error, remove, close, delete */
   /* Tags (HTML/XML), annotations */
-  --red: #ff596b;
+  --red: #ff596b; /* @nix settings.red */
 
   /* warning */
   /* Numbers, numeric literals */
-  --orange: #ffa062;
+  --orange: #ffa062; /* @nix settings.orange */
 
   /* info, help */
   /* Classes, constructors, special types */
-  --yellow: #fffb77;
+  --yellow: #fffb77; /* @nix settings.yellow */
 
   /* Strings, text content */
-  --green: #99ff82;
+  --green: #99ff82; /* @nix settings.green */
 
   /* success, new, add */
   /* Variable names, constants */
-  --teal: #80ffc1;
+  --teal: #80ffc1; /* @nix settings.teal */
 
   /* Attributes, properties (HTML/CSS/JSX) */
-  --cyan: #7ef8fe;
+  --cyan: #7ef8fe; /* @nix settings.cyan */
 
   /* neutral */
   /* Function names, declarations */
-  --blue: #83bbff;
+  --blue: #83bbff; /* @nix settings.blue */
 
   /* modified, changed, edit */
   /* Keywords, reserved words, important terms */
-  --purple: #a386ff;
+  --purple: #a386ff; /* @nix settings.purple */
 
   /* Operators (+, -, *, etc.) */
-  --pink: #fe99fe;
+  --pink: #fe99fe; /* @nix settings.pink */
 
-  --brown: #ba8d70;
+  --brown: #ba8d70; /* @nix settings.brown */
 }
 
 @-moz-document url("about:home"), url("about:newtab") {

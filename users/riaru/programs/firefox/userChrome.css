@@ -15,22 +15,22 @@
   --accent-tertiary: var(--yellow-1);
 
   /* Backgrounds */
-  --base: var(--black-0); /* @nix settings.base */
-  --section: var(--black-1); /* @nix settings.section */
-  --card: var(--black-2); /* @nix settings.card */
+  --base: #080808; /* @nix settings.base */
+  --section: #181818; /* @nix settings.section */
+  --card: #353535; /* @nix settings.card */
 
-  --input: var(--black-2); 
+  --input: var(--black-2);
   --overlay: var(--black-2);
 
   /* Layout */
   --spacing-0: 3px;
-  --spacing-1: 5px;
+  --spacing-1: 8px;
   --spacing-2: 12px;
 
-  --border-1: 1px;
-  --border-2: 3px;
+  --border-1: 0px;
+  --border-2: 0px;
 
-  --radius-1: 6px; /* @nix settings.radius-1 */
+  --radius-1: 8px; /* @nix settings.radius-1 */
   --radius-2: 12px; /* @nix settings.radius-2 */
   --radius-3: 18px; /* @nix settings.radius-3 */
 
@@ -42,8 +42,8 @@
   --subtext: var(--white-1); /* @nix settings.subtext */
 
   /* black */
-  --black-4: #515151; 
-  --black-3: #404040; 
+  --black-4: #515151;
+  --black-3: #404040;
   --black-2: #303030;
   --black-1: #1d1d1d;
   --black-0: #141414; /* @nix settings.black */
@@ -53,7 +53,7 @@
   --white-3: #f0f0f0;
   --white-2: #dfdfdf;
   --white-1: #cacaca;
-  --white-0: #ababab; 
+  --white-0: #ababab;
 
   /* error, remove, close, delete */
   /* Tags (HTML/XML), annotations */
@@ -97,14 +97,26 @@
   initial-value: 0px;
 }
 
+@property --brightness {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 100%;
+}
+
 body {
   --sidebar-width: var(--sidebar-width-collapsed);
-  transition: --sidebar-width 0.15s ease-out 0.05s;
+  --brightness: 100%;
+
+  transition-property: --sidebar-width, --brightness;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-out;
+  transition-delay: 0.05s;
 
   /* Expand sidebar on hover */
   &:has(> #navigator-toolbox:hover),
   &:has(> #browser > #sidebar-box:hover) {
     --sidebar-width: var(--sidebar-width-expanded);
+    --brightness: 70%;
   }
 }
 
@@ -113,24 +125,26 @@ body {
   position: absolute !important;
   top: var(--spacing-1);
   height: calc(100% - var(--spacing-1) * 2);
-  
+
   /* Push content */
   /* --sidebar-size: calc(var(--spacing-1) * 2 + var(--sidebar-width));
   left: var(--sidebar-size);
   width: calc(100% - var(--sidebar-width-collapsed) - var(--spacing-1) * 3);
    */
-  
+
   /* Resize Content (Not recommened) */
   /* --sidebar-size: calc(var(--spacing-1) * 2 + var(--sidebar-width));
   left: var(--sidebar-size);
   width: calc(100% - var(--sidebar-size) - var(--spacing-1));
    */
-  
+
   /* Overlay Content    */
   --sidebar-size: calc(var(--spacing-1) * 2 + var(--sidebar-width-collapsed));
   left: var(--sidebar-size);
   width: calc(100% - var(--sidebar-size) - var(--spacing-1));
-  
+
+  filter: brightness(var(--brightness));
+
   overflow: clip;
   border-radius: var(--radius-1) !important;
 }
@@ -146,7 +160,6 @@ body {
     width: calc(100% - var(--sidebar-width) - var(--spacing-1) * 3);
   }
 }
-
 
 /* Reset Remove gaps in fullscreen */
 :root[inFullscreen] #tabbrowser-tabbox {
@@ -164,8 +177,7 @@ body {
 /* Define Sidebar Layout*/
 #navigator-toolbox {
   margin: var(--spacing-1) var(--spacing-1) 0 var(--spacing-1) !important;
-  border: 1px solid var(--black-2) !important;
-  border-bottom: 0px !important;;
+  border-bottom: 0 !important;
   border-radius: var(--radius-1) var(--radius-1) 0 0 !important;
   background: var(--section) !important;
   display: grid;
@@ -182,9 +194,7 @@ body {
 }
 
 #sidebar-box {
-  border: var(--border-1) solid var(--black-2) !important;
   margin: 0 var(--spacing-1) var(--spacing-1) var(--spacing-1) !important;
-  border-top: 0px !important;;
 
   min-width: 0 !important;
   width: var(--sidebar-width) !important;
@@ -257,7 +267,10 @@ body {
 }
 
 #PlacesToolbar {
-	min-width: calc(var(--sidebar-width-expanded) - var(--sidebar-width-collapsed) - var(--spacing-2));
+  min-width: calc(
+    var(--sidebar-width-expanded) - var(--sidebar-width-collapsed) -
+      var(--spacing-2)
+  );
 }
 
 #PlacesToolbarItems {

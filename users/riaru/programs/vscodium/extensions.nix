@@ -18,26 +18,7 @@
         ecmel.vscode-html-css
         ms-vscode.live-server
         naumovs.color-highlight
-        stylelint.vscode-stylelint # TODO: fix dependency
         meganrogge.template-string-converter
-
-        # CSV
-        grapecity.gc-excelviewer
-
-        # PDF
-        tomoki1207.pdf
-
-        # XML
-        redhat.vscode-xml
-
-        # YAML
-        redhat.vscode-yaml
-
-        # TOML
-        bungcip.better-toml
-
-        # Java
-        redhat.java
 
         # Rust
         rust-lang.rust-analyzer
@@ -45,13 +26,22 @@
         tamasfe.even-better-toml
         serayuzgur.crates
 
+        # Python
+        ms-python.python
+        ms-toolsai.jupyter
+
         # C++
         llvm-vs-code-extensions.vscode-clangd
         ms-vscode.hexeditor
 
-        # Python
-        ms-python.python
-        ms-toolsai.jupyter
+        # Java
+        redhat.java
+
+        # Other
+        grapecity.gc-excelviewer # CSV viewer
+        tomoki1207.pdf # PDF viewer
+        redhat.vscode-xml # XML support
+        redhat.vscode-yaml # YAML support
 
         # Generic
         usernamehw.errorlens
@@ -60,12 +50,11 @@
         formulahendry.code-runner
         bierner.docs-view
         aaron-bond.better-comments
-        pkief.material-product-icons
-        supermaven.supermaven
         eamodio.gitlens
         gruntfuggly.todo-tree
-
+        supermaven.supermaven
         ms-vsliveshare.vsliveshare
+        pkief.material-product-icons
 
         # Look at later
         # https://marketplace.visualstudio.com/items?itemName=usernamehw.commands
@@ -78,58 +67,61 @@
         # https://marketplace.visualstudio.com/items?itemName=tahabasri.snippets
       ]
       ++ (with extensions.open-vsx; [
-        tauri-apps.tauri-vscode
-        littensy.charmed-icons
-
-        # dtoplak.vscode-glsllint
-        slevesque.shader
-        hideoo.toggler
+        # Web
         yandeu.five-server
         # gencer.html-slim-scss-css-class-completion
+        tauri-apps.tauri-vscode
 
         # Python
         kevinrose.vsc-python-indent
         charliermarsh.ruff
+
+        # Other
+        slevesque.shader
+
+        # Generic
+        hideoo.toggler
+        littensy.charmed-icons
       ])
       ++ (with extensions.vscode-marketplace; [
-        bbenoist.qml
-
+        # Web
+        csstools.postcss
+        joy-yu.css-snippets
         philsinatra.nested-comments
-
-        # Typescript
         oven.bun-vscode
         wallabyjs.quokka-vscode
         wallabyjs.console-ninja
 
-        csstools.postcss
-        joy-yu.css-snippets
-        formulahendry.auto-rename-tag
+        # Other
+        bbenoist.qml #QML language support
 
-        be5invis.vscode-custom-css
+        # Generic
+        mguellsegarra.highlight-on-copy
       ]);
   };
 
   nixpkgs.overlays = let
     customCss = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./custom.css);
-    customJs = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./scripts.js);
+    customJs = builtins.replaceStrings ["'" "\"" "\n" "\r" "`" "$"] ["\\'" "\\\"" "\\n" "" "\\`" "\\$"] (builtins.readFile ./script.js);
   in [
     (self: super: {
       vscodium = super.vscodium.overrideAttrs (attrs: {
+        buildInputs = attrs.buildInputs ++ [self.perl];
         postInstall = ''
           workbenchPath="$out/lib/vscode/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html"
 
-          # Modify workbench.html to inject custom CSS
+          # Remove Content Security Policy
+          perl -0777 -i -pe 's/<meta\s+http-equiv="Content-Security-Policy".*?\/>//gs' "$workbenchPath"
+
+          # Inject custom CSS and JS
           sed -i '/<\/html>/i\
           <!-- nix vscode styling -->\
-          <style>\
-            ${customCss}\
-          </style>' "$workbenchPath"
-          <script>\
-            ${customJs}\
+          <style id="nix-custom-css">\
+          '"${customCss}"'\
+          </style>\
+          <script id="nix-custom-js">\
+          '"${customJs}"'\
           </script>' "$workbenchPath"
-
-          # Remove Content Security Policy
-          sed -i '/<meta http-equiv="Content-Security-Policy".*\/>/d' "$workbenchPath"
         '';
       });
     })

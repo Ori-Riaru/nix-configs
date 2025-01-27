@@ -21,7 +21,7 @@
     shellIntegration.enableFishIntegration = true;
 
     extraConfig = ''
-      background ${settings.base}
+      background ${settings.section}
       foreground ${settings.text}
       cursor ${settings.accent}
       selection_foreground ${settings.base}

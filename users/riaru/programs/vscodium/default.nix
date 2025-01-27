@@ -21,198 +21,121 @@
 
     userSettings = {
       "files.autoSave" = "afterDelay";
+      "editor.wordWrap" = "on";
+      "editor.linkedEditing" = true;
+
+      "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
+
+      # Formatting
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
       "editor.formatOnSave" = true;
       "editor.formatOnPaste" = true;
+      "editor.formatOnType" = true;
+      "editor.find.autoFindInSelection" = "multiline";
+      "files.autoSaveWhenNoErrors" = true;
 
-      "[css][scss][less][jsonc][javascript][typescript][html]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      "formatting" = {
-        "command" = ["alejandra"];
-      };
-
-      "nix.serverPath" = "nixd";
-      "nix.enableLanguageServer" = true;
-      "nixpkgs" = {
-        "expr" = "import <nixpkgs> {}";
-      };
-
-      "options" = {
-        "home_manager" = {
-          "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").homeConfigurations.${settings.username}@shizuku.options";
-        };
-        "nixos" = {
-          "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.shizuku.options";
-        };
-      };
-
-      "terminal.integrated.env.linux" = {};
-
-      "console-ninja.featureSet" = "Community";
-
-      "cSpell.userWords" = [
-        "${settings.username}"
-        "${settings.username-full}"
-        "riaru"
-        "aki"
-        "shizuku"
-        "nixpkgs"
-        "nixos"
-        "pkgs"
-      ];
-
+      # Fonts
       "editor.fontLigatures" = true;
       "editor.fontFamily" = "JetbrainsMono Nerd Font";
-
-      "apc.parts.font.family" = {
-        "activityBar" = "Inter";
-        "extension-editor" = "Inter";
-        "monaco-menu" = "Inter";
-        "panel" = "Inter";
-        "settings-body" = "Inter";
-        "sidebar" = "Inter";
-        "statusbar" = "Inter";
-        "tabs" = "Inter";
-        "titlebar" = "Inter";
-      };
-
+      "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
+      "editor.lineHeight" = 20;
       "workbench.iconTheme" = "charmed-icons";
       "workbench.productIconTheme" = "material-product-icons";
 
-      # Hide Elements
-      "window.menuBarVisibility" = "hidden";
-      "symbols.hidesExplorerArrows" = true;
-
-      "breadcrumbs.enabled" = false;
-      "workbench.statusBar.visible" = false;
-
-      "window.customTitleBarVisibility" = "never";
+      # Layout
       "window.titleBarStyle" = "native";
-
+      "window.customTitleBarVisibility" = "never";
+      "workbench.sideBar.location" = "right";
+      "workbench.activityBar.location" = "top";
+      "window.menuBarVisibility" = "hidden";
+      "workbench.statusBar.visible" = false;
+      "workbench.editor.showTabs" = "none";
+      "breadcrumbs.enabled" = false;
       "editor.minimap.renderCharacters" = false;
       "editor.scrollbar.verticalScrollbarSize" = 0;
+      "scm.diffDecorations" = "gutter";
+      "workbench.panel.showLabels" = false;
 
-      "apc.stylesheet" = {
-        # Sidebar #
-        # Remove Unnecessary padding
-        ".monaco-workbench .part>.title>.title-label" = "padding-left: 0px !important;";
-        ".open-editors .monaco-list .monaco-list-row" = "padding-left: 0px !important";
-        # Minimize scroll in open editors
-        ".composite.viewlet.explorer-viewlet > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(1)" = "height: 9999px !important;";
-        ".composite.viewlet.explorer-viewlet > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(2)" = "margin-top: 30px !important;";
-        # Round List item corners
-        ".monaco-list-row" = "border-radius: 6px";
-
-        # Activity bar
-        # Move Activity bar to top
-        "body > div > div.monaco-grid-view > div > div > div.monaco-scrollable-element > div.split-view-container > div.split-view-view.visible > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(2) > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(1)" = "top: 41px !important";
-        "body > div > div.monaco-grid-view > div > div > div.monaco-scrollable-element > div.split-view-container > div.split-view-view.visible > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(2) > div > div > div.monaco-scrollable-element > div.split-view-container > div:nth-child(2)" = "top: -5px !important";
-        # offset to account for kde frame
-        ".activitybar" = "margin-left: -4px !important";
-
-        #Explorer
-        ".pane-header" = "height: 30px !important";
-        ".monaco-tl-twistie" = "visibility: hidden !important; margin-left: -20px";
-        ".monaco-workbench .part.editor>.content .editor-group-container>.title:not(.tabs)" = "height: 45px";
-        ".monaco-list-row.focused.selected" = "outline: 2px solid #454545 !important; outline-offset: -2px !important;";
-
-        # Command Pallet
-        # Center command Pallet
-        ".quick-input-widget.show-file-icons" = "top: calc(50vh - 300px) !important; outline: 2px solid #a080ff; padding: 10px;";
-        ".monaco-inputbox" = "padding: 4px; border-radius: 6px; border: 2px solid #454545 !important;";
-        ".monaco-editor .find-widget" = "border: 2px solid #353535; padding-top: 6px;padding-bottom: 48px !important; border-radius: 6px; padding-left: 20px";
-        ".editor-widget.find-widget.visible.replaceToggled" = "padding-bottom: 89px !important;";
-        ".monaco-editor .find-widget .button.toggle" = "padding: 16px;";
-        ".monaco-editor .find-widget>.find-part .find-actions; .monaco-editor .find-widget>.replace-part .replace-actions" = "height: 20px !important";
-
-        #".quick-input-list .monaco-list-row"= "top: 0px !important; position: relative !important; padding-top: 10px !important";
-        #".monaco-list.list_id_7 .monaco-list-rows"= "padding-bottom: 70px";
-        ".monaco-icon-label>.monaco-icon-label-container>.monaco-icon-description-container>.label-description" = "display: none";
-      };
-
-      "editor.lineHeight" = 20;
-
-      "apc.sidebar.titlebar" = {
-        "height" = 50;
-        "fontSize" = 14;
-      };
-
-      "apc.listRow" = {
-        "lists" = [
-          "explorer-folders-view"
-          "results"
-          "open-editors"
-        ];
-        "height" = 28;
-        "fontSize" = 14;
-      };
-
-      "apc.activityBar" = {
-        "position" = "bottom";
-        "size" = 50;
-        "itemSize" = 40;
-      };
-
+      # Colors
       "workbench.colorTheme" = "Visual Studio Dark";
-      "workbench.activityBar.location" = "top";
-
       "workbench.colorCustomizations" = {
-        "activityBar.background" = "#202020";
-        "activityBar.activeBorder" = "#0000";
+        # General
+        "foreground" = "${settings.text}";
+        "disableForeground" = "${settings.text}";
+        "widget.border" = "#0000";
+        "errorForeground" = "${settings.red}";
+        "button.background" = "${settings.accent}";
+        "button.hoverBackground" = "${settings.accent}";
+        "input.background" = "${settings.card}";
+        "focusBorder" = "#0000";
 
-        "sideBar.border" = "#0000";
-        "sideBar.foreground" = "#FFFFFF";
-        "sideBar.background" = "#202020";
-        "sideBarSectionHeader.background" = "#202020";
-        "sideBarSectionHeader.border" = "#0000";
+        # Editor
+        "editor.foreground" = "${settings.text}";
+        "editor.background" = "${settings.section}";
+        "editor.lineHighlightBackground" = "${settings.card}";
+        "editor.selectionBackground" = "${settings.accent}";
+        "editor.selectionForeground" = "${settings.text}";
 
-        "list.hoverBackground" = "#353535";
-        "list.activeSelectionBackground" = "#353535";
-        "list.inactiveSelectionBackground" = "#353535";
-        "sideBarSectionHeader.foreground" = "#FFFFFF";
-        "sideBarTitle.foreground" = "#FFFFFF";
-
-        "focusBorder" = "#a080ff";
-        "list.focusBackground" = "#353535";
-        "editorWidget.border" = "#353535";
+        "editorCursor.foreground" = "${settings.text}";
+        "editorLineNumber.foreground" = "${settings.subtext}";
+        "scrollbar.shadow" = "#0000";
         "editorGroup.border" = "#0000";
 
-        "editor.background" = "#202020";
-        "input.background" = "#353535";
-        "button.background" = "#a080ff";
-        "button.secondaryBackground" = "#353535";
-        "scrollbar.shadow" = "#0000";
+        "editorWarning.foreground" = "${settings.orange}";
+        "errorLens.errorForeground" = "${settings.red}";
+        "errorLens.errorBackground" = "${settings.red}33";
 
-        "activityBarBadge.background" = "#a080ff";
+        "errorLens.warningBackground" = "${settings.orange}33";
+        "errorLens.warningForeground" = "${settings.orange}";
 
-        # Git Colors
-        "gitDecoration.deletedResourceForeground" = "#FF5271";
-        "gitDecoration.modifiedResourceForeground" = "#a080ff";
-        "gitDecoration.untrackedResourceForeground" = "#61FFB3";
-        "editorGutter.deletedBackground" = "#FF5271";
-        "editorGutter.modifiedBackground" = "#a080ff";
-        "editorGutter.addedBackground" = "#61FFB3";
+        # Auto complete popup
+        "editorWidget.border" = "#0000";
 
-        # Error
-        "errorForeground" = "#FF5271";
-        "list.errorForeground" = "#FF5271";
-        "list.warningForeground" = "#FFA062";
+        # Git added an removed colors
+        "editorGutter.addedBackground" = "${settings.teal}";
+        "editorGutter.deletedBackground" = "${settings.red}";
+        "editorGutter.modifiedBackground" = "${settings.purple}";
 
-        "errorLens.errorForeground" = "#FF5271";
-        "errorLens.errorBackground" = "#FF527120";
-        "errorLens.warningForeground" = "#FFA062";
-        "errorLens.warningBackground" = "#FFC18D20";
+        "editorBracketHighlight.foreground1" = "${settings.accent}";
+        "editorBracketHighlight.foreground2" = "${settings.secondary}";
+        "editorBracketHighlight.foreground3" = "${settings.tertiary}";
+        "editorBracketHighlight.foreground4" = "${settings.yellow}";
+        "editorBracketHighlight.foreground5" = "${settings.teal}";
+        "editorBracketHighlight.foreground6" = "${settings.orange}";
+        "editorBracketHighlight.unmatchedForeground" = "${settings.red}";
 
-        # Brackets
-        "editorBracketHighlight.foreground1" = "#A080FF";
-        "editorBracketHighlight.foreground3" = "#80B9FF";
-        "editorBracketHighlight.foreground6" = "#8BF9FF";
-        "editorBracketHighlight.foreground5" = "#61FFB3";
-        "editorBracketHighlight.foreground4" = "#FFF89B";
-        "editorBracketHighlight.foreground2" = "#FFA062";
+        # Side Bar
+        "sideBar.background" = "${settings.section}";
+
+        "sideBarSectionHeader.background" = "${settings.section}";
+        "sideBarSectionHeader.border" = "#0000";
+        "sideBar.foreground" = "#FFFFFF";
+
+        # Activity Bar
+        "activityBar.foreground" = "${settings.text}";
+        "activityBarBadge.background" = "${settings.accent}";
+
+        # Explorer
+        "list.errorForeground" = "${settings.red}";
+        "list.warningForeground" = "${settings.orange}";
+        "list.hoverBackground" = "${settings.card}";
+
+        "gitDecoration.deletedResourceForeground" = "${settings.red}";
+        "gitDecoration.modifiedResourceForeground" = "${settings.purple}";
+        "gitDecoration.untrackedResourceForeground" = "${settings.teal}";
+
+        # Terminal
+        terminal.ansiBlack = "${settings.black}";
+        terminal.ansiBlue = "${settings.blue}";
+        terminal.ansiCyan = "${settings.cyan}";
+        terminal.ansiGreen = "${settings.green}";
+        terminal.ansiMagenta = "${settings.purple}";
+        terminal.ansiRed = "${settings.red}";
+        terminal.ansiWhite = "${settings.white}";
+        terminal.ansiYellow = "${settings.yellow}";
       };
 
+      # Syntax Highlighting
       "editor.tokenColorCustomizations" = {
         "textMateRules" = [
           {
@@ -334,7 +257,6 @@
               "variable.other.normal.shell"
               "variable.parameter.positional.shell"
               "variable.other.assignment.shell"
-              # "support.type.builtin.tsx"
               "support.type.builtin"
             ];
             "settings" = {
@@ -342,6 +264,58 @@
             };
           }
         ];
+      };
+
+      # Extension settings
+      "cSpell.userWords" = [
+        "${settings.username}"
+        "${settings.username-full}"
+        "riaru"
+        "aki"
+        "shizuku"
+        "nixpkgs"
+        "nixos"
+        "pkgs"
+      ];
+
+      "highlightOnCopy.backgroundColor" = "${settings.secondary}";
+      "highlightOnCopy.foregroundColor" = "#fff";
+
+      "color-highlight.matchRgbWithNoFunction" = true;
+      "color-highlight.matchWords" = true;
+
+      "terminal.integrated.env.linux" = {};
+      "console-ninja.featureSet" = "Community";
+      "console-ninja.toolsToEnableSupportAutomaticallyFor" = {
+        "live-server-extension" = true;
+        "live-preview-extension" = true;
+      };
+
+      # Nix
+
+      "[nix]" = {
+        "editor.defaultFormatter" = "kamadorueda.alejandra";
+        "editor.formatOnPaste" = true;
+        "editor.formatOnSave" = true;
+        "editor.formatOnType" = false;
+      };
+      "alejandra.program" = "alejandra";
+
+      "nixEnvSelector.suggestion" = false;
+
+      "nix.serverPath" = "nixd";
+      "nix.enableLanguageServer" = true;
+      "nixpkgs" = {
+        "expr" = "import <nixpkgs> {}";
+      };
+
+      "options" = {
+        "home_manager" = {
+          "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").homeConfigurations.${settings.username}@shizuku.options";
+        };
+        "nixos" = {
+          "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.shizuku.options";
+        };
       };
     };
   };

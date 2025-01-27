@@ -1,20 +1,62 @@
-.tabs-container {
-    gap: 2px;
-}
-
-.tab {
-    border-radius: 8px;
+:root {
+  --base: #080808; /* @nix settings.base */
 }
 
 .part {
-    margin: 10px;
-    border-radius: 8px;
+  margin: 6lpx !important;
+  border-radius: 8px !important;
+}
+
+.panel {
+  margin-right: 0 !important;
+}
+
+.monaco-workbench {
+  background: var(--base) !important;
 }
 
 .editor {
-    margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .content {
-    width: 100% !important;
+  width: 100% !important;
+}
+
+/* Move Notifications to the left */
+.notifications-toasts {
+  left: 3px !important;
+  right: unset !important;
+}
+
+/* Evenly space out sidebar tabs */
+.composite-bar-container,
+.composite-bar,
+.monaco-action-bar .action-item {
+  flex: 1;
+}
+
+.monaco-action-bar .action-item .action-label:before {
+  left: unset !important;
+}
+
+.monaco-action-bar .action-item .badge.compact .badge-content {
+  right: calc(50% - 2em) !important;
+}
+
+/* Move open editor closse button to the left */
+.open-editors .monaco-list .monaco-list-row {
+  padding-left: 14px !important;
+  padding-right: 12px !important;
+  flex-direction: row-reverse !important;
+}
+
+/* Remove sidebar Header */
+.monaco-workbench .part.sidebar > .title {
+  display: none !important;
+}
+
+/* Remove panel border top */
+.monaco-workbench .part.panel.bottom .composite.title {
+  border-top: none !important;
 }
