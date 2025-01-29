@@ -4,21 +4,21 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ## Structure
 
-- `flake.nix`: Entrypoint for System and Home Manager configurations
-- `systems` System configuration usable with `nh os switch`
-  - `share`: Configurations shared across multiple system
-    - `global`: Configurations shared across all systems
-    - `features`: Optional configurations shared across some systems
-  - `lain`: Desktop PC Configuration
-  - `shizuku`: Laptop Configuration
-  - `fujin`: Server Configuration
-    - `services`: Services hosted on this machine
-- `users/riaru`: home-manager configuration usable with `nh home switch`
-  - `global`: home-manager configurations shared across all machines
-  - `programs`: Programs installed and configured with home-manager
-- `templates`: Templates for setting up new projects
-- `packages`: Custom packages for programs unavailable from nixpkgs
-- `overlays`: Patches and version overrides for packages
+- [`flake.nix`](./flake.nix): Entrypoint for System and Home Manager configurations
+- [`systems`](./systems/) System configuration usable with `nh os switch`
+  - [`share`](./systems/share/): Configurations shared across multiple system
+    - [`global`](./systems/share/global/): Global configurations shared across all systems
+    - [`features`](./systems/share/features/): Features shared across all systems
+  - [`lain`](./systems/lain/): Desktop PC Configuration
+  - [`shizuku`](./systems/shizuku/): Laptop Configuration
+  - [`fujin`](./systems/fujin/): Server Configuration
+    - [`services`](./systems/fujin/services/): Services hosted on this machine
+- [`users/riaru`](./users/riaru/): home-manager configuration usable with `nh home switch`
+  - [`global`](./users/riaru/global/): home-manager configurations shared across all machines
+  - [`programs`](./users/riaru/programs/): Programs installed and configured with home-manager
+- [`templates`](./templates/): Templates for setting up new projects
+- [`packages`](./packages/): Packages used by the configurations
+- [`overlays`](./overlays/): Patches and version overrides for packages
 
 ## Featured Configurations
 
@@ -32,11 +32,12 @@ TODO: add demo
 
 - VSCodium
 
-TODO: add demo
+![vscodium-preview](./.github/vscodium-preview.png)
 
 - Kitty / Fish / Starship / Zoxide
 
-TODO: add demo
+![kitty-preview](./.github/kitty-preview.png)
+
 
 - Discord
 
