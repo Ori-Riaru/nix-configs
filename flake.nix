@@ -17,7 +17,6 @@
     };
 
     # Applications
-
     xremap-flake.url = "github:xremap/nix-flake";
 
     # Application Additions
@@ -73,7 +72,7 @@
       radius = 8; # px
 
       text = white;
-      subtext = grey;
+      subtext = "#AAAAAA";
 
       base = "#080808";
       section = "#181818";
@@ -94,7 +93,7 @@
       black = "#000000";
 
       font = "Inter";
-      font-monospace = "JetBrainsMono";
+      font-monospace = "JetBrainsMono Nerd Font";
 
       keyboard = "dvorak";
     };
