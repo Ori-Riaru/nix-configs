@@ -8,4 +8,6 @@
     #fira-code-nerdfont
     #cascadia-code
   ];
+
+  fonts.fontconfig.enable = true;
 }
