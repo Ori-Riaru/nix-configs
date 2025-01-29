@@ -36,7 +36,6 @@
 
         success_symbol = "[](fg:green)[](bold bg:green)[](fg:green) ";
         error_symbol = "[](fg:red)[](bold bg:red)[](fg:red) ";
-
       };
 
       cmd_duration = {
@@ -68,12 +67,12 @@
       git_branch = {
         symbol = "";
         style = "bg:cyan";
-        format = "[](fg:cyan)[[ $symbol $branch ](fg:subtext bg:cyan)]($style)";
+        format = "[](fg:cyan)[[ $symbol $branch ](fg:text bg:cyan)]($style)";
       };
 
       git_status = {
         style = "bg:cyan";
-        format = "[[($all_status$ahead_behind )](fg:subtext bg:cyan)]($style)[](fg:cyan) ";
+        format = "[[($all_status$ahead_behind )](fg:text bg:cyan)]($style)[](fg:cyan) ";
       };
 
       nodejs = {
