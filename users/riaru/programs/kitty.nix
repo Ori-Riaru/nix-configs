@@ -10,7 +10,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Jetbrains Mono Nerd Font";
+      name = "${settings.font-monospace}";
       size = 11;
     };
 
@@ -26,6 +26,9 @@
       cursor ${settings.accent}
       selection_foreground ${settings.base}
       selection_background ${settings.accent}
+
+      color0 ${settings.black}
+      color8 ${settings.subtext}
 
       color1 ${settings.red}
       color9 #FF5271
