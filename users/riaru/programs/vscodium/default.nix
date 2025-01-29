@@ -36,11 +36,24 @@
 
       # Fonts
       "editor.fontLigatures" = true;
-      "editor.fontFamily" = "JetbrainsMono Nerd Font";
-      "terminal.integrated.fontFamily" = "JetBrainsMono Nerd Font";
+      "editor.fontFamily" = "${settings.font-monospace}";
+      "terminal.integrated.fontFamily" = "${settings.font-monospace}";
       "editor.lineHeight" = 20;
       "workbench.iconTheme" = "charmed-icons";
       "workbench.productIconTheme" = "material-product-icons";
+      "editor.cursorStyle" = "line";
+      "terminal.integrated.cursorStyle" = "line";
+      "terminal.integrated.cursorStyleInactive" = "none";
+      "terminal.integrated.cursorWidth" = 2;
+      "editor.fontSize" = 14;
+      "debug.console.fontSize" = 14;
+      "scm.inputFontSize" = 14;
+      "terminal.integrated.fontSize" = 14;
+      "chat.editor.fontSize" = 14;
+      "markdown.preview.fontSize" = 14;
+      "terminal.integrated.fontLigatures" = true;
+      "terminal.integrated.minimumContrastRatio" = 5;
+      "terminal.integrated.cursorBlinking" = true;
 
       # Layout
       "window.titleBarStyle" = "native";
@@ -125,146 +138,160 @@
         "gitDecoration.untrackedResourceForeground" = "${settings.teal}";
 
         # Terminal
-        terminal.ansiBlack = "${settings.black}";
-        terminal.ansiBlue = "${settings.blue}";
-        terminal.ansiCyan = "${settings.cyan}";
-        terminal.ansiGreen = "${settings.green}";
-        terminal.ansiMagenta = "${settings.purple}";
-        terminal.ansiRed = "${settings.red}";
-        terminal.ansiWhite = "${settings.white}";
-        terminal.ansiYellow = "${settings.yellow}";
+        "terminal.background" = "${settings.section}";
+        "terminal.foreground" = "${settings.text}";
+        "terminalCursor.foreground" = "${settings.text}";
+        "terminal.ansiBlack" = "${settings.black}";
+        "terminal.ansiBlue" = "${settings.blue}";
+        "terminal.ansiCyan" = "${settings.cyan}";
+        "terminal.ansiGreen" = "${settings.teal}";
+        "terminal.ansiMagenta" = "${settings.purple}";
+        "terminal.ansiRed" = "${settings.red}";
+        "terminal.ansiWhite" = "${settings.white}";
+        "terminal.ansiYellow" = "${settings.orange}";
+        "terminal.ansiBrightBlack" = "${settings.subtext}";
+        "terminal.ansiBrightBlue" = "#ACD1FF";
+        "terminal.ansiBrightCyan" = "#B9F7FF";
+        "terminal.ansiBrightGreen" = "${settings.green}";
+        "terminal.ansiBrightMagenta" = "#ADA0FF";
+        "terminal.ansiBrightRed" = "#FF5271";
+        "terminal.ansiBrightWhite" = "${settings.white}";
+        "terminal.ansiBrightYellow" = "${settings.yellow}";
       };
 
-      # Syntax Highlighting
-      "editor.tokenColorCustomizations" = {
-        "textMateRules" = [
-          {
-            "name" = "Default";
-            "scope" = [
-              ""
-              "support.type.property-name.json"
-              "meta.attribute.unrecognized"
-              "support.type.property-name.css"
-              "meta.field.declaration"
-              "meta.template.expression"
-            ];
-            "settings" = {
-              "foreground" = "#FFFFFF";
-            };
-          }
+      "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
+      "terminal.integrated.shellIntegration.enabled" = false;
 
-          {
-            "name" = "comments";
-            "scope" = ["comment"];
-            "settings" = {
-              "foreground" = "#AAAAAA";
-            };
-          }
+      # # Syntax Highlighting
+      # "editor.tokenColorCustomizations" = {
+      #   "textMateRules" = [
+      # {
+      #   "name" = "Default";
+      #   "scope" = [
+      #     ""
+      #     "support.type.property-name.json"
+      #     "meta.attribute.unrecognized"
+      #     "support.type.property-name.css"
+      #     "meta.field.declaration"
+      #     "meta.template.expression"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "${settings.text}";
+      #   };
+      # }
 
-          {
-            "name" = "string";
-            "scope" = [
-              "string.quoted.single"
-              "string.quoted.double"
-              "string.template"
-              "punctuation.definition.string.template"
-              "variable.parameter.url.css"
-              "string.quoted.other.nix"
-            ];
-            "settings" = {
-              "foreground" = "#a080ff";
-            };
-          }
+      # {
+      #   "name" = "comments";
+      #   "scope" = ["comment"];
+      #   "settings" = {
+      #     "foreground" = "${settings.subtext}";
+      #   };
+      # }
 
-          {
-            "name" = "number";
-            "scope" = [
-              "constant.numeric"
-              "keyword.other.unit"
-              "constant.other.color.rgb-value.hex"
-            ];
-            "settings" = {
-              "foreground" = "#FFA062";
-            };
-          }
+      # {
+      #   "name" = "string";
+      #   "scope" = [
+      #     "string.quoted.single"
+      #     "string.quoted.double"
+      #     "string.template"
+      #     "punctuation.definition.string.template"
+      #     "variable.parameter.url.css"
+      #     "string.quoted.other.nix"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "#a080ff";
+      #   };
+      # }
 
-          {
-            "name" = "Keywords";
-            "scope" = [
-              "keyword.control"
-              "keyword.operator"
-              "variable.language"
-              "constant.language"
-              "storage.modifier"
-              "entity.other.ng-binding-name.template.html"
-              "source.css meta.property-value"
-              "string.regexp"
-              "punctuation.definition.template-expression.begin"
-              "support.type.object.module"
-              "punctuation.separator.statement.and.shell"
-            ];
-            "settings" = {
-              "foreground" = "#8BF9FF";
-            };
-          }
+      # {
+      #   "name" = "number";
+      #   "scope" = [
+      #     "constant.numeric"
+      #     "keyword.other.unit"
+      #     "constant.other.color.rgb-value.hex"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "#FFA062";
+      #   };
+      # }
 
-          {
-            "name" = "function";
-            "scope" = [
-              "storage.type"
-              "meta.definition.method"
-              "meta.definition.function"
-              "entity.name.type.class"
-              "meta.function-call"
-              "entity.name.tag"
-              "entity.name.tag"
-              "entity.other.attribute-name.id.css"
-              "entity.other.attribute-name.class.css"
-              "meta.at-rule.keyframes"
-              "support.function.misc"
-              "support.class.component"
-              "support.function.builtin.shell"
-              "entity.name.command.shell"
-            ];
-            "settings" = {
-              "foreground" = "#61FFB3";
-            };
-          }
+      # {
+      #   "name" = "Keywords";
+      #   "scope" = [
+      #     "keyword.control"
+      #     "keyword.operator"
+      #     "variable.language"
+      #     "constant.language"
+      #     "storage.modifier"
+      #     "entity.other.ng-binding-name.template.html"
+      #     "source.css meta.property-value"
+      #     "string.regexp"
+      #     "punctuation.definition.template-expression.begin"
+      #     "support.type.object.module"
+      #     "punctuation.separator.statement.and.shell"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "#8BF9FF";
+      #   };
+      # }
 
-          {
-            "name" = "Keyword";
-            "scope" = [
-              "source.css punctuation.definition.keyword"
-              "source.css keyword"
-              "entity.name.tag.reference"
-              "keyword.other.important"
-              "string.unquoted.heredoc.expanded.shell"
-              "keyword.control.at-rule"
-              "punctuation.definition.tag.end"
-              "punctuation.definition.tag.begin"
-            ];
-            "settings" = {
-              "foreground" = "#FFA6FE";
-            };
-          }
-          {
-            "name" = "types";
-            "scope" = [
-              "entity.name.type"
-              "support.type.primitive"
-              "meta.interface"
-              "storage.type.class.jsdoc"
-              "variable.other.normal.shell"
-              "variable.parameter.positional.shell"
-              "variable.other.assignment.shell"
-              "support.type.builtin"
-            ];
-            "settings" = {
-              "foreground" = "#80B9FF";
-            };
-          }
-        ];
-      };
+      # {
+      #   "name" = "function";
+      #   "scope" = [
+      #     "storage.type"
+      #     "meta.definition.method"
+      #     "meta.definition.function"
+      #     "entity.name.type.class"
+      #     "meta.function-call"
+      #     "entity.name.tag"
+      #     "entity.name.tag"
+      #     "entity.other.attribute-name.id.css"
+      #     "entity.other.attribute-name.class.css"
+      #     "meta.at-rule.keyframes"
+      #     "support.function.misc"
+      #     "support.class.component"
+      #     "support.function.builtin.shell"
+      #     "entity.name.command.shell"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "#61FFB3";
+      #   };
+      # }
+
+      # {
+      #   "name" = "Keyword";
+      #   "scope" = [
+      #     "source.css punctuation.definition.keyword"
+      #     "source.css keyword"
+      #     "entity.name.tag.reference"
+      #     "keyword.other.important"
+      #     "string.unquoted.heredoc.expanded.shell"
+      #     "keyword.control.at-rule"
+      #     "punctuation.definition.tag.end"
+      #     "punctuation.definition.tag.begin"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "#FFA6FE";
+      #   };
+      # }
+      # {
+      #   "name" = "types";
+      #   "scope" = [
+      #     "entity.name.type"
+      #     "support.type.primitive"
+      #     "meta.interface"
+      #     "storage.type.class.jsdoc"
+      #     "variable.other.normal.shell"
+      #     "variable.parameter.positional.shell"
+      #     "variable.other.assignment.shell"
+      #     "support.type.builtin"
+      #   ];
+      #   "settings" = {
+      #     "foreground" = "#80B9FF";
+      #   };
+      # }
+      #   ];
+      # };
 
       # Extension settings
       "cSpell.userWords" = [
@@ -285,11 +312,14 @@
       "color-highlight.matchWords" = true;
 
       "terminal.integrated.env.linux" = {};
+
       "console-ninja.featureSet" = "Community";
       "console-ninja.toolsToEnableSupportAutomaticallyFor" = {
         "live-server-extension" = true;
         "live-preview-extension" = true;
       };
+
+      "redhat.telemetry.enabled" = false;
 
       # Nix
 

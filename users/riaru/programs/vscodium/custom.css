@@ -3,12 +3,40 @@
 }
 
 .part {
-  margin: 6lpx !important;
+  margin: 5px !important;
   border-radius: 8px !important;
+  height: calc(100% - 10px) !important;
+}
+
+.composite.panel {
+  padding: 0 !important;
+}
+
+.parts.panel > div.composite.title.has-composite-bar {
+  height: 22px !important;
 }
 
 .panel {
   margin-right: 0 !important;
+  margin-top: 0 !important;
+  height: calc(100% - 5px) !important;
+  padding: 5px !important;
+}
+
+.monaco-workbench .part.panel.bottom .composite.title {
+  display: none !important;
+}
+
+.terminal {
+  margin-left: 10px !important;
+}
+
+div.xterm-screen > canvas {
+  margin-top: 8px !important;
+}
+
+.monaco-workbench .xterm .xterm-scrollable-element {
+  padding-left: 0 !important;
 }
 
 .monaco-workbench {
