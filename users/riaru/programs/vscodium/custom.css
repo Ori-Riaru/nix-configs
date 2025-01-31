@@ -31,10 +31,6 @@
   margin-left: 10px !important;
 }
 
-div.xterm-screen > canvas {
-  margin-top: 8px !important;
-}
-
 .monaco-workbench .xterm .xterm-scrollable-element {
   padding-left: 0 !important;
 }

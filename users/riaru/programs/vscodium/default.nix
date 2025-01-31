@@ -28,6 +28,9 @@
 
       # Formatting
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      "[c][cpp]" = {
+        "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
+      };
       "editor.formatOnSave" = true;
       "editor.formatOnPaste" = true;
       "editor.formatOnType" = true;
