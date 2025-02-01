@@ -24,6 +24,7 @@
     ./programs/cura.nix
     ./programs/boxes.nix
     ./programs/meshlab.nix
+    ./programs/obs-studio.nix
 
     # Development
     ./programs/java.nix

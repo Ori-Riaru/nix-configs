@@ -22,6 +22,7 @@
     ./programs/thunderbird.nix
     ./programs/cura.nix
     ./programs/meshlab.nix
+    ./programs/obs-studio.nix
 
     # Development
     ./programs/java.nix
