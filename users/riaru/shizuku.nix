@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./global
-    
+
     # CLI
     ./programs/starship.nix
     ./programs/zoxide.nix
@@ -44,7 +44,7 @@
     # ./programs/suwayomi.nix
     ./programs/gaming.nix
 
-    # System 
+    # System
     ./programs/kdeconnect.nix
     ./programs/xremap.nix
     ./programs/maliit.nix
@@ -53,7 +53,7 @@
     # ./programs/kde.nix
     ./programs/mouse.nix
     ./programs/touchegg.nix
-    ./programs/kdiskmark.nix 
+    ./programs/kdiskmark.nix
   ];
 
   home.stateVersion = "24.05";

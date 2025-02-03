@@ -4,8 +4,7 @@
   settings,
   ...
 }: let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   removeHashtag = str: builtins.substring 1 (builtins.stringLength str) str;
 in {
   imports = [inputs.spicetify-nix.homeManagerModules.default];

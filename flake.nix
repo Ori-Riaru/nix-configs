@@ -22,7 +22,7 @@
     # Application Additions
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     firefox-addons = {
@@ -61,18 +61,15 @@
 
       # --- Themeing ---
       accent = purple;
-      secondary = teal;
-      tertiary = red;
+      secondary = blue;
+      tertiary = yellow;
 
-      gap-s = 2; # px
-      gap-m = 6; # px
-      gap-l = 12; # px
-
-      radius-s = 6; # px
+      gap = 2; # px
       radius = 8; # px
 
-      text = white;
-      subtext = "#AAAAAA";
+      text = "#ffffff";
+      subtext = "#888888";
+      hidden = "#555555";
 
       base = "#080808";
       section = "#181818";
@@ -90,7 +87,7 @@
       brown = "#ba8d70";
       white = "#ffffff";
       grey = "#272727";
-      black = "#000000";
+      black = "#353535";
 
       font = "Inter";
       font-monospace = "JetBrainsMono Nerd Font";
