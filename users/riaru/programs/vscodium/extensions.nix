@@ -55,8 +55,8 @@
         supermaven.supermaven
         ms-vsliveshare.vsliveshare
         pkief.material-product-icons
-        github.copilot
-        github.copilot-chat
+        # github.copilot
+        # github.copilot-chat
 
         # Look at later
         # https://marketplace.visualstudio.com/items?itemName=usernamehw.commands

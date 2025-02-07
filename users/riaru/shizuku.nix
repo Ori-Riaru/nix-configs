@@ -26,6 +26,7 @@
     ./programs/meshlab.nix
     ./programs/obs-studio.nix
     ./programs/shotcut.nix
+    ./programs/gparted.nix
 
     # Development
     ./programs/java.nix
