@@ -22,7 +22,7 @@
 
         # Rust
         rust-lang.rust-analyzer
-        vadimcn.vscode-lldb
+        # vadimcn.vscode-lldb
         tamasfe.even-better-toml
         serayuzgur.crates
 
