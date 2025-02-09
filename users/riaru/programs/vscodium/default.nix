@@ -31,6 +31,9 @@
       "[c][cpp]" = {
         "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
       };
+      "[svelte]" = {
+        "editor.defaultFormatter" = "svelte.svelte-vscode";
+      };
       "editor.formatOnSave" = true;
       "editor.formatOnPaste" = true;
       "editor.formatOnType" = true;
@@ -321,6 +324,8 @@
         "live-server-extension" = true;
         "live-preview-extension" = true;
       };
+
+      "svelte.enable-ts-plugin" = true;
 
       "redhat.telemetry.enabled" = false;
 

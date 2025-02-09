@@ -19,6 +19,7 @@
         ms-vscode.live-server
         naumovs.color-highlight
         meganrogge.template-string-converter
+        svelte.svelte-vscode
 
         # Rust
         rust-lang.rust-analyzer

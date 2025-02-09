@@ -27,6 +27,7 @@
     ./programs/obs-studio.nix
     ./programs/shotcut.nix
     ./programs/gparted.nix
+    ./programs/ventoy.nix
 
     # Development
     ./programs/java.nix
