@@ -14,7 +14,7 @@
     kdePackages.krohnkite
     plasmusic-toolbar
     kara
-    tela-icon-theme
+    # tela-icon-theme
     bibata-cursors
     simple-kickoff
   ];
@@ -31,8 +31,6 @@
       iconTheme = "Tela-black-dark";
 
       clickItemTo = "open";
-
-      wallpaperPlainColor = "21,21,21,255";
     };
 
     fonts = {
@@ -92,10 +90,10 @@
       "kwinrc"."Desktops"."Rows" = 4;
 
       # One of these will have to be disabled
-      "kwinrc"."Plugins"."krohnkiteEnabled" = true;
+      # "kwinrc"."Plugins"."krohnkiteEnabled" = true;
 
       # Karousel
-      "kwinrc"."Plugins"."karouselEnabled" = false;
+      "kwinrc"."Plugins"."karouselEnabled" = true;
 
       "kwinrc"."Script-karousel"."gapsInnerHorizontal" = 0;
       "kwinrc"."Script-karousel"."gapsInnerVertical" = 0;
@@ -132,10 +130,6 @@
       "kwinrc"."Plugins"."screenedgeEnabled" = false;
 
       # Theming
-      "plasmarc"."Theme"."name" = "Materia";
-
-      "kwinrc"."org.kde.kdecoration2"."theme" = "Breeze";
-      "kdeglobals"."KDE"."widgetStyle" = "kvantum-dark";
 
       "klaunchrc"."BusyCursorSettings"."Bouncing" = false;
       "klaunchrc"."FeedbackStyle"."BusyCursor" = false;

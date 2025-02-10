@@ -2,8 +2,8 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../common/global
-    ../common/users/riaru.nix
+    ../share/global
+    ../share/users/riaru.nix
 
     ./services/nextcloud.nix
     #./services/homeassistant.nix

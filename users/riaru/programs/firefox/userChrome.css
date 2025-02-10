@@ -24,15 +24,15 @@
 
   /* Layout */
   --spacing-0: 3px;
-  --spacing-1: 8px;
+  --spacing-1: 5px;
   --spacing-2: 12px;
 
   --border-1: 0px;
   --border-2: 0px;
 
-  --radius-1: 8px; /* @nix settings.radius-1 */
-  --radius-2: 12px; /* @nix settings.radius-2 */
-  --radius-3: 18px; /* @nix settings.radius-3 */
+  --radius-1: 6px; /* @nix settings.radius-1 */
+  --radius-2: 6px; /* @nix settings.radius-2 */
+  --radius-3: 6px; /* @nix settings.radius-3 */
 
   /* Main text, Headlines */
   /* Punctuation (brackets, semicolons, etc.) */
@@ -118,6 +118,10 @@ body {
     --sidebar-width: var(--sidebar-width-expanded);
     --brightness: 70%;
   }
+}
+
+#browser {
+  background: transparent !important;
 }
 
 /* Position tab window To the right of sidebar */

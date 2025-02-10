@@ -329,6 +329,10 @@
 
       "redhat.telemetry.enabled" = false;
 
+      "github.copilot.advanced" = {
+        "authProvider" = "github";
+      };
+
       # Nix
 
       "[nix]" = {

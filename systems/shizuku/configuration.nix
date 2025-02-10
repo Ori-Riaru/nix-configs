@@ -15,7 +15,7 @@
     ../share/features/steam.nix
 
     ../share/users/riaru.nix
-    # ../share/features/virtulization.nix
+    ../share/features/virtulization.nix
     ../share/features/kdeconnect.nix
   ];
 
