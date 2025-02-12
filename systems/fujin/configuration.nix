@@ -5,7 +5,9 @@
     ../share/global
     ../share/users/riaru.nix
 
-    ./services/nextcloud.nix
+    #../share/features/vscode-server.nix
+
+    #./services/nextcloud.nix
     #./services/homeassistant.nix
     #./services/hydroxide.nix
     ./services/palworld.nix
