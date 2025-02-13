@@ -11,11 +11,12 @@
     #./services/homeassistant.nix
     #./services/hydroxide.nix
     ./services/palworld.nix
+    ./services/mastodon.nix
   ];
 
   networking.hostName = "fujin";
 
-  # Bootloader 
+  # Bootloader
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.useOSProber = true;

@@ -14,7 +14,7 @@
     ./programs/chromium.nix
     ./programs/kitty.nix
     ./programs/obsidian.nix
-    #./programs/blender.nix
+    ./programs/blender.nix
     #./programs/resolve.nix
     ./programs/inkscape.nix
     ./programs/libre-office.nix

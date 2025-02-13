@@ -19,8 +19,6 @@
     # Applications
     xremap-flake.url = "github:xremap/nix-flake";
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";	
-
     # Application Additions
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -53,7 +51,6 @@
     self,
     nixpkgs,
     home-manager,
-    vscode-server,
     ...
   } @ inputs: let
     settings = rec {
@@ -136,12 +133,7 @@
         specialArgs = {inherit inputs outputs settings;};
         modules = [
           ./systems/fujin/configuration.nix
-          #! systemctl --user enable auto-fix-vscode-server.service
-	  vscode-server.nixosModules.default
-          ({ config, pkgs, ... }: {
-	     services.vscode-server.enable = true;
-	  })
-	];
+        ];
       };
     };
 

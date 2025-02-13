@@ -58,6 +58,7 @@
         pkief.material-product-icons
         github.copilot
         github.copilot-chat
+        ms-vscode-remote.remote-ssh
 
         # Look at later
         # https://marketplace.visualstudio.com/items?itemName=usernamehw.commands
