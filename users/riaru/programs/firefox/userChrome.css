@@ -299,6 +299,12 @@ body {
   order: 100;
 }
 
+/* Notification panel */
+
+#tab-notification-deck {
+  grid-column: span 2;
+}
+
 /* #userchrome-toggle_joolee_nl-BAP {
   position: fixed !important;
   bottom: 0;

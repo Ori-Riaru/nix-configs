@@ -28,6 +28,8 @@
     ./programs/shotcut.nix
     ./programs/gparted.nix
     ./programs/ventoy.nix
+    ./programs/godot.nix
+    ./programs/f3d.nix
 
     # Development
     ./programs/java.nix

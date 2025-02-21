@@ -56,8 +56,8 @@
     settings = rec {
       # --- Primary User Settings ---
       username = "riaru";
-      username-full = "Aki Riaru";
-      email = "riaruazaki@proton.me";
+      username-full = "Ori Riaru";
+      email = "ori-riaru@proton.me";
 
       # --- Themeing ---
       accent = purple;

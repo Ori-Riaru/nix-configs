@@ -22,7 +22,7 @@
         svelte.svelte-vscode
 
         # Rust
-        rust-lang.rust-analyzer
+        # rust-lang.rust-analyzer
         # vadimcn.vscode-lldb
         tamasfe.even-better-toml
         serayuzgur.crates
@@ -87,6 +87,7 @@
         hideoo.toggler
         littensy.charmed-icons
         jannisx11.batch-rename-extension
+        sleistner.vscode-fileutils
       ])
       ++ (with extensions.vscode-marketplace; [
         # Web

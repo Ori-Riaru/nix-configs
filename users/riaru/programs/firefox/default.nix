@@ -17,7 +17,7 @@
     profiles.${settings.username} = {
       isDefault = true;
 
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         darkreader
         bitwarden
         ublock-origin
