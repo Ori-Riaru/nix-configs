@@ -39,7 +39,7 @@
   # };
 
   # security.acme = {
-  #   email = "riaruazaki@proton.me";
+  #   email = "ori-riaru@proton.me";
   #   acceptTerms = true;
   # };
 }

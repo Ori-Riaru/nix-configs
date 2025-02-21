@@ -95,7 +95,7 @@
   #security.acme = {
   #  acceptTerms = true;
   #  certs = {
-  #    ${config.services.nextcloud.hostName}.email = "riaruazaki@proton.me";
+  #    ${config.services.nextcloud.hostName}.email = "ori-riaru@proton.me";
   #  };
   #};
 }
