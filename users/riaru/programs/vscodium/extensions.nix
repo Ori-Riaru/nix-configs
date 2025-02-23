@@ -3,7 +3,8 @@
   inputs,
   ...
 }: {
-  programs.vscode = let
+
+  programs.vscode.profiles.default = let
     extensions = inputs.nix-vscode-extensions.extensions.x86_64-linux;
   in {
     extensions = with pkgs.vscode-extensions;
