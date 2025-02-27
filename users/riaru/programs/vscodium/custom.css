@@ -1,11 +1,47 @@
 :root {
   --base: #080808; /* @nix settings.base */
+  --gap: 5px;
+  --radius: 8px;
 }
 
+.monaco-workbench {
+  --vscode-tab-inactiveBackground: #181818 !important;
+  --vscode-tab-activeBackground: #222222 !important;
+}
+
+/* Add gap between panels */
 .part {
-  margin: 5px !important;
-  border-radius: 8px !important;
-  height: calc(100% - 10px) !important;
+  margin: var(--gap) !important;
+  border-radius: var(--radius) !important;
+  height: calc(100% - 2 * var(--gap)) !important;
+}
+
+.left {
+  margin-right: 0 !important;
+}
+
+.right {
+  margin-left: 0 !important;
+}
+
+/* custom top tabs */
+
+.tabs-and-actions-container {
+  background: #181818 !important;
+}
+
+.tab {
+  border: 0 !important; 
+}
+
+.tab.active {
+  border-radius: 8px;
+  margin: 2px !important;
+  margin-top: 0 !important;
+}
+
+.editor-actions {
+  background: #181818;
 }
 
 .composite.panel {
@@ -17,9 +53,8 @@
 }
 
 .panel {
-  margin-right: 0 !important;
   margin-top: 0 !important;
-  height: calc(100% - 5px) !important;
+  height: calc(100% - var(--gap)) !important;
   padding: 5px !important;
 }
 
@@ -37,10 +72,6 @@
 
 .monaco-workbench {
   background: var(--base) !important;
-}
-
-.editor {
-  margin-right: 0 !important;
 }
 
 .content {
@@ -68,7 +99,7 @@
   right: calc(50% - 2em) !important;
 }
 
-/* Move open editor closse button to the left */
+/* Move open editor close button to the left */
 .open-editors .monaco-list .monaco-list-row {
   padding-left: 14px !important;
   padding-right: 12px !important;

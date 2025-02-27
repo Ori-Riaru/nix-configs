@@ -6,7 +6,7 @@
     loupe
 
     # Video Player
-    dragon
+    kdePackages.dragon
 
     # Audio Player
     amberol

@@ -70,7 +70,7 @@
         "workbench.activityBar.location" = "top";
         "window.menuBarVisibility" = "hidden";
         "workbench.statusBar.visible" = false;
-        "workbench.editor.showTabs" = "none";
+        "workbench.editor.showTabs" = "multiple>";
         "breadcrumbs.enabled" = false;
         "editor.minimap.renderCharacters" = false;
         "editor.scrollbar.verticalScrollbarSize" = 0;

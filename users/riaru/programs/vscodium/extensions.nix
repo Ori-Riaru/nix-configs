@@ -3,7 +3,6 @@
   inputs,
   ...
 }: {
-
   programs.vscode.profiles.default = let
     extensions = inputs.nix-vscode-extensions.extensions.x86_64-linux;
   in {
@@ -54,7 +53,7 @@
         aaron-bond.better-comments
         eamodio.gitlens
         gruntfuggly.todo-tree
-        supermaven.supermaven
+        # supermaven.supermaven
         ms-vsliveshare.vsliveshare
         pkief.material-product-icons
         github.copilot

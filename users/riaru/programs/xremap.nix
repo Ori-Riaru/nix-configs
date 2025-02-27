@@ -6,10 +6,6 @@
     enable = true;
     withKDE = true;
     config = {
-      virtual_modifiers = [
-        "CAPSLOCK"
-      ];
-
       modmap = [
         {
           name = "Extra Meta";
