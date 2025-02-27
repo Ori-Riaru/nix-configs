@@ -4,6 +4,9 @@
       {
         location = "top";
         height = 26;
+        hiding = "dodgewindows";
+        floating = false;
+        screen = "all";
 
         widgets = [
           "org.kde.plasma.notifications"
@@ -20,15 +23,25 @@
             name = "org.dhruv8sh.kara";
             config = {
               General = {
-                activeText = "■";
-                inactiveText = "▢";
-                dotSizeCustom = 22;
-                spacingHorizontal = 14;
+                animationDuration = 210;
+                highlightOpacityFull = false;
+                highlightType = 0;
+                spacing = 4;
+                type = 0;
+              };
+              type1 = {
+                t1activeHeight = 16;
+                t1activeWidth = 16;
+                t1height = 16;
+                t1radius = 2;
+                t1width = 16;
               };
             };
           }
 
-          "org.kde.plasma.panelspacer"
+          {
+            panelSpacer = {};
+          }
 
           {
             plasmusicToolbar = {
@@ -91,7 +104,9 @@
             };
           }
 
-          "org.kde.plasma.panelspacer"
+          {
+            panelSpacer = {};
+          }
 
           "org.kde.plasma.clipboard"
 
@@ -116,6 +131,858 @@
               ];
             };
           }
+          # {
+          #   name = "luisbocanegra.panel.colorizer";
+          #   config = {
+          #     General = {
+          #       isEnabled = true;
+          #       hideWidget = false;
+          #       enableDebug = false;
+          #       globalSettings = builtins.toJSON {
+          #         panel = {
+          #           enabled = false;
+          #           blurBehind = false;
+          #           backgroundColor = {
+          #             enabled = true;
+          #             lightnessValue = 0.5;
+          #             saturationValue = 0.5;
+          #             alpha = 1;
+          #             systemColor = "backgroundColor";
+          #             systemColorSet = "View";
+          #             custom = "#013eff";
+          #             list = [
+          #               "#ED8796"
+          #               "#A6DA95"
+          #               "#EED49F"
+          #               "#8AADF4"
+          #               "#F5BDE6"
+          #               "#8BD5CA"
+          #               "#f5a97f"
+          #             ];
+          #             followColor = 0;
+          #             saturationEnabled = false;
+          #             lightnessEnabled = false;
+          #             animation = {
+          #               enabled = false;
+          #               interval = 3000;
+          #               smoothing = 800;
+          #             };
+          #             sourceType = 1;
+          #           };
+          #           foregroundColor = {
+          #             enabled = false;
+          #             lightnessValue = 0.5;
+          #             saturationValue = 0.5;
+          #             alpha = 1;
+          #             systemColor = "highlightColor";
+          #             systemColorSet = "View";
+          #             custom = "#fc0000";
+          #             list = [
+          #               "#ED8796"
+          #               "#A6DA95"
+          #               "#EED49F"
+          #               "#8AADF4"
+          #               "#F5BDE6"
+          #               "#8BD5CA"
+          #               "#f5a97f"
+          #             ];
+          #             followColor = 0;
+          #             saturationEnabled = false;
+          #             lightnessEnabled = false;
+          #             animation = {
+          #               enabled = false;
+          #               interval = 3000;
+          #               smoothing = 800;
+          #             };
+          #             sourceType = 1;
+          #           };
+          #           radius = {
+          #             enabled = false;
+          #             corner = {
+          #               topLeft = 5;
+          #               topRight = 5;
+          #               bottomRight = 5;
+          #               bottomLeft = 5;
+          #             };
+          #           };
+          #           margin = {
+          #             enabled = false;
+          #             side = {
+          #               right = 0;
+          #               left = 0;
+          #               top = 0;
+          #               bottom = 0;
+          #             };
+          #           };
+          #           padding = {
+          #             enabled = false;
+          #             side = {
+          #               right = 0;
+          #               left = 0;
+          #               top = 0;
+          #               bottom = 0;
+          #             };
+          #           };
+          #           border = {
+          #             enabled = false;
+          #             customSides = false;
+          #             custom = {
+          #               widths = {
+          #                 left = 0;
+          #                 bottom = 3;
+          #                 right = 0;
+          #                 top = 0;
+          #               };
+          #               margin = {
+          #                 enabled = false;
+          #                 side = {
+          #                   right = 0;
+          #                   left = 0;
+          #                   top = 0;
+          #                   bottom = 0;
+          #                 };
+          #               };
+          #               radius = {
+          #                 enabled = false;
+          #                 corner = {
+          #                   topLeft = 5;
+          #                   topRight = 5;
+          #                   bottomRight = 5;
+          #                   bottomLeft = 5;
+          #                 };
+          #               };
+          #             };
+          #             width = 0;
+          #             color = {
+          #               lightnessValue = 0.5;
+          #               saturationValue = 0.5;
+          #               alpha = 1;
+          #               systemColor = "highlightColor";
+          #               systemColorSet = "View";
+          #               custom = "#ff6c06";
+          #               list = [
+          #                 "#ED8796"
+          #                 "#A6DA95"
+          #                 "#EED49F"
+          #                 "#8AADF4"
+          #                 "#F5BDE6"
+          #                 "#8BD5CA"
+          #                 "#f5a97f"
+          #               ];
+          #               followColor = 0;
+          #               saturationEnabled = false;
+          #               lightnessEnabled = false;
+          #               animation = {
+          #                 enabled = false;
+          #                 interval = 3000;
+          #                 smoothing = 800;
+          #               };
+          #               sourceType = 1;
+          #               enabled = true;
+          #             };
+          #           };
+          #           borderSecondary = {
+          #             enabled = false;
+          #             customSides = false;
+          #             custom = {
+          #               widths = {
+          #                 left = 0;
+          #                 bottom = 3;
+          #                 right = 0;
+          #                 top = 0;
+          #               };
+          #               margin = {
+          #                 enabled = false;
+          #                 side = {
+          #                   right = 0;
+          #                   left = 0;
+          #                   top = 0;
+          #                   bottom = 0;
+          #                 };
+          #               };
+          #               radius = {
+          #                 enabled = false;
+          #                 corner = {
+          #                   topLeft = 5;
+          #                   topRight = 5;
+          #                   bottomRight = 5;
+          #                   bottomLeft = 5;
+          #                 };
+          #               };
+          #             };
+          #             width = 0;
+          #             color = {
+          #               lightnessValue = 0.5;
+          #               saturationValue = 0.5;
+          #               alpha = 1;
+          #               systemColor = "highlightColor";
+          #               systemColorSet = "View";
+          #               custom = "#ff6c06";
+          #               list = [
+          #                 "#ED8796"
+          #                 "#A6DA95"
+          #                 "#EED49F"
+          #                 "#8AADF4"
+          #                 "#F5BDE6"
+          #                 "#8BD5CA"
+          #                 "#f5a97f"
+          #               ];
+          #               followColor = 0;
+          #               saturationEnabled = false;
+          #               lightnessEnabled = false;
+          #               animation = {
+          #                 enabled = false;
+          #                 interval = 3000;
+          #                 smoothing = 800;
+          #               };
+          #               sourceType = 1;
+          #               enabled = true;
+          #             };
+          #           };
+          #           shadow = {
+          #             background = {
+          #               enabled = false;
+          #               color = {
+          #                 lightnessValue = 0.5;
+          #                 saturationValue = 0.5;
+          #                 alpha = 1;
+          #                 systemColor = "backgroundColor";
+          #                 systemColorSet = "View";
+          #                 custom = "#282828";
+          #                 list = [
+          #                   "#ED8796"
+          #                   "#A6DA95"
+          #                   "#EED49F"
+          #                   "#8AADF4"
+          #                   "#F5BDE6"
+          #                   "#8BD5CA"
+          #                   "#f5a97f"
+          #                 ];
+          #                 followColor = 0;
+          #                 saturationEnabled = false;
+          #                 lightnessEnabled = false;
+          #                 animation = {
+          #                   enabled = false;
+          #                   interval = 3000;
+          #                   smoothing = 800;
+          #                 };
+          #                 sourceType = 1;
+          #                 enabled = true;
+          #               };
+          #               size = 5;
+          #               xOffset = 0;
+          #               yOffset = 0;
+          #             };
+          #             foreground = {
+          #               enabled = false;
+          #               color = {
+          #                 lightnessValue = 0.5;
+          #                 saturationValue = 0.5;
+          #                 alpha = 1;
+          #                 systemColor = "backgroundColor";
+          #                 systemColorSet = "View";
+          #                 custom = "#282828";
+          #                 list = [
+          #                   "#ED8796"
+          #                   "#A6DA95"
+          #                   "#EED49F"
+          #                   "#8AADF4"
+          #                   "#F5BDE6"
+          #                   "#8BD5C4"
+          #                   "#f5a97f"
+          #                 ];
+          #                 followColor = 0;
+          #                 saturationEnabled = false;
+          #                 lightnessEnabled = false;
+          #                 animation = {
+          #                   enabled = false;
+          #                   interval = 3000;
+          #                   smoothing = 800;
+          #                 };
+          #                 sourceType = 1;
+          #                 enabled = true;
+          #               };
+          #               size = 5;
+          #               xOffset = 0;
+          #               yOffset = 0;
+          #             };
+          #           };
+          #           floatingDialogs = false;
+          #         };
+          #         widgets = {
+          #           enabled = true;
+          #           blurBehind = false;
+          #           backgroundColor = {
+          #             enabled = true;
+          #             lightnessValue = 0.5;
+          #             saturationValue = 0.5;
+          #             alpha = 1;
+          #             systemColor = "backgroundColor";
+          #             systemColorSet = "View";
+          #             custom = "#013efF";
+          #             list = [
+          #               "#a080fF"
+          #               "#a080fF"
+          #               "#a080fF"
+          #               "#181818"
+          #               "#181818"
+          #               "#181818"
+          #               "#181818"
+          #               "#ff596b"
+          #               "#99ff82"
+          #               "#181818"
+          #               "#a080fF"
+          #               "#a080fF"
+          #               "#a080ff"
+          #             ];
+          #             followColor = 0;
+          #             saturationEnabled = false;
+          #             lightnessEnabled = false;
+          #             animation = {
+          #               enabled = false;
+          #               interval = 3000;
+          #               smoothing = 800;
+          #             };
+          #             sourceType = 2;
+          #           };
+          #           foregroundColor = {
+          #             enabled = false;
+          #             lightnessValue = 0.5;
+          #             saturationValue = 0.5;
+          #             alpha = 1;
+          #             systemColor = "highlightColor";
+          #             systemColorSet = "View";
+          #             custom = "#fc0000";
+          #             list = [
+          #               "#ED8796"
+          #               "#A6DA95"
+          #               "#EED49F"
+          #               "#8AADF4"
+          #               "#F5BDE6"
+          #               "#8BD5C4"
+          #               "#f5a97f"
+          #             ];
+          #             followColor = 0;
+          #             saturationEnabled = false;
+          #             lightnessEnabled = false;
+          #             animation = {
+          #               enabled = false;
+          #               interval = 3000;
+          #               smoothing = 800;
+          #             };
+          #             sourceType = 1;
+          #           };
+          #           radius = {
+          #             enabled = true;
+          #             corner = {
+          #               topLeft = 5;
+          #               topRight = 5;
+          #               bottomRight = 5;
+          #               bottomLeft = 5;
+          #             };
+          #           };
+          #           margin = {
+          #             enabled = true;
+          #             side = {
+          #               right = 0;
+          #               left = 0;
+          #               top = 2;
+          #               bottom = 2;
+          #             };
+          #           };
+          #           spacing = 4;
+          #           border = {
+          #             enabled = false;
+          #             customSides = false;
+          #             custom = {
+          #               widths = {
+          #                 left = 0;
+          #                 bottom = 3;
+          #                 right = 0;
+          #                 top = 0;
+          #               };
+          #               margin = {
+          #                 enabled = false;
+          #                 side = {
+          #                   right = 0;
+          #                   left = 0;
+          #                   top = 0;
+          #                   bottom = 0;
+          #                 };
+          #               };
+          #               radius = {
+          #                 enabled = false;
+          #                 corner = {
+          #                   topLeft = 5;
+          #                   topRight = 5;
+          #                   bottomRight = 5;
+          #                   bottomLeft = 5;
+          #                 };
+          #               };
+          #             };
+          #             width = 0;
+          #             color = {
+          #               lightnessValue = 0.5;
+          #               saturationValue = 0.5;
+          #               alpha = 1;
+          #               systemColor = "highlightColor";
+          #               systemColorSet = "View";
+          #               custom = "#ff6c06";
+          #               list = [
+          #                 "#ED8796"
+          #                 "#A6DA95"
+          #                 "#EED49F"
+          #                 "#8AADF4"
+          #                 "#F5BDE6"
+          #                 "#8BD5C4"
+          #                 "#f5a97f"
+          #               ];
+          #               followColor = 0;
+          #               saturationEnabled = false;
+          #               lightnessEnabled = false;
+          #               animation = {
+          #                 enabled = false;
+          #                 interval = 3000;
+          #                 smoothing = 800;
+          #               };
+          #               sourceType = 1;
+          #               enabled = true;
+          #             };
+          #           };
+          #           borderSecondary = {
+          #             enabled = false;
+          #             customSides = false;
+          #             custom = {
+          #               widths = {
+          #                 left = 0;
+          #                 bottom = 3;
+          #                 right = 0;
+          #                 top = 0;
+          #               };
+          #               margin = {
+          #                 enabled = false;
+          #                 side = {
+          #                   right = 0;
+          #                   left = 0;
+          #                   top = 0;
+          #                   bottom = 0;
+          #                 };
+          #               };
+          #               radius = {
+          #                 enabled = false;
+          #                 corner = {
+          #                   topLeft = 5;
+          #                   topRight = 5;
+          #                   bottomRight = 5;
+          #                   bottomLeft = 5;
+          #                 };
+          #               };
+          #             };
+          #             width = 0;
+          #             color = {
+          #               lightnessValue = 0.5;
+          #               saturationValue = 0.5;
+          #               alpha = 1;
+          #               systemColor = "highlightColor";
+          #               systemColorSet = "View";
+          #               custom = "#ff6c06";
+          #               list = [
+          #                 "#ED8796"
+          #                 "#A6DA95"
+          #                 "#EED49F"
+          #                 "#8AADF4"
+          #                 "#F5BDE6"
+          #                 "#8BD5C4"
+          #                 "#f5a97f"
+          #               ];
+          #               followColor = 0;
+          #               saturationEnabled = false;
+          #               lightnessEnabled = false;
+          #               animation = {
+          #                 enabled = false;
+          #                 interval = 3000;
+          #                 smoothing = 800;
+          #               };
+          #               sourceType = 1;
+          #               enabled = true;
+          #             };
+          #           };
+          #           shadow = {
+          #             background = {
+          #               enabled = false;
+          #               color = {
+          #                 lightnessValue = 0.5;
+          #                 saturationValue = 0.5;
+          #                 alpha = 1;
+          #                 systemColor = "backgroundColor";
+          #                 systemColorSet = "View";
+          #                 custom = "#282828";
+          #                 list = [
+          #                   "#ED8796"
+          #                   "#A6DA95"
+          #                   "#EED49F"
+          #                   "#8AADF4"
+          #                   "#F5BDE6"
+          #                   "#8BD5C4"
+          #                   "#f5a97f"
+          #                 ];
+          #                 followColor = 0;
+          #                 saturationEnabled = false;
+          #                 lightnessEnabled = false;
+          #                 animation = {
+          #                   enabled = false;
+          #                   interval = 3000;
+          #                   smoothing = 800;
+          #                 };
+          #                 sourceType = 1;
+          #                 enabled = true;
+          #               };
+          #               size = 5;
+          #               xOffset = 0;
+          #               yOffset = 0;
+          #             };
+          #             foreground = {
+          #               enabled = false;
+          #               color = {
+          #                 lightnessValue = 0.5;
+          #                 saturationValue = 0.5;
+          #                 alpha = 1;
+          #                 systemColor = "backgroundColor";
+          #                 systemColorSet = "View";
+          #                 custom = "#282828";
+          #                 list = [
+          #                   "#ED8796"
+          #                   "#A6DA95"
+          #                   "#EED49F"
+          #                   "#8AADF4"
+          #                   "#F5BDE6"
+          #                   "#8BD5C4"
+          #                   "#f5a97f"
+          #                 ];
+          #                 followColor = 0;
+          #                 saturationEnabled = false;
+          #                 lightnessEnabled = false;
+          #                 animation = {
+          #                   enabled = false;
+          #                   interval = 3000;
+          #                   smoothing = 800;
+          #                 };
+          #                 sourceType = 1;
+          #                 enabled = true;
+          #               };
+          #               size = 5;
+          #               xOffset = 0;
+          #               yOffset = 0;
+          #             };
+          #           };
+          #         };
+          #         trayWidgets = {
+          #           enabled = false;
+          #           blurBehind = false;
+          #           backgroundColor = {
+          #             enabled = false;
+          #             lightnessValue = 0.5;
+          #             saturationValue = 0.5;
+          #             alpha = 1;
+          #             systemColor = "backgroundColor";
+          #             systemColorSet = "View";
+          #             custom = "#013efF";
+          #             list = [
+          #               "#ED8796"
+          #               "#A6DA95"
+          #               "#EED49F"
+          #               "#8AADF4"
+          #               "#F5BDE6"
+          #               "#8BD5C4"
+          #               "#f5a97f"
+          #             ];
+          #             followColor = 0;
+          #             saturationEnabled = false;
+          #             lightnessEnabled = false;
+          #             animation = {
+          #               enabled = false;
+          #               interval = 3000;
+          #               smoothing = 800;
+          #             };
+          #             sourceType = 1;
+          #           };
+          #           foregroundColor = {
+          #             enabled = false;
+          #             lightnessValue = 0.5;
+          #             saturationValue = 0.5;
+          #             alpha = 1;
+          #             systemColor = "highlightColor";
+          #             systemColorSet = "View";
+          #             custom = "#fc0000";
+          #             list = [
+          #               "#ED8796"
+          #               "#A6DA95"
+          #               "#EED49F"
+          #               "#8AADF4"
+          #               "#F5BDE6"
+          #               "#8BD5C4"
+          #               "#f5a97f"
+          #             ];
+          #             followColor = 0;
+          #             saturationEnabled = false;
+          #             lightnessEnabled = false;
+          #             animation = {
+          #               enabled = false;
+          #               interval = 3000;
+          #               smoothing = 800;
+          #             };
+          #             sourceType = 1;
+          #           };
+          #           radius = {
+          #             enabled = false;
+          #             corner = {
+          #               topLeft = 5;
+          #               topRight = 5;
+          #               bottomRight = 5;
+          #               bottomLeft = 5;
+          #             };
+          #           };
+          #           margin = {
+          #             enabled = false;
+          #             side = {
+          #               right = 0;
+          #               left = 0;
+          #               top = 0;
+          #               bottom = 0;
+          #             };
+          #           };
+          #           border = {
+          #             enabled = false;
+          #             customSides = false;
+          #             custom = {
+          #               widths = {
+          #                 left = 0;
+          #                 bottom = 3;
+          #                 right = 0;
+          #                 top = 0;
+          #               };
+          #               margin = {
+          #                 enabled = false;
+          #                 side = {
+          #                   right = 0;
+          #                   left = 0;
+          #                   top = 0;
+          #                   bottom = 0;
+          #                 };
+          #               };
+          #               radius = {
+          #                 enabled = false;
+          #                 corner = {
+          #                   topLeft = 5;
+          #                   topRight = 5;
+          #                   bottomRight = 5;
+          #                   bottomLeft = 5;
+          #                 };
+          #               };
+          #             };
+          #             width = 0;
+          #             color = {
+          #               lightnessValue = 0.5;
+          #               saturationValue = 0.5;
+          #               alpha = 1;
+          #               systemColor = "highlightColor";
+          #               systemColorSet = "View";
+          #               custom = "#ff6c06";
+          #               list = [
+          #                 "#ED8796"
+          #                 "#A6DA95"
+          #                 "#EED49F"
+          #                 "#8AADF4"
+          #                 "#F5BDE6"
+          #                 "#8BD5C4"
+          #                 "#f5a97f"
+          #               ];
+          #               followColor = 0;
+          #               saturationEnabled = false;
+          #               lightnessEnabled = false;
+          #               animation = {
+          #                 enabled = false;
+          #                 interval = 3000;
+          #                 smoothing = 800;
+          #               };
+          #               sourceType = 1;
+          #               enabled = true;
+          #             };
+          #           };
+          #           borderSecondary = {
+          #             enabled = false;
+          #             customSides = false;
+          #             custom = {
+          #               widths = {
+          #                 left = 0;
+          #                 bottom = 3;
+          #                 right = 0;
+          #                 top = 0;
+          #               };
+          #               margin = {
+          #                 enabled = false;
+          #                 side = {
+          #                   right = 0;
+          #                   left = 0;
+          #                   top = 0;
+          #                   bottom = 0;
+          #                 };
+          #               };
+          #               radius = {
+          #                 enabled = false;
+          #                 corner = {
+          #                   topLeft = 5;
+          #                   topRight = 5;
+          #                   bottomRight = 5;
+          #                   bottomLeft = 5;
+          #                 };
+          #               };
+          #             };
+          #             width = 0;
+          #             color = {
+          #               lightnessValue = 0.5;
+          #               saturationValue = 0.5;
+          #               alpha = 1;
+          #               systemColor = "highlightColor";
+          #               systemColorSet = "View";
+          #               custom = "#ff6c06";
+          #               list = [
+          #                 "#ED8796"
+          #                 "#A6DA95"
+          #                 "#EED49F"
+          #                 "#8AADF4"
+          #                 "#F5BDE6"
+          #                 "#8BD5C4"
+          #                 "#f5a97f"
+          #               ];
+          #               followColor = 0;
+          #               saturationEnabled = false;
+          #               lightnessEnabled = false;
+          #               animation = {
+          #                 enabled = false;
+          #                 interval = 3000;
+          #                 smoothing = 800;
+          #               };
+          #               sourceType = 1;
+          #               enabled = true;
+          #             };
+          #           };
+          #           shadow = {
+          #             background = {
+          #               enabled = false;
+          #               color = {
+          #                 lightnessValue = 0.5;
+          #                 saturationValue = 0.5;
+          #                 alpha = 1;
+          #                 systemColor = "backgroundColor";
+          #                 systemColorSet = "View";
+          #                 custom = "#282828";
+          #                 list = [
+          #                   "#ED8796"
+          #                   "#A6DA95"
+          #                   "#EED49F"
+          #                   "#8AADF4"
+          #                   "#F5BDE6"
+          #                   "#8BD5C4"
+          #                   "#f5a97f"
+          #                 ];
+          #                 followColor = 0;
+          #                 saturationEnabled = false;
+          #                 lightnessEnabled = false;
+          #                 animation = {
+          #                   enabled = false;
+          #                   interval = 3000;
+          #                   smoothing = 800;
+          #                 };
+          #                 sourceType = 1;
+          #                 enabled = true;
+          #               };
+          #               size = 5;
+          #               xOffset = 0;
+          #               yOffset = 0;
+          #             };
+          #             foreground = {
+          #               enabled = false;
+          #               color = {
+          #                 lightnessValue = 0.5;
+          #                 saturationValue = 0.5;
+          #                 alpha = 1;
+          #                 systemColor = "backgroundColor";
+          #                 systemColorSet = "View";
+          #                 custom = "#282828";
+          #                 list = [
+          #                   "#ED8796"
+          #                   "#A6DA95"
+          #                   "#EED49F"
+          #                   "#8AADF4"
+          #                   "#F5BDE6"
+          #                   "#8BD5C4"
+          #                   "#f5a97f"
+          #                 ];
+          #                 followColor = 0;
+          #                 saturationEnabled = false;
+          #                 lightnessEnabled = false;
+          #                 animation = {
+          #                   enabled = false;
+          #                   interval = 3000;
+          #                   smoothing = 800;
+          #                 };
+          #                 sourceType = 1;
+          #                 enabled = true;
+          #               };
+          #               size = 5;
+          #               xOffset = 0;
+          #               yOffset = 0;
+          #             };
+          #           };
+          #         };
+          #         nativePanelBackground = {
+          #           enabled = false;
+          #           opacity = 1;
+          #         };
+          #         stockPanelSettings = {
+          #           position = {
+          #             enabled = false;
+          #             value = "top";
+          #           };
+          #           alignment = {
+          #             enabled = false;
+          #             value = "center";
+          #           };
+          #           lengthMode = {
+          #             enabled = false;
+          #             value = "fill";
+          #           };
+          #           visibility = {
+          #             enabled = false;
+          #             value = "none";
+          #           };
+          #           opacity = {
+          #             enabled = false;
+          #             value = "adaptive";
+          #           };
+          #           floating = {
+          #             enabled = false;
+          #             value = false;
+          #           };
+          #           thickness = {
+          #             enabled = false;
+          #             value = 48;
+          #           };
+          #           visible = {
+          #             enabled = false;
+          #             value = true;
+          #           };
+          #         };
+          #         configurationOverrides = {
+          #           overrides = {};
+          #           associations = [];
+          #         };
+          #         unifiedBackground = [];
+          #       };
+          #     };
+          #   };
+          # }
 
           {
             plasmaPanelColorizer = {
@@ -128,7 +995,7 @@
 
                 colors = {
                   source = "customList";
-                  customColorList = ["${settings.accent}" "${settings.accent}" "${settings.accent}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.red}" "${settings.teal}" "${settings.base}" "${settings.accent}" "${settings.accent}" "${settings.accent} "];
+                  customColorList = ["${settings.accent}" "${settings.accent}" "${settings.accent}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.red}" "${settings.teal}" "${settings.base}" "${settings.accent}" "${settings.accent}" "${settings.accent}"];
                 };
 
                 shape = {
@@ -160,9 +1027,6 @@
             };
           }
         ];
-
-        floating = false;
-        hiding = "dodgewindows";
       }
     ];
   };

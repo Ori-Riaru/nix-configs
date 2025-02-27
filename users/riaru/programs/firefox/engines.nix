@@ -29,15 +29,15 @@
           "@app"
           "@home"
           "@homemanager"
-          "np:"
-          "packages:"
-          "package:"
-          "nix:"
-          "nixos:"
-          "program:"
-          "app:"
-          "home:"
-          "homemanager:"
+          "np;"
+          "packages;"
+          "package;"
+          "nix;"
+          "nixos;"
+          "program;"
+          "app;"
+          "home;"
+          "homemanager;"
         ];
       };
 
@@ -60,9 +60,9 @@
           "@yt"
           "@youtube"
           "@video"
-          "yt:"
-          "youtube:"
-          "video:"
+          "yt;"
+          "youtube;"
+          "video;"
         ];
       };
 
@@ -85,9 +85,9 @@
           "@at"
           "@alternative"
           "@alternativeto"
-          "at:"
-          "alternative:"
-          "alternativeto:"
+          "at;"
+          "alternative;"
+          "alternativeto;"
         ];
       };
 
@@ -113,8 +113,8 @@
         definedAliases = [
           "@r"
           "@reddit"
-          "r:"
-          "reddit:"
+          "r;"
+          "reddit;"
         ];
       };
 
@@ -136,8 +136,8 @@
         definedAliases = [
           "@am"
           "@amazon"
-          "am:"
-          "amazon:"
+          "am;"
+          "amazon;"
         ];
       };
 
@@ -154,13 +154,14 @@
           }
         ];
 
-        iconUpdateURL = "https://reddit.com/favicon.ico";
+        iconUpdateURL = "https://phtn.app/img/logo-background.svg";
         updateInterval = 7 * 24 * 60 * 60 * 1000;
         definedAliases = [
           "@l"
           "@lemmy"
-          "l:"
-          "lemmy:"
+          "l;"
+          "lemmy;"
+          "phtn;"
         ];
       };
 
@@ -182,8 +183,8 @@
         definedAliases = [
           "@al"
           "@anilist"
-          "al:"
-          "anilist:"
+          "al;"
+          "anilist;"
         ];
       };
 
@@ -214,9 +215,9 @@
           "@anime"
           "@miru"
           "@miruro"
-          "anime:"
-          "miru:"
-          "miruro:"
+          "anime;"
+          "miru;"
+          "miruro;"
         ];
       };
 
@@ -248,10 +249,10 @@
           "@games"
           "@game"
           "@ovagames"
-          "ova:"
-          "games:"
-          "game:"
-          "ovagames:"
+          "ova;"
+          "games;"
+          "game;"
+          "ovagames;"
         ];
       };
 
@@ -274,9 +275,9 @@
           "@cs"
           "@csrin"
           "@csrinru"
-          "cs:"
-          "csrin:"
-          "csrinru:"
+          "cs;"
+          "csrin;"
+          "csrinru;"
         ];
       };
 
@@ -306,8 +307,8 @@
         definedAliases = [
           "@of"
           "@onlinefix"
-          "of:"
-          "onlinefix:"
+          "of;"
+          "onlinefix;"
         ];
       };
 
@@ -329,8 +330,8 @@
         definedAliases = [
           "@steam"
           "@s"
-          "steam:"
-          "s:"
+          "steam;"
+          "s;"
         ];
       };
 
@@ -356,8 +357,8 @@
         definedAliases = [
           "@git"
           "@github"
-          "git:"
-          "github:"
+          "git;"
+          "github;"
         ];
       };
 
@@ -380,9 +381,9 @@
           "@new"
           "@egg"
           "@newegg"
-          "new:"
-          "egg:"
-          "newegg:"
+          "new;"
+          "egg;"
+          "newegg;"
         ];
       };
     };

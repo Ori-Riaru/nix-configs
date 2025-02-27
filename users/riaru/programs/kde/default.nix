@@ -6,6 +6,7 @@
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
     ./panels.nix
+    ./shortcuts.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,13 +15,13 @@
     kdePackages.krohnkite
     plasmusic-toolbar
     kara
-    # tela-icon-theme
     bibata-cursors
     simple-kickoff
   ];
 
   programs.plasma = {
     enable = true;
+    overrideConfig = true;
 
     workspace = {
       cursor = {
@@ -30,7 +31,12 @@
 
       iconTheme = "Tela-black-dark";
 
+      # Wallpaper & lockscreen
+      wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/programs/kde/wallpaper.png";
       clickItemTo = "open";
+
+      colorScheme = "Neutral Dark";
+      #windowDecorations
     };
 
     fonts = {
@@ -40,61 +46,39 @@
       };
     };
 
-    shortcuts = {
-      kwin = {
-        # Window management
-        "Window Close" = "Meta+Z";
-        "Window Maximize" = "Meta+M";
-        "Window Minimize" = "Meta+W";
-
-        # Switch desktops
-        "Switch to Next Desktop" = "Meta+R";
-        "Switch to Previous Desktop" = "Meta+C";
-        "Window to Next Desktop" = "Meta+Shift+R";
-        "Window to Previous Desktop" = "Meta+Shift+C";
-
-        # Karousel change focus
-        "karousel-focus-down" = "Meta+N";
-        "karousel-focus-left" = [
-          "Meta+H"
-          "Meta+Ctrl+Tab"
-        ];
-        "karousel-focus-right" = [
-          "Meta+S"
-          "Meta+Tab"
-        ];
-        "karousel-focus-up" = "Meta+T";
-
-        # Karousel move window
-        "karousel-window-move-down" = "Meta+Shift+N";
-        "karousel-window-move-left" = ["Meta+Ctrl+Shift+Tab" "Meta+Shift+H"];
-        "karousel-window-move-right" = ["Meta+Shift+S" "Meta+Shift+Tab"];
-        "karousel-window-move-up" = "Meta+Shift+T";
-        "karousel-window-toggle-floating" = "Meta+Space";
-      };
-
-      # Keyboard Layouts
-      "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Meta+Alt+Space,Meta+Alt+K,Switch to Next Keyboard Layout";
-
-      "plasmashell"."activate application launcher" = "Meta";
-      "services/org.kde.krunner.desktop"."_launch" = "Alt";
-    };
-
     configFile = {
+      ###########
+      # General #
+      ###########
+
       # Default Terminal
       "kdeglobals"."General"."TerminalApplication" = "kitty";
       "kdeglobals"."General"."TerminalService" = "kitty.desktop";
 
-      # Virtual Desktops
+      # Highlight non default settings
+      "systemsettingsrc"."systemsettings_sidebar_mode"."HighlightNonDefaultSettings" = true;
+
+      # Animation speed
+      "kdeglobals"."KDE"."AnimationDurationFactor" = 0.7071067811865475;
+
+      #####################
+      # Window Management #
+      #####################
+
+      # Focus follows mouse
+      "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
+
+      # Desktops
       "kwinrc"."Desktops"."Number" = 4;
       "kwinrc"."Desktops"."Rows" = 4;
+      "kwinrc"."Windows"."RollOverDesktops" = true;
 
-      # One of these will have to be disabled
-      # "kwinrc"."Plugins"."krohnkiteEnabled" = true;
+      ################
+      # Kwin scripts #
+      ################
 
-      # Karousel
+      # karousel
       "kwinrc"."Plugins"."karouselEnabled" = true;
-
       "kwinrc"."Script-karousel"."gapsInnerHorizontal" = 0;
       "kwinrc"."Script-karousel"."gapsInnerVertical" = 0;
       "kwinrc"."Script-karousel"."gapsOuterBottom" = 0;
@@ -104,69 +88,75 @@
       "kwinrc"."Script-karousel"."manualScrollStep" = 150;
       "kwinrc"."Script-karousel"."reMaximize" = true;
       "kwinrc"."Script-karousel"."untileOnDrag" = true;
+      "kwinrc"."Script-karousel"."tiledKeepBelow" = false;
+
+      ###################
+      # Desktop Effects #
+      ###################
 
       # Desktop Effects
       "kwinrc"."Plugins"."kwin4_effect_geometry_changeEnabled" = true;
+
+      # Geometry change
       "kwinrc"."Plugins"."desktopchangeosdEnabled" = false;
       "kwinrc"."Effect-kwin4_effect_geometry_change"."Duration" = 500;
 
-      "kwinrc"."ًRound-Corners"."AnimationEnabled" = false;
-      "kwinrc"."ًRound-Corners"."InactiveCornerRadius" = 7;
-      "kwinrc"."ًRound-Corners"."InactiveShadowSize" = 5;
-      "kwinrc"."ًRound-Corners"."ShadowSize" = 5;
-      "kwinrc"."ًRound-Corners"."Size" = 7;
+      # Rounded Corners
+      "kwinrc"."Round-Corners"."ActiveOutlineAlpha" = 255;
+      "kwinrc"."Round-Corners"."DisableOutlineTile" = false;
+      "kwinrc"."Round-Corners"."DisableRoundTile" = false;
+      "kwinrc"."Round-Corners"."InactiveCornerRadius" = 6;
+      "kwinrc"."Round-Corners"."InactiveOutlineAlpha" = 0;
+      "kwinrc"."Round-Corners"."InactiveOutlineThickness" = 2;
+      "kwinrc"."Round-Corners"."InactiveSecondOutlineThickness" = 0;
+      "kwinrc"."Round-Corners"."OutlineColor" = "160,128,255";
+      "kwinrc"."Round-Corners"."OutlineThickness" = 2;
+      "kwinrc"."Round-Corners"."SecondOutlineThickness" = 0;
+      "kwinrc"."Round-Corners"."Size" = 6;
 
-      "kwinrc"."PrimaryOutline"."InactiveOutlineAlpha" = 136;
-      "kwinrc"."PrimaryOutline"."InactiveOutlineColor" = "117,117,117";
-      "kwinrc"."PrimaryOutline"."InactiveOutlineThickness" = 2.5;
-      "kwinrc"."PrimaryOutline"."OutlineColor" = "160,128,255";
-      "kwinrc"."PrimaryOutline"."OutlineThickness" = 2.5;
-
-      "kwinrc"."SecondOutline"."InactiveSecondOutlineThickness" = 0;
-      "kwinrc"."SecondOutline"."SecondOutlineThickness" = 0;
-      "kwinrc"."MaximizeTile"."DisableOutlineMaximize" = true;
-      "kwinrc"."MaximizeTile"."DisableOutlineTile" = false;
-
+      # Highlight edge effects
       "kwinrc"."Plugins"."screenedgeEnabled" = false;
 
-      # Theming
+      # Overview
+      "kwinrc"."Effect-overview"."BorderActivate" = 2;
 
-      "klaunchrc"."BusyCursorSettings"."Bouncing" = false;
-      "klaunchrc"."FeedbackStyle"."BusyCursor" = false;
+      # Virtual Desktop transition
+      "kwinrc"."Effect-slide"."HorizontalGap" = 0;
+      "kwinrc"."Effect-slide"."SlideBackground" = false;
+      "kwinrc"."Effect-slide"."VerticalGap" = 0;
 
+      ##########
+      # Themes #
+      ##########
+
+      "kdeglobals"."General"."AccentColor" = "160,128,255";
+      # "kdeglobals"."General"."LastUsedCustomAccentColor" = "160,128,255";
+      # "kdeglobals"."WM"."activeBackground" = "49,54,59";
+      # "kdeglobals"."WM"."activeBlend" = "252,252,252";
+      # "kdeglobals"."WM"."activeForeground" = "252,252,252";
+      # "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
+      # "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
+      # "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
+
+      # Widget style
+      "kdeglobals"."KDE"."widgetStyle" = "Breeze";
+
+      # Start Splash screen
+      "ksplashrc"."KSplash"."Engine" = "none";
+      "ksplashrc"."KSplash"."Theme" = "None";
+
+      # Subpixel font rendering
       "kdeglobals"."General"."XftAntialias" = true;
       "kdeglobals"."General"."XftHintStyle" = "hintslight";
       "kdeglobals"."General"."XftSubPixel" = "rgb";
 
-      "kdeglobals"."General"."AccentColor" = "160,128,255";
-      "kdeglobals"."General"."LastUsedCustomAccentColor" = "160,128,255";
+      # Disable cursor loading animation
+      "klaunchrc"."BusyCursorSettings"."Bouncing" = false;
+      "klaunchrc"."FeedbackStyle"."BusyCursor" = false;
 
-      "kdeglobals"."WM"."activeBackground" = "49,54,59";
-      "kdeglobals"."WM"."activeBlend" = "252,252,252";
-      "kdeglobals"."WM"."activeForeground" = "252,252,252";
-      "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
-      "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
-      "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
-
-      "ksplashrc"."KSplash"."Engine" = "none";
-      "ksplashrc"."KSplash"."Theme" = "None";
-
-      # Krunner
-      "krunnerrc"."General"."FreeFloating" = true;
-      "krunnerrc"."General"."historyBehavior" = "ImmediateCompletion";
-      "krunnerrc"."Plugins"."baloosearchEnabled" = true;
-      "krunnerrc"."Plugins"."krunner_powerdevilEnabled" = true;
-      "krunnerrc"."Plugins/Favorites"."plugins" = "windows,krunner_services,browsertabs,krunner_bookmarksrunner,calculator,org.kde.datetime,krunner_webshortcuts,krunner_powerdevil";
-
-      # Settings app
-      "systemsettingsrc"."systemsettings_sidebar_mode"."HighlightNonDefaultSettings" = true;
-
-      # Dolphin
-      # "dolphinrc"."ContextMenu"."ShowAddToPlaces" = false;
-      # "dolphinrc"."General"."BrowseThroughArchives" = true;
-      # "dolphinrc"."General"."FilterBar" = true;
-      # "dolphinrc"."General"."ShowFullPath" = true;
-      # "dolphinrc"."General"."ShowStatusBar" = false;
+      ############
+      # Keyboard #
+      ############
 
       "kxkbrc"."Layout"."DisplayNames" = ",";
       "kxkbrc"."Layout"."LayoutList" = "us,us";
@@ -174,11 +164,35 @@
       "kxkbrc"."Layout"."Use" = true;
       "kxkbrc"."Layout"."VariantList" = "dvorak,";
 
-      # Misc
-      "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
+      ###########
+      # Krunner #
+      ###########
+
+      "krunnerrc"."General"."FreeFloating" = true;
+      "krunnerrc"."General"."historyBehavior" = "ImmediateCompletion";
+      "krunnerrc"."Plugins"."baloosearchEnabled" = true;
+      "krunnerrc"."Plugins"."krunner_powerdevilEnabled" = true;
+      "krunnerrc"."Plugins/Favorites"."plugins" = "windows,krunner_services,browsertabs,krunner_bookmarksrunner,calculator,org.kde.datetime,krunner_webshortcuts,krunner_powerdevil";
+
+      ##########
+      # System #
+      ##########
       "ksmserverrc"."General"."confirmLogout" = false;
 
-      #! SYSTEM SPECIFIC
+      ##################
+      # Input & Output #
+      ##################
+
+      # Disable edge and corner barriers
+      "kwinrc"."EdgeBarrier"."CornerBarrier" = false;
+      "kwinrc"."EdgeBarrier"."EdgeBarrier" = 0;
+
+      # Laptop track pad
+      "kcminputrc"."Libinput/1739/52542/MSFT0001:01 06CB:CD3E Touchpad"."ClickMethod" = 2;
+      "kcminputrc"."Libinput/1739/52542/MSFT0001:01 06CB:CD3E Touchpad"."PointerAcceleration" = 0.400;
+      "kcminputrc"."Libinput/1739/52542/MSFT0001:01 06CB:CD3E Touchpad"."ScrollFactor" = 0.5;
+
+      # G502 mouse
       "kcminputrc"."Libinput/1133/49970/Logitech Gaming Mouse G502"."PointerAccelerationProfile" = 1;
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."ClickMethod" = 2;
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."DisableWhileTyping" = false;
