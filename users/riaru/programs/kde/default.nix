@@ -21,7 +21,7 @@
 
   programs.plasma = {
     enable = true;
-    overrideConfig = true;
+    # overrideConfig = true;
 
     workspace = {
       cursor = {
@@ -163,6 +163,8 @@
       "kxkbrc"."Layout"."Model" = "trust_slimline";
       "kxkbrc"."Layout"."Use" = true;
       "kxkbrc"."Layout"."VariantList" = "dvorak,";
+      "kxkbrc"."Layout"."Options" = "ctrl:nocaps";
+      "kxkbrc"."Layout"."ResetOldOptions" = true;
 
       ###########
       # Krunner #

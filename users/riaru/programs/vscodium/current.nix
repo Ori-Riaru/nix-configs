@@ -404,6 +404,8 @@
       "kxkbrc"."Layout"."DisplayNames" = ",";
       "kxkbrc"."Layout"."LayoutList" = "us,us";
       "kxkbrc"."Layout"."Model" = "trust_slimline";
+      "kxkbrc"."Layout"."Options" = "ctrl:nocaps";
+      "kxkbrc"."Layout"."ResetOldOptions" = true;
       "kxkbrc"."Layout"."Use" = true;
       "kxkbrc"."Layout"."VariantList" = "dvorak,";
       "systemsettingsrc"."systemsettings_sidebar_mode"."HighlightNonDefaultSettings" = true;
