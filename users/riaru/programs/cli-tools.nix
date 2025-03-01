@@ -7,5 +7,6 @@
     btop
     speedtest-cli
     lf
+    xclip
   ];
 }

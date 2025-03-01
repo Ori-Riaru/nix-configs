@@ -131,6 +131,7 @@
               ];
             };
           }
+          
           # {
           #   name = "luisbocanegra.panel.colorizer";
           #   config = {

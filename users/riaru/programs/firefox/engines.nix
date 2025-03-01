@@ -6,6 +6,7 @@
   programs.firefox = {
     profiles.${settings.username}.search = {
       default = "DuckDuckGo";
+      force = true;
       engines = {
         "Nix" = {
           urls = [
@@ -57,7 +58,7 @@
           ];
 
           iconUpdateURL = "https://www.youtube.com/s/desktop/28bb7000/img/favicon_48x48.png";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@yt"
             "@youtube"
@@ -82,7 +83,7 @@
           ];
 
           iconUpdateURL = "https://alternativeto.net/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@at"
             "@alternative"
@@ -111,7 +112,7 @@
           ];
 
           iconUpdateURL = "https://reddit.com/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@r"
             "@reddit"
@@ -134,7 +135,7 @@
           ];
 
           iconUpdateURL = "https://www.amazon.ca/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@am"
             "@amazon"
@@ -157,7 +158,7 @@
           ];
 
           iconUpdateURL = "https://phtn.app/img/logo-background.svg";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@l"
             "@lemmy"
@@ -181,7 +182,7 @@
           ];
 
           iconUpdateURL = "https://anilist.co/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@al"
             "@anilist"
@@ -212,7 +213,7 @@
           ];
 
           iconUpdateURL = "https://www.miruro.to/icons/favicon-32x32.png";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@anime"
             "@miru"
@@ -245,7 +246,7 @@
           ];
 
           iconUpdateURL = "https://www.ovagames.com/wp-content/uploads/2020/01/OG-Gaming-web-logo.png";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@ova"
             "@games"
@@ -272,7 +273,7 @@
           ];
 
           iconUpdateURL = "https://cs.rin.ru/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@cs"
             "@csrin"
@@ -305,7 +306,7 @@
           ];
 
           iconUpdateURL = "https://online-fix.me/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@of"
             "@onlinefix"
@@ -328,7 +329,7 @@
           ];
 
           iconUpdateURL = "https://store.steampowered.com/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@steam"
             "@s"
@@ -355,7 +356,7 @@
           ];
 
           iconUpdateURL = "https://github.com/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@git"
             "@github"
@@ -378,7 +379,7 @@
           ];
 
           iconUpdateURL = "https://github.com/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@new"
             "@egg"
@@ -402,7 +403,7 @@
           ];
 
           iconUpdateURL = "https://chatgpt.com/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@gpt"
             "@chat"
@@ -426,7 +427,7 @@
           ];
 
           iconUpdateURL = "https://claude.ai/favicon.ico";
-          updateInterval = 7 * 24 * 60 * 60 * 1000;
+          updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@claude"
             "@cd"

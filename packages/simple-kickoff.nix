@@ -10,10 +10,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   version = "2.5";
 
   src = fetchFromGitHub {
-    owner = "HimDek";
+    owner = "Damglador";
     repo = "Simple-Kickoff-for-Plasma";
-    rev = "8a99d70ea20b16fb624fc7ce3de005271178f40f";
-    hash = "sha256-6/+O4u295ym+WAfjgfdeFl7jjxhX0pKzZAzD8OyRDS0=";
+    rev = "patch-1";
+    hash = "sha256-+eCpU9xkl6tYoYNPfGb4nZFz1I4JPLNINBK3rhPn+lQ=";
   };
 
   nativeBuildInputs = [zip];

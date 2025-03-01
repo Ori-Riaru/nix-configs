@@ -28,6 +28,8 @@
 
       code = "codium";
       configs = "codium ~/Projects/nix-configs";
+      clipboard = "xclip -selection clipboard";
+      clip = "xclip -selection clipboard";
     };
 
     functions = {

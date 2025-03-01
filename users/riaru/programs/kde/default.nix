@@ -10,13 +10,12 @@
   ];
 
   home.packages = with pkgs; [
-    # dracula-icon-theme
     kdePackages.karousel
     kdePackages.krohnkite
-    plasmusic-toolbar
-    kara
-    bibata-cursors
     simple-kickoff
+
+    bibata-cursors
+    (pkgs.papirus-icon-theme.override {color = "black";})
   ];
 
   programs.plasma = {
@@ -29,7 +28,7 @@
         size = 22;
       };
 
-      iconTheme = "Tela-black-dark";
+      iconTheme = "Papirus-Dark";
 
       # Wallpaper & lockscreen
       wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/programs/kde/wallpaper.png";
@@ -51,9 +50,10 @@
       # General #
       ###########
 
-      # Default Terminal
+      # Default Applications
       "kdeglobals"."General"."TerminalApplication" = "kitty";
       "kdeglobals"."General"."TerminalService" = "kitty.desktop";
+      "kdeglobals"."General"."BrowserApplication" = "firefox";
 
       # Highlight non default settings
       "systemsettingsrc"."systemsettings_sidebar_mode"."HighlightNonDefaultSettings" = true;
@@ -200,6 +200,20 @@
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."DisableWhileTyping" = false;
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."PointerAcceleration" = 0.600;
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."TapDragLock" = true;
+    };
+  };
+
+  xdg = {
+    enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
+      };
     };
   };
 }
