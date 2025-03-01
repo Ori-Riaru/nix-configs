@@ -38,6 +38,8 @@
       #windowDecorations
     };
 
+    kscreenlocker.appearance.wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/programs/kde/wallpaper.png";
+
     fonts = {
       general = {
         family = "Inter Variable";

@@ -3,7 +3,11 @@
   settings,
   ...
 }: {
+  config.system.activationScripts.createIcon = "ln -sfn /home/riaru/Projects/nix-configs/systems/share/users/riaru/avatar.jpeg /var/lib/AccountsService/icons/tye";
+
   users.users.${settings.username} = {
+    icon = ./avatar.jpeg;
+
     initialPassword = "ChangeMe";
     isNormalUser = true;
     shell = pkgs.fish;
