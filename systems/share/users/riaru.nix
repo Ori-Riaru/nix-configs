@@ -3,7 +3,9 @@
   settings,
   ...
 }: {
-  config.system.activationScripts.createIcon = "ln -sfn /home/riaru/Projects/nix-configs/systems/share/users/riaru/avatar.jpeg /var/lib/AccountsService/icons/tye";
+  imports = [
+    ./icon.nix
+  ];
 
   users.users.${settings.username} = {
     icon = ./avatar.jpeg;

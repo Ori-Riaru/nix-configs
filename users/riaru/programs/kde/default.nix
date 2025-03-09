@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  settings,
   ...
 }: {
   imports = [
@@ -14,13 +15,30 @@
     kdePackages.krohnkite
     simple-kickoff
 
+    kdePackages.qtstyleplugin-kvantum
+
     bibata-cursors
     (pkgs.papirus-icon-theme.override {color = "black";})
   ];
 
+  programs.konsole = {
+    enable = true;
+
+    defaultProfile = "${settings.username}";
+
+    profiles."${settings.username}" = {
+      colorScheme = "Neutral Dark";
+      font.name = "JetBrainsMono Nerd Font";
+    };
+
+    customColorSchemes = {
+      "Neutral Dark" = ./konsole.colorscheme;
+    };
+  };
+
   programs.plasma = {
     enable = true;
-    # overrideConfig = true;
+    overrideConfig = true;
 
     workspace = {
       cursor = {

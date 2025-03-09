@@ -35,7 +35,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     homepage = "https://github.com/HimDek/Simple-Kickoff-for-Plasma";
     changelog = "https://github.com/HimDek/Simple-Kickoff-for-Plasma/releases/tag/${finalAttrs.version}";
     license = lib.licenses.gpl2;
-    maintainers = with lib.maintainers; [AkiRiaru];
+    maintainers = with lib.maintainers; [ Ori-Riaru ];
     inherit (kdePackages.kwindowsystem.meta) platforms;
   };
 })

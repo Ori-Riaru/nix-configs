@@ -23,7 +23,6 @@
 
       userSettings = {
         "files.autoSave" = "afterDelay";
-        "editor.wordWrap" = "on";
         "editor.linkedEditing" = true;
 
         "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
