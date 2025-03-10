@@ -28,7 +28,7 @@
         serayuzgur.crates
 
         # Python
-        ms-python.python
+        # ms-python.python
         ms-toolsai.jupyter
 
         # C++

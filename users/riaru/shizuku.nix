@@ -58,6 +58,7 @@
     ./programs/mouse.nix
     ./programs/touchegg.nix
     ./programs/kdiskmark.nix
+    ./programs/clear-touch.nix
   ];
 
   home.stateVersion = "24.05";
