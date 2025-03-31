@@ -21,7 +21,7 @@ My personal Nixos configurations. They are not intended to be used by others how
   - [`_share/`](./users/_share/): Configuration shareable across multiple users
     - [`global/`](./users/_share/global/): Universal home-manager settings
   - [`riaru/`](./users/riaru/)
-    - [`shizuku.nix](./users/riaru/shizuku.nix)` - Laptop environment for this user
+    - [`shizuku.nix`](./users/riaru/shizuku.nix)` - Laptop environment for this user
     - [`lain.nix`](./users/riaru/lain.nix)- Desktop environment this user
     - [`fujin.nix`](./users/riaru/fujin.nix) - Server environment this user
 
