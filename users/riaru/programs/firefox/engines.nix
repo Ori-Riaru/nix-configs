@@ -57,7 +57,7 @@
             }
           ];
 
-          iconUpdateURL = "https://www.youtube.com/s/desktop/28bb7000/img/favicon_48x48.png";
+          icon = "https://www.youtube.com/s/desktop/28bb7000/img/favicon_48x48.png";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@yt"
@@ -82,7 +82,7 @@
             }
           ];
 
-          iconUpdateURL = "https://alternativeto.net/favicon.ico";
+          icon = "https://alternativeto.net/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@at"
@@ -111,7 +111,7 @@
             }
           ];
 
-          iconUpdateURL = "https://reddit.com/favicon.ico";
+          icon = "https://reddit.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@r"
@@ -134,7 +134,7 @@
             }
           ];
 
-          iconUpdateURL = "https://www.amazon.ca/favicon.ico";
+          icon = "https://www.amazon.ca/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@am"
@@ -157,7 +157,7 @@
             }
           ];
 
-          iconUpdateURL = "https://phtn.app/img/logo-background.svg";
+          icon = "https://phtn.app/img/logo-background.svg";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@l"
@@ -181,7 +181,7 @@
             }
           ];
 
-          iconUpdateURL = "https://anilist.co/favicon.ico";
+          icon = "https://anilist.co/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@al"
@@ -212,7 +212,7 @@
             }
           ];
 
-          iconUpdateURL = "https://www.miruro.to/icons/favicon-32x32.png";
+          icon = "https://www.miruro.to/icons/favicon-32x32.png";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@anime"
@@ -245,7 +245,7 @@
             }
           ];
 
-          iconUpdateURL = "https://www.ovagames.com/wp-content/uploads/2020/01/OG-Gaming-web-logo.png";
+          icon = "https://www.ovagames.com/wp-content/uploads/2020/01/OG-Gaming-web-logo.png";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@ova"
@@ -272,7 +272,7 @@
             }
           ];
 
-          iconUpdateURL = "https://cs.rin.ru/favicon.ico";
+          icon = "https://cs.rin.ru/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@cs"
@@ -305,7 +305,7 @@
             }
           ];
 
-          iconUpdateURL = "https://online-fix.me/favicon.ico";
+          icon = "https://online-fix.me/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@of"
@@ -328,7 +328,7 @@
             }
           ];
 
-          iconUpdateURL = "https://store.steampowered.com/favicon.ico";
+          icon = "https://store.steampowered.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@steam"
@@ -355,7 +355,7 @@
             }
           ];
 
-          iconUpdateURL = "https://github.com/favicon.ico";
+          icon = "https://github.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@git"
@@ -378,7 +378,7 @@
             }
           ];
 
-          iconUpdateURL = "https://github.com/favicon.ico";
+          icon = "https://github.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@new"
@@ -402,7 +402,7 @@
             }
           ];
 
-          iconUpdateURL = "https://chatgpt.com/favicon.ico";
+          icon = "https://chatgpt.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@gpt"
@@ -426,7 +426,7 @@
             }
           ];
 
-          iconUpdateURL = "https://claude.ai/favicon.ico";
+          icon = "https://claude.ai/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@claude"

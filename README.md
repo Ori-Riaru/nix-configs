@@ -24,7 +24,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 - KDE / (karousel, krohnkite) / touchegg
 
-TODO: add demo
+![kde-preview](./.github/kde_preview.gif)
 
 - Firefox
 

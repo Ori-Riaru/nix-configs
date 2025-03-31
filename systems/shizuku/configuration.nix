@@ -19,6 +19,19 @@
     ../share/features/kdeconnect.nix
   ];
 
+  # # Install CIFS utilities
+  # environment.systemPackages = [pkgs.cifs-utils];
+
+  # # Mount the share
+  # fileSystems."/mnt/sambashare" = {
+  #   device = "//192.168.2.22/shared"; # Replace SERVER_IP with the actual IP address
+  #   fsType = "cifs";
+  #   options = let
+  #     # Prevent hanging on network issues
+  #     automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+  #   in ["${automount_opts},credentials=/home/riaru/Documents/Passwords/smb-secrets,uid=1000,gid=100"];
+  # };
+
   # environment.systemPackages = with pkgs; [
   #   samba
   # ];
