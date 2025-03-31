@@ -9,17 +9,16 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../share/global
-    ../share/features/systemd-boot.nix
-    ../share/features/audio.nix
-    ../share/features/kde.nix
-    ../share/features/bluetooth.nix
-    ../share/features/printing.nix
-    ../share/features/steam.nix
+    ../_share/global
+    ../_share/systemd-boot.nix
+    ../_share/audio.nix
+    ../_share/kde.nix
+    ../_share/bluetooth.nix
+    ../_share/printing.nix
+    ../_share/steam.nix
 
-    ../share/users/riaru.nix
-    ../share/features/virtulization.nix
-    ../share/features/kdeconnect.nix
+    ../../users/riaru
+    ../_share/virtulization.nix
   ];
 
   networking.hostName = "lain";
@@ -31,7 +30,7 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
-  
+
   hardware.nvidia = {
     open = false;
     nvidiaSettings = true;
@@ -50,10 +49,9 @@
   services.ratbagd.enable = true;
   services.touchegg.enable = true;
 
-  
   hardware.uinput.enable = true;
   users.groups.uinput.members = ["${settings.username}"];
   users.groups.input.members = ["${settings.username}"];
-  
+
   system.stateVersion = "24.05";
 }

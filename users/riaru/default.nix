@@ -4,8 +4,10 @@
   ...
 }: {
   imports = [
-    ./icon.nix
+    ../_share/icon.nix
   ];
+
+  programs.fish.enable = true;
 
   users.users.${settings.username} = {
     icon = ./avatar.jpeg;

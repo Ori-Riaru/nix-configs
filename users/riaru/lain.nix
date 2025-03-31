@@ -3,54 +3,54 @@
     ./global
 
     # CLI
-    ./programs/starship.nix
-    ./programs/zoxide.nix
-    ./programs/screen-savers.nix
-    ./programs/cli-tools.nix
-    ./programs/fish.nix
+    ../../modules/programs/starship.nix
+    ../../modules/programs/zoxide.nix
+    ../../modules/programs/screen-savers.nix
+    ../../modules/programs/cli-tools.nix
+    ../../modules/programs/fish.nix
 
     # Tools
-    ./programs/firefox
-    ./programs/chromium.nix
-    ./programs/kitty.nix
-    ./programs/obsidian.nix
-    ./programs/blender.nix
-    ./programs/inkscape.nix
-    ./programs/libre-office.nix
-    ./programs/gimp.nix
-    ./programs/krita.nix
-    ./programs/thunderbird.nix
-    ./programs/cura.nix
-    ./programs/meshlab.nix
-    ./programs/obs-studio.nix
-    ./programs/shotcut.nix
+    ../../modules/programs/firefox
+    ../../modules/programs/chromium.nix
+    ../../modules/programs/kitty.nix
+    ../../modules/programs/obsidian.nix
+    ../../modules/programs/blender.nix
+    ../../modules/programs/inkscape.nix
+    ../../modules/programs/libre-office.nix
+    ../../modules/programs/gimp.nix
+    ../../modules/programs/krita.nix
+    ../../modules/programs/thunderbird.nix
+    ../../modules/programs/cura.nix
+    ../../modules/programs/meshlab.nix
+    ../../modules/programs/obs-studio.nix
+    ../../modules/programs/shotcut.nix
 
     # Development
-    ./programs/java.nix
-    ./programs/postgres.nix
-    ./programs/nix.nix
-    ./programs/git.nix
-    ./programs/vscodium
-    ./programs/rust.nix
-    ./programs/cpp.nix
+    ../../modules/programs/java.nix
+    ../../modules/programs/postgres.nix
+    ../../modules/programs/nix.nix
+    ../../modules/programs/git.nix
+    ../../modules/programs/vscodium
+    ../../modules/programs/rust.nix
+    ../../modules/programs/cpp.nix
 
     # Communication
-    ./programs/discord.nix
+    ../../modules/programs/discord.nix
 
     # Media
     # ./programs/spotify
-    ./programs/suwayomi.nix
-    ./programs/gaming.nix
+    ../../modules/programs/suwayomi.nix
+    ../../modules/programs/gaming.nix
 
     # System
-    ./programs/kdeconnect.nix
-    ./programs/xremap.nix
-    ./programs/file-viewers.nix
-    ./programs/fonts.nix
-    ./programs/kde
-    ./programs/mouse.nix
-    ./programs/touchegg.nix
-    ./programs/kdiskmark.nix
+    ../../modules/programs/kdeconnect.nix
+    ../../modules/programs/xremap.nix
+    ../../modules/programs/file-viewers.nix
+    ../../modules/programs/fonts.nix
+    ../../modules/programs/kde
+    ../../modules/programs/mouse.nix
+    ../../modules/programs/touchegg.nix
+    ../../modules/programs/kdiskmark.nix
   ];
 
   home.stateVersion = "24.05";

@@ -4,4 +4,4 @@
 /packages/result/*
 /result/*
 
-/systems/fujin/services/password.txt
+/secrets/*

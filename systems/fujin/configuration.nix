@@ -2,16 +2,14 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../share/global
-    ../share/users/riaru.nix
+    ../_share/global
+    ../../users/riaru
 
-    #../share/features/vscode-server.nix
-
-    #./services/nextcloud.nix
-    #./services/homeassistant.nix
-    #./services/hydroxide.nix
-    ./services/palworld.nix
-    ./services/mastodon.nix
+    #../modules/services/nextcloud.nix
+    #../modules/services/homeassistant.nix
+    #../modules/services/hydroxide.nix
+    ../../modules/services/palworld.nix
+    ../../modules/services/mastodon.nix
   ];
 
   networking.hostName = "fujin";

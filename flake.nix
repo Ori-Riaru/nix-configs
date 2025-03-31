@@ -167,11 +167,11 @@
     };
 
     templates = {
-      web.path = ./templates/web;
-      cpp.path = ./templates/cpp;
-      rust.path = ./templates/rust;
-      python.path = ./templates/python;
-      typescript.path = ./templates/typescript;
+      web.path = ./starters/web;
+      cpp.path = ./starters/cpp;
+      rust.path = ./starters/rust;
+      python.path = ./starters/python;
+      typescript.path = ./starters/typescript;
     };
   };
 }
