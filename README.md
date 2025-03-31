@@ -34,7 +34,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 - KDE / (karousel, krohnkite) / touchegg
 
-![kde-preview](./.github/kde_preview.gif)
+![kde preview](./.github/kde-preview.gif)
 
 - Firefox
 
@@ -42,11 +42,11 @@ TODO: add demo
 
 - VSCodium
 
-![vscodium-preview](./.github/vscodium-preview.png)
+![vscodium preview](./.github/vscodium-preview.png)
 
 - Kitty / Fish / Starship / Zoxide
 
-![kitty-preview](./.github/kitty-preview.png)
+![kitty preview](./.github/kitty-preview.png)
 
 - Discord
 
@@ -54,12 +54,12 @@ TODO: add demo
 
 - Spotify
 
-TODO: add demo
+![spotify preview](./.github/spotify-preview.png)
 
 - Obsidian
 
-TODO: add demo
+![github preview](./.github/obsidian-preview.png)
 
-- Selfhosted Nextcloud
+- Selfhosted Services (Mastodon, NextCloud)
 
-TODO: add demo
+![mastodon preview](./.github/mastodon-preview.png)

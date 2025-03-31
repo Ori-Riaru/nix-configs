@@ -25,6 +25,7 @@
           naumovs.color-highlight
           meganrogge.template-string-converter
           svelte.svelte-vscode
+          vue.volar
 
           # Rust
           # rust-lang.rust-analyzer

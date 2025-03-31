@@ -5,7 +5,7 @@
 }: {
   programs.firefox = {
     profiles.${settings.username}.search = {
-      default = "DuckDuckGo";
+      default = "ddg";
       force = true;
       engines = {
         "Nix" = {
@@ -94,7 +94,7 @@
           ];
         };
 
-        "Reddit" = {
+        "reddit" = {
           urls = [
             {
               template = "https://www.reddit.com/search";

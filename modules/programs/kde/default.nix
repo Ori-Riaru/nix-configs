@@ -24,7 +24,7 @@
   programs.konsole = {
     enable = true;
 
-    defaultProfile = "${settings.username}";
+    defaultProfile = settings.username;
 
     profiles."${settings.username}" = {
       colorScheme = "Neutral Dark";
@@ -49,14 +49,14 @@
       iconTheme = "Papirus-Dark";
 
       # Wallpaper & lockscreen
-      wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/programs/kde/wallpaper.png";
+      wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       clickItemTo = "open";
 
       colorScheme = "Neutral Dark";
       #windowDecorations
     };
 
-    kscreenlocker.appearance.wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/programs/kde/wallpaper.png";
+    kscreenlocker.appearance.wallpaper = settings.wallpaper;
 
     fonts = {
       general = {

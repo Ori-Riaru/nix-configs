@@ -60,6 +60,8 @@
       email = "ori-riaru@proton.me";
 
       # --- Themeing ---
+      wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
+
       accent = purple;
       secondary = blue;
       tertiary = yellow;

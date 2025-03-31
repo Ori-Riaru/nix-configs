@@ -4,7 +4,7 @@
 # sudo -u mastodon mastodon-tootctl accounts approve $(whoami)
 # Change password
 # mastodon-tootctl accounts modify --reset-password my_user
-{pkgs, ...}: {
+{...}: {
   security.acme = {
     acceptTerms = true;
     defaults.email = "ori-riaru@proton.me";

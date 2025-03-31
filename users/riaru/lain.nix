@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./global
+    ../_share/global
 
     # CLI
     ../../modules/programs/starship.nix
@@ -51,6 +51,8 @@
     ../../modules/programs/mouse.nix
     ../../modules/programs/touchegg.nix
     ../../modules/programs/kdiskmark.nix
+
+    ../_share/folders.nix
   ];
 
   home.stateVersion = "24.05";
