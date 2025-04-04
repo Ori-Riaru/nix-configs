@@ -32,34 +32,34 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ## Featured Configurations
 
-- KDE / (karousel, krohnkite) / touchegg
+- [KDE](./modules/programs/kde/) / (karousel, krohnkite) / [touchegg](./modules/programs/touchegg.nix)
 
 ![kde preview](./.github/kde-preview.gif)
 
-- Firefox
+- [Firefox](./modules/programs/firefox/)
 
 TODO: add demo
 
-- VSCodium
+- [VSCodium](./modules/programs/vscodium/)
 
 ![vscodium preview](./.github/vscodium-preview.png)
 
-- Kitty / Fish / Starship / Zoxide
+- [Kitty](./modules/programs/kitty.nix) / [Fish](./modules/programs/fish.nix) / [Starship](./modules/programs/starship.nix) / [Zoxide](./modules/programs/zoxide.nix)
 
 ![kitty preview](./.github/kitty-preview.png)
 
-- Discord
+- [Discord](./modules/programs/discord.nix)
 
 TODO: add demo
 
-- Spotify
+- [Spotify](./modules/programs/spotify/)
 
 ![spotify preview](./.github/spotify-preview.png)
 
-- Obsidian
+- [Obsidian](./modules/programs/obsidian.nix)
 
 ![github preview](./.github/obsidian-preview.png)
 
-- Selfhosted Services (Mastodon, NextCloud)
+- Selfhosted Services ([Mastodon](./modules/services/mastodon/), NextCloud)
 
 ![mastodon preview](./.github/mastodon-preview.png)
