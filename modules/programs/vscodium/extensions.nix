@@ -101,7 +101,7 @@
           philsinatra.nested-comments
           oven.bun-vscode
           wallabyjs.quokka-vscode
-          wallabyjs.console-ninja
+          # wallabyjs.console-ninja
 
           # Other
           bbenoist.qml #QML language support

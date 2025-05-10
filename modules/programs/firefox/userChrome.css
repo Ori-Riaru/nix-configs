@@ -126,7 +126,7 @@ body {
 
 /* Position tab window To the right of sidebar */
 #tabbrowser-tabbox {
-  position: absolute !important;
+  position: fixed !important;
   top: var(--spacing-1);
   height: calc(100% - var(--spacing-1) * 2);
 

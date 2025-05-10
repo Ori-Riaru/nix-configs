@@ -48,6 +48,7 @@
         plasma-integration
 
         # Missing
+        # youtube-subscription-groups
         # infy-scroll
         # automail
         # smart-prevent-duplicate-tabs
