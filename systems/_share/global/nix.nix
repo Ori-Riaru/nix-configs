@@ -14,7 +14,7 @@
   ];
 
   environment.sessionVariables = {
-    FLAKE = "/home/${settings.username}/Projects/nix-configs";
+    NH_FLAKE = "/home/${settings.username}/Projects/nix-configs";
   };
 
   nix = let

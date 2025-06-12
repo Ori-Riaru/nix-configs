@@ -1,5 +1,4 @@
-{
-  # Samba configuration
+{...}: {
   services.samba = {
     enable = true;
     securityType = "user";
@@ -7,61 +6,61 @@
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "NixOS NAS";
-        "netbios name" = "nixos-nas";
+        "server string" = "My NixOS Server";
+        "netbios name" = "nixos-server";
         "security" = "user";
-        "use sendfile" = "yes";
-        "hosts allow" = "192.168.0. 127.0.0.1 localhost";
+        # Allow access from your local network - adjust IP range as needed
+        "hosts allow" = "192.168.2. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
-        # Performance tuning
-        "socket options" = "TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=131072 SO_SNDBUF=131072";
-        # Disable printer sharing
-        "load printers" = "no";
-        "printing" = "bsd";
-        "printcap name" = "/dev/null";
-        "disable spoolss" = "yes";
-        # Logging
-        "log file" = "/var/log/samba/log.%m";
-        "max log size" = "50";
       };
+      # Public share accessible by guests
       "public" = {
-        "path" = "/mnt/Shares/Public";
+        "path" = "/srv/samba/public";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "yes";
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "nas-user"; # Replace with your actual username
-        "force group" = "users"; # Replace with your actual group
+        "force user" = "samba-user";
+        "force group" = "samba-group";
       };
+      # Private share requiring authentication
       "private" = {
-        "path" = "/mnt/Shares/Private";
+        "path" = "/srv/samba/private";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "no";
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "nas-user"; # Replace with your actual username
-        "force group" = "users"; # Replace with your actual group
-        "valid users" = "@users"; # Only users in the 'users' group can access
+        "force user" = "samba-user";
+        "force group" = "samba-group";
       };
     };
   };
 
+  # Enable Windows discovery service
   services.samba-wsdd = {
     enable = true;
     openFirewall = true;
   };
 
-  # Firewall configuration
+  # Ensure firewall is properly configured
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
 
-  users.users.nas-user = {
-    isNormalUser = true;
-    description = "NAS User";
-    extraGroups = ["users"];
+  # Create samba user and group
+  users.groups.samba-group = {};
+  users.users.samba-user = {
+    isSystemUser = true;
+    group = "samba-group";
   };
+
+  # Create share directories
+  systemd.tmpfiles.rules = [
+    "d /srv/samba 0755 root root -"
+    "d /srv/samba/public 0755 samba-user samba-group -"
+    "d /srv/samba/private 0755 samba-user samba-group -"
+  ];
 }

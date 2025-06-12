@@ -5,11 +5,13 @@
     ../_share/global
     ../../users/riaru
 
-    #../modules/services/nextcloud.nix
-    #../modules/services/homeassistant.nix
-    #../modules/services/hydroxide.nix
-    ../../modules/services/palworld.nix
-    ../../modules/services/mastodon.nix
+    #../share/features/vscode-server.nix
+    #./services/nextcloud.nix
+    #./services/homeassistant.nix
+    #./services/hydroxide.nix
+    #./services/palworld.nix
+    ../../modules/services/samba.nix
+    ../../modules/services/mastodon
   ];
 
   networking.hostName = "fujin";

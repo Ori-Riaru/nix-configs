@@ -16,6 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     # Applications
     xremap-flake.url = "github:xremap/nix-flake";
 
@@ -33,6 +35,16 @@
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprgrass = {
+      url = "github:horriblename/hyprgrass";
+      inputs.hyprland.follows = "hyprland"; # IMPORTANT
     };
 
     plasma-manager = {

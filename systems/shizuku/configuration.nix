@@ -13,6 +13,8 @@
     ../_share/bluetooth.nix
     ../_share/printing.nix
     ../_share/steam.nix
+    ../_share/hyprland.nix
+    ../_share/niri.nix
 
     ../../users/riaru
     ../_share/virtulization.nix

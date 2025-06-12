@@ -27,9 +27,10 @@
     ../../modules/programs/obs-studio.nix
     ../../modules/programs/shotcut.nix
     ../../modules/programs/gparted.nix
-    ../../modules/programs/ventoy.nix
+    # ../../modules/programs/ventoy.nix
     ../../modules/programs/godot.nix
     ../../modules/programs/f3d.nix
+    ../../modules/programs/nautilus.nix
 
     # Development
     ../../modules/programs/java.nix
@@ -42,6 +43,7 @@
 
     # Communication
     ../../modules/programs/discord.nix
+    ../../modules/programs/signal.nix
 
     # Media
     ../../modules/programs/spotify
@@ -59,6 +61,9 @@
     ../../modules/programs/touchegg.nix
     ../../modules/programs/kdiskmark.nix
     # ./programs/clear-touch.nix
+    ../../modules/programs/niri
+    ../../modules/programs/alacritty.nix
+    ../../modules/programs/hyprland
 
     ../_share/folders.nix
   ];
