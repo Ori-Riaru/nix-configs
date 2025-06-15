@@ -131,7 +131,7 @@
               ];
             };
           }
-          
+
           # {
           #   name = "luisbocanegra.panel.colorizer";
           #   config = {
@@ -987,44 +987,44 @@
 
           {
             plasmaPanelColorizer = {
-              general = {
-                hideWidget = true;
-              };
+              #     general = {
+              #       hideWidget = true;
+              #     };
 
-              widgetBackground = {
-                enable = true;
+              #     widgetBackground = {
+              #       enable = true;
 
-                colors = {
-                  source = "customList";
-                  customColorList = ["${settings.accent}" "${settings.accent}" "${settings.accent}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.red}" "${settings.teal}" "${settings.base}" "${settings.accent}" "${settings.accent}" "${settings.accent}"];
-                };
+              #       colors = {
+              #         source = "customList";
+              #         customColorList = ["${settings.accent}" "${settings.accent}" "${settings.accent}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.base}" "${settings.red}" "${settings.teal}" "${settings.base}" "${settings.accent}" "${settings.accent}" "${settings.accent}"];
+              #       };
 
-                shape = {
-                  opacity = 1;
-                  radius = 6;
-                  outline = {
-                    colorSource = "custom";
-                    customColor = "${settings.text}";
-                    opacity = 0.1;
-                    width = 2;
-                  };
-                };
-              };
+              #       shape = {
+              #         opacity = 1;
+              #         radius = 6;
+              #         outline = {
+              #           colorSource = "custom";
+              #           customColor = "${settings.text}";
+              #           opacity = 0.1;
+              #           width = 2;
+              #         };
+              #       };
+              #     };
 
-              panelBackground = {
-                originalBackground = {
-                  hide = true;
-                };
-              };
+              #     panelBackground = {
+              #       originalBackground = {
+              #         hide = true;
+              #       };
+              #     };
 
-              layout = {
-                enable = true;
-                backgroundMargin = {
-                  spacing = 4;
-                  vertical = 0;
-                  horizontal = 2;
-                };
-              };
+              #     layout = {
+              #       enable = true;
+              #       backgroundMargin = {
+              #         spacing = 4;
+              #         vertical = 0;
+              #         horizontal = 2;
+              #       };
+              #     };
             };
           }
         ];
