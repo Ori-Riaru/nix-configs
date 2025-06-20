@@ -9,16 +9,16 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../_share/global
-    ../_share/systemd-boot.nix
-    ../_share/audio.nix
-    ../_share/kde.nix
-    ../_share/bluetooth.nix
-    ../_share/printing.nix
-    ../_share/steam.nix
+    ../../modules/_share/global
+    ../../modules/_share/systemd-boot.nix
+    ../../modules/_share/audio.nix
+    ../../modules/_share/kde.nix
+    ../../modules/_share/bluetooth.nix
+    ../../modules/_share/printing.nix
+    ../../modules/_share/steam.nix
+    ../../modules/_share/virtulization.nix
 
     ../../users/riaru
-    ../_share/virtulization.nix
   ];
 
   networking.hostName = "lain";

@@ -10,6 +10,7 @@
     ./locale.nix
     ./input.nix
     ./networking.nix
+    ./swap.nix
   ];
 
   nixpkgs = {

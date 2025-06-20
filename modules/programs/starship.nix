@@ -26,7 +26,7 @@
       };
 
       format = ''
-        $character$cmd_duration$directory$fill$c$rust$nix_shell$golang$nodejs$php$java$kotlin$haskell$python$git_branch$git_status$username$line_break 󰜴 '';
+        $character$cmd_duration$directory$fill$c$rust$nix_shell$golang$nodejs$php$java$kotlin$haskell$python$git_branch$git_status$username$hostname$line_break 󰜴 '';
 
       add_newline = false;
 
@@ -51,8 +51,12 @@
           "Documents" = "󰈙 ";
           "Downloads" = " ";
           "Music" = "󰝚 ";
-          "Pictures" = " ";
-          "Developer" = "󰲋 ";
+          "Captures" = " ";
+          "Games" = "";
+          "Notes" = "";      # Changed to sticky note icon
+          "Temp" = "";       # Stopwatch/timer for temporary
+          "Backups" = "";    # Hard drive icon for backups
+          "Trash" = "";
         };
 
         format = "[](fg:background)[$path](fg:text bg:background)[](fg:background) ";
@@ -145,7 +149,7 @@
         show_always = true;
         style_user = "bg:purple fg:text";
         style_root = "bg:purple fg:text";
-        format = "[](fg:purple)[ $user ]($style)[](fg:purple)";
+        format = "[](fg:purple)[ $hostname ]($style)[](fg:purple)";
       };
 
       line_break = {

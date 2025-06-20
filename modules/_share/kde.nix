@@ -24,7 +24,6 @@
     kde-rounded-corners
     sddm-theme-corners
     kde-geometry-change
-
     #kdePackages.qtstyleplugin-kvantum
     #xdg-desktop-portal-gtk
     #kdePackages.kpackage

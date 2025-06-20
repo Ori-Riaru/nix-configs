@@ -105,6 +105,7 @@
 
           # Other
           bbenoist.qml #QML language support
+          kdl-org.kdl # KDL language support
 
           # Generic
           mguellsegarra.highlight-on-copy

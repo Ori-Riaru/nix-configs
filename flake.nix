@@ -1,8 +1,8 @@
 {
-  description = "Riaru's Nixos Configuration Flake";
+  description = "Riaru's System Configuration";
 
   inputs = {
-    # Package Repositories
+    # Repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/24.05";
 
@@ -16,17 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
-    # Applications
-    xremap-flake.url = "github:xremap/nix-flake";
-
-    # Application Additions
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,14 +26,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+    # Programs
+    xremap-flake.url = "github:xremap/nix-flake";
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprgrass = {
-      url = "github:horriblename/hyprgrass";
-      inputs.hyprland.follows = "hyprland"; # IMPORTANT
+    # Modifications
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     plasma-manager = {
@@ -52,11 +46,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-    # kwin-effects-forceblur = {
-    #   url = "github:taj-ny/kwin-effects-forceblur";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = {
@@ -66,13 +55,15 @@
     ...
   } @ inputs: let
     settings = rec {
-      # --- Primary User Settings ---
+      # --- User Settings ---
       username = "riaru";
       username-full = "Ori Riaru";
       email = "ori-riaru@proton.me";
 
       # --- Themeing ---
+      avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
       wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
+      secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
 
       accent = purple;
       secondary = blue;
@@ -106,7 +97,7 @@
       font = "Inter";
       font-monospace = "JetBrainsMono Nerd Font";
 
-      keyboard = "dvorak";
+      keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
     };
 
     inherit (self) outputs;
@@ -157,7 +148,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./users/riaru/lain.nix
+          ./systems/lain/home.nix
         ];
       };
 
@@ -166,7 +157,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./users/riaru/shizuku.nix
+          ./systems/shizuku/home.nix
         ];
       };
 
@@ -175,7 +166,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./users/riaru/fujin.nix
+          ./systems/fujin/home.nix
         ];
       };
     };

@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ../_share/global
+    ../../modules/_share/home-global
+    ../../modules/_share/folders.nix
 
     # CLI
     ../../modules/programs/starship.nix
@@ -52,20 +53,17 @@
 
     # System
     ../../modules/programs/kdeconnect.nix
-    ../../modules/programs/xremap.nix
-    ../../modules/programs/maliit.nix
+    # ../../modules/programs/xremap.nix
     ../../modules/programs/file-viewers.nix
     ../../modules/programs/fonts.nix
     ../../modules/programs/kde
     ../../modules/programs/mouse.nix
     ../../modules/programs/touchegg.nix
     ../../modules/programs/kdiskmark.nix
-    # ./programs/clear-touch.nix
     ../../modules/programs/niri
     ../../modules/programs/alacritty.nix
-    ../../modules/programs/hyprland
+    # ../../modules/programs/waybar
 
-    ../_share/folders.nix
   ];
 
   home.stateVersion = "24.05";

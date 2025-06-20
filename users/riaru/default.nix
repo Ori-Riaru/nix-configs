@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ../_share/icon.nix
+    # ../../modules/_share/avatar.nix
   ];
 
   programs.fish.enable = true;

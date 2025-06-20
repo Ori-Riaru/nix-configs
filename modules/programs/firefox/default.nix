@@ -88,6 +88,7 @@
       userContent = builtins.readFile ./userContext.css;
     };
 
+    # Enable extensions by default
     policies = {
       Extensions.Locked = [
         "1be309c5-3e4f-4b99-927d-bb500eb4fa88" # Augmented Steam

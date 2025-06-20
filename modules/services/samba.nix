@@ -9,7 +9,6 @@
         "server string" = "My NixOS Server";
         "netbios name" = "nixos-server";
         "security" = "user";
-        # Allow access from your local network - adjust IP range as needed
         "hosts allow" = "192.168.2. 127.0.0.1 localhost";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
@@ -45,10 +44,6 @@
     enable = true;
     openFirewall = true;
   };
-
-  # Ensure firewall is properly configured
-  networking.firewall.enable = true;
-  networking.firewall.allowPing = true;
 
   # Create samba user and group
   users.groups.samba-group = {};

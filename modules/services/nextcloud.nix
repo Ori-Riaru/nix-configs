@@ -25,6 +25,7 @@
 
     # List of all nextloud apps: https://apps.nextcloud.com/
     extraAppsEnable = true;
+    # MANUAL UPDATE
     extraApps = {
       theming_customcss = pkgs.fetchNextcloudApp {
         url = "https://github.com/nextcloud/theming_customcss/releases/download/v1.18.0/theming_customcss.tar.gz";

@@ -12,7 +12,6 @@ in {
   programs.spicetify = {
     enable = true;
 
-    # Theming
     theme =
       spicePkgs.themes.dribbblish
       // {
