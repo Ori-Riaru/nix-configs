@@ -8,8 +8,8 @@
     ../../modules/services/samba.nix
     ../../modules/services/mastodon
     ../../modules/services/nextcloud.nix
-    ../../modules/factorio.nix
-    ../../modules/tailscale.nix
+    ../../modules/services/factorio.nix
+    ../../modules/services/tailscale.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix

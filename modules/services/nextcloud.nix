@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   networking.firewall.allowedTCPPorts = [80 443];
 
-  environment.etc."nextcloud-admin-pass".text = "1'a:0lnM";
+  environment.etc."nextcloud-admin-pass".text = builtins.readFile ../secrets/password.txt;
 
   services.nextcloud = {
     enable = true;
