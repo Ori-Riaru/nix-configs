@@ -47,7 +47,7 @@
     "workbench.activityBar.location" = "top";
     "window.menuBarVisibility" = "hidden";
     "workbench.statusBar.visible" = false;
-    "workbench.editor.showTabs" = "multiple>";
+    "workbench.editor.showTabs" = "none";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
     "editor.scrollbar.verticalScrollbarSize" = 0;

@@ -8,11 +8,12 @@
     ../../modules/services/samba.nix
     ../../modules/services/mastodon
     ../../modules/services/nextcloud.nix
+    ../../modules/factorio.nix
+    ../../modules/tailscale.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix
     #./services/palworld.nix
-
   ];
 
   # Bootloader

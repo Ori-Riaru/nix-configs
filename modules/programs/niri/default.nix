@@ -8,7 +8,10 @@
     fuzzel
     wofi
     mako
+    swww
   ];
+
+  services.swww.enable = true;
 
   imports = [
     inputs.niri.homeModules.config
@@ -25,7 +28,7 @@
           # layout = "us,ru";
           # options = "grp:win_space_toggle,compose:ralt,ctrl:nocaps";
           layout = "us";
-          variant = "dvorak,qwerty";
+          variant = "${settings.keyboard},qwerty";
           options = "caps:ctrl_modifier,altwin:swap_alt_win";
         };
         # Note: numlock setting should be handled differently in niri
@@ -89,11 +92,21 @@
         #   y = 0;
         # };
       };
+      "HDMI-A-1" = {
+        mode = {
+          height = 1080;
+          width = 1920;
+          refresh = 60.0;
+        };
+        scale = 1.25;
+        # Uncomment this to disable the output.
+        # off = true;
+      };
     };
     # Settings that influence how windows are positioned and sized.
     layout = {
       # Set gaps around windows in logical pixels.
-      gaps = 5;
+      gaps = settings.gap + 2;
       # When to center a column when changing focus
       center-focused-column = "never";
       # You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
@@ -146,7 +159,7 @@
       # You can enable drop shadows for windows.
       shadow = {
         # Uncomment the next line to enable shadows.
-        # on = true;
+        # enable = true;
         # draw-behind-window = true;
         # You can change how shadows look.
         softness = 30;
@@ -166,17 +179,28 @@
         # bottom = 64;
       };
     };
+
+    overview = {
+      backdrop-color = "#000000";
+    };
+
     # Add lines like this to spawn processes at startup.
     # For numlock, you might want to add:
     spawn-at-startup = [
       {
-        command = ["waybar"];
-      }
-      {
         command = ["xwayland-satellite"];
       }
       {
+        command = ["waybar"];
+      }
+      {
         command = ["mako"];
+      }
+      {
+        command = ["swww" "daemon"];
+      }
+      {
+        command = ["swww" "img" "${settings.wallpaper}"];
       }
     ];
 
@@ -194,25 +218,35 @@
     };
 
     # Window rules let you adjust behavior for individual windows.
-    # window-rules = [
-    #   {
-    #     # Work around WezTerm's initial configure bug
-    #     matches = [
-    #       { app-id = "^org\\.wezfurlong\\.wezterm$"; }
-    #     ];
-    #     default-column-width = {};
-    #   }
-    #   {
-    #     # Open the Firefox picture-in-picture player as floating by default.
-    #     matches = [
-    #       {
-    #         app-id = "firefox$";
-    #         title = "^Picture-in-Picture$";
-    #       }
-    #     ];
-    #     open-floating = true;
-    #   }
-    # ];
+    window-rules = [
+      {
+        # Work around WezTerm's initial configure bug
+        matches = [
+          {app-id = "^org\\.wezfurlong\\.wezterm$";}
+        ];
+        default-column-width = {};
+      }
+      {
+        # Open the Firefox picture-in-picture player as floating by default.
+        matches = [
+          {
+            app-id = "firefox$";
+            title = "^Picture-in-Picture$";
+          }
+        ];
+        open-floating = true;
+      }
+      {
+        matches = [];
+        geometry-corner-radius = {
+          top-left = settings.radius + 0.0;
+          top-right = settings.radius + 0.0;
+          bottom-left = settings.radius + 0.0;
+          bottom-right = settings.radius + 0.0;
+        };
+        clip-to-geometry = true;
+      }
+    ];
 
     binds = {
       # Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -250,7 +284,7 @@
       # };
 
       "Mod+U" = {
-        action.spawn = ["wofi" "--show" "run"];
+        action.spawn = ["sh" "-c" "pgrep wofi && pkill wofi || (wofi --show drun &)"];
         hotkey-overlay.title = "Run an Application: wofi";
       };
       "Mod+T" = {

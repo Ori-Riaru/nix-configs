@@ -10,7 +10,7 @@
   programs.fish.enable = true;
 
   users.users.${settings.username} = {
-    icon = ./avatar.jpeg;
+    # icon = ./avatar.jpeg;
 
     initialPassword = "ChangeMe";
     isNormalUser = true;
@@ -21,7 +21,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJKa+gTB3lRBtJpG4GEeP7nFpuXEb7mglmN9bR1Q/Y0S riaru@shizuku"
     ];
 
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "input"];
 
     packages = [pkgs.home-manager];
   };

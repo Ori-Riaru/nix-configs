@@ -1,6 +1,4 @@
-{
-  ...
-}: {
+{...}: {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   imports = [
@@ -18,6 +16,8 @@
     ../../modules/_share/virtulization.nix
 
     ../../modules/services/tailscale.nix
+
+    ../../modules/programs/thunar.nix
 
     ../../users/riaru
   ];

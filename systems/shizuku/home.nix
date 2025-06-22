@@ -53,7 +53,7 @@
 
     # System
     ../../modules/programs/kdeconnect.nix
-    # ../../modules/programs/xremap.nix
+    ../../modules/programs/xremap.nix
     ../../modules/programs/file-viewers.nix
     ../../modules/programs/fonts.nix
     ../../modules/programs/kde
@@ -62,7 +62,10 @@
     ../../modules/programs/kdiskmark.nix
     ../../modules/programs/niri
     ../../modules/programs/alacritty.nix
-    # ../../modules/programs/waybar
+    ../../modules/programs/waybar
+
+    ../../modules/programs/stylix.nix
+
 
   ];
 

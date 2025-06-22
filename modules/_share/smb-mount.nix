@@ -1,6 +1,11 @@
 {pkgs, ...}: {
+  services.gvfs.enable = true;
+
   # For mount.cifs, required unless domain name resolution is not needed.
-  environment.systemPackages = [pkgs.cifs-utils];
+  environment.systemPackages = with pkgs; [
+    cifs-utils
+    lxqt.lxqt-policykit
+  ];
 
   fileSystems."/mnt/share/public" = {
     device = "//192.168.2.22/public";

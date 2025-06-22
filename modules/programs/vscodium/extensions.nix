@@ -31,10 +31,10 @@
           # rust-lang.rust-analyzer
           # vadimcn.vscode-lldb
           tamasfe.even-better-toml
-          serayuzgur.crates
+          fill-labs.dependi
 
           # Python
-          # ms-python.python
+          ms-python.python
           ms-toolsai.jupyter
 
           # C++
@@ -54,7 +54,6 @@
           usernamehw.errorlens
           streetsidesoftware.code-spell-checker
           esbenp.prettier-vscode
-          formulahendry.code-runner
           bierner.docs-view
           aaron-bond.better-comments
           eamodio.gitlens
@@ -63,22 +62,13 @@
           pkief.material-product-icons
           github.copilot
           github.copilot-chat
-          ms-vscode-remote.remote-ssh
-
-          # Look at later
-          # https://marketplace.visualstudio.com/items?itemName=usernamehw.commands
-          # https://marketplace.visualstudio.com/items?itemName=sleistner.vscode-fileutils
-          # https://marketplace.visualstudio.com/items?itemName=kameshkotwani.google-search
-          # https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek
-          # https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder
-          # https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks
-          # https://marketplace.visualstudio.com/items?itemName=urbantrout.refactor-css
-          # https://marketplace.visualstudio.com/items?itemName=tahabasri.snippets
         ]
         ++ (with extensions.open-vsx; [
+          # REMOVED: jeanp413.open-remote-ssh (using patched version above)
           # Web
           yandeu.five-server
           # gencer.html-slim-scss-css-class-completion
+
           tauri-apps.tauri-vscode
 
           # Python
@@ -87,8 +77,6 @@
 
           # Other
           slevesque.shader
-
-          # Generic
           hideoo.toggler
           littensy.charmed-icons
           jannisx11.batch-rename-extension

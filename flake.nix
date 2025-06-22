@@ -3,7 +3,7 @@
 
   inputs = {
     # Repositories
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-stable.url = "github:nixos/nixpkgs/24.05";
 
     nur = {
@@ -12,7 +12,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -27,7 +27,11 @@
     };
 
     # Programs
-    xremap-flake.url = "github:xremap/nix-flake";
+    xremap-flake = {
+      url = "github:xremap/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -46,12 +50,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
     settings = rec {
@@ -69,8 +80,8 @@
       secondary = blue;
       tertiary = yellow;
 
-      gap = 2; # px
-      radius = 8; # px
+      gap = 4; # px
+      radius = 6; # px
 
       text = "#ffffff";
       subtext = "#888888";

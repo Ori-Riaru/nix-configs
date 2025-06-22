@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    gnome-keyring
+    # gnome-keyring
     # plasma-polkit-agent
   ];
 
