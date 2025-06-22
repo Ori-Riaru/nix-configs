@@ -16,7 +16,11 @@
     ../../modules/_share/bluetooth.nix
     ../../modules/_share/printing.nix
     ../../modules/_share/steam.nix
+    ../../modules/_share/niri.nix
+    ../../modules/_share/smb-mount.nix
     ../../modules/_share/virtulization.nix
+
+    ../../modules/services/tailscale.nix
 
     ../../users/riaru
   ];

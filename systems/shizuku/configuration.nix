@@ -17,8 +17,6 @@
 
     ../../modules/services/tailscale.nix
 
-    ../../modules/programs/thunar.nix
-
     ../../users/riaru
   ];
 
