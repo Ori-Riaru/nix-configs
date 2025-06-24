@@ -9,6 +9,7 @@
 
   programs.waybar = {
     enable = true;
+    style =  builtins.readFile ./style.css;
 
     settings = {
       mainBar = {
@@ -22,8 +23,9 @@
         output = [
           "eDP-1"
           "HDMI-A-1"
+          "DP-2"
         ];
-        
+
         modules-left = ["clock" "niri/workspaces"];
         modules-center = ["custom/niri-taskbar" "custom/application-launcher"]; # Use custom module
         modules-right = ["niri/language" "network" "battary" "pulseaudio" "tray" "upower"];

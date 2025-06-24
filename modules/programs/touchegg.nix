@@ -3,6 +3,8 @@
     pkgs.touchegg
   ];
 
+  services.touchegg.enable = true;
+
   home.file."./.config/touchegg/touchegg.conf".text = ''
     <touchégg>
 

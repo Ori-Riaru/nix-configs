@@ -38,7 +38,7 @@
   hardware.nvidia = {
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
@@ -51,7 +51,6 @@
   };
 
   services.ratbagd.enable = true;
-  services.touchegg.enable = true;
 
   hardware.uinput.enable = true;
   users.groups.uinput.members = ["${settings.username}"];

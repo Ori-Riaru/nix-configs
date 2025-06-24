@@ -1,4 +1,9 @@
-{settings, inputs, ...}: {
+{
+  pkgs,
+  settings,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.stylix.homeModules.stylix
   ];
@@ -16,16 +21,22 @@
       };
     };
 
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
+
     polarity = "dark";
     base16Scheme = {
-      base00 = "#000000";
-      base01 = "#1c1c1c";
-      base02 = "#262626";
-      base03 = "#303030";
-      base04 = "#3a3a3a";
-      base05 = "#e0e0e0";
-      base06 = "#e0e0e0";
-      base07 = "#ffffff";
+      base00 = "${settings.section}";
+      base01 = "${settings.card}";
+      base02 = "${settings.accent}";
+      base03 = "${settings.hidden}";
+      base04 = "${settings.subtext}";
+      base05 = "${settings.text}";
+      base06 = "${settings.white}";
+      base07 = "${settings.white}";
       base08 = "${settings.red}";
       base09 = "${settings.orange}";
       base0A = "${settings.yellow}";
@@ -33,7 +44,7 @@
       base0C = "${settings.cyan}";
       base0D = "${settings.blue}";
       base0E = "${settings.purple}";
-      base0F = "${settings.teal}";
+      base0F = "${settings.brown}";
     };
 
     image = ../../users/riaru/wallpaper.png;

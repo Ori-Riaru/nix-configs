@@ -27,8 +27,8 @@
           # For example:
           # layout = "us,ru";
           # options = "grp:win_space_toggle,compose:ralt,ctrl:nocaps";
-          layout = "us";
-          variant = "${settings.keyboard},qwerty";
+          layout = "us,us";
+          variant = ",${settings.keyboard}";
           options = "caps:ctrl_modifier,altwin:swap_alt_win";
         };
         # Note: numlock setting should be handled differently in niri
@@ -77,30 +77,61 @@
     # by running `niri msg outputs` while inside a niri instance.
     # The built-in laptop monitor is usually called "eDP-1".
     outputs = {
-      "eDP-1" = {
+      # "eDP-1" = {
+      #   mode = {
+      #     height = 1920;
+      #     width = 1080;
+      #     refresh = 60.0;
+      #   };
+      #   scale = 1.25;
+      # };
+
+      # "HDMI-A-1" = {
+      #   mode = {
+      #     height = 1080;
+      #     width = 1920;
+      #     refresh = 60.0;
+      #   };
+      #   scale = 1;
+      # };
+
+      "Dell Inc. DELL G3223Q C3PM6P3" = {
         mode = {
-          height = 1920;
-          width = 1080;
-          refresh = 60.0;
+          height = 2160;
+          width = 3840;
+          refresh = 143.963;
         };
         scale = 1.25;
-        # # Transform allows to rotate the output counter-clockwise
-        # transform = "normal";
-        # # Position of the output in the global coordinate space.
-        # position = {
-        #   x = 1280;
-        #   y = 0;
-        # };
+        position = {
+          x = 1152;
+          y = 1080;
+        };
       };
-      "HDMI-A-1" = {
+      "Dell Inc. Dell S2417DG #ASMB1cSQQmDd" = {
+        mode = {
+          height = 1440;
+          width = 2560;
+          refresh = 143.998;
+        };
+        transform.rotation = 90;
+        scale = 1.25;
+        position = {
+          x = 0;
+          y = 920;
+        };
+      };
+      "Hewlett Packard HP 23cw 6CM5510JRK" = {
         mode = {
           height = 1080;
           width = 1920;
           refresh = 60.0;
         };
-        scale = 1.25;
-        # Uncomment this to disable the output.
-        # off = true;
+        transform.rotation = 180;
+        scale = 1;
+        position = {
+          x = 1462;
+          y = 0;
+        };
       };
     };
     # Settings that influence how windows are positioned and sized.
@@ -446,6 +477,8 @@
       "Mod+Shift+E".action.quit = {};
       "Ctrl+Alt+Delete".action.quit = {};
       "Mod+Shift+P".action.power-off-monitors = {};
+
+      "Mod+Space".action.switch-layout = "next";
     };
 
     environment = {
