@@ -58,7 +58,6 @@
     ../../modules/programs/fonts.nix
     ../../modules/programs/kde
     ../../modules/programs/mouse.nix
-    ../../modules/programs/touchegg.nix
     ../../modules/programs/kdiskmark.nix
     ../../modules/programs/niri
     ../../modules/programs/alacritty.nix
