@@ -1,3 +1,4 @@
+# Must add a samba user using smbpasswd -a <your_user>
 {...}: {
   services.samba = {
     enable = true;
@@ -6,35 +7,35 @@
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "My NixOS Server";
-        "netbios name" = "nixos-server";
+        "server string" = "Fujin";
+        "netbios name" = "fujin";
         "security" = "user";
         "hosts allow" = "192.168.2. 127.0.0.1 localhost 100.";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";
       };
-      # Public share accessible by guests
-      "public" = {
-        "path" = "/srv/samba/public";
-        "browseable" = "yes";
-        "read only" = "no";
-        "guest ok" = "yes";
-        "create mask" = "0644";
-        "directory mask" = "0755";
-        "force user" = "samba-user";
-        "force group" = "samba-group";
-      };
-      # Private share requiring authentication
-      "private" = {
-        "path" = "/srv/samba/private";
+
+      "home" = {
+        "path" = "/data/shares/home";
         "browseable" = "yes";
         "read only" = "no";
         "guest ok" = "no";
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "samba-user";
-        "force group" = "samba-group";
+        "force user" = "smb-user";
+        "force group" = "smb-group";
+      };
+      
+      "bulk" = {
+        "path" = "/data/shares/bulk";
+        "browseable" = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "smb-user";
+        "force group" = "smb-group";
       };
     };
   };
@@ -50,16 +51,16 @@
   networking.firewall.allowPing = true;
 
   # Create samba user and group
-  users.groups.samba-group = {};
-  users.users.samba-user = {
+  users.groups.smb-group = {};
+  users.users.smb-user = {
     isSystemUser = true;
-    group = "samba-group";
+    group = "smb-group";
   };
 
   # Create share directories
   systemd.tmpfiles.rules = [
-    "d /srv/samba 0755 root root -"
-    "d /srv/samba/public 0755 samba-user samba-group -"
-    "d /srv/samba/private 0755 samba-user samba-group -"
+    "d /data/shares 0775 root root -"
+    "d /data/shares/home 0775 smb-user smb-group -"
+    "d /data/shares/bulk 0775 smb-user smb-group -"
   ];
 }
