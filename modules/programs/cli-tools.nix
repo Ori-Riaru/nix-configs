@@ -8,5 +8,6 @@
     speedtest-cli
     lf
     xclip
+    trash-cli
   ];
 }

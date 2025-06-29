@@ -12,19 +12,30 @@
       ".." = "cd ..";
       "..." = "cd ../..";
       "...." = "cd ../../..";
+      bd = "cd $OLDPWD";
+      hm = "cd ~";
       l = "lsd";
       ls = "lsd";
       c = "clear";
       search = "fzf -q";
       s = "fzf -q";
 
+      cp = "cp -i";
+      mv = "mv -i";
+      rm = "trash -v";
+
+      ping = "ping -c 10";
+
       g = "git";
       ga = "git add";
       gs = "git status";
       gc = "git commit -m";
-      gca = "git add . && git commit -m";
+      gac = "git add . && git commit -m";
       gp = "git push";
       gl = "git pull";
+
+      home = "nh home switch";
+      os = "nh os switch";
 
       code = "codium";
       configs = "codium ~/Projects/nix-configs";

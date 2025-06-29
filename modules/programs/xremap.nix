@@ -27,8 +27,12 @@
             "ALT-L" = "DOWN";
             "ALT-SEMICOLON" = "RIGHT";
 
+            "ALT-I" = "CTRL-LEFT";
+            "ALT-O" = "CTRL-RIGHT";
             "ALT-U" = "HOME";
             "ALT-P" = "END";
+            "ALT-H" = "SUPER-LEFT";
+            "ALT-APOSTROPHE" = "SUPER-RIGHT";
           };
         }
       ];

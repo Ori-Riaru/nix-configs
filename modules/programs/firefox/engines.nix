@@ -435,6 +435,30 @@
             "claude;"
           ];
         };
+        "protondb" = {
+          urls = [
+            {
+              template = "https://www.protondb.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+
+              icon = "https://www.protondb.com/favicon.ico";
+              updateInterval = 24 * 60 * 60 * 1000;
+              definedAliases = [
+                "@proton"
+                "@protondb"
+                "@pdb"
+                "proton;"
+                "protondb;"
+                "pdb;"
+              ];
+            }
+          ];
+        };
       };
     };
   };

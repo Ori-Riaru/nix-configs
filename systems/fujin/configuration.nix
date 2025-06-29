@@ -10,6 +10,7 @@
     ../../modules/services/nextcloud.nix
     ../../modules/services/factorio.nix
     ../../modules/services/tailscale.nix
+    ../../modules/services/nfs.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix

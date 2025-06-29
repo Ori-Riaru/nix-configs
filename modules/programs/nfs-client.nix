@@ -1,0 +1,32 @@
+{
+  config,
+  pkgs,
+  ...
+}: {
+  boot.supportedFilesystems = ["nfs"];
+
+  fileSystems = {
+    "/mnt/nfs/riaru" = {
+      device = "192.168.2.22:/riaru";
+      fsType = "nfs";
+      options = [
+        "nfsvers=4.2"
+        "x-systemd.automount"
+        "noauto"
+        "x-systemd.idle-timeout=600"
+        "rsize=131072"
+        "wsize=131072"
+      ];
+    };
+  };
+
+  # Create mount point directory
+  systemd.tmpfiles.rules = [
+    "d /mnt/nfs 0755 root root -"
+    "d /mnt/nfs/riaru 0755 riaru riaru -"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    nfs-utils
+  ];
+}

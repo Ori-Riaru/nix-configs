@@ -293,11 +293,11 @@
       };
       # Example volume keys mappings for PipeWire & WirePlumber.
       "XF86AudioRaiseVolume" = {
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"];
+        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"];
         allow-when-locked = true;
       };
       "XF86AudioLowerVolume" = {
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"];
+        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"];
         allow-when-locked = true;
       };
       "XF86AudioMute" = {

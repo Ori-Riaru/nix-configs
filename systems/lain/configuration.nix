@@ -19,8 +19,8 @@
     ../../modules/_share/niri.nix
     ../../modules/_share/smb-mount.nix
     ../../modules/_share/virtulization.nix
-
     ../../modules/services/tailscale.nix
+    ../../modules/programs/nfs-client.nix
 
     ../../users/riaru
   ];
