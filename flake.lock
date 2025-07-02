@@ -484,7 +484,7 @@
         "hyprwayland-scanner": "hyprwayland-scanner",
         "nixpkgs": "nixpkgs_3",
         "pre-commit-hooks": "pre-commit-hooks",
-        "systems": "systems_4",
+        "systems": "systems_5",
         "xdph": "xdph"
       },
       "locked": {
@@ -986,6 +986,7 @@
         "plasma-manager": "plasma-manager",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
+        "walker": "walker",
         "xremap-flake": "xremap-flake"
       }
     },
@@ -1095,6 +1096,21 @@
       }
     },
     "systems_4": {
+      "locked": {
+        "lastModified": 1689347949,
+        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "systems_5": {
       "locked": {
         "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
@@ -1248,6 +1264,27 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "walker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems_4"
+      },
+      "locked": {
+        "lastModified": 1748677846,
+        "narHash": "sha256-3GD5xEMUUzCsbi9FmOhg7ZXZgc2NswnrCl+rRL8PsLE=",
+        "owner": "abenz1267",
+        "repo": "walker",
+        "rev": "1afd033ae3cbeb69e0debb2a0805fcbbd3d27bc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "abenz1267",
+        "repo": "walker",
         "type": "github"
       }
     },

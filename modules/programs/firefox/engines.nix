@@ -194,7 +194,7 @@
         "miruro" = {
           urls = [
             {
-              template = "https://www.miruro.tv";
+              template = "https://www.miruro.to/favicon.ico?v=0.9.9.1";
               params = [
                 {
                   name = "query";
@@ -378,7 +378,7 @@
             }
           ];
 
-          icon = "https://github.com/favicon.ico";
+          icon = "https://newegg.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@new"

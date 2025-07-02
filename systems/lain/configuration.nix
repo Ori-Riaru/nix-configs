@@ -21,6 +21,8 @@
     ../../modules/_share/virtulization.nix
     ../../modules/services/tailscale.nix
     ../../modules/programs/nfs-client.nix
+    ../../modules/services/hamachi.nix
+    ../../modules/services/quake.nix
 
     ../../users/riaru
   ];

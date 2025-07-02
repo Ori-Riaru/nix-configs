@@ -18,12 +18,24 @@
         "wsize=131072"
       ];
     };
+    "/mnt/nfs/bulk" = {
+      device = "192.168.2.22:/bulk";
+      fsType = "nfs";
+      options = [
+        "nfsvers=4.2"
+        "x-systemd.automount"
+        "noauto"
+        "x-systemd.idle-timeout=600"
+        "rsize=131072"
+        "wsize=131072"
+      ];
+    };
   };
 
-  # Create mount point directory
   systemd.tmpfiles.rules = [
     "d /mnt/nfs 0755 root root -"
     "d /mnt/nfs/riaru 0755 riaru riaru -"
+    "d /mnt/nfs/bulk 0755 riaru riaru -"
   ];
 
   environment.systemPackages = with pkgs; [

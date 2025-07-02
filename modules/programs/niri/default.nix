@@ -9,6 +9,7 @@
     wofi
     mako
     swww
+    libqalculate
   ];
 
   services.swww.enable = true;
