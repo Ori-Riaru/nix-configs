@@ -11,6 +11,7 @@
     ../../modules/services/factorio.nix
     ../../modules/services/tailscale.nix
     ../../modules/services/nfs.nix
+    ../../modules/services/restic.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix
