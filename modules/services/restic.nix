@@ -1,13 +1,17 @@
-
-# mount backups using: sudo restic-home -r /data/restic/ -p /etc/nixos/restic-password mount --allow-other /home/riaru/restic
+# mount backups by: sudo restic-home mount --allow-other /mnt/restic
 {pkgs, ...}: {
 	 systemd.tmpfiles.rules = [
-	    "d /data/restic 0755 root root -"
-  	];	
+	    "d /mnt/bulk/Backups/restic/home 0755 root root -"
+  	];
+
+  	environment.variables = {
+  		  RESTIC_REPOSITORY = "/mnt/bulk/data/Backups/restic/home";
+  		  RESTIC_PASSWORD_FILE = "/etc/nixos/restic-password";
+  	};	
 
 	services.restic.backups = {
 		home = {
-			repository = "/data/restic";
+			repository = "/mnt/bulk/data/Backups/restic/home";
 			initialize = true;
 			paths = [ "/data/nfs/riaru" ];
 			exclude = [ ];
