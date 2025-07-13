@@ -40,8 +40,8 @@
       touchpad = {
         # off = true;
         tap = true;
-        # dwt = true;
         # dwtp = true;
+        # dwt = true;
         # drag = false;
         # drag-lock = true;
         natural-scroll = true;
@@ -148,8 +148,8 @@
         {proportion = 0.66667;}
         # { fixed = 1920; }
       ];
-      # You can also customize the heights that "switch-preset-window-height" toggles between.
       # preset-window-heights = [];
+      # You can also customize the heights that "switch-preset-window-height" toggles between.
       # You can change the default width of the new windows.
       default-column-width = {proportion = 0.5;};
       # If you leave the brackets empty, the windows themselves will decide their initial width.
@@ -166,7 +166,7 @@
         # inactive.color = "#505050";
         # You can also use gradients. They take precedence over solid colors.
         # active-gradient = {
-        #   from = "#80c8ff";
+        #   from = "#80c8ff"; niri
         #   to = "#bbddff";
         #   angle = 45;
         # };
@@ -216,8 +216,6 @@
       backdrop-color = "#000000";
     };
 
-    # Add lines like this to spawn processes at startup.
-    # For numlock, you might want to add:
     spawn-at-startup = [
       {
         command = ["xwayland-satellite"];
@@ -232,7 +230,10 @@
         command = ["swww" "daemon"];
       }
       {
-        command = ["swww" "img" "${settings.wallpaper}"];
+        command = ["swww" "img" "${settings.base}"];
+      }
+      {
+        command = ["walker" "--gapplication-service"];
       }
     ];
 
@@ -315,9 +316,9 @@
       #   repeat = false;
       # };
 
-      "Mod+U" = {
-        action.spawn = ["sh" "-c" "pgrep wofi && pkill wofi || (wofi --show drun &)"];
-        hotkey-overlay.title = "Run an Application: wofi";
+      "Mod+K" = {
+        action.spawn = ["walker"];
+        hotkey-overlay.title = "Toggle Application Launcher: walker";
       };
       "Mod+T" = {
         action.spawn = "kitty";
@@ -331,8 +332,6 @@
       "Mod+Left".action.focus-column-left = {};
       "Mod+Right".action.focus-column-right = {};
 
-      "Mod+Q".action.focus-window-up = {};
-      "Mod+J".action.focus-window-down = {};
       "Mod+O".action.focus-column-left = {};
       "Mod+E".action.focus-column-right = {};
 
@@ -345,8 +344,6 @@
       "Mod+Ctrl+Left".action.consume-or-expel-window-left = {};
       "Mod+Ctrl+Right".action.consume-or-expel-window-right = {};
 
-      "Mod+Ctrl+Q".action.move-window-up = {};
-      "Mod+Ctrl+J".action.move-window-down = {};
       "Mod+Ctrl+O".action.consume-or-expel-window-left = {};
       "Mod+Ctrl+E".action.consume-or-expel-window-right = {};
 
@@ -357,15 +354,15 @@
       "Mod+Page_Up".action.focus-workspace-up = {};
       "Mod+Page_Down".action.focus-workspace-down = {};
 
-      "Mod+Comma".action.focus-workspace-up = {};
-      "Mod+Period".action.focus-workspace-down = {};
+      "Mod+Comma".action.focus-window-or-workspace-up = {};
+      "Mod+Period".action.focus-window-or-workspace-down = {};
 
       # Workspace Movement
       "Mod+Ctrl+Page_Up".action.move-window-to-workspace-up = {};
       "Mod+Ctrl+Page_Down".action.move-window-to-workspace-down = {};
 
-      "Mod+Ctrl+Comma".action.move-window-to-workspace-up = {};
-      "Mod+Ctrl+Period".action.move-window-to-workspace-down = {};
+      "Mod+Ctrl+Comma".action.move-window-up-or-to-workspace-up = {};
+      "Mod+Ctrl+Period".action.move-window-down-or-to-workspace-down = {};
 
       # Monitor focus
       "Mod+Shift+Left".action.focus-monitor-left = {};
@@ -418,32 +415,14 @@
       "Mod+Ctrl+Shift+WheelScrollDown".action.move-column-right = {};
       "Mod+Ctrl+Shift+WheelScrollUp".action.move-column-left = {};
 
-      # Workspace by index
-      "Mod+1".action.focus-workspace = 1;
-      "Mod+2".action.focus-workspace = 2;
-      "Mod+3".action.focus-workspace = 3;
-      "Mod+4".action.focus-workspace = 4;
-      "Mod+5".action.focus-workspace = 5;
-      "Mod+6".action.focus-workspace = 6;
-      "Mod+7".action.focus-workspace = 7;
-      "Mod+8".action.focus-workspace = 8;
-      "Mod+9".action.focus-workspace = 9;
-      "Mod+Ctrl+1".action.move-column-to-workspace = 1;
-      "Mod+Ctrl+2".action.move-column-to-workspace = 2;
-      "Mod+Ctrl+3".action.move-column-to-workspace = 3;
-      "Mod+Ctrl+4".action.move-column-to-workspace = 4;
-      "Mod+Ctrl+5".action.move-column-to-workspace = 5;
-      "Mod+Ctrl+6".action.move-column-to-workspace = 6;
-      "Mod+Ctrl+7".action.move-column-to-workspace = 7;
-      "Mod+Ctrl+8".action.move-column-to-workspace = 8;
-      "Mod+Ctrl+9".action.move-column-to-workspace = 9;
-
-      # Column manipulation
-      "Mod+BracketLeft".action.consume-or-expel-window-left = {};
-      "Mod+BracketRight".action.consume-or-expel-window-right = {};
-      # "Mod+Comma".action.consume-window-into-column = {};
-      # "Mod+Period".action.expel-window-from-column = {};
-
+      # Focuse Monitors
+      "Mod+1".action.focus-monitor = "Dell Inc. DELL G3223Q C3PM6P3";
+      "Mod+2".action.focus-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
+      "Mod+3".action.focus-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
+      "Ctrl+Mod+1".action.move-window-to-monitor = "Dell Inc. DELL G3223Q C3PM6P3";
+      "Ctrl+Mod+2".action.move-window-to-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
+      "Ctrl+Mod+3".action.move-window-to-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
+      
       "Mod+R".action.switch-preset-column-width = {};
       "Mod+Shift+R".action.switch-preset-window-height = {};
       "Mod+Ctrl+R".action.reset-window-height = {};

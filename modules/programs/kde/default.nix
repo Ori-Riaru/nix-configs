@@ -49,7 +49,7 @@
       iconTheme = "Papirus-Dark";
 
       # Wallpaper & lockscreen
-      wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
+      wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       clickItemTo = "open";
 
       colorScheme = "Neutral Dark";

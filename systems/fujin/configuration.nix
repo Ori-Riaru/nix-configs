@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -12,11 +12,16 @@
     ../../modules/services/tailscale.nix
     ../../modules/services/nfs.nix
     ../../modules/services/restic.nix
+    ../../modules/services/jellyfin.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix
     #./services/palworld.nix
   ];
+
+  environment.variables = {
+    NH_FLAKE = lib.mkForce "/data/nfs/riaru/Projects/nix-configs";
+  };  
 
   # Bootloader
   boot.loader.grub.enable = true;

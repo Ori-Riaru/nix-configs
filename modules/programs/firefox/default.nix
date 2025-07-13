@@ -73,9 +73,6 @@
         "privacy.admeasurement.enabled" = false;
         "browser.discovery.enabled" = false;
 
-        # Find as you type
-        "accessibility.typeaheadfind.enablesound" = false;
-
         # Picture in picture
         "media.videocontrols.picture-in-picture.enabled" = false;
 

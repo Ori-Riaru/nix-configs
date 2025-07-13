@@ -33,6 +33,12 @@
             "ALT-P" = "END";
             "ALT-H" = "SUPER-LEFT";
             "ALT-APOSTROPHE" = "SUPER-RIGHT";
+
+            "ALT-M" = "CTRL-B";
+            "ALT-COMMA" = "CTRL-I";
+            "ALT-DOT" = "CTRL-DOT";       
+            "ALT-SLASH" = "CTRL-SLASH";
+            "ALT-A" = "ESC";     
           };
         }
       ];

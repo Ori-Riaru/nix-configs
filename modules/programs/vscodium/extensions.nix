@@ -79,7 +79,7 @@
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
-          jannisx11.batch-rename-extension
+        # jannisx11.batch-rename-extension
           sleistner.vscode-fileutils
         ])
         ++ (with extensions.vscode-marketplace; [

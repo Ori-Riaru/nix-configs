@@ -2,6 +2,7 @@
   programs.vscode.profiles.default.userSettings = {
     "files.autoSave" = "afterDelay";
     "editor.linkedEditing" = true;
+    "keyboard.dispatch" = "keyCode";
 
     "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
 
@@ -20,7 +21,7 @@
     "files.autoSaveWhenNoErrors" = true;
 
     # Fonts
-    "editor.fontLigatures" = true;
+    "editor.fontLigatures" = true; 
     "editor.fontFamily" = "${settings.font-monospace}";
     "terminal.integrated.fontFamily" = "${settings.font-monospace}";
     "editor.lineHeight" = 20;

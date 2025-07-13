@@ -23,6 +23,7 @@
     ../../modules/programs/nfs-client.nix
     ../../modules/services/hamachi.nix
     ../../modules/services/quake.nix
+    ../../modules/programs/monado.nix
 
     ../../users/riaru
   ];
@@ -30,7 +31,6 @@
   networking.hostName = "lain";
 
   #Nvidia
-
   hardware.graphics = {
     enable = true;
   };

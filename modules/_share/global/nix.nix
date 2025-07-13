@@ -13,14 +13,15 @@
     nvd
   ];
 
-  environment.sessionVariables = {
-    NH_FLAKE = "/home/${settings.username}/Projects/nix-configs";
+  environment.variables = {
+    NH_FLAKE = "/mnt/nfs/${settings.username}/Projects/nix-configs";
   };
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
+      trusted-users = ["root" "riaru"];
       experimental-features = "nix-command flakes";
       flake-registry = "";
 

@@ -14,6 +14,7 @@
     ../../modules/_share/niri.nix
     ../../modules/_share/smb-mount.nix
     ../../modules/_share/virtulization.nix
+    ../../modules/programs/nfs-client.nix
 
     ../../modules/services/tailscale.nix
 

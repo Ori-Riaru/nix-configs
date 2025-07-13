@@ -4,18 +4,15 @@
   inputs,
   ...
 }: {
-  imports = [
-    inputs.walker.homeManagerModules.default
-  ];
+
 
   home.packages = with pkgs; [
     psmisc
   ];
 
-  programs.walker = {
-    enable = true;
-    runAsService = true;
-  };
+
+
+
 
   programs.waybar = {
     enable = true;

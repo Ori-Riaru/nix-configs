@@ -33,6 +33,7 @@
     ../../modules/programs/f3d.nix
     ../../modules/programs/nautilus.nix
     ../../modules/programs/mangohud.nix
+    ../../modules/programs/walker.nix
 
     # Development
     ../../modules/programs/java.nix

@@ -59,7 +59,6 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -77,7 +76,7 @@
 
       # --- Themeing ---
       avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
-      wallpaper = "/home/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
+      wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
 
       accent = purple;
