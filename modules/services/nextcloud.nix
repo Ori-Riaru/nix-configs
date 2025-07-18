@@ -7,11 +7,10 @@
     # Manual update required when new version available.
     package = pkgs.nextcloud31;
 
-    hostName = "192.168.2.22";
+    hostName = "riaru.undo.it";
     config.adminpassFile = "/etc/nextcloud-admin-pass";
 
     phpOptions."opcache.interned_strings_buffer" = "24";
-
     config.dbtype = "mysql";
     database.createLocally = true;
     configureRedis = true;

@@ -13,6 +13,7 @@
     ../../modules/services/nfs.nix
     ../../modules/services/restic.nix
     ../../modules/services/jellyfin.nix
+    ../../modules/services/blocky.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix

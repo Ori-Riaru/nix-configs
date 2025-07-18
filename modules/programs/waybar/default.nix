@@ -4,15 +4,9 @@
   inputs,
   ...
 }: {
-
-
   home.packages = with pkgs; [
     psmisc
   ];
-
-
-
-
 
   programs.waybar = {
     enable = true;

@@ -23,7 +23,8 @@
     ../../modules/programs/nfs-client.nix
     ../../modules/services/hamachi.nix
     ../../modules/services/quake.nix
-    ../../modules/programs/monado.nix
+    ../../modules/programs/kdeconnect.nix
+    ../../modules/programs/monado/monado.nix
 
     ../../users/riaru
   ];
@@ -38,18 +39,12 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-    open = false;
+    open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
     modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-  };
-
-  #Nvidia
-
-  services.suwayomi-server = {
-    enable = true;
   };
 
   services.ratbagd.enable = true;

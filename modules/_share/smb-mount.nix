@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   services.gvfs.enable = true;
 
   fileSystems."/mnt/smb/riaru" = {
-    device = "//192.168.2.22/riaru";
+    device = "//${settings.serverLocalIP}/riaru";
     fsType = "cifs";
     options = [
       "noperm"

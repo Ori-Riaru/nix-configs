@@ -5,11 +5,13 @@
   ...
 }: {
   home.packages = with pkgs; [
-    fuzzel
-    wofi
     mako
     swww
-    libqalculate
+
+    (pkgs.papirus-icon-theme.override {color = "black";})
+
+    hyprlock
+    hypridle
   ];
 
   services.swww.enable = true;
@@ -78,14 +80,14 @@
     # by running `niri msg outputs` while inside a niri instance.
     # The built-in laptop monitor is usually called "eDP-1".
     outputs = {
-      # "eDP-1" = {
-      #   mode = {
-      #     height = 1920;
-      #     width = 1080;
-      #     refresh = 60.0;
-      #   };
-      #   scale = 1.25;
-      # };
+      "eDP-1" = {
+        mode = {
+          height = 1920;
+          width = 1080;
+          refresh = 60.0;
+        };
+        scale = 1.25;
+      };
 
       # "HDMI-A-1" = {
       #   mode = {
@@ -422,7 +424,7 @@
       "Ctrl+Mod+1".action.move-window-to-monitor = "Dell Inc. DELL G3223Q C3PM6P3";
       "Ctrl+Mod+2".action.move-window-to-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
       "Ctrl+Mod+3".action.move-window-to-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
-      
+
       "Mod+R".action.switch-preset-column-width = {};
       "Mod+Shift+R".action.switch-preset-window-height = {};
       "Mod+Ctrl+R".action.reset-window-height = {};

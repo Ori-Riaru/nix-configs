@@ -15,20 +15,19 @@
     ../../modules/_share/smb-mount.nix
     ../../modules/_share/virtulization.nix
     ../../modules/programs/nfs-client.nix
+    ../../modules/programs/kdeconnect.nix
+    # ../../modules/programs/monado.nix
 
     ../../modules/services/tailscale.nix
 
     ../../users/riaru
   ];
 
-  # services.ratbagd.enable = true;
-
-  hardware.uinput.enable = true;
-
-  networking.hostName = "shizuku";
+  networking.hostName = "slate";
 
   # Enable Auto Rotate
   hardware.sensor.iio.enable = true;
+  hardware.uinput.enable = true;
 
   system.stateVersion = "24.05";
 }

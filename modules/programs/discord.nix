@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # home.packages = with pkgs; [
   #   (discord.override {
   #     withVencord = true;
@@ -9,36 +13,44 @@
   # Switched to Vesktop because of https://github.com/NixOS/nixpkgs/issues/195512
   programs.vesktop = {
     enable = true;
+
     vencord.settings = {
+      autoUpdate = false;
+      autoUpdateNotification = false;
+      notifyAboutUpdates = false;
       disableMinSize = true;
       plugins = {
-        FakeNitro.enable = true;
-        VolumeBooster.enable = true;
-        AlwaysTrust.enable = true;
-        AnonymiseFileNames.enable = true;
-        BetterGifAltText.enable = true;
-        BetterGifPicker.enable = true;
-        BiggerStreamPreview.enable = true;
-        CallTimer.enable = true;
-        ImageZoom.enable = true;
-        InvisibleChat.enable = true;
-        MessageLinkEmbeds.enable = true;
-        MessageLogger.enable = true;
+        FakeNitro.enabled = true;
+        VolumeBooster.enabled = true;
+        AlwaysTrust.enabled = true;
+        AnonymiseFileNames.enabled = true;
+        BetterGifAltText.enabled = true;
+        BetterGifPicker.enabled = true;
+        BiggerStreamPreview.enabled = true;
+        CallTimer.enabled = true;
+        ImageZoom.enabled = true;
+        InvisibleChat.enabled = true;
+        MessageLinkEmbeds.enabled = true;
+        MessageLogger.enabled = true;
         NoPendingCount = {
-          enable = true;
+          enabled = true;
           hideFriendRequestsCount = false;
           hideMessageRequestsCount = false;
           hidePremiumOffersCount = true;
         };
-        NoProfileThemes.enable = true;
-        RoleColorEverywhere.enable = true;
-        ShikiCodeBlocks.enable = true;
-        ShowHiddenChannels.enable = true;
-        ShowMeYourName.enable = true;
-        SilentTyping.enable = true;
-        UserMessagePronouns.enable = true;
-        USRGB.enable = true;
-        YoutubeAdblock.enable = true;
+        NoProfileThemes.enabled = true;
+        RoleColorEverywhere.enabled = true;
+        ShikiCodeblocks.enabled = true;
+        ShowHiddenChannels.enabled = true;
+        ShowMeYourName.enabled = true;
+        SilentTyping.enabled = true;
+        UserMessagesPronouns.enabled = true;
+        USRBG.enabled = true;
+        YoutubeAdblock.enabled = true;
+        CrashHandler.enabled = true;
+        WebKeybinds.enabled = true;
+        WebScreenShareFixes.enabled = true;
+        ClearURLs.enabled = true;
       };
     };
   };

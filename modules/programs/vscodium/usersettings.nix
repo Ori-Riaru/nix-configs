@@ -285,7 +285,6 @@
       "${settings.username-full}"
       "riaru"
       "aki"
-      "shizuku"
       "nixpkgs"
       "nixos"
       "pkgs"
@@ -333,10 +332,10 @@
 
     "options" = {
       "home_manager" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").homeConfigurations.${settings.username}@shizuku.options";
+        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").homeConfigurations.${settings.username}@slate.options";
       };
       "nixos" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.shizuku.options";
+        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.slate.options";
       };
     };
   };

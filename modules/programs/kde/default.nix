@@ -17,7 +17,6 @@
 
     kdePackages.qtstyleplugin-kvantum
 
-    bibata-cursors
     (pkgs.papirus-icon-theme.override {color = "black";})
   ];
 

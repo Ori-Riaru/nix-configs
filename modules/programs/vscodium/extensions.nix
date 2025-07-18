@@ -34,7 +34,7 @@
           fill-labs.dependi
 
           # Python
-          ms-python.python
+          # ms-python.python
           ms-toolsai.jupyter
 
           # C++

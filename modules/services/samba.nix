@@ -20,7 +20,7 @@
         "server string" = "Fujin";
         "netbios name" = "fujin";
         "security" = "user";
-        "hosts allow" = "192.168.2. 127.0.0.1 localhost 100.";
+        "hosts allow" = "192.168.1. 127.0.0.1 localhost 100.";
         "hosts deny" = "0.0.0.0/0";
         "guest account" = "nobody";
         "map to guest" = "bad user";

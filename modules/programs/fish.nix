@@ -36,9 +36,12 @@
 
       home = "nh home switch";
       os = "nh os switch";
+      update = "nix flake update /mnt/nfs/riaru/Projects/nix-configs";
 
+      ns = "nix-shell";
+      nsp = "nix-shell -p";
       code = "codium";
-      configs = "codium ~/Projects/nix-configs";
+      configs = "codium /mnt/nfs/riaru/Projects/nix-configs";
       clipboard = "xclip -selection clipboard";
       clip = "xclip -selection clipboard";
     };

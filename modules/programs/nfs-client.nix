@@ -1,13 +1,13 @@
 {
-  config,
   pkgs,
+  settings,
   ...
 }: {
   boot.supportedFilesystems = ["nfs"];
 
   fileSystems = {
     "/mnt/nfs/riaru" = {
-      device = "192.168.2.22:/riaru";
+      device = "${settings.serverLocalIP}:/riaru";
       fsType = "nfs";
       options = [
         "nfsvers=4.2"
@@ -19,7 +19,7 @@
       ];
     };
     "/mnt/nfs/bulk" = {
-      device = "192.168.2.22:/bulk";
+      device = "${settings.serverLocalIP}:/bulk";
       fsType = "nfs";
       options = [
         "nfsvers=4.2"

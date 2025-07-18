@@ -7,13 +7,14 @@
 {pkgs, ...}: {
   security.acme = {
     acceptTerms = true;
-    defaults.email = "ori-riaru@proton.me";
+    defaults.email = "riaruazaki@proton.me";
   };
+
   services.mastodon = {
     enable = true;
     localDomain = "my.v0id.nl";
     configureNginx = true;
-    smtp.fromAddress = "ori-riaru@proton.me";
+    smtp.fromAddress = "riaruazaki@proton.me";
     extraConfig.SINGLE_USER_MODE = "true";
     streamingProcesses = 3;
 

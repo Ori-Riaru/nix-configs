@@ -19,7 +19,7 @@
     #./programs/resolve.nix
     ../../modules/programs/inkscape.nix
     ../../modules/programs/libre-office.nix
-    ../../modules/programs/gimp.nix
+    # ../../modules/programs/gimp.nix
     ../../modules/programs/krita.nix
     ../../modules/programs/thunderbird.nix
     ../../modules/programs/cura.nix
@@ -52,16 +52,16 @@
     ../../modules/programs/gaming.nix
 
     # System
-    ../../modules/programs/kdeconnect.nix
     ../../modules/programs/xremap.nix
     ../../modules/programs/file-viewers.nix
     ../../modules/programs/fonts.nix
-    ../../modules/programs/kde
+    # ../../modules/programs/kde
     ../../modules/programs/mouse.nix
     ../../modules/programs/kdiskmark.nix
     ../../modules/programs/niri
     ../../modules/programs/alacritty.nix
     ../../modules/programs/waybar
+    ../../modules/programs/walker.nix
 
     ../../modules/programs/stylix.nix
 

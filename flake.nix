@@ -44,7 +44,6 @@
     };
 
     # Modifications
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -112,6 +111,8 @@
       font-monospace = "JetBrainsMono Nerd Font";
 
       keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
+
+      serverLocalIP = "192.168.1.82";
     };
 
     inherit (self) outputs;
@@ -140,10 +141,10 @@
       };
 
       # Laptop
-      shizuku = nixpkgs.lib.nixosSystem {
+      slate = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./systems/shizuku/configuration.nix
+          ./systems/slate/configuration.nix
         ];
       };
 
@@ -166,12 +167,11 @@
         ];
       };
 
-      # Laptop
-      "${settings.username}@shizuku" = home-manager.lib.homeManagerConfiguration {
+      "${settings.username}@slate" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./systems/shizuku/home.nix
+          ./systems/slate/home.nix
         ];
       };
 
