@@ -2,18 +2,19 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/_share/global
+    ../../configs/system/global
     ../../users/riaru
 
-    ../../modules/services/samba.nix
-    ../../modules/services/mastodon
-    ../../modules/services/nextcloud.nix
-    ../../modules/services/factorio.nix
-    ../../modules/services/tailscale.nix
-    ../../modules/services/nfs.nix
-    ../../modules/services/restic.nix
-    ../../modules/services/jellyfin.nix
-    ../../modules/services/blocky.nix
+    ../../configs/services/samba.nix
+    ../../configs/services/mastodon
+    ../../configs/services/nextcloud.nix
+    ../../configs/services/factorio.nix
+    ../../configs/services/tailscale.nix
+    ../../configs/services/nfs.nix
+    ../../configs/services/restic.nix
+    ../../configs/services/jellyfin.nix
+    ../../configs/services/blocky.nix
+    ../../configs/programs/sops.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix
@@ -22,7 +23,7 @@
 
   environment.variables = {
     NH_FLAKE = lib.mkForce "/data/nfs/riaru/Projects/nix-configs";
-  };  
+  };
 
   # Bootloader
   boot.loader.grub.enable = true;

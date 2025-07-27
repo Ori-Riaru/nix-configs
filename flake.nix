@@ -1,10 +1,10 @@
 {
-  description = "Riaru's System Configuration";
+  description = "Riaru's System Configuration"; 
 
   inputs = {
     # Repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/7f6db4bf618acbf8f854577bd776afefc27dccc2";
 
     nur = {
       url = "github:nix-community/nur";
@@ -59,6 +59,11 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -68,7 +73,7 @@
     ...
   } @ inputs: let
     settings = rec {
-      # --- User Settings ---
+      # --- Primary User Settings ---
       username = "riaru";
       username-full = "Ori Riaru";
       email = "ori-riaru@proton.me";
@@ -113,6 +118,7 @@
       keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
 
       serverLocalIP = "192.168.1.82";
+      configPath = "/mnt/nfs/riaru/Projects/nix-configs";
     };
 
     inherit (self) outputs;
@@ -163,7 +169,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./systems/lain/home.nix
+          ./users/riaru/lain/home.nix
         ];
       };
 
@@ -171,7 +177,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./systems/slate/home.nix
+          ./users/riaru/slate/home.nix
         ];
       };
 
@@ -180,7 +186,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./systems/fujin/home.nix
+          ./users/riaru/fujin/home.nix
         ];
       };
     };

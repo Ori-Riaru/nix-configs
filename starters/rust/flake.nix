@@ -19,7 +19,10 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           rustc
+          cargo
+          rustfmt
           rust-analyzer
+          clippy
         ];
 
         shellHook = ''

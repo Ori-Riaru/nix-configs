@@ -4,23 +4,28 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/_share/global
-    ../../modules/_share/systemd-boot.nix
-    ../../modules/_share/audio.nix
-    ../../modules/_share/kde.nix
-    ../../modules/_share/bluetooth.nix
-    ../../modules/_share/printing.nix
-    ../../modules/_share/steam.nix
-    ../../modules/_share/niri.nix
-    ../../modules/_share/smb-mount.nix
-    ../../modules/_share/virtulization.nix
-    ../../modules/programs/nfs-client.nix
-    ../../modules/programs/kdeconnect.nix
-    # ../../modules/programs/monado.nix
+    ../../configs/system/global
+    ../../configs/system/systemd-boot.nix
+    ../../configs/system/audio.nix
+    ../../configs/system/kde.nix
+    ../../configs/system/bluetooth.nix
+    ../../configs/system/printing.nix
+    ../../configs/system/steam.nix
+    ../../configs/system/niri.nix
+    ../../configs/programs/smb-mount.nix
+    ../../configs/system/virtulization.nix
+    ../../configs/programs/nfs-client.nix   
+    ../../configs/programs/kdeconnect.nix
+    # ../../configs/programs/monado.nix
+    ../../configs/programs/sops.nix
+    ../../configs/programs/kanata.nix
+    ../../configs/programs/sudo.nix    
+    
+    ../../configs/services/tailscale.nix
 
-    ../../modules/services/tailscale.nix
 
     ../../users/riaru
+
   ];
 
   networking.hostName = "slate";
