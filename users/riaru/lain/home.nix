@@ -61,8 +61,11 @@
     ../../../configs/programs/alacritty.nix
     ../../../configs/programs/waybar
     ../../../configs/programs/monado/monado-home.nix
+    ../../../configs/programs/nvtop.nix
 
     ../../../configs/programs/stylix.nix
+
+    ../../../configs/system/default-apps.nix
 
     ### OLD
     #./programs/resolve.nix

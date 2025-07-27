@@ -405,9 +405,11 @@
           icon = "https://github.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
+            "@gh"
             "@git"
             "@github"
             "git;"
+            "gh;"
             "github;"
           ];
         };

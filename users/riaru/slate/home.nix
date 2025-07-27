@@ -60,6 +60,7 @@
     ../../../configs/programs/alacritty.nix
     ../../../configs/programs/waybar
     ../../../configs/programs/walker.nix
+    ../../../configs/system/default-apps.nix
 
 
 
