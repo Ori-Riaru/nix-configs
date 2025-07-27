@@ -1,34 +1,34 @@
 # My NixOS Configuration
 
-My personal Nixos configurations. They are not intended to be used by others however feel free to take parts for your own configuration. Most application have been styled to match my color scheme [Neutral Dark](https://github.com/Ori-Riaru/neutral-dark).
+My personal Nixos configurations. They are not intended to be used by others however feel free to take parts or ideas for your own configuration. Most application have been styled to match my color scheme [Neutral Dark](https://github.com/Ori-Riaru/neutral-dark).
 
 ## Structure
 
-- [`flake.nix`](./flake.nix): Entrypoint for the OS and Home Manager configurations + Global Settings
-- [`modules/`](./modules/): Reusable configurations
-  - [`programs/`](./modules/programs/): Programs and their configuration can be imported user config.
-  - [`services/`](./modules/services/): Services and their configuration which can be hosted on any system.
+- [`configs/`](./configs/): Reusable configurations
+
+  - [`groups/`](./configs/groups/): Groups of programs or services which are commonly improted together and can be
+  - [`programs/`](./configs/programs/): Programs and their configurations which can be imported in a sytem conifguration.nix or a users home.nix.
+  - [`services/`](./configs/services/): Services and their configurations which can be imported in system configuration.nix.
+  - [`system/`](./configs/system/): Nix and system configurations not specific to a program or service
+
 - [`systems/`](./systems/): System configuration (built with `nh os switch`)
 
-  - [`_share/`](./systems/_share/): Configurations shared across multiple system
-    - [`global/`](./systems/_share/global/): Global configurations shared across all systems
-  - [`lain`](./systems/lain/): Desktop PC Configuration
-  - [`shizuku`](./systems/shizuku/): Laptop Configuration
-  - [`fujin`](./systems/fujin/): Server Configuration
+  - [`lain/`](./systems/lain/): System configurations imported for my desktop
+  - [`slate/`](./systems/slate/): System configuration imported for my laptop
+  - [`fujin/`](./systems/fujin/): System configurations imported for my server
 
-- [`users/`](./users/): Home Manager configurations (built with `nh home switch`)
+- [`users/`](./users/): Home Manager configurations for each user (built with `nh home switch`)
 
-  - [`_share/`](./users/_share/): Configuration shareable across multiple users
-    - [`global/`](./users/_share/global/): Universal home-manager settings
   - [`riaru/`](./users/riaru/)
-    - [`shizuku.nix`](./users/riaru/shizuku.nix)` - Laptop environment for this user
-    - [`lain.nix`](./users/riaru/lain.nix)- Desktop environment this user
-    - [`fujin.nix`](./users/riaru/fujin.nix) - Server environment this user
+    - [`lain/`](./users/riaru/lain)- Home Manager configurations imported to my desktop
+    - [`slate/`](./users/riaru/slate)` - Home Manager configurations imported to my laptop
+    - [`fujin/`](./users/riaru/fujin) - Home Manager configuration imported to my desktop
 
-- [`starters`](./starters/): Project Starter templates
-- [`packages`](./packages/): Self package software not available in nix packages
-- [`overlays`](./overlays/): Patches and version overrides for packages
-- [`secrets`](./secrets/): Credentials, Passwords, Keys, etc
+- [`starters/`](./starters/): Project starting templates including flake and direnv
+- [`packages/`](./packages/): Self package software not available in nix packages
+- [`overlays/`](./overlays/): Patches and version overrides for packages
+- [`secrets/`](./secrets/): Encrypted credentials, passwords, keys, etc
+- [`flake.nix`](./flake.nix): Global Settings and entrypoint for the OS and Home Manager configurations
 
 ## Featured Configurations
 
