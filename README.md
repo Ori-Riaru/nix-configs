@@ -6,8 +6,8 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 - [`configs/`](./configs/): Reusable configurations
 
-  - [`groups/`](./configs/groups/): Groups of programs or services which are commonly improted together and can be
-  - [`programs/`](./configs/programs/): Programs and their configurations which can be imported in a sytem conifguration.nix or a users home.nix.
+  - [`groups/`](./configs/groups/): Groups of programs or services which are commonly imported together
+  - [`programs/`](./configs/programs/): Programs and their configurations which can be imported in a system conifguration.nix or a users home.nix.
   - [`services/`](./configs/services/): Services and their configurations which can be imported in system configuration.nix.
   - [`system/`](./configs/system/): Nix and system configurations not specific to a program or service
 
