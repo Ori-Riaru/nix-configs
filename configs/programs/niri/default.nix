@@ -7,10 +7,9 @@
   home.packages = with pkgs; [
     mako
     swww
+    brightnessctl
 
     (pkgs.papirus-icon-theme.override {color = "black";})
-
-    brightnessctl
   ];
 
   imports = [

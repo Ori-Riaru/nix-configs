@@ -100,8 +100,8 @@
 
             ;; num only
             (a z) S-, $hold-time all-released (default game gamenum nav)
-            (s x) S-} $hold-time all-released (default game gamenum nav)
-            (d c) }   $hold-time all-released (default game gamenum nav)
+            (d c) S-} $hold-time all-released (default game gamenum nav)
+            (s x) }   $hold-time all-released (default game gamenum nav)
             (f v) S-0 $hold-time all-released (default game gamenum nav)
           )
 
