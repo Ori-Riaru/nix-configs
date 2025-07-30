@@ -9,71 +9,78 @@
           override-release-on-activation yes
         '';
         config = ''
-            (defsrc
-              q w e r    t   y    u     i o p
-              a s d f    g   h    j     k l ;
-              z x c v    b   n    m     , . /
-                    lalt spc ralt rmet  rctl
-            )
-
-           (defvar
-            tap-time 120
-            hold-time 170
-           )
-
-           (defoverrides
-            (lsft .) (,)
-            (rsft .) (,)
-            (lshft ,) (lsft .)
-            (lsft bspc) (del)
-            (rsft bspc) (del)
+          (defsrc
+            q w e r    t   y    u     i o p
+            a s d f    g   h    j     k l ;
+            z x c v    b   n    m     , . /
+                  lalt spc ralt rmet  rctl
           )
 
-           (defalias
-            ;; home row mods
-            a (tap-hold $tap-time $hold-time a lmet)
-            o (tap-hold $tap-time $hold-time o lalt)
-            e (tap-hold $tap-time $hold-time e lsft)
-            u (tap-hold $tap-time $hold-time u lctl)
-            h (tap-hold $tap-time $hold-time h rctl)
-            t (tap-hold $tap-time $hold-time t rsft)
-            n (tap-hold $tap-time $hold-time n ralt)
-            s (tap-hold $tap-time $hold-time s rmet)
+          (defvar
+            tap-time 200
+            hold-time 160
+            idle-time 60
+          )
 
-            ;; layer switching
-            spc (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-            esc (tap-hold $tap-time $hold-time esc (layer-while-held menu))
-            ret (tap-hold $tap-time $hold-time ret (layer-while-held num))
+          (defvirtualkeys
+            to-base (layer-switch default)
+          )
+
+          (deftemplate homerowmod (timeouttap timeouthold keytap keyhold)
+            (tap-hold $timeouttap $timeouthold
+              (multi $keytap  @.tp)
+              $keyhold
+            )
+          )
+
+          (deftemplate homerowmodfilter (timeouttap timeouthold keytap keyhold typinglist)
+            (tap-hold-except-keys $timeouttap $timeouthold
+              (multi $keytap  @.tp)
+              $keyhold
+              $typinglist
+            )
+          )
+
+          (defalias
+            ;; layers
             game (layer-switch game)
             base (layer-switch default)
             menu (layer-while-held menu)
             qwerty (layer-while-held qwerty)
             nav-shift (layer-while-held nav-shift)
 
+            ;; layer switch keys
+            spc (tap-hold $tap-time $hold-time spc (layer-while-held nav))
+            esc (tap-hold $tap-time $hold-time esc (layer-while-held menu))
+            ret (tap-hold $tap-time $hold-time ret (layer-while-held num))
+            tab (tap-hold $tap-time $hold-time tab lalt)
+            gesc (tap-hold $tap-time $hold-time esc (layer-while-held gamenum))
+
             ;; macros
+            email (macro o r i - r i a r u S-2 p r o t o n . m e)
+
+            ;; shortcuts
             undo C-z
             redo C-S-z
             cut C-x
             paste C-v
+            cliphist M-v
             copy C-c
             find C-f
             replace C-h
+            save C-s
             sall C-a
-            sword (macro C-right C-left C-S-right)
             sexpand C-w
-            launch M-g
-            size M-r
-            email (macro o r i - r i a r u S-2 p r o t o n . m e)
             back A-left
             forward A-rght
             pallet C-p
-
-            ;; window navigation
+            launch M-g
+            overview M-o
             quit M-q
+            size M-r
             full M-f
             max M-S-f
-            float M-v
-            overview M-o
+            float M-w
             focus-left (tap-hold $tap-time $hold-time M-left lmet)
             focus-up (tap-hold $tap-time $hold-time M-up lalt)
             focus-down (tap-hold $tap-time $hold-time M-down lshft)
@@ -83,82 +90,139 @@
             move-down M-C-down
             move-right M-C-rght
 
-            ;; gaming layer
-            tab (tap-hold $tap-time $hold-time tab lalt)
-            gesc (tap-hold $tap-time $hold-time esc (layer-while-held gamenum))
+            ;; Quick taping
+            .tp (switch
+                  ()  (multi
+                        (layer-switch typing)
+                        (on-idle $idle-time tap-vkey to-base)
+                      ) break
+                )
+            .spc-typing (multi (layer-switch default) spc)
           )
 
           (defchordsv2
             ;;all
-            (a w) tab 100 all-released ()
-
-            ;; nav only
-            (j k) home 50 all-released (default game gamenum num)
-            (l ;) end 50 all-released (default game gamenum num)
-            (d j k) S-home $hold-time all-released (default game gamenum num)
-            (d l ;) S-end $hold-time all-released (default game gamenum num)
+            (w e) tab 100 first-release (nav)
+            (x c) (caps-word 1000) 100 first-release (typing)
+            (e r) / 100 first-release (typing)
+            (q w) S-` 100 first-release (typing)
+    
+           ;; nav only
+            (j k) home 100 first-release (default game gamenum num typing)
+            (k l) end 100 first-release (default game gamenum num typing)
+            (d j k) S-home $hold-time first-release (default game gamenum num typing)
+            (d k l) S-end $hold-time first-release (default game gamenum num typing)
 
             ;; num only
-            (a z) S-, $hold-time all-released (default game gamenum nav)
-            (d c) S-} $hold-time all-released (default game gamenum nav)
-            (s x) }   $hold-time all-released (default game gamenum nav)
-            (f v) S-0 $hold-time all-released (default game gamenum nav)
+            (a z) S-, $hold-time first-release (default game gamenum nav typing)
+            (d c) S-} $hold-time first-release (default game gamenum nav typing)
+            (s x) }   $hold-time first-release (default game gamenum nav typing)
+            (f v) S-0 $hold-time first-release (default game gamenum nav typing)
           )
 
-          (deflayer default
-            ' - . p  y  f      g     c    r  l
-            @a @o @e @u i      d     @h   @t @n @s
-            ;  q  j  k  x      b     m    w  v  z
-                     @esc @spc @ret  bspc bspc
+          (defoverrides
+            (lsft .) (,)
+            (rsft .) (,)
+            (lshft ,) (lsft .)
+            (lsft bspc) (del)
+            (rsft bspc) (del)
           )
 
-          ( deflayer num
-             S-5 S-4 S-7 S-3 `   S-=  7     8 9 S-8
-             <   [   S-[ S-9 S-` 0    4     5 6 .
-             S-2 S-\ S-/ S-1 \   =    1     2 3 /
-                         _   _   _  _ _
+          (deflayermap (default)
+            q (multi ' @.tp)
+            w (multi - @.tp)
+            e (multi . @.tp)
+            r (multi p @.tp)
+            t (multi y @.tp)
+            y (multi f @.tp)
+            u (multi g @.tp)
+            i (multi c @.tp)
+            o (multi r @.tp)
+            p (multi l @.tp)
+
+            a (t! homerowmod $tap-time 300 a lmet)
+            s (t! homerowmod $tap-time 300 o lalt)
+            d (t! homerowmodfilter $tap-time 160 e lsft (a))
+            f (t! homerowmod $tap-time 160 u lctl)
+            g (multi i @.tp)
+            h (multi d @.tp)
+            j (t! homerowmod $tap-time 160 h rctl)
+            k (t! homerowmodfilter $tap-time 160 t rsft (j))
+            l (t! homerowmod $tap-time 300 n ralt)
+            ; (t! homerowmod $tap-time 300 s rmet)
+
+            z (multi ; @.tp)
+            x (multi q @.tp)
+            c (multi j @.tp)
+            v (multi k @.tp)
+            b (multi x @.tp)
+            n (multi b @.tp)
+            m (multi m @.tp)
+            , (multi w @.tp)
+            . (multi v @.tp)
+            / (multi z @.tp)
+
+            lalt @esc
+            spc  (tap-hold $tap-time $hold-time @.spc-typing (layer-while-held nav))
+            ralt @ret
+            rmet bspc
+            rctl bspc
+          )
+
+          (deflayer (typing)
+            ' - . p    y   f    g    c r l
+            a o e u    i   d    h    t n s
+            ; q j k    x   b    m    w v z
+                  @esc spc @ret bspc bspc
+          )
+
+          (deflayer num
+            S-5 S-4 S-7 S-3 `   S-= 7 8 9 =
+            <   [   S-[ S-9 _ S-8   4 5 6 0
+            S-2 S-\ S-/ S-1 \   /   1 2 3 .
+                            _   _  _ _ _
           )
 
           (deflayer nav
-             @quit       @full     @size       @pallet      @overview @redo @undo  @cut   @copy @paste
-             @focus-left @focus-up @focus-down @focus-right @launch   @find lft    up     down  rght
-             @back        pgup      pgdn       @forward     @float    _     @sword @sall  @sexpand  _
-                                               _            _         @nav-shift   del del
+            @quit       @full     @size       @pallet      @overview @redo @undo  @cut   @copy @paste
+            @focus-left @focus-up @focus-down @focus-right @launch   @find lft    up     down  rght
+            @back        pgup      pgdn       @forward     @float    _     @save @sall  @sexpand  _
+                                              _            _         @nav-shift   del del
           )
 
           (deflayer nav-shift
-            _          @max     _          _           _  _ _ _ _ _
-            @move-left @move-up @move-down @move-right _  @replace _ _ _ _
-            _          _        _ _                    _  _ _ _ _ _
-                  _                                    _  _  _ _
+            _          @max     _          _           _ _        _ _ _ @cliphist
+            @move-left @move-up @move-down @move-right _ @replace _ _ _ _
+            _          _        _          _           _ _ _ _ _ _
+                                           _           _ _ _ _
           )
 
           (deflayer menu
-             _ _       _     _     @email _ volu mute voldwn _
-             _ @qwerty @game @base _      _ prev pp   next  _
-             _ _       _     _     _      _ _    _    _     _
-                             _     _      _ _    _
+            _ volu mute voldwn @email _ _     _     _       _
+            _ prev pp   next   _      _ @base @game @qwerty _
+            _ _    _    _      _      _ _     _     _       _
+                        _      _      _ _ _
           )
 
           (deflayer qwerty
             q w e r    t   y    u     i o p
             a s d f    g   h    j     k l ;
             z x c v    b   n    m     , . /
-                  lalt spc ralt  rmet rctl
+                  lalt spc ralt rmet rctl
           )
 
           (deflayer game
-            @tab  q w e    r   t   y     up   i     _
+            @tab q w e     r   t   y     up   i     _
             shft a s d     f   g   left  down right _
             ctl  z x c     v   b   h     _    _     m
                      @gesc spc ret @menu @menu
           )
 
           (deflayer gamenum
-             _ 6 7 8 9      e _ _ _ _
-             1 2 3 4 5      _ _ _ _ _
-             _ _ _ _ _      _ _ _ _ _
-                   _ _      _ _ _
+            _ 4 5 6 _ _ _ _ _ _
+            _ 1 2 3 0 _ _ _ _ _
+            _ 7 8 9 _ _ _ _ _ _
+                  _ _ _ _ _
           )
         '';
       };

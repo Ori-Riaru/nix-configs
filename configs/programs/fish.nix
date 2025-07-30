@@ -57,6 +57,12 @@
         '';
         onEvent = "fish_postexec";
       };
+
+      init = {
+        body = ''
+          nix flake init --template ${settings.configPath}/#$argv[1]
+        '';
+      };
     };
   };
 }

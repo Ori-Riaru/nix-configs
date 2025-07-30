@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     mako
     swww
-    brightnessctl
 
     (pkgs.papirus-icon-theme.override {color = "black";})
   ];
@@ -16,48 +15,8 @@
     inputs.niri.homeModules.config
   ];
 
+
   services.swww.enable = true;
-
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        after_sleep_cmd = "niri msg action power-on-monitors";
-        ignore_dbus_inhibit = false;
-        lock_cmd = "hyprlock";
-      };
-
-      listener = [
-        {
-          timeout = 300;
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 360;
-          on-timeout = "brightnessctl -s set 5%";
-          on-resume = "brightnessctl -r";
-        }
-        {
-          timeout = 380;
-          on-timeout = "niri msg action power-off-monitors";
-          on-resume = "niri msg action power-on-monitors";
-        }
-        {
-          timeout = 600;
-          on-timeout = "systemctl suspend";
-        }
-      ];
-    };
-  };
-
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      general = {
-        hide_cursor = true;
-      };
-    };
-  };
 
   programs.niri.settings = {
     # Input device configuration
@@ -68,7 +27,11 @@
           variant = ",${settings.keyboard}";
           options = "";
         };
+
+        repeat-delay = 200;
+        repeat-rate = 20;
       };
+
       touchpad = {
         tap = true;
         # dwtp = true;
@@ -113,6 +76,7 @@
         scale = 1.25;
       };
 
+      # Usually default external monitor
       # "HDMI-A-1" = {
       #   mode = {
       #     height = 1080;
@@ -161,7 +125,7 @@
         };
       };
     };
-    # Settings that influence how windows are positioned and sized.
+
     layout = {
       gaps = settings.gap + 2;
       center-focused-column = "never";
@@ -194,7 +158,7 @@
         #   relative-to = "workspace-view";
         # };
       };
-      # You can also add a border. It's similar to the focus ring, but always visible.
+
       border = {
         # The settings are the same as for the focus ring.
         # If you enable the border, you probably want to disable the focus ring.
@@ -205,12 +169,11 @@
         # Color of the border around windows that request your attention.
         urgent.color = "${settings.red}";
       };
-      # You can enable drop shadows for windows.
+
       shadow = {
-        # Uncomment the next line to enable shadows.
         # enable = true;
         # draw-behind-window = true;
-        # You can change how shadows look.
+
         softness = 30;
         spread = 5;
         offset = {
@@ -220,7 +183,7 @@
         # You can also change the shadow color and opacity.
         color = "#0007";
       };
-      # Struts shrink the area occupied by windows, similarly to layer-shell panels.
+
       struts = {
         # left = 64;
         # right = 64;
@@ -252,13 +215,15 @@
       {
         command = ["walker" "--gapplication-service"];
       }
+      {
+        command = ["clipse" "-listen"];
+      }
     ];
 
     prefer-no-csd = true;
 
     screenshot-path = "~/Captures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
-    # Animation settings.
     animations = {
       # Uncomment to turn off all animations.
       # off = true;
@@ -283,7 +248,15 @@
         open-floating = true;
       }
       {
-        matches = [];
+        matches = [
+          {
+            title = "Clipse GUI";
+          }
+        ];
+        open-floating = true;
+      }
+      {
+        matches = []; # All windows
         geometry-corner-radius = {
           top-left = settings.radius + 0.0;
           top-right = settings.radius + 0.0;
@@ -330,42 +303,32 @@
         hotkey-overlay.title = "Toggle Application Launcher: walker";
       };
 
-      "Mod+T" = {
-        action.spawn = "kitty";
-        hotkey-overlay.title = "Open a Terminal: kitty";
+      "Mod+V" = {
+        action.spawn = ["clipse-gui"];
       };
 
+      # Window
       "Mod+Q".action.close-window = {};
 
-      # Window focus
       "Mod+Up".action.focus-window-or-workspace-up = {};
       "Mod+Down".action.focus-window-or-workspace-down = {};
       "Mod+Left".action.focus-column-left = {};
       "Mod+Right".action.focus-column-right = {};
-
-      # "Mod+O".action.focus-column-left = {};
-      "Mod+E".action.focus-column-right = {};
       "Mod+Home".action.focus-column-first = {};
       "Mod+End".action.focus-column-last = {};
 
-      # Window movement
+      # Windows
       "Mod+Ctrl+Up".action.move-window-up-or-to-workspace-up = {};
       "Mod+Ctrl+Down".action.move-window-down-or-to-workspace-down = {};
       "Mod+Ctrl+Left".action.consume-or-expel-window-left = {};
       "Mod+Ctrl+Right".action.consume-or-expel-window-right = {};
 
-      "Mod+Ctrl+O".action.consume-or-expel-window-left = {};
-      "Mod+Ctrl+E".action.consume-or-expel-window-right = {};
-
       "Mod+Ctrl+Home".action.move-column-to-first = {};
       "Mod+Ctrl+End".action.move-column-to-last = {};
 
-      # Workspace Focus
+      # Workspaces
       "Mod+Page_Up".action.focus-workspace-up = {};
       "Mod+Page_Down".action.focus-workspace-down = {};
-
-      "Mod+Minus".action.focus-window-or-workspace-up = {};
-      "Mod+Period".action.focus-window-or-workspace-down = {};
 
       # Workspace Movement
       "Mod+Ctrl+Page_Up".action.move-window-to-workspace-up = {};
@@ -434,25 +397,17 @@
       "Ctrl+Mod+3".action.move-window-to-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
 
       "Mod+R".action.switch-preset-column-width = {};
-      "Mod+Shift+R".action.switch-preset-window-height = {};
-      "Mod+Ctrl+R".action.reset-window-height = {};
       "Mod+F".action.maximize-column = {};
       "Mod+Shift+F".action.fullscreen-window = {};
-      "Mod+Ctrl+F".action.expand-column-to-available-width = {};
+      "Mod+Ctrl+R".action.expand-column-to-available-width = {};
       "Mod+C".action.center-column = {};
-      # Removed center-visible-columns as it's not a valid action
-      # Use center-column instead or check niri documentation for alternatives
-      # Finer width/height adjustments
       #"Mod+Minus".action.set-column-width = "-10%";
       "Mod+Equal".action.set-column-width = "+10%";
-      "Mod+Shift+Minus".action.set-window-height = "-10%";
-      "Mod+Shift+Equal".action.set-window-height = "+10%";
 
       # Floating windows
-      "Mod+V".action.toggle-window-floating = {};
-      "Mod+Shift+V".action.switch-focus-between-floating-and-tiling = {};
-      # Toggle tabbed column display mode
-      "Mod+W".action.toggle-column-tabbed-display = {};
+      "Mod+W".action.toggle-window-floating = {};
+      "Mod+Shift+W".action.switch-focus-between-floating-and-tiling = {};
+      "Mod+L".action.toggle-column-tabbed-display = {};
 
       # Screenshots
       "Print".action.screenshot = {};
@@ -464,10 +419,8 @@
         action.toggle-keyboard-shortcuts-inhibit = {};
         allow-inhibiting = false;
       };
-      "Mod+Shift+E".action.quit = {};
       "Ctrl+Alt+Delete".action.quit = {};
       "Mod+Shift+P".action.power-off-monitors = {};
-
       "Mod+Space".action.switch-layout = "next";
     };
 

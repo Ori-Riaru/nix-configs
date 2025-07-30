@@ -3,6 +3,8 @@
     ../../../configs/system/home-global
     ../../../configs/system/folders.nix
 
+    ../../../configs/groups/niri-desktop.nix
+
     # CLI
     ../../../configs/programs/starship.nix
     ../../../configs/programs/zoxide.nix
@@ -57,11 +59,10 @@
     ../../../configs/programs/fonts.nix
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/kdiskmark.nix
-    ../../../configs/programs/niri
     ../../../configs/programs/alacritty.nix
     ../../../configs/programs/waybar
     ../../../configs/programs/monado/monado-home.nix
-    ../../../configs/programs/nvtop.nix
+    ../../../configs/programs/nvtop.nix    
 
     ../../../configs/programs/stylix.nix
 

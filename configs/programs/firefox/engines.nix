@@ -94,7 +94,7 @@
           ];
         };
 
-        "Google" = {
+        "google" = {
           urls = [
             {
               template = "https://www.google.com/search";
@@ -110,6 +110,7 @@
           icon = "https://www.google.com/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
+            "@google"
             "@g"
             "g;"
             "google;"

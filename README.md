@@ -30,7 +30,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 - [`secrets/`](./secrets/): Encrypted credentials, passwords, keys, etc
 - [`flake.nix`](./flake.nix): Global Settings and entrypoint for the OS and Home Manager configurations
 
-## Featured Configurations
+## Featured Configurations (TODO: outdated update)
 
 - [KDE](./modules/programs/kde/) / (karousel, krohnkite) / [touchegg](./modules/programs/touchegg.nix)
 

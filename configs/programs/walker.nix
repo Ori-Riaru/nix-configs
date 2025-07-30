@@ -9,17 +9,17 @@
 
   home.packages = with pkgs; [
     libqalculate
+    wl-clipboard
   ];
 
   programs.walker = {
     enable = true;
-    # Causes problems with xwayland-server don't use
-    # runAsService = true;
+    # runAsService = true; # Causes problems with xwayland satellite use niri to launch with walker --gapplication-service
     config = {
       close_when_open = true;
     };
   };
-
+  
   nix = {
     package = pkgs.nix;
     settings = {

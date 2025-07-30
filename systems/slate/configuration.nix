@@ -11,7 +11,7 @@
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
     ../../configs/system/steam.nix
-    ../../configs/system/niri.nix
+    ../../configs/programs/niri/niri-system.nix
     ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
     ../../configs/programs/nfs-client.nix   

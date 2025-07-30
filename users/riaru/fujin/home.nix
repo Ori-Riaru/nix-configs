@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../../configs/system/home-global
-
+    
     ../../../configs/system/global/nix.nix
     ../../../configs/programs/fish.nix
     ../../../configs/programs/starship.nix

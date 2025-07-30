@@ -3,6 +3,8 @@
     ../../../configs/system/home-global
     ../../../configs/system/folders.nix
 
+    ../../../configs/groups/niri-desktop.nix
+    
     # CLI
     ../../../configs/programs/starship.nix
     ../../../configs/programs/zoxide.nix
@@ -56,7 +58,6 @@
     # ../../../configs/programs/kde
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/kdiskmark.nix
-    ../../../configs/programs/niri
     ../../../configs/programs/alacritty.nix
     ../../../configs/programs/waybar
     ../../../configs/programs/walker.nix
