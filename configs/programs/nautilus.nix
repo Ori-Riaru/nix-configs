@@ -10,5 +10,4 @@
     [ListView]
     expand_folders=true
   '';
-
 }

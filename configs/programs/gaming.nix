@@ -7,6 +7,6 @@
     heroic
 
     # Emulators
-    ryujinx
+    ryubing
   ];
 }

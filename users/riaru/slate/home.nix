@@ -55,7 +55,6 @@
     # System
     ../../../configs/programs/file-viewers.nix
     ../../../configs/programs/fonts.nix
-    # ../../../configs/programs/kde
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/kdiskmark.nix
     ../../../configs/programs/alacritty.nix

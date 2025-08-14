@@ -313,13 +313,56 @@
               template = "https://cs.rin.ru/forum/search.php";
               params = [
                 {
+                  name = "terms";
+                  value = "any";
+                }
+                {
+                  name = "author";
+                  value = "";
+                }
+                {
+                  name = "sc";
+                  value = "1";
+                }
+                {
+                  name = "sf";
+                  value = "titleonly";
+                }
+                {
+                  name = "sk";
+                  value = "t";
+                }
+                {
+                  name = "sd";
+                  value = "d";
+                }
+                {
+                  name = "sr";
+                  value = "topics";
+                }
+                {
+                  name = "st";
+                  value = "0";
+                }
+                {
+                  name = "ch";
+                  value = "300";
+                }
+                {
+                  name = "t";
+                  value = "0";
+                }
+                {
+                  name = "submit";
+                  value = "Search";
+                }
+                {
                   name = "keywords";
                   value = "{searchTerms}";
                 }
               ];
             }
           ];
-
           icon = "https://cs.rin.ru/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
@@ -383,6 +426,33 @@
             "@s"
             "steam;"
             "s;"
+          ];
+        };
+
+        "SteamDB" = {
+          urls = [
+            {
+              template = "https://steamdb.info/search/?a=all&q=test";
+              params = [
+                {
+                  name = "a";
+                  value = "all";
+                }
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+
+          icon = "https://steamdb.info/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [
+            "@steamdb"
+            "@sdb"
+            "steamdb;"
+            "sdb;"
           ];
         };
 

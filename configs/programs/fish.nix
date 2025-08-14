@@ -6,6 +6,7 @@
       auto_newline
       clear
       starship init fish | source
+      zoxide init fish | source
     '';
 
     shellAliases = {
@@ -21,6 +22,9 @@
       s = "fzf -q";
 
       cp = "cp -i";
+      cpd = "pwd | wl-copy";
+      clip = "wl-copy";
+      clipboard = "wl-copy";
       mv = "mv -i";
       rm = "trash -v";
 
@@ -41,9 +45,9 @@
       nsp = "nix-shell -p";
 
       code = "codium";
+      files = "nautilus";
+      fs = "nautilus";
       configs = "codium ${settings.configPath}";
-      clipboard = "xclip -selection clipboard";
-      clip = "xclip -selection clipboard";
     };
 
     functions = {
@@ -63,6 +67,8 @@
           nix flake init --template ${settings.configPath}/#$argv[1]
         '';
       };
+
+      
     };
   };
 }

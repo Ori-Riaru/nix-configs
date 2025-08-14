@@ -95,6 +95,7 @@
           bbenoist.qml #QML language support
           kdl-org.kdl # KDL language support
           letrieu.expand-region
+          eww-yuck.yuck
           
           # Generic
           mguellsegarra.highlight-on-copy

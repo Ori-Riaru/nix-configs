@@ -102,11 +102,11 @@
 
           (defchordsv2
             ;;all
-            (w e) tab 100 first-release (nav)
-            (x c) (caps-word 1000) 100 first-release (typing)
-            (e r) / 100 first-release (typing)
-            (q w) S-` 100 first-release (typing)
-    
+            (w e) tab 100 first-release (game nav)
+            (x c) (caps-word 1000) 100 first-release (game typing)
+            (e r) / 100 first-release (game typing)
+            (q w) S-` 100 first-release (game typing)
+
            ;; nav only
             (j k) home 100 first-release (default game gamenum num typing)
             (k l) end 100 first-release (default game gamenum num typing)
@@ -198,10 +198,10 @@
           )
 
           (deflayer menu
-            _ volu mute voldwn @email _ _     _     _       _
-            _ prev pp   next   _      _ @base @game @qwerty _
-            _ _    _    _      _      _ _     _     _       _
-                        _      _      _ _ _
+            _    volu mute voldwn @email  @base @game @qwerty _       _
+            left up   down right  _       _     _     _       _       _
+            _    prev pp   next   _       _     _     _       _       _
+                           _      _       _ _ _ 
           )
 
           (deflayer qwerty
@@ -219,9 +219,9 @@
           )
 
           (deflayer gamenum
-            _ 4 5 6 _ _ _ _ _ _
-            _ 1 2 3 0 _ _ _ _ _
-            _ 7 8 9 _ _ _ _ _ _
+            _   1 2 3 _ _ _ _ _ _
+            tab 4 5 6 0 _ _ _ _ _
+            _   7 8 9 _ _ _ _ _ _
                   _ _ _ _ _
           )
         '';

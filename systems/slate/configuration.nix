@@ -20,7 +20,8 @@
     ../../configs/programs/sops.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix    
-    
+
+    ../../configs/services/homepage.nix
     ../../configs/services/tailscale.nix
 
 

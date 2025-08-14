@@ -34,8 +34,8 @@
 
   systemd.tmpfiles.rules = [
     "d /mnt/nfs 0755 root root -"
-    "d /mnt/nfs/riaru 0755 riaru riaru -"
-    "d /mnt/nfs/bulk 0755 riaru riaru -"
+    "d /mnt/nfs/riaru 0755 riaru users -"
+    "d /mnt/nfs/bulk 0755 riaru users -"
   ];
 
   environment.systemPackages = with pkgs; [

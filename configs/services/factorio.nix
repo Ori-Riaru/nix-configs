@@ -4,7 +4,7 @@
   ];
 
   services.factorio = {
-    enable = true;
+    enable = false;
     openFirewall = true;
     requireUserVerification = false;
   };

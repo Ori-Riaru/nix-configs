@@ -24,7 +24,7 @@
     paste_simulation_cmd_x11 = xdotool key --clearmodifiers ctrl+v
 
     [UI]
-    default_window_width = 500
+    default_window_width = 535
     default_window_height = 700
     default_preview_text_width = 700
     default_preview_text_height = 550
@@ -32,8 +32,8 @@
     default_preview_img_height = 200
     default_help_width = 450
     default_help_height = 550
-    list_item_image_width = 200
-    list_item_image_height = 100
+    list_item_image_width = 500
+    list_item_image_height = 281
 
     [Performance]
     initial_load_count = 30

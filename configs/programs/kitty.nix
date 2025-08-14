@@ -19,7 +19,10 @@
     };
 
     shellIntegration.enableFishIntegration = true;
-
+    keybindings = {
+      "ctrl+c" = "copy_or_interrupt";
+    };
+    
     extraConfig = ''
       background ${settings.section}
       foreground ${settings.text}
@@ -34,27 +37,27 @@
       color9 #FF5271
 
       #: green
-      color2  ${settings.teal}
+      color2 ${settings.teal}
       color10 #9FFFBC
 
       #: yellow
-      color3  ${settings.orange}
+      color3 ${settings.orange}
       color11 ${settings.yellow}
 
       #: blue
-      color4  ${settings.blue}
+      color4 ${settings.blue}
       color12 #ACD1FF
 
       #: magenta
-      color5  ${settings.purple}
+      color5 ${settings.purple}
       color13 #ADA0FF
 
       #: cyan
-      color6  ${settings.cyan}
+      color6 ${settings.cyan}
       color14 #B9F7FF
 
       #: white
-      color7  ${settings.subtext}
+      color7 ${settings.subtext}
       color15 ${settings.text}
     '';
   };

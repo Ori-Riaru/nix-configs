@@ -1,5 +1,5 @@
 {
-  description = "Riaru's System Configuration"; 
+  description = "Riaru's System Configuration";
 
   inputs = {
     # Repositories
@@ -39,7 +39,7 @@
     };
 
     walker = {
-      url = "github:abenz1267/walker";
+      url = "github:abenz1267/walker/0.13.26";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -117,7 +117,7 @@
 
       keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
 
-      serverLocalIP = "192.168.1.82";
+      serverLocalIP = "192.168.1.101";
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
     };
 

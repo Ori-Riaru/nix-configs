@@ -15,6 +15,7 @@
     ../../configs/services/jellyfin.nix
     ../../configs/services/blocky.nix
     ../../configs/programs/sops.nix
+    ../../configs/programs/sudo.nix
 
     #./services/homeassistant.nix
     #./services/hydroxide.nix

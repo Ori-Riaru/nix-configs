@@ -30,7 +30,7 @@
         istilldontcareaboutcookies
         sponsorblock
         return-youtube-dislikes
-        enhancer-for-youtube
+        #enhancer-for-youtube
         youtube-shorts-block
         dearrow
         reddit-enhancement-suite
@@ -46,6 +46,8 @@
         redirector
         pwas-for-firefox
         plasma-integration
+        web-clipper-obsidian
+
 
         # Missing
         # youtube-subscription-groups

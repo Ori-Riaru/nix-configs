@@ -22,7 +22,12 @@
         clientGroupsBlock = {
           default = ["ads"];
         };
+
+        loading = {
+          refreshPeriod = "24h";
+        };
       };
+
       customDNS = {
         mapping = {
           "my.v0id.nl" = "${settings.serverLocalIP}";

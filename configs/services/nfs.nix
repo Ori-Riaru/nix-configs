@@ -10,12 +10,12 @@
 
   systemd.tmpfiles.rules = [
     "d /export 0755 nobody nogroup -"
-    "d /export/riaru 0755 riaru riaru -"
-    "d /export/bulk 0755 riaru riaru -"
+    "d /export/riaru 0755 riaru users -"
+    "d /export/bulk 0755 riaru users -"
     "d /data 0755 root root -"
     "d /data/nfs 0755 root root -"
-    "d /data/nfs/riaru 0755 riaru riaru -"
-    "d /mnt/bulk/data 0755 riaru riaru -"
+    "d /data/nfs/riaru 0755 riaru users -"
+    "d /mnt/bulk/data 0755 riaru users -"
   ];
 
   fileSystems = {

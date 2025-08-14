@@ -20,7 +20,7 @@
     ../../../configs/programs/blender.nix
     ../../../configs/programs/inkscape.nix
     ../../../configs/programs/libre-office.nix
-    #Qq../../../configs/programs/gimp.nix
+    #../../../configs/programs/gimp.nix
     ../../../configs/programs/krita.nix
     ../../../configs/programs/thunderbird.nix
     ../../../configs/programs/cura.nix
@@ -68,11 +68,6 @@
 
     ../../../configs/system/default-apps.nix
 
-    ### OLD
-    #./programs/resolve.nix
-    # ../../../configs/programs/kde
-    # ../../../configs/programs/touchegg.nix
-    # ../../../configs/programs/ventoy.nix
   ];
 
   home.stateVersion = "24.05";
