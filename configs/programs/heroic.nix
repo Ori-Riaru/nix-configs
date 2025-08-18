@@ -3,10 +3,6 @@
   ];
 
   home.packages = with pkgs; [
-    bottles
     heroic
-
-    # Emulators
-    ryubing
   ];
 }

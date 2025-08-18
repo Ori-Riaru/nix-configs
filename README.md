@@ -15,14 +15,14 @@ My personal Nixos configurations. They are not intended to be used by others how
 
   - [`lain/`](./systems/lain/): System configurations imported for my desktop
   - [`slate/`](./systems/slate/): System configuration imported for my laptop
-  - [`fujin/`](./systems/fujin/): System configurations imported for my server
+  - [`kumo/`](./systems/kumo/): System configurations imported for my server
 
 - [`users/`](./users/): Home Manager configurations for each user (built with `nh home switch`)
 
   - [`riaru/`](./users/riaru/)
     - [`lain/`](./users/riaru/lain)- Home Manager configurations imported to my desktop
     - [`slate/`](./users/riaru/slate)` - Home Manager configurations imported to my laptop
-    - [`fujin/`](./users/riaru/fujin) - Home Manager configuration imported to my desktop
+    - [`kumo/`](./users/riaru/kumo) - Home Manager configuration imported to my desktop
 
 - [`starters/`](./starters/): Project starting templates including flake and direnv
 - [`packages/`](./packages/): Self package software not available in nix packages

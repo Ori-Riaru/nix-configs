@@ -155,10 +155,10 @@
       };
 
       # Server
-      fujin = nixpkgs.lib.nixosSystem {
+      kumo = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./systems/fujin/configuration.nix
+          ./systems/kumo/configuration.nix
         ];
       };
     };
@@ -182,11 +182,11 @@
       };
 
       # Server
-      "${settings.username}@fujin" = home-manager.lib.homeManagerConfiguration {
+      "${settings.username}@kumo" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};
         modules = [
-          ./users/riaru/fujin/home.nix
+          ./users/riaru/kumo/home.nix
         ];
       };
     };

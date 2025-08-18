@@ -1,9 +1,12 @@
 {...}: {
   imports = [
     ../programs/niri
-    ../programs/clipse.nix
-    ../programs/hypridle.nix
+    ../programs/walker.nix
     ../programs/waybar
+    ../programs/hypridle.nix
+    ../programs/clipse.nix
     ../programs/eww
+    ../programs/nautilus.nix
+    ../programs/kitty.nix
   ];
 }

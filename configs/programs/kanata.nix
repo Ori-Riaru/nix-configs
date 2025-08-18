@@ -142,7 +142,7 @@
 
             a (t! homerowmod $tap-time 300 a lmet)
             s (t! homerowmod $tap-time 300 o lalt)
-            d (t! homerowmodfilter $tap-time 160 e lsft (a))
+            d (t! homerowmodfilter $tap-time 160 e lsft (a b))
             f (t! homerowmod $tap-time 160 u lctl)
             g (multi i @.tp)
             h (multi d @.tp)

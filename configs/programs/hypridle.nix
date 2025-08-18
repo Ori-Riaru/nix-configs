@@ -4,7 +4,7 @@
   ];
 
   services.hypridle = {
-    enable = false;
+    enable = true;
     settings = {
       general = {
         after_sleep_cmd = "niri msg action power-on-monitors";

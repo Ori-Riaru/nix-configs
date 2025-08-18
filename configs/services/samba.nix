@@ -17,8 +17,8 @@
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "Fujin";
-        "netbios name" = "fujin";
+        "server string" = "Kumo";
+        "netbios name" = "kumo";
         "security" = "user";
         "hosts allow" = "192.168.1. 127.0.0.1 localhost 100.";
         "hosts deny" = "0.0.0.0/0";

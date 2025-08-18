@@ -6,11 +6,8 @@
     ../../../configs/groups/niri-desktop.nix
     
     # CLI
-    ../../../configs/programs/starship.nix
-    ../../../configs/programs/zoxide.nix
+    ../../../configs/programs/ripgrep.nix
     ../../../configs/programs/screen-savers.nix
-    ../../../configs/programs/cli-tools.nix
-    ../../../configs/programs/fish.nix
 
     # Tools
     ../../../configs/programs/firefox
@@ -33,7 +30,6 @@
     # ../../../configs/programs/ventoy.nix
     ../../../configs/programs/godot.nix
     ../../../configs/programs/f3d.nix
-    ../../../configs/programs/nautilus.nix
 
     # Development
     ../../../configs/programs/java.nix
@@ -49,20 +45,14 @@
 
     # Media
     ../../../configs/programs/spotify
-    # ./programs/suwayomi.nix
-    ../../../configs/programs/gaming.nix
+    ../../../configs/programs/heroic.nix
 
     # System
     ../../../configs/programs/file-viewers.nix
     ../../../configs/programs/fonts.nix
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/kdiskmark.nix
-    ../../../configs/programs/alacritty.nix
-    ../../../configs/programs/waybar
-    ../../../configs/programs/walker.nix
     ../../../configs/system/default-apps.nix
-
-
 
     ../../../configs/programs/stylix.nix
   ];

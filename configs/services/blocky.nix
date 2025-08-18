@@ -32,7 +32,7 @@
         mapping = {
           "my.v0id.nl" = "${settings.serverLocalIP}";
           "router.box" = "192.168.1.41";
-          "fujin.box" = "${settings.serverLocalIP}";
+          "kumo.box" = "${settings.serverLocalIP}";
         };
       };
       caching = {

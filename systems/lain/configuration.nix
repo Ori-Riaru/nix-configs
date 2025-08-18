@@ -32,8 +32,6 @@
 
     ../../users/riaru
 
-    # ../../configs/services/homepage.nix
-    # ../../configs/services/dashy.nix
     ../../configs/services/glance.nix
   ];
 

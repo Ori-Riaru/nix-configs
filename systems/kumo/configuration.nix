@@ -14,6 +14,7 @@
     ../../configs/services/restic.nix
     ../../configs/services/jellyfin.nix
     ../../configs/services/blocky.nix
+    
     ../../configs/programs/sops.nix
     ../../configs/programs/sudo.nix
 
@@ -31,7 +32,7 @@
   boot.loader.grub.device = "/dev/sdb";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = "fujin";
+  networking.hostName = "kumo";
 
   system.stateVersion = "24.05";
 }
