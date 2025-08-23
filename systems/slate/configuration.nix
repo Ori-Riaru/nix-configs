@@ -14,19 +14,16 @@
     ../../configs/programs/niri/niri-system.nix
     ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
-    ../../configs/programs/nfs-client.nix   
+    ../../configs/programs/nfs-client.nix
     ../../configs/programs/kdeconnect.nix
     # ../../configs/programs/monado.nix
     ../../configs/programs/sops.nix
     ../../configs/programs/kanata.nix
-    ../../configs/programs/sudo.nix    
+    ../../configs/programs/sudo.nix
 
-    ../../configs/services/homepage.nix
     ../../configs/services/tailscale.nix
 
-
     ../../users/riaru
-
   ];
 
   networking.hostName = "slate";

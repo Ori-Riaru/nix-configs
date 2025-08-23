@@ -30,7 +30,6 @@
         istilldontcareaboutcookies
         sponsorblock
         return-youtube-dislikes
-        #enhancer-for-youtube
         youtube-shorts-block
         dearrow
         reddit-enhancement-suite
@@ -48,8 +47,8 @@
         plasma-integration
         web-clipper-obsidian
 
-
-        # Missing
+        # Missing downloads
+        # enhancer-for-youtube
         # youtube-subscription-groups
         # infy-scroll
         # automail

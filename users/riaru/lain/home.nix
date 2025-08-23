@@ -38,11 +38,11 @@
 
     # Gaming
     ../../../configs/programs/heroic.nix
+    ../../../configs/programs/prism-launcher.nix
     ../../../configs/programs/mangohud.nix
     ../../../configs/programs/shadps4.nix
 
     # Development
-    ../../../configs/programs/java.nix
     ../../../configs/programs/postgres.nix
     ../../../configs/programs/nix.nix
     ../../../configs/programs/git.nix

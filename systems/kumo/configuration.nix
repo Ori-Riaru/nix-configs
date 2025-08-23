@@ -14,7 +14,9 @@
     ../../configs/services/restic.nix
     ../../configs/services/jellyfin.nix
     ../../configs/services/blocky.nix
-    
+    ../../configs/services/glance.nix
+    ../../configs/services/minecraft.nix
+
     ../../configs/programs/sops.nix
     ../../configs/programs/sudo.nix
 

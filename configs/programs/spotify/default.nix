@@ -55,16 +55,16 @@ in {
         };
       }
 
-      {
-        # Not working
-        name = "css-editor.js";
-        src = "${pkgs.fetchFromGitHub {
-          owner = "FlafyDev";
-          repo = "spotify-css-editor/dist";
-          rev = "main";
-          hash = "sha256-uHPKHr55I0VCZIob3kDxbT5dFp/HrthL9Z7lbebTmrU=";
-        }}/dist";
-      }                    
+      #{
+      #  # Not working
+      #  name = "css-editor.js";
+      #  src = "${pkgs.fetchFromGitHub {
+      #    owner = "FlafyDev";
+      #    repo = "spotify-css-editor/dist";
+      #    rev = "main";
+      #    hash = "sha256-uHPKHr55I0VCZIob3kDxbT5dFp/HrthL9Z7lbebTmrU=";
+      #  }}/dist";
+      #}                    
 
       # {
          # Not working 

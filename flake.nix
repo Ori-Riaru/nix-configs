@@ -118,6 +118,7 @@
       keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
 
       serverLocalIP = "192.168.1.101";
+      serverTailscaleIP = "100.103.185.35";
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
     };
 

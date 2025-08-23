@@ -16,14 +16,14 @@
 }:
 python3.pkgs.buildPythonApplication rec {
   pname = "clipse-gui";
-  version = "0.1.4";
+  version = "0.3.0";
   pyproject = false;
 
   src = fetchFromGitHub {
     owner = "d7omdev";
     repo = "clipse-gui";
     rev = "v${version}";
-    hash = "sha256-bh5QlmQUJ0qGVOGsWW0j3zvnYvAR9flfYXsG+6d0fso=";
+    hash = "sha256-9OxjgdMkaTm34V8q8stGEyb5rmU3zfA9A4wfCYtst/w=";
   };
 
   nativeBuildInputs = [
@@ -40,7 +40,6 @@ python3.pkgs.buildPythonApplication rec {
     pygobject3
   ];
 
-  # Runtime dependencies for clipboard operations
   makeWrapperArgs = [
     "--prefix PATH : ${lib.makeBinPath [
       wl-clipboard

@@ -1,9 +1,9 @@
-{
+{settings, ...}: {
   services.glance = {
     enable = true;
     settings = {
       server = {
-        host = "0.0.0.0";
+        host = "${settings.serverTailscaleIP}";
         port = 8080;
       };
 
@@ -355,5 +355,10 @@
         }
       ];
     };
+  };
+
+  networking.firewall = {
+    allowedTCPPorts = [8080];
+    allowedUDPPorts = [8080];
   };
 }

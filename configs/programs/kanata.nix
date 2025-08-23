@@ -18,7 +18,7 @@
 
           (defvar
             tap-time 200
-            hold-time 160
+            hold-time 150
             idle-time 60
           )
 
@@ -48,6 +48,7 @@
             menu (layer-while-held menu)
             qwerty (layer-while-held qwerty)
             nav-shift (layer-while-held nav-shift)
+            typing (layer-while-held typing)
 
             ;; layer switch keys
             spc (tap-hold $tap-time $hold-time spc (layer-while-held nav))
@@ -201,7 +202,7 @@
             _    volu mute voldwn @email  @base @game @qwerty _       _
             left up   down right  _       _     _     _       _       _
             _    prev pp   next   _       _     _     _       _       _
-                           _      _       _ _ _ 
+                           _      _       _ _ _
           )
 
           (deflayer qwerty
@@ -212,10 +213,10 @@
           )
 
           (deflayer game
-            @tab q w e     r   t   y     up   i     _
-            shft a s d     f   g   left  down right _
+            @tab q w e     r   t   y     up   i     o
+            shft a s d     f    g   left  down right ret
             ctl  z x c     v   b   h     _    _     m
-                     @gesc spc ret @menu @menu
+                     @gesc spc @typing @menu @menu
           )
 
           (deflayer gamenum

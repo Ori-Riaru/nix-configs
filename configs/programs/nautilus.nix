@@ -1,6 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     nautilus
+    # nautilus-hide
+    code-nautilus
     p7zip
     unrar
   ];

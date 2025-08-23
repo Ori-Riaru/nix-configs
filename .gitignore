@@ -1,5 +1,3 @@
 .vscode
-.vscode/*
-
-/packages/result/*
-/result/*
+/packages/result
+/result

@@ -32,7 +32,6 @@
     ../../../configs/programs/f3d.nix
 
     # Development
-    ../../../configs/programs/java.nix
     ../../../configs/programs/postgres.nix
     ../../../configs/programs/nix.nix
     ../../../configs/programs/git.nix

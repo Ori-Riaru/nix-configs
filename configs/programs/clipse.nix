@@ -13,6 +13,8 @@
     history_filename = clipboard_history.json
     enter_to_paste = True
     compact_mode = False
+    protect_pinned_items = True
+    hover_to_select = False
     save_debounce_ms = 300
     search_debounce_ms = 250
     paste_simulation_delay_ms = 150
