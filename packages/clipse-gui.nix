@@ -16,14 +16,14 @@
 }:
 python3.pkgs.buildPythonApplication rec {
   pname = "clipse-gui";
-  version = "0.3.0";
+  version = "0.3.2";
   pyproject = false;
 
   src = fetchFromGitHub {
     owner = "d7omdev";
     repo = "clipse-gui";
     rev = "v${version}";
-    hash = "sha256-9OxjgdMkaTm34V8q8stGEyb5rmU3zfA9A4wfCYtst/w=";
+    hash = "sha256-irHbG2IEnO4NvE91do52DhJFtK2b3wdcLnAvzqVm4ek=";
   };
 
   nativeBuildInputs = [
@@ -61,7 +61,9 @@ python3.pkgs.buildPythonApplication rec {
 
     # Install the main script
     install -Dm755 clipse-gui.py $out/bin/clipse-gui
-    install -Dm644 clipse-gui.png $out/share/pixmaps/clipse-gui.png
+
+    # Install icon to the correct location (hicolor theme structure)
+    install -Dm644 clipse-gui.png $out/share/icons/hicolor/128x128/apps/clipse-gui.png
 
     runHook postInstall
   '';
@@ -73,9 +75,10 @@ python3.pkgs.buildPythonApplication rec {
       icon = "clipse-gui";
       desktopName = "Clipse GUI";
       genericName = "Clipboard Manager";
-      comment = "A GTK3 graphical user interface for the clipse clipboard manager";
-      categories = ["Utility" "Office"];
+      comment = "GTK Clipboard Manager";
+      categories = ["Utility" "GTK"];
       startupNotify = true;
+      startupWMClass = "org.d7om.ClipseGUI";
       keywords = ["clipboard" "history" "clipse" "clip" "paste"];
     })
   ];

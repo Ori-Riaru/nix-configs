@@ -1,4 +1,4 @@
-{...}: {
+{settings, ...}: {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   imports = [
@@ -8,6 +8,7 @@
     ../../configs/system/systemd-boot.nix
     ../../configs/system/audio.nix
     ../../configs/system/kde.nix
+    ../../configs/system/gdm.nix
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
     ../../configs/system/steam.nix
@@ -27,6 +28,8 @@
   ];
 
   networking.hostName = "slate";
+
+  services.nfs-client.serverIP = settings.serverTailscaleIP;
 
   # Enable Auto Rotate
   hardware.sensor.iio.enable = true;

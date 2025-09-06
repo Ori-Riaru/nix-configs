@@ -4,10 +4,6 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [
-    psmisc
-  ];
-
   programs.waybar = {
     enable = true;
     style = builtins.readFile ./style.css;
@@ -27,9 +23,9 @@
           "DP-2"
         ];
 
-        modules-left = ["clock" "niri/workspaces"];
-        modules-center = ["custom/niri-taskbar" "custom/application-launcher"]; # Use custom module
-        modules-right = ["niri/language" "network" "battary" "pulseaudio" "tray" "upower"];
+        modules-left = ["custom/application-launcher" "cffi/niri-taskbar" "niri/workspaces"];
+        modules-center = ["clock"];
+        modules-right = ["battery" "pulseaudio" "tray"];
 
         "clock" = {
           "interval" = 60;
@@ -42,8 +38,13 @@
         };
 
         "custom/application-launcher" = {
-          "format" = "+";
+          "format" = "[ + ]";
           "on-click" = "walker";
+        };
+
+        "cffi/niri-taskbar" = {
+          "module_path" = "${pkgs.niri-taskbar}/lib/libniri_taskbar.so";
+          "icon-size" = 10;
         };
       };
     };

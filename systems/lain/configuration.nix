@@ -14,6 +14,7 @@
     ../../configs/system/systemd-boot.nix
     ../../configs/system/audio.nix
     ../../configs/system/kde.nix
+    ../../configs/system/gdm.nix
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
     ../../configs/system/steam.nix
@@ -31,8 +32,6 @@
     ../../configs/programs/sudo.nix
 
     ../../users/riaru
-
-    ../../configs/services/glance.nix
   ];
 
   networking.hostName = "lain";

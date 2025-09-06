@@ -67,8 +67,6 @@
           nix flake init --template ${settings.configPath}/#$argv[1]
         '';
       };
-
-      
     };
   };
 }

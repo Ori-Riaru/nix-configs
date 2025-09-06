@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     mako
     swww
-
     (pkgs.papirus-icon-theme.override {color = "black";})
   ];
 
@@ -18,7 +17,6 @@
   services.swww.enable = true;
 
   programs.niri.settings = {
-    # Input device configuration
     input = {
       keyboard = {
         xkb = {
@@ -26,43 +24,16 @@
           variant = ",${settings.keyboard}";
           options = "";
         };
-
         repeat-delay = 200;
         repeat-rate = 20;
       };
 
       touchpad = {
         tap = true;
-        # dwtp = true;
-        # dwt = true;
-        # drag = false;
-        # drag-lock = true;
         natural-scroll = true;
-        # accel-speed = 0.2;
-        # accel-profile = "flat";
-        # scroll-method = "two-finger";
-        # disabled-on-external-mouse = true;
-      };
-      mouse = {
-        # off = true;
-        # natural-scroll = true;
-        # accel-speed = 0.2;
-        # accel-profile = "flat";
-        # scroll-method = "no-scroll";
-      };
-      trackpoint = {
-        # off = true;
-        # natural-scroll = true;
-        # accel-speed = 0.2;
-        # accel-profile = "flat";
-        # scroll-method = "on-button-down";
-        # scroll-button = 273;
-        # middle-emulation = true;
       };
 
-      focus-follows-mouse = {
-        max-scroll-amount = "0%";
-      };
+      focus-follows-mouse.max-scroll-amount = "0%";
     };
 
     outputs = {
@@ -74,16 +45,6 @@
         };
         scale = 1.25;
       };
-
-      # Usually default external monitor
-      # "HDMI-A-1" = {
-      #   mode = {
-      #     height = 1080;
-      #     width = 1920;
-      #     refresh = 60.0;
-      #   };
-      #   scale = 1;
-      # };
 
       "Dell Inc. DELL G3223Q C3PM6P3" = {
         mode = {
@@ -97,6 +58,7 @@
           y = 1080;
         };
       };
+
       "Dell Inc. Dell S2417DG #ASMB1cSQQmDd" = {
         mode = {
           height = 1440;
@@ -110,6 +72,7 @@
           y = 920;
         };
       };
+
       "Hewlett Packard HP 23cw 6CM5510JRK" = {
         mode = {
           height = 1080;
@@ -136,105 +99,48 @@
       default-column-width = {proportion = 0.5;};
 
       focus-ring = {
-        # Uncomment this line to disable the focus ring.
-        # off = true;
-        # How many logical pixels the ring extends out from the windows.
         width = 2;
-        # Color of the ring on the active monitor.
         active.color = "${settings.accent}";
-        # Color of the ring on inactive monitors.
-        # inactive.color = "#505050";
-        # You can also use gradients. They take precedence over solid colors.
-        # active-gradient = {
-        #   from = "#80c8ff"; niri
-        #   to = "#bbddff";
-        #   angle = 45;
-        # };
-        # inactive-gradient = {
-        #   from = "#505050";
-        #   to = "#808080";
-        #   angle = 45;
-        #   relative-to = "workspace-view";
-        # };
       };
 
       border = {
-        # The settings are the same as for the focus ring.
-        # If you enable the border, you probably want to disable the focus ring.
         enable = false;
         width = 2;
         active.color = "#ffc87f";
         inactive.color = "#505050";
-        # Color of the border around windows that request your attention.
         urgent.color = "${settings.red}";
       };
 
       shadow = {
-        # enable = true;
-        # draw-behind-window = true;
-
         softness = 30;
         spread = 5;
         offset = {
           x = 0;
           y = 5;
         };
-        # You can also change the shadow color and opacity.
         color = "#0007";
       };
-
-      struts = {
-        # left = 64;
-        # right = 64;
-        # top = 64;
-        # bottom = 64;
-      };
     };
 
-    overview = {
-      backdrop-color = "#000000";
-    };
+    overview.backdrop-color = "#000000";
 
     spawn-at-startup = [
-      {
-        command = ["xwayland-satellite"];
-      }
-      {
-        command = ["waybar"];
-      }
-      {
-        command = ["mako"];
-      }
-      {
-        command = ["swww" "daemon"];
-      }
-      {
-        command = ["swww" "img" "${settings.base}"];
-      }
-      {
-        command = ["walker" "--gapplication-service"];
-      }
-      {
-        command = ["clipse" "-listen"];
-      }
+      {command = ["xwayland-satellite"];}
+      {command = ["waybar"];}
+      {command = ["mako"];}
+      {command = ["swww" "daemon"];}
+      {command = ["swww" "clear" "${settings.base}"];}
+      {command = ["elephant"];}
+      {command = ["sh" "-c" "sleep 2 && walker --gapplication-service"];}
+      {command = ["clipse" "-listen"];}
     ];
 
     prefer-no-csd = true;
-
     screenshot-path = "~/Captures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
-
-    animations = {
-      # Uncomment to turn off all animations.
-      # off = true;
-      # Slow down all animations by this factor. Values below 1 speed them up instead.
-      # slowdown = 3.0;
-    };
 
     window-rules = [
       {
-        matches = [
-          {app-id = "^org\\.wezfurlong\\.wezterm$";}
-        ];
+        matches = [{app-id = "^org\\.wezfurlong\\.wezterm$";}];
         default-column-width = {};
       }
       {
@@ -247,15 +153,11 @@
         open-floating = true;
       }
       {
-        matches = [
-          {
-            title = "Clipse GUI";
-          }
-        ];
+        matches = [{title = "Clipse GUI";}];
         open-floating = true;
       }
       {
-        matches = []; # All windows
+        matches = [];
         geometry-corner-radius = {
           top-left = settings.radius + 0.0;
           top-right = settings.radius + 0.0;
@@ -267,12 +169,14 @@
     ];
 
     binds = {
-      "Mod+Shift+Slash".action.show-hotkey-overlay = {};
+      "Mod+H".action.show-hotkey-overlay = {};
 
-      "Super+Alt+L" = {
+      # System controls
+      "Mod+Ctrl+L" = {
         action.spawn = "swaylock";
         hotkey-overlay.title = "Lock the Screen: swaylock";
       };
+      "Mod+Esc".action.quit = {};
 
       # Volume controls
       "XF86AudioRaiseVolume" = {
@@ -292,7 +196,39 @@
         allow-when-locked = true;
       };
 
-      # Toggle secondary monitors
+      # Applications
+      "Mod+G".action.spawn = ["walker"];
+      "Mod+V".action.spawn = ["clipse-gui"];
+      "Mod+K".action.spawn = ["kitty"];
+
+      # Window Management
+      "Mod+Q".action.close-window = {};
+      "Mod+R".action.switch-preset-column-width = {};
+      "Mod+F".action.maximize-column = {};
+      "Mod+Shift+F".action.fullscreen-window = {};
+      "Mod+Ctrl+R".action.expand-column-to-available-width = {};
+      "Mod+C".action.center-column = {};
+      "Mod+O" = {
+        action.toggle-overview = {};
+        repeat = false;
+      };
+      "Mod+W".action.toggle-window-floating = {};
+      "Mod+L".action.toggle-column-tabbed-display = {};
+
+      # Window Focus
+      "Mod+Up".action.focus-window-or-workspace-up = {};
+      "Mod+Down".action.focus-window-or-workspace-down = {};
+      "Mod+Left".action.focus-column-left = {};
+      "Mod+Right".action.focus-column-right = {};
+      "Mod+Shift+W".action.switch-focus-between-floating-and-tiling = {};
+
+      # Window Movement
+      "Mod+Ctrl+Up".action.move-window-up-or-to-workspace-up = {};
+      "Mod+Ctrl+Down".action.move-window-down-or-to-workspace-down = {};
+      "Mod+Ctrl+Left".action.consume-or-expel-window-left = {};
+      "Mod+Ctrl+Right".action.consume-or-expel-window-right = {};
+
+      # Monitor Managment
       "Mod+M" = {
         action.spawn = [
           "sh"
@@ -302,99 +238,7 @@
         hotkey-overlay.title = "Toggle secondary monitors";
       };
 
-      "Mod+O" = {
-        action.toggle-overview = {};
-        repeat = false;
-      };
-
-      "Mod+G" = {
-        action.spawn = ["walker"];
-        hotkey-overlay.title = "Toggle Application Launcher: walker";
-      };
-
-      "Mod+V" = {
-        action.spawn = ["clipse-gui"];
-      };
-
-      # Window
-      "Mod+Q".action.close-window = {};
-
-      "Mod+Up".action.focus-window-or-workspace-up = {};
-      "Mod+Down".action.focus-window-or-workspace-down = {};
-      "Mod+Left".action.focus-column-left = {};
-      "Mod+Right".action.focus-column-right = {};
-      "Mod+Home".action.focus-column-first = {};
-      "Mod+End".action.focus-column-last = {};
-
-      # Windows
-      "Mod+Ctrl+Up".action.move-window-up-or-to-workspace-up = {};
-      "Mod+Ctrl+Down".action.move-window-down-or-to-workspace-down = {};
-      "Mod+Ctrl+Left".action.consume-or-expel-window-left = {};
-      "Mod+Ctrl+Right".action.consume-or-expel-window-right = {};
-
-      "Mod+Ctrl+Home".action.move-column-to-first = {};
-      "Mod+Ctrl+End".action.move-column-to-last = {};
-
-      # Workspaces
-      "Mod+Page_Up".action.focus-workspace-up = {};
-      "Mod+Page_Down".action.focus-workspace-down = {};
-
-      # Workspace Movement
-      "Mod+Ctrl+Page_Up".action.move-window-to-workspace-up = {};
-      "Mod+Ctrl+Page_Down".action.move-window-to-workspace-down = {};
-      "Mod+Ctrl+Minus".action.move-window-up-or-to-workspace-up = {};
-      "Mod+Ctrl+Period".action.move-window-down-or-to-workspace-down = {};
-
-      # Monitor focus
-      "Mod+Shift+Left".action.focus-monitor-left = {};
-      "Mod+Shift+Down".action.focus-monitor-down = {};
-      "Mod+Shift+Up".action.focus-monitor-up = {};
-      "Mod+Shift+Right".action.focus-monitor-right = {};
-      "Mod+Shift+H".action.focus-monitor-left = {};
-      "Mod+Shift+J".action.focus-monitor-down = {};
-      "Mod+Shift+K".action.focus-monitor-up = {};
-      "Mod+Shift+L".action.focus-monitor-right = {};
-
-      # Move column to monitor
-      "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = {};
-      "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = {};
-      "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = {};
-      "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = {};
-      "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = {};
-      "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = {};
-      "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = {};
-      "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = {};
-
-      # Mouse wheel scrolling
-      "Mod+WheelScrollDown" = {
-        action.focus-workspace-down = {};
-        cooldown-ms = 150;
-      };
-      "Mod+WheelScrollUp" = {
-        action.focus-workspace-up = {};
-        cooldown-ms = 150;
-      };
-      "Mod+Ctrl+WheelScrollDown" = {
-        action.move-column-to-workspace-down = {};
-        cooldown-ms = 150;
-      };
-      "Mod+Ctrl+WheelScrollUp" = {
-        action.move-column-to-workspace-up = {};
-        cooldown-ms = 150;
-      };
-
-      "Mod+WheelScrollRight".action.focus-column-right = {};
-      "Mod+WheelScrollLeft".action.focus-column-left = {};
-
-      "Mod+Ctrl+WheelScrollRight".action.move-column-right = {};
-      "Mod+Ctrl+WheelScrollLeft".action.move-column-left = {};
-
-      "Mod+Shift+WheelScrollDown".action.focus-column-right = {};
-      "Mod+Shift+WheelScrollUp".action.focus-column-left = {};
-      "Mod+Ctrl+Shift+WheelScrollDown".action.move-column-right = {};
-      "Mod+Ctrl+Shift+WheelScrollUp".action.move-column-left = {};
-
-      # Focuse Monitors
+      # Monitor Focus
       "Mod+1".action.focus-monitor = "Dell Inc. DELL G3223Q C3PM6P3";
       "Mod+2".action.focus-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
       "Mod+3".action.focus-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
@@ -402,40 +246,10 @@
       "Ctrl+Mod+2".action.move-window-to-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
       "Ctrl+Mod+3".action.move-window-to-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
 
-      "Mod+R".action.switch-preset-column-width = {};
-      "Mod+F".action.maximize-column = {};
-      "Mod+Shift+F".action.fullscreen-window = {};
-      "Mod+Ctrl+R".action.expand-column-to-available-width = {};
-      "Mod+C".action.center-column = {};
-      #"Mod+Minus".action.set-column-width = "-10%";
-      "Mod+Equal".action.set-column-width = "+10%";
-
-      # Floating windows
-      "Mod+W".action.toggle-window-floating = {};
-      "Mod+Shift+W".action.switch-focus-between-floating-and-tiling = {};
-      "Mod+L".action.toggle-column-tabbed-display = {};
-
       # Screenshots
       "Mod+P".action.screenshot = {};
       "Ctrl+Print".action.screenshot-screen = {};
       "Alt+Print".action.screenshot-window = {};
-
-      # System controls
-      "Mod+Escape" = {
-        action.toggle-keyboard-shortcuts-inhibit = {};
-        allow-inhibiting = false;
-      };
-      "Ctrl+Alt+Delete".action.quit = {};
-      "Mod+Shift+P".action.power-off-monitors = {};
-      "Mod+Space".action.switch-layout = "next";
-    };
-
-    # TEMP wait untill
-    # temporary fix for https://github.com/YaLTeR/niri/wiki/Nvidia has be create and should be removed later
-
-    # TEMP fix for screen share tearing remove when has been fixed https://github.com/YaLTeR/niri/issues/1432
-    debug = {
-      wait-for-frame-completion-in-pipewire = [];
     };
 
     environment = {

@@ -15,11 +15,8 @@
   programs.walker = {
     enable = true;
     # runAsService = true; # Causes problems with xwayland satellite use niri to launch with walker --gapplication-service
-    config = {
-      close_when_open = true;
-    };
   };
-  
+
   nix = {
     package = pkgs.nix;
     settings = {

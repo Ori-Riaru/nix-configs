@@ -15,16 +15,18 @@
     menus.enable = true;
     mime.enable = true;
     icons.enable = true;
-  }; 
+  };
 
-  systemd.user.services.niri-polkit = {
-    description = "Authentication Agent provided by niri";
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  systemd.user.services.niri-flake-polkit = {
+    description = "PolicyKit Authentication Agent";
     wantedBy = ["niri.service"];
     after = ["graphical-session.target"];
     partOf = ["graphical-session.target"];
     serviceConfig = {
       Type = "simple";
-      ExecStart = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+      ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;
