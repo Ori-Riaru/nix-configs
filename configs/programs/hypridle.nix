@@ -14,21 +14,21 @@
 
       listener = [
         {
-          timeout = 300;
+          timeout = 1500; # 25 minutes - lock session
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 360;
+          timeout = 1680; # 28 minutes - dim screen
           on-timeout = "brightnessctl -s set 5%";
           on-resume = "brightnessctl -r";
         }
         {
-          timeout = 380;
+          timeout = 1800; # 30 minutes - turn off monitors
           on-timeout = "niri msg action power-off-monitors";
           on-resume = "niri msg action power-on-monitors";
         }
         {
-          timeout = 600;
+          timeout = 2100; # 35 minutes - suspend
           on-timeout = "systemctl suspend";
         }
       ];

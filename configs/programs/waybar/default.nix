@@ -23,8 +23,8 @@
           "DP-2"
         ];
 
-        modules-left = ["custom/application-launcher" "cffi/niri-taskbar" "niri/workspaces"];
-        modules-center = ["clock"];
+        modules-left = ["clock"];
+        modules-center = ["custom/application-launcher" "cffi/niri-taskbar" "niri/workspaces"];
         modules-right = ["battery" "pulseaudio" "tray"];
 
         "clock" = {
@@ -38,7 +38,7 @@
         };
 
         "custom/application-launcher" = {
-          "format" = "[ + ]";
+          "format" = " + ";
           "on-click" = "walker";
         };
 

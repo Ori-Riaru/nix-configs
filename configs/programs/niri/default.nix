@@ -176,7 +176,7 @@
         action.spawn = "swaylock";
         hotkey-overlay.title = "Lock the Screen: swaylock";
       };
-      "Mod+Esc".action.quit = {};
+      "Mod+escape".action.quit = {};
 
       # Volume controls
       "XF86AudioRaiseVolume" = {
@@ -235,7 +235,6 @@
           "-c"
           "niri-msg output Dell Inc. Dell S2417DG #ASMB1cSQQmDd toggle && niri-msg output Hewlett Packard HP 23cw 6CM5510JRK toggle"
         ];
-        hotkey-overlay.title = "Toggle secondary monitors";
       };
 
       # Monitor Focus

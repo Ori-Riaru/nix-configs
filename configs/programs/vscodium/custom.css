@@ -1,5 +1,5 @@
 :root {
-  --base: #080808; /* @nix settings.base */
+  --base: #080808;
   --gap: 5px;
   --radius: 8px;
 }
@@ -11,27 +11,25 @@
 
 /* Add gap between panels */
 .part {
-  margin: var(--gap) !important;
   border-radius: var(--radius) !important;
-  height: calc(100% - 2 * var(--gap)) !important;
+  height: 100% !important;
 }
 
 .left {
-  margin-right: 0 !important;
+  margin-right: var(--gap) !important;
 }
 
 .right {
-  margin-left: 0 !important;
+  margin-left: var(--gap) !important;
 }
 
 /* custom top tabs */
-
 .tabs-and-actions-container {
   background: #181818 !important;
 }
 
 .tab {
-  border: 0 !important; 
+  border: 0 !important;
 }
 
 .tab.active {

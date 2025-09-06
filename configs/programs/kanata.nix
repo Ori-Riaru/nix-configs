@@ -3,12 +3,24 @@
     enable = true;
     keyboards = {
       "default" = {
+        # Basic configuration options
         extraDefCfg = ''
           process-unmapped-keys yes
           concurrent-tap-hold yes
           override-release-on-activation yes
         '';
         config = ''
+          ;; =====================
+          ;; Basic Configuration
+          ;; =====================
+
+          (defvar
+            tap-time 200
+            hold-time 150
+            idle-time 60
+          )
+
+          ;; Base keyboard layout
           (defsrc
             q w e r    t   y    u     i o p
             a s d f    g   h    j     k l ;
@@ -16,11 +28,9 @@
                   lalt spc ralt rmet  rctl
           )
 
-          (defvar
-            tap-time 200
-            hold-time 150
-            idle-time 60
-          )
+          ;; =====================
+          ;; Templates & Helpers
+          ;; =====================
 
           (defvirtualkeys
             to-base (layer-switch default)
@@ -41,31 +51,36 @@
             )
           )
 
+          ;; =====================
+          ;; Aliases & Shortcuts
+          ;; =====================
+
           (defalias
-            ;; layers
+            ;; Layer switching
             game      (layer-switch game)
             base      (layer-switch default)
             menu      (layer-while-held menu)
             qwerty    (layer-while-held qwerty)
             nav-shift (layer-while-held nav-shift)
-            
-            ;;gametype
+
+            ;; Special typing modes
             typing (tap-dance-eager 500 (
                 (layer-while-held typing)
                 (layer-while-held num)
               )
             )
 
+            ;; Modifiers
             spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
             esc  (tap-hold $tap-time $hold-time esc (layer-while-held menu))
             ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
             tab  (tap-hold $tap-time $hold-time tab lalt)
             gesc (tap-hold $tap-time $hold-time esc (layer-while-held gamenum))
 
-            ;; macros
+            ;; Text macros
             email (macro o r i - r i a r u S-2 p r o t o n . m e)
 
-            ;; shortcuts
+            ;; Common shortcuts
             undo     C-z
             redo     C-S-z
             cut      C-x
@@ -77,8 +92,12 @@
             save     C-s
             sall     C-a
             sexpand  C-w
+
+            ;; Navigation shortcuts
             back     A-left
             forward  A-rght
+
+            ;; Window management
             pallet   C-p
             launch   M-g
             overview M-o
@@ -87,15 +106,18 @@
             full     M-f
             max      M-S-f
             float    M-w
+
+            ;; Focus movement
             focus-left  (tap-hold $tap-time $hold-time M-left  lmet)
             focus-up    (tap-hold $tap-time $hold-time M-up    lalt)
             focus-down  (tap-hold $tap-time $hold-time M-down  lshft)
             focus-right (tap-hold $tap-time $hold-time M-right lctrl)
-            move-left  M-C-lft
-            move-up    M-C-up
-            move-down  M-C-down
-            move-right M-C-rght
+            move-left   M-C-lft
+            move-up     M-C-up
+            move-down   M-C-down
+            move-right  M-C-rght
 
+            ;; Special functions
             .tp (switch
                   ()  (multi
                         (layer-switch typing)
@@ -105,37 +127,49 @@
             .spc-typing (multi (layer-switch default) spc)
           )
 
+          ;; =====================
+          ;; Chord Definitions
+          ;; =====================
+
           (defchordsv2
-            ;;all
-            (w e) tab 100 first-release (game nav)
+            ;; Global chords
+            (w e) tab              100 first-release (game nav)
             (x c) (caps-word 1000) 100 first-release (game typing)
-            (e r) / 100 first-release (game typing)
-            (q w) S-` 100 first-release (game typing)
+            (e r) /                100 first-release (game typing)
+            (q w) S-`              100 first-release (game typing)
 
-           ;; nav only
-            (j k) home 150 first-release (default game gamenum num typing)
-            (j k spc) home 150 first-release (game gamenum num typing)
-            (k l) end 150 first-release (default game gamenum num typing)
-            (k l spc) end 150 first-release (game gamenum num typing)
-            (d j k) S-home $hold-time first-release (default game gamenum num typing)
-            (d k l) S-end $hold-time first-release (default game gamenum num typing)
+            ;; Navigation chords
+            (j k)     home   150        first-release (default game gamenum num typing)
+            (j k spc) home   150        first-release (        game gamenum num typing)
+            (k l)     end    150        first-release (default game gamenum num typing)
+            (k l spc) end    150        first-release (        game gamenum num typing)
+            (d j k)   S-home $hold-time first-release (default game gamenum num typing)
+            (d k l)   S-end  $hold-time first-release (default game gamenum num typing)
 
-            ;; num only
+            ;; Number/Symbol chords
             (a z) S-, $hold-time first-release (default game gamenum nav typing)
             (d c) S-} $hold-time first-release (default game gamenum nav typing)
             (s x) }   $hold-time first-release (default game gamenum nav typing)
             (f v) S-0 $hold-time first-release (default game gamenum nav typing)
           )
 
+          ;; =====================
+          ;; Key Overrides
+          ;; =====================
+
           (defoverrides
             (lsft .)    (,)
             (rsft .)    (,)
             (lsft ,)    (lsft .)
-            
             (lsft bspc) (del)
             (rsft bspc) (del)
           )
 
+          ;; =====================
+          ;; Layer Definitions
+          ;; =====================
+
+          ;; Default layer
           (deflayermap (default)
             q (multi ' @.tp)
             w (multi - @.tp)
@@ -172,16 +206,16 @@
 
             lalt @esc
             spc  (tap-hold $tap-time $hold-time @.spc-typing (layer-while-held nav))
-
             ralt @ret
             rmet bspc
             rctl bspc
           )
 
-          (deflayer (typing)
-            ' - . p y   f    g   c r l
-            a o e u i   d    h   t n s
-            ; q j k x   b    m   w v z
+          ;; Additional layers
+          (deflayer typing
+            ' - . p y   f    g  c r l
+            a o e u i   d    h  t n s
+            ; q j k x   b    m  w v z
                   @esc spc @ret bspc bspc
           )
 
@@ -189,34 +223,34 @@
             S-5 S-4 S-7 S-3 ` S-= 7 8 9 =
             <   [   S-[ S-9 _ S-8 4 5 6 0
             S-2 S-\ S-/ S-1 \ /   1 2 3 .
-                    @esc   spc  @ret bspc bspc
+                    @esc spc @ret bspc bspc
           )
 
           (deflayer nav
             @quit       @full     @size       @pallet      @overview @redo      @undo @cut  @copy    @paste
             @focus-left @focus-up @focus-down @focus-right @launch   @find      lft   up    down     rght
             @back       pgup      pgdn        @forward     @float    _          @save @sall @sexpand _
-                                              _            _         @nav-shift del del
+                                              _            _         @nav-shift del   del
           )
 
           (deflayer nav-shift
             _          @max     _          _           _ _        _ _ _ @cliphist
             @move-left @move-up @move-down @move-right _ @replace _ _ _ _
-            _          _        _          _           _ _ _ _ _ _
-                                           _           _ _ _ _
+            _          _        _          _           _ _        _ _ _ _
+                                           _           _ _        _ _
           )
 
           (deflayer menu
-            _    volu mute voldwn @email  @base @game @qwerty _       _
-            left up   down right  _       _     _     _       _       _
-            _    prev pp   next   _       _     _     _       _       _
-                           _      _       _ _ _
+            _    volu _    voldwn @email @base @game @qwerty _ _
+            left up   down right  _      _     _     _       _ _
+            _    prev pp   next   _      _     _     _       _ _
+                           _      _      _     _     _
           )
 
           (deflayer qwerty
-            q w e r    t   y    u     i o p
-            a s d f    g   h    j     k l ;
-            z x c v    b   n    m     , . /
+            q w e r    t   y    u    i o p
+            a s d f    g   h    j    k l ;
+            z x c v    b   n    m    , . /
                   lalt spc ralt rmet rctl
           )
 
