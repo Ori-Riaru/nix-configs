@@ -32,8 +32,8 @@
         tap = true;
         natural-scroll = true;
       };
-
-      focus-follows-mouse.max-scroll-amount = "0%";
+      focus-follows-mouse.enable = true;
+      focus-follows-mouse.max-scroll-amount = "50%";
     };
 
     outputs = {
@@ -199,7 +199,7 @@
       # Applications
       "Mod+G".action.spawn = ["walker"];
       "Mod+V".action.spawn = ["clipse-gui"];
-      "Mod+K".action.spawn = ["kitty"];
+      "Mod+T".action.spawn = ["kitty"];
 
       # Window Management
       "Mod+Q".action.close-window = {};

@@ -24,7 +24,7 @@
         ];
 
         modules-left = ["clock"];
-        modules-center = ["custom/application-launcher" "cffi/niri-taskbar" "niri/workspaces"];
+        modules-center = ["niri/workspaces" "cffi/niri-taskbar" "custom/application-launcher"];
         modules-right = ["battery" "pulseaudio" "tray"];
 
         "clock" = {
