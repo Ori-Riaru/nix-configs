@@ -2,13 +2,33 @@
   pkgs,
   inputs,
   settings,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
-    mako
     swww
     (pkgs.papirus-icon-theme.override {color = "black";})
+    xwayland-satellite
   ];
+
+  services.mako = {
+    enable = true;
+    settings = {
+      default-timeout = 2000;
+      background-color = lib.mkForce "${settings.base}FF";
+      text-color = lib.mkForce "{settings.text}";
+      width = 300;
+      height = 60;
+      margin = 20;
+      padding = 20;
+      border-size = 10;
+      corner-radius = settings.radius;
+      icon-size = 40;
+      max-visible = 5;
+      position = "top-right";
+      monitor = "eDP-1";
+    };
+  };
 
   imports = [
     inputs.niri.homeModules.config
@@ -46,12 +66,26 @@
         scale = 1.25;
       };
 
+      "HDMI-A-1" = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 60.0;
+        };
+        scale = 1;
+        position = {
+          x = 1920;
+          y = 0;
+        };
+      };
+
       "Dell Inc. DELL G3223Q C3PM6P3" = {
         mode = {
           height = 2160;
           width = 3840;
           refresh = 143.963;
         };
+        variable-refresh-rate = false;
         scale = 1.25;
         position = {
           x = 1152;
@@ -65,6 +99,7 @@
           width = 2560;
           refresh = 143.998;
         };
+        variable-refresh-rate = false;
         transform.rotation = 90;
         scale = 1.25;
         position = {
@@ -125,7 +160,6 @@
     overview.backdrop-color = "#000000";
 
     spawn-at-startup = [
-      {command = ["xwayland-satellite"];}
       {command = ["waybar"];}
       {command = ["mako"];}
       {command = ["swww" "daemon"];}
@@ -196,6 +230,16 @@
         allow-when-locked = true;
       };
 
+      # Brightness controls
+      "XF86MonBrightnessUp" = {
+        action.spawn = ["brightnessctl" "set" "5%+"];
+        allow-when-locked = true;
+      };
+      "XF86MonBrightnessDown" = {
+        action.spawn = ["brightnessctl" "set" "5%-"];
+        allow-when-locked = true;
+      };
+
       # Applications
       "Mod+G".action.spawn = ["walker"];
       "Mod+V".action.spawn = ["clipse-gui"];
@@ -250,12 +294,11 @@
       "Ctrl+Print".action.screenshot-screen = {};
       "Alt+Print".action.screenshot-window = {};
     };
+  };
 
-    environment = {
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      QT_QPA_PLATFORM = "wayland";
-      NIXOS_OZONE_WL = "1";
-      DISPLAY = ":0";
-    };
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    QT_QPA_PLATFORM = "wayland";
   };
 }

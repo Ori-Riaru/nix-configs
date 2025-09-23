@@ -52,6 +52,7 @@
     # Communication
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
+    ../../../configs/programs/slack.nix 
 
     # Media
     ../../../configs/programs/spotify

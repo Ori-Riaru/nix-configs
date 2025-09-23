@@ -143,7 +143,9 @@ body {
    */
 
   /* Overlay Content    */
-  --sidebar-size: calc(var(--spacing-1) * 2 + 5px + var(--sidebar-width-collapsed));
+  --sidebar-size: calc(
+    var(--spacing-1) * 2 + 5px + var(--sidebar-width-collapsed)
+  );
   left: var(--sidebar-size);
   width: calc(100% - var(--sidebar-size) - var(--spacing-1));
 
@@ -315,4 +317,9 @@ body {
   > .bookmark-item {
     background: var(--card) !important;
   }
+}
+
+/* Remove extension button notification alert */
+#unified-extensions-button[attention] > .toolbarbutton-icon {
+  background: transparent !important;
 }

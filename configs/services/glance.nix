@@ -1,6 +1,7 @@
 {settings, ...}: {
   services.glance = {
     enable = true;
+    openFirewall = true;
     settings = {
       server = {
         host = "${settings.serverTailscaleIP}";
@@ -12,7 +13,7 @@
           name = "Home";
           columns = [
             {
-              size = "full";
+              size = "small";
               widgets = [
                 {
                   type = "clock";
@@ -22,8 +23,16 @@
                   type = "calendar";
                 }
                 {
-                  type = "weather";
-                  location = "Toronto";
+                  type = "to-do";
+                }
+              ];
+            }
+            {
+              size = "full";
+              widgets = [
+                {
+                  type = "search";
+                  search-engine = "duckduckgo";
                 }
                 {
                   type = "bookmarks";
@@ -61,9 +70,6 @@
                       ];
                     }
                   ];
-                }
-                {
-                  type = "to-do";
                 }
                 {
                   type = "videos";
@@ -355,10 +361,5 @@
         }
       ];
     };
-  };
-
-  networking.firewall = {
-    allowedTCPPorts = [8080];
-    allowedUDPPorts = [8080];
   };
 }

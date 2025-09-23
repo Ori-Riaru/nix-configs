@@ -1,14 +1,15 @@
 {settings, ...}: {
   programs.fish = {
     enable = true;
-
     shellInit = ''
-      auto_newline
-      clear
       starship init fish | source
       zoxide init fish | source
     '';
-
+    interactiveShellInit = ''
+      auto_newline
+      clear
+      cd /mnt/nfs/riaru
+    '';
     shellAliases = {
       ".." = "cd ..";
       "..." = "cd ../..";
@@ -40,6 +41,7 @@
 
       home = "nh home switch";
       os = "nh os switch";
+      rebuild = "nh os switch; nh home switch";
       update = "nix flake update --flake ${settings.configPath}";
       ns = "nix-shell";
       nsp = "nix-shell -p";
@@ -56,7 +58,7 @@
       auto_newline = {
         body = ''
           if test "$argv[1]" != "clear" -a "$argv[1]" != "c"
-              echo
+            echo
           end
         '';
         onEvent = "fish_postexec";

@@ -23,7 +23,7 @@ python3.pkgs.buildPythonApplication rec {
     owner = "d7omdev";
     repo = "clipse-gui";
     rev = "v${version}";
-    hash = "sha256-irHbG2IEnO4NvE91do52DhJFtK2b3wdcLnAvzqVm4ek=";
+    hash = "sha256-HrEPW3TJUnQPQjf3qj8zcqoAbyo2LBpwnpMK7a8N+7I=";
   };
 
   nativeBuildInputs = [
@@ -42,11 +42,11 @@ python3.pkgs.buildPythonApplication rec {
 
   makeWrapperArgs = [
     "--prefix PATH : ${lib.makeBinPath [
-      wl-clipboard
-      xclip
-      wtype
-      xdotool
       clipse
+      wl-clipboard
+      wtype
+      xclip
+      xdotool
     ]}"
   ];
 

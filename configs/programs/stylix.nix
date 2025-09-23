@@ -13,7 +13,7 @@
 
     fonts = {
       monospace = {
-        name = "JetBrainsMono Nerd Font";
+        name = settings.fontMonospace;
       };
 
       sansSerif = {

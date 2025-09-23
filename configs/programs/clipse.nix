@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    clipse-gui
     clipse
+    clipse-gui
   ];
 
   home.file.".config/clipse-gui/settings.ini".text = ''
@@ -18,6 +18,7 @@
     save_debounce_ms = 300
     search_debounce_ms = 250
     paste_simulation_delay_ms = 150
+    minimize_to_tray = True
 
     [Commands]
     copy_tool_cmd = wl-copy

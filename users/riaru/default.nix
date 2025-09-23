@@ -18,7 +18,7 @@
     isNormalUser = true;
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.riaru_pass.path;
-    description = "${settings.username-full}";
+    description = "${settings.usernameFull}";
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPf7Rker14xM3UE6t0OK7HAzXcnPqHixlROW20iH3Jcr ori-riaru@proton.me"

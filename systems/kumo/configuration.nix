@@ -16,6 +16,7 @@
     ../../configs/services/blocky.nix
     ../../configs/services/glance.nix
     ../../configs/services/minecraft.nix
+    ../../configs/services/inadyn.nix
 
     ../../configs/programs/sops.nix
     ../../configs/programs/sudo.nix

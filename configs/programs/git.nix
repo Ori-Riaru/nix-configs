@@ -12,6 +12,11 @@
   programs.git = {
     enable = true;
     userEmail = "${settings.email}";
-    userName = "${settings.username-full}";
+    userName = "${settings.usernameFull}";
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
+    };
   };
 }

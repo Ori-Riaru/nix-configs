@@ -4,7 +4,7 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        # Web 
+        # Web
         "text/html" = "firefox.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
@@ -34,7 +34,7 @@
         # Terminal - Kitty
         "application/x-terminal-emulator" = "kitty.desktop";
 
-        # 3D 
+        # 3D
         "application/x-blender" = "blender.desktop";
         "model/gltf+json" = "f3d.desktop";
         "model/gltf-binary" = "f3d.desktop";
@@ -43,8 +43,9 @@
         "model/ply" = "f3d.desktop";
         "model/x3d+xml" = "f3d.desktop";
         "application/x-tgif" = "f3d.desktop";
+        "application/x-fbx" = "f3d.desktop";
 
-        # Office 
+        # Office
         "application/vnd.oasis.opendocument.text" = "libreoffice-writer.desktop";
         "application/vnd.oasis.opendocument.spreadsheet" = "libreoffice-calc.desktop";
         "application/vnd.oasis.opendocument.presentation" = "libreoffice-impress.desktop";
@@ -57,14 +58,15 @@
         "application/rtf" = "libreoffice-writer.desktop";
         "text/csv" = "libreoffice-calc.desktop";
 
-        # File manager 
+        # File manager
         "inode/directory" = "org.gnome.Nautilus.desktop";
 
-        # Markdown and notes 
-        "text/markdown" = "md.obsidian.Obsidian.desktop";
-        "text/x-markdown" = "md.obsidian.Obsidian.desktop";
+        # Markdown and notes
+        "text/markdown" = "obsidian.desktop";
+        "text/x-markdown" = "obsidian.desktop";
+        "application/x-markdown" = "obsidian.desktop";
 
-        # Images 
+        # Images
         "image/jpeg" = "org.gnome.Loupe.desktop";
         "image/jpg" = "org.gnome.Loupe.desktop";
         "image/png" = "org.gnome.Loupe.desktop";
@@ -77,7 +79,7 @@
         "image/avif" = "org.gnome.Loupe.desktop";
         "image/heic" = "org.gnome.Loupe.desktop";
 
-        # Audio files 
+        # Audio files
         "audio/mpeg" = "io.bassi.Amberol.desktop";
         "audio/mp3" = "io.bassi.Amberol.desktop";
         "audio/wav" = "io.bassi.Amberol.desktop";
@@ -91,7 +93,7 @@
         "audio/mp4" = "io.bassi.Amberol.desktop";
         "audio/x-m4a" = "io.bassi.Amberol.desktop";
 
-        # Video 
+        # Video
         "video/mp4" = "dragon.desktop";
         "video/x-msvideo" = "dragon.desktop";
         "video/quicktime" = "dragon.desktop";

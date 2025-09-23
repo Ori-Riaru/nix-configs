@@ -4,13 +4,12 @@
     ../../../configs/system/folders.nix
 
     ../../../configs/groups/niri-desktop.nix
-    
+
     # CLI
     ../../../configs/groups/cli-base.nix
     ../../../configs/programs/ripgrep.nix
     ../../../configs/programs/screen-savers.nix
     ../../../configs/programs/btop.nix
-
 
     # Tools
     ../../../configs/programs/firefox
@@ -44,6 +43,7 @@
     # Communication
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
+    ../../../configs/programs/slack.nix
 
     # Media
     ../../../configs/programs/spotify

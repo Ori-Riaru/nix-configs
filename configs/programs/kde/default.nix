@@ -17,7 +17,7 @@
 
     kdePackages.qtstyleplugin-kvantum
 
-    (pkgs.papirus-icon-theme.override {color = "black";})
+    (pkgs.papirus-icon-theme.override {color = "black";}) 
   ];
 
   programs.konsole = {
@@ -48,7 +48,7 @@
       iconTheme = "Papirus-Dark";
 
       # Wallpaper & lockscreen
-      wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
+      #wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       clickItemTo = "open";
 
       colorScheme = "Neutral Dark";

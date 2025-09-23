@@ -22,7 +22,6 @@
         bitwarden
         ublock-origin
         fastforwardteam
-        disconnect
         tampermonkey
         darkreader
         stylus
@@ -30,8 +29,6 @@
         istilldontcareaboutcookies
         sponsorblock
         return-youtube-dislikes
-        youtube-shorts-block
-        dearrow
         reddit-enhancement-suite
         shinigami-eyes
         sidebery
@@ -44,15 +41,15 @@
         auto-tab-discard
         redirector
         pwas-for-firefox
-        plasma-integration
         web-clipper-obsidian
 
         # Missing downloads
+        # custom new page
         # enhancer-for-youtube
-        # youtube-subscription-groups
         # infy-scroll
         # automail
         # smart-prevent-duplicate-tabs
+        # steamdb
       ];
 
       settings = {
@@ -95,15 +92,10 @@
         "446900e4-71c2-419f-a6a7-df9c091e268b" # Bitwarden
         "e58d3966-3d76-4cd9-8552-1582fbc800c1" # Buster Captcha Solver
         "addon@darkreader.org" # Dark Reader
-        "deArrow@ajay.app" # deArrow
-        "2.0@disconnect.me" # Disconnect
-        "enhancerforyoutube@maximerf.addons.mozilla.org" # Enhancer for YouTube
         "addon@fastforward.team" # Fast Forward
         "56b215f4-29b6-4898-bf2a-152d8bc189ed" # Fox Scroller
-        "gulf-of-mexico@example.com" # Gulf of Mexico
         "idcac-pub@guus.ninja" # I Still Don't Care About Cookies
         "infy-scroll@webextensions" # Infy Scroll
-        "plasma-browser-integration@kde.org" # Plasma Integration
         "e80594de-acca-4551-af7a-c9bd9d2f3388" # Prevent Duplicate Tabs
         "firefoxpwa@filips.si" # Progressive Web Apps for Firefox
         "jid1-xUfzOsOFlzSOXg@jetpack" # Reddit Enhancement Suite

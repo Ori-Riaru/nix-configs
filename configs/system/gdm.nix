@@ -3,4 +3,6 @@
     enable = true;
     wayland = true;
   };
+
+  services.displayManager.defaultSession = "niri";
 }

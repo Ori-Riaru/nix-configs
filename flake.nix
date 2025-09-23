@@ -75,7 +75,7 @@
     settings = rec {
       # --- Primary User Settings ---
       username = "riaru";
-      username-full = "Ori Riaru";
+      usernameFull = "Ori Riaru";
       email = "ori-riaru@proton.me";
 
       # --- Themeing ---
@@ -95,7 +95,7 @@
       hidden = "#555555";
 
       base = "#080808";
-      section = "#181818";
+      section = "#111111";
       card = "#222222";
 
       red = "#ff596b";
@@ -113,7 +113,7 @@
       black = "#353535";
 
       font = "Inter";
-      font-monospace = "JetBrainsMono Nerd Font";
+      fontMonospace = "JetBrainsMono Nerd Font";
 
       keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
 
@@ -196,8 +196,10 @@
       web.path = ./starters/web;
       cpp.path = ./starters/cpp;
       rust.path = ./starters/rust;
+      java.path = ./starters/java;
       python.path = ./starters/python;
       typescript.path = ./starters/typescript;
+      kernel-module.path = ./starters/kernel-module;
     };
   };
 }

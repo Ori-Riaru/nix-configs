@@ -62,6 +62,7 @@
           pkief.material-product-icons
           github.copilot
           github.copilot-chat
+          github.vscode-pull-request-github
         ]
         ++ (with extensions.open-vsx; [
           # REMOVED: jeanp413.open-remote-ssh (using patched version above)
@@ -73,7 +74,7 @@
 
           # Python
           kevinrose.vsc-python-indent
-          charliermarsh.ruff
+          #charliermarsh.ruff
 
           # Other
           slevesque.shader
@@ -96,36 +97,36 @@
           kdl-org.kdl # KDL language support
           letrieu.expand-region
           eww-yuck.yuck
-          
+
           # Generic
           mguellsegarra.highlight-on-copy
         ]);
     };
   };
 
-   # Extensions like custom css and js don't work because of nix store. This manually injects custom css and js the same way the extension would
-   nixpkgs.overlays = let
-     customCss = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./custom.css);
-     customJs = builtins.replaceStrings ["'" "\"" "\n" "\r" "`" "$"] ["\\'" "\\\"" "\\n" "" "\\`" "\\$"] (builtins.readFile ./custom.js);
-   in [
-     (self: super: {
-       vscodium = super.vscodium.overrideAttrs (attrs: {
-         buildInputs = attrs.buildInputs ++ [self.perl];
-         postInstall = ''
-           workbenchPath="$out/lib/vscode/resources/app/out/vs/code/electron-browser/workbench/workbench.html"
-           # Remove Content Security Policy
-           perl -0777 -i -pe 's/<meta\s+http-equiv="Content-Security-Policy".*?\/>//gs' "$workbenchPath"
-           # Inject custom CSS and JS
-           sed -i '/<\/html>/i\
-           <!-- nix vscode styling -->\
-           <style id="nix-custom-css">\
-           '"${customCss}"'\
-           </style>\
-           <script id="nix-custom-js">\
-           '"${customJs}"'\
-           </script>' "$workbenchPath"
-         '';
-       });
-     })
-   ];
+  # Extensions like custom css and js don't work because of nix store. This manually injects custom css and js the same way the extension would
+  nixpkgs.overlays = let
+    customCss = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./custom.css);
+    customJs = builtins.replaceStrings ["'" "\"" "\n" "\r" "`" "$"] ["\\'" "\\\"" "\\n" "" "\\`" "\\$"] (builtins.readFile ./custom.js);
+  in [
+    (self: super: {
+      vscodium = super.vscodium.overrideAttrs (attrs: {
+        buildInputs = attrs.buildInputs ++ [self.perl];
+        postInstall = ''
+          workbenchPath="$out/lib/vscode/resources/app/out/vs/code/electron-browser/workbench/workbench.html"
+          # Remove Content Security Policy
+          perl -0777 -i -pe 's/<meta\s+http-equiv="Content-Security-Policy".*?\/>//gs' "$workbenchPath"
+          # Inject custom CSS and JS
+          sed -i '/<\/html>/i\
+          <!-- nix vscode styling -->\
+          <style id="nix-custom-css">\
+          '"${customCss}"'\
+          </style>\
+          <script id="nix-custom-js">\
+          '"${customJs}"'\
+          </script>' "$workbenchPath"
+        '';
+      });
+    })
+  ];
 }

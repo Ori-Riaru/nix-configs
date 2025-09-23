@@ -22,8 +22,8 @@
 
     # Fonts
     "editor.fontLigatures" = true; 
-    "editor.fontFamily" = "${settings.font-monospace}";
-    "terminal.integrated.fontFamily" = "${settings.font-monospace}";
+    "editor.fontFamily" = "${settings.fontMonospace}";
+    "terminal.integrated.fontFamily" = "${settings.fontMonospace}";
     "editor.lineHeight" = 20;
     "workbench.iconTheme" = "charmed-icons";
     "workbench.productIconTheme" = "material-product-icons";
@@ -282,7 +282,7 @@
     # Extension settings
     "cSpell.userWords" = [
       "${settings.username}"
-      "${settings.username-full}"
+      "${settings.usernameFull}"
       "riaru"
       "aki"
       "nixpkgs"
@@ -308,12 +308,7 @@
 
     "redhat.telemetry.enabled" = false;
 
-    "github.copilot.advanced" = {
-      "authProvider" = "github";
-    };
-
     # Nix
-
     "[nix]" = {
       "editor.defaultFormatter" = "kamadorueda.alejandra";
       "editor.formatOnPaste" = true;

@@ -59,8 +59,8 @@
             ;; Layer switching
             game      (layer-switch game)
             base      (layer-switch default)
+            qwerty    (layer-switch qwerty)
             menu      (layer-while-held menu)
-            qwerty    (layer-while-held qwerty)
             nav-shift (layer-while-held nav-shift)
 
             ;; Special typing modes
@@ -133,24 +133,24 @@
 
           (defchordsv2
             ;; Global chords
-            (w e) tab              100 first-release (game nav)
-            (x c) (caps-word 1000) 100 first-release (game typing)
-            (e r) /                100 first-release (game typing)
-            (q w) S-`              100 first-release (game typing)
+            (w e) tab              100 first-release (game gamenum qwerty nav)
+            (x c) (caps-word 1000) 100 first-release (game gamenum qwerty typing)
+            (e r) /                100 first-release (game gamenum qwerty typing)
+            (q w) S-`              100 first-release (game gamenum qwerty typing)
 
             ;; Navigation chords
-            (j k)     home   150        first-release (default game gamenum num typing)
-            (j k spc) home   150        first-release (        game gamenum num typing)
-            (k l)     end    150        first-release (default game gamenum num typing)
-            (k l spc) end    150        first-release (        game gamenum num typing)
-            (d j k)   S-home $hold-time first-release (default game gamenum num typing)
-            (d k l)   S-end  $hold-time first-release (default game gamenum num typing)
+            (j k)     home   150        first-release (default game qwerty gamenum num typing)
+            (j k spc) home   150        first-release (        game qwerty gamenum num typing)
+            (k l)     end    150        first-release (default game qwerty gamenum num typing)
+            (k l spc) end    150        first-release (        game qwerty gamenum num typing)
+            (d j k)   S-home $hold-time first-release (default game qwerty gamenum num typing)
+            (d k l)   S-end  $hold-time first-release (default game qwerty gamenum num typing)
 
-            ;; Number/Symbol chords
-            (a z) S-, $hold-time first-release (default game gamenum nav typing)
-            (d c) S-} $hold-time first-release (default game gamenum nav typing)
-            (s x) }   $hold-time first-release (default game gamenum nav typing)
-            (f v) S-0 $hold-time first-release (default game gamenum nav typing)
+            ;; Number/Symbol chords 
+            (a z) S-, $hold-time first-release (default game qwerty gamenum nav typing)
+            (d c) S-} $hold-time first-release (default game qwerty gamenum nav typing)
+            (s x) }   $hold-time first-release (default game qwerty gamenum nav typing)
+            (f v) S-0 $hold-time first-release (default game qwerty gamenum nav typing)
           )
 
           ;; =====================
@@ -227,7 +227,7 @@
           )
 
           (deflayer nav
-            @quit       @full     @size       @pallet      @overview @redo      @undo @cut  @copy    @paste
+            @quit       @full     @size       @pallet      @overview @redo      @undo @copy @cut    @paste
             @focus-left @focus-up @focus-down @focus-right @launch   @find      lft   up    down     rght
             @back       pgup      pgdn        @forward     @float    _          @save @sall @sexpand _
                                               _            _         @nav-shift del   del
@@ -251,7 +251,7 @@
             q w e r    t   y    u    i o p
             a s d f    g   h    j    k l ;
             z x c v    b   n    m    , . /
-                  lalt spc ralt rmet rctl
+                  lalt spc ralt rmet @menu
           )
 
           (deflayer game

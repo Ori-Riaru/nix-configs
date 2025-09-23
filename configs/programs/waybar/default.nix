@@ -4,6 +4,13 @@
   inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+    waybar
+    pavucontrol
+  ];
+
+  services.network-manager-applet.enable = true;
+
   programs.waybar = {
     enable = true;
     style = builtins.readFile ./style.css;
@@ -45,6 +52,26 @@
         "cffi/niri-taskbar" = {
           "module_path" = "${pkgs.niri-taskbar}/lib/libniri_taskbar.so";
           "icon-size" = 10;
+        };
+
+        "pulseaudio" = {
+          "format" = "{volume}% {icon}";
+          "format-bluetooth" = "{icon} {volume}%";
+          "format-muted" = "";
+          "format-icons" = {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo" = "";
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted" = "";
+            "headphones" = "";
+            "handsfree" = "";
+            "headset" = "";
+            "phone" = "";
+            "phone-muted" = "";
+            "portable" = "";
+            "car" = "";
+            "default" = ["" ""];
+          };
+          "scroll-step" = 1;
+          "on-click" = "pavucontrol";
         };
       };
     };

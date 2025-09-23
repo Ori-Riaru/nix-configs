@@ -10,7 +10,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "${settings.font-monospace}";
+      name = "${settings.fontMonospace}";
       size = 11;
     };
 
@@ -19,10 +19,11 @@
     };
 
     shellIntegration.enableFishIntegration = true;
+
     keybindings = {
-      "ctrl+c" = "copy_or_interrupt";
+      "ctrl+c" = "copy_and_clear_or_interrupt";
     };
-    
+
     extraConfig = ''
       background ${settings.section}
       foreground ${settings.text}

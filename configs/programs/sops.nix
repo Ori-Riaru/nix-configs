@@ -1,8 +1,10 @@
 # MANUAL */Generate age key from ssh key
 # nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/id_ed25519 > ~/.config/sops/age/keys.txt
 {
+  lib,
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [
@@ -27,6 +29,16 @@
     secrets = {
       "nextcloud_admin_pass" = {};
       "riaru_pass" = {};
+      "afraid_pass" = {};
+    };
+
+    templates = lib.mkIf config.services.inadyn.enable {
+      "afraid_pass.conf" = {
+        content = ''
+          password = "${config.sops.placeholder.afraid_pass}"
+        '';
+        owner = "inadyn";
+      };
     };
   };
 }

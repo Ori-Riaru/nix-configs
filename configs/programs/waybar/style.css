@@ -55,7 +55,7 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-  background-color: #a37800;
+  background-color: #222222;
 }
 
 #workspaces button {
@@ -120,18 +120,18 @@ button:hover {
 }
 
 #clock {
-  background-color: #222222;
+  background-color: #181818;
 }
 
 #battery {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #181818;
+  color: #ffffff;
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #ffffff;
-  background-color: #26a65b;
+  color: #000000;
+  background-color: #99ff82;
 }
 
 @keyframes blink {
@@ -201,13 +201,13 @@ label:focus {
 }
 
 #pulseaudio {
-  background-color: #f1c40f;
-  color: #000000;
+  background-color: #181818;
+  color: #ffffff;
 }
 
 #pulseaudio.muted {
-  background-color: #90b1b1;
-  color: #2a5c45;
+  background-color: #181818;
+  color: #ffffff;
 }
 
 #wireplumber {
@@ -242,7 +242,7 @@ label:focus {
 }
 
 #tray {
-  background-color: #2980b9;
+  background-color: #181818;
 }
 
 #tray > .passive {
