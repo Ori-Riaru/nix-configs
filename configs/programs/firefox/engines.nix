@@ -242,7 +242,7 @@
         "miruro" = {
           urls = [
             {
-              template = "https://www.miruro.to/favicon.ico?v=0.9.9.1";
+              template = "https://www.miruro.to/search";
               params = [
                 {
                   name = "query";
@@ -260,7 +260,7 @@
             }
           ];
 
-          icon = "https://www.miruro.to/icons/favicon-32x32.png";
+          icon = "https://www.miruro.to/favicon.ico?v=0.9.9.1";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@anime"

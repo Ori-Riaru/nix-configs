@@ -119,6 +119,7 @@
 
       serverLocalIP = "192.168.1.101";
       serverTailscaleIP = "100.103.185.35";
+      nasPath = "/mnt/nfs/nas";
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
     };
 

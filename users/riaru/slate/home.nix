@@ -12,7 +12,7 @@
     ../../../configs/programs/btop.nix
 
     # Tools
-    ../../../configs/programs/firefox
+    ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
     ../../../configs/programs/kitty.nix
     ../../../configs/programs/obsidian.nix
@@ -37,7 +37,7 @@
     ../../../configs/programs/postgres.nix
     ../../../configs/programs/nix.nix
     ../../../configs/programs/git.nix
-    ../../../configs/programs/vscodium
+    ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/cpp.nix
 
     # Communication
@@ -46,7 +46,7 @@
     ../../../configs/programs/slack.nix
 
     # Media
-    ../../../configs/programs/spotify
+    ../../../configs/programs/spotify/spotify.nix
     ../../../configs/programs/heroic.nix
 
     # System

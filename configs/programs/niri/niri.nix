@@ -16,7 +16,7 @@
     settings = {
       default-timeout = 2000;
       background-color = lib.mkForce "${settings.base}FF";
-      text-color = lib.mkForce "{settings.text}";
+      text-color = lib.mkForce settings.text;
       width = 300;
       height = 60;
       margin = 20;
@@ -294,11 +294,5 @@
       "Ctrl+Print".action.screenshot-screen = {};
       "Alt+Print".action.screenshot-window = {};
     };
-  };
-
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    QT_QPA_PLATFORM = "wayland";
   };
 }

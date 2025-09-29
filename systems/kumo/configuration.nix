@@ -6,7 +6,7 @@
     ../../users/riaru
 
     ../../configs/services/samba.nix
-    ../../configs/services/mastodon
+    ../../configs/services/mastodon/mastodon.nix
     ../../configs/services/nextcloud.nix
     ../../configs/services/factorio.nix
     ../../configs/services/tailscale.nix

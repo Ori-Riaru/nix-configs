@@ -1,11 +1,11 @@
 {...}: {
   imports = [
-    ../programs/niri
+    ../programs/niri/niri.nix
     ../programs/walker.nix
-    ../programs/waybar
+    ../programs/waybar/waybar.nix
     ../programs/hypridle.nix
     ../programs/clipse.nix
-    ../programs/eww
+    ../programs/eww/eww.nix
     ../programs/nautilus.nix
     ../programs/kitty.nix
   ];

@@ -3,12 +3,15 @@
     enable = true;
     keyboards = {
       "default" = {
+        port = 8008;
+
         # Basic configuration options
         extraDefCfg = ''
           process-unmapped-keys yes
           concurrent-tap-hold yes
           override-release-on-activation yes
         '';
+
         config = ''
           ;; =====================
           ;; Basic Configuration
@@ -62,13 +65,15 @@
             qwerty    (layer-switch qwerty)
             menu      (layer-while-held menu)
             nav-shift (layer-while-held nav-shift)
+            blender   (layer-switch blender)
 
             ;; Special typing modes
             typing (tap-dance-eager 500 (
-                (layer-while-held typing)
+                (tap-hold $tap-time $hold-time ret (layer-while-held typing))
                 (layer-while-held num)
-              )
-            )
+              ))
+
+
 
             ;; Modifiers
             spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
@@ -76,6 +81,7 @@
             ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
             tab  (tap-hold $tap-time $hold-time tab lalt)
             gesc (tap-hold $tap-time $hold-time esc (layer-while-held gamenum))
+            bspc (tap-hold $tap-time $hold-time bspc (layer-while-held menu))
 
             ;; Text macros
             email (macro o r i - r i a r u S-2 p r o t o n . m e)
@@ -134,23 +140,24 @@
           (defchordsv2
             ;; Global chords
             (w e) tab              100 first-release (game gamenum qwerty nav)
-            (x c) (caps-word 1000) 100 first-release (game gamenum qwerty typing)
-            (e r) /                100 first-release (game gamenum qwerty typing)
-            (q w) S-`              100 first-release (game gamenum qwerty typing)
+            (x c) (caps-word 500) 100 first-release (game blender gamenum qwerty typing)
+            (e r) /                100 first-release (game blender gamenum qwerty typing)
+            (q w) S-`              100 first-release (game blender gamenum qwerty typing)
 
             ;; Navigation chords
-            (j k)     home   150        first-release (default game qwerty gamenum num typing)
-            (j k spc) home   150        first-release (        game qwerty gamenum num typing)
-            (k l)     end    150        first-release (default game qwerty gamenum num typing)
-            (k l spc) end    150        first-release (        game qwerty gamenum num typing)
-            (d j k)   S-home $hold-time first-release (default game qwerty gamenum num typing)
-            (d k l)   S-end  $hold-time first-release (default game qwerty gamenum num typing)
+            (p spc)   C-v    200        first-release (        game blender qwerty gamenum num )
+            (j k)     home   200        first-release (default game blender qwerty gamenum num typing)
+            (j k spc) home   200        first-release (        game blender qwerty gamenum num typing)
+            (k l)     end    200        first-release (default game blender qwerty gamenum num typing)
+            (k l spc) end    200        first-release (        game blender qwerty gamenum num typing)
+            (d j k)   S-home $hold-time first-release (default game blender qwerty gamenum num typing)
+            (d k l)   S-end  $hold-time first-release (default game blender qwerty gamenum num typing)
 
-            ;; Number/Symbol chords 
-            (a z) S-, $hold-time first-release (default game qwerty gamenum nav typing)
-            (d c) S-} $hold-time first-release (default game qwerty gamenum nav typing)
-            (s x) }   $hold-time first-release (default game qwerty gamenum nav typing)
-            (f v) S-0 $hold-time first-release (default game qwerty gamenum nav typing)
+            ;; Number/Symbol chords
+            (a z) S-, $hold-time first-release (default blender game qwerty gamenum nav typing)
+            (d c) S-} $hold-time first-release (default blender game qwerty gamenum nav typing)
+            (s x) }   $hold-time first-release (default blender game qwerty gamenum nav typing)
+            (f v) S-0 $hold-time first-release (default blender game qwerty gamenum nav typing)
           )
 
           ;; =====================
@@ -207,8 +214,8 @@
             lalt @esc
             spc  (tap-hold $tap-time $hold-time @.spc-typing (layer-while-held nav))
             ralt @ret
-            rmet bspc
-            rctl bspc
+            rmet @bspc
+            rctl @bspc
           )
 
           ;; Additional layers
@@ -216,20 +223,20 @@
             ' - . p y   f    g  c r l
             a o e u i   d    h  t n s
             ; q j k x   b    m  w v z
-                  @esc spc @ret bspc bspc
+            @esc spc @ret @bspc @bspc
           )
 
           (deflayer num
-            S-5 S-4 S-7 S-3 ` S-= 7 8 9 =
-            <   [   S-[ S-9 _ S-8 4 5 6 0
-            S-2 S-\ S-/ S-1 \ /   1 2 3 .
-                    @esc spc @ret bspc bspc
+            `   S-3 S-\ S-7 S-5 /   1 2 3 =
+            <   [   S-[ S-9 S-, S-= 4 5 6 0
+            S-2 S-4 S-/ S-1 \ S-8 7 8 9 .
+            @esc spc @ret @bspc @bspc
           )
 
           (deflayer nav
-            @quit       @full     @size       @pallet      @overview @redo      @undo @copy @cut    @paste
-            @focus-left @focus-up @focus-down @focus-right @launch   @find      lft   up    down     rght
-            @back       pgup      pgdn        @forward     @float    _          @save @sall @sexpand _
+            @quit       @full     _           @pallet      @overview @save          @undo @copy @cut    @paste
+            @focus-left @focus-up @focus-down @focus-right @launch   @find       lft   up    down     rght
+            @back       _         _           @forward     @float    _           @sall @sexpand _ _
                                               _            _         @nav-shift del   del
           )
 
@@ -241,9 +248,9 @@
           )
 
           (deflayer menu
-            _    volu _    voldwn @email @base @game @qwerty _ _
-            left up   down right  _      _     _     _       _ _
-            _    prev pp   next   _      _     _     _       _ _
+            _    _ _    _ @email _     @base @game @qwerty @blender
+            _ _ _ _  _      _     left up down right
+            _    prev pp   next   _      _     _     volu   voldwn _
                            _      _      _     _     _
           )
 
@@ -251,20 +258,47 @@
             q w e r    t   y    u    i o p
             a s d f    g   h    j    k l ;
             z x c v    b   n    m    , . /
-                  lalt spc ralt rmet @menu
+                  lalt spc ralt @menu @menu
           )
 
           (deflayer game
             @tab q w e     r   t   y     up   i     @menu
             shft a s d     f   g   left  down right ret
             ctl  z x c     v   b   h     _    _     m
-                     @gesc spc @typing   bspc bspc
+                     @gesc spc @typing   @bspc @bspc
+          )
+
+          ;;Application layers
+          ;; inset i
+          ;; extrude e
+          ;; select all a
+          ;; quick favorites q
+          ;; select linked l
+          ;; hide h
+          ;; knife k
+
+          ;; loop r
+          ;; copy circle select c
+          ;; past parent p
+
+          ;; proportional edit o
+          ;; wirefram undo z
+
+          ;; unwrap u
+          ;; bevel b
+
+
+          (deflayer blender
+            q    x y z i a y u i o
+            shft g r s e g h j k l
+            ctl  a c v k b n m . p
+                     alt @gesc ret @menu bspc
           )
 
           (deflayer gamenum
             _   1 2 3 _ _ _ _ _ _
             tab 4 5 6 0 _ _ _ _ _
-            _   7 8 9 _ _ _ _ _ _
+            _   7 8 9 . _ _ _ _ _
                   _ _ _ _ _
           )
         '';

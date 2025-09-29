@@ -8,7 +8,11 @@
     interactiveShellInit = ''
       auto_newline
       clear
-      cd /mnt/nfs/riaru
+      if test -d "/mnt/nfs/riaru"
+        cd /mnt/nfs/riaru
+      else
+        cd /data
+      end
     '';
     shellAliases = {
       ".." = "cd ..";

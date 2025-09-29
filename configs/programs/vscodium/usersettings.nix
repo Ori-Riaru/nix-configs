@@ -1,5 +1,6 @@
 {settings, ...}: {
   programs.vscode.profiles.default.userSettings = {
+
     "files.autoSave" = "afterDelay";
     "editor.linkedEditing" = true;
     "keyboard.dispatch" = "keyCode";
@@ -21,7 +22,7 @@
     "files.autoSaveWhenNoErrors" = true;
 
     # Fonts
-    "editor.fontLigatures" = true; 
+    "editor.fontLigatures" = true;
     "editor.fontFamily" = "${settings.fontMonospace}";
     "terminal.integrated.fontFamily" = "${settings.fontMonospace}";
     "editor.lineHeight" = 20;

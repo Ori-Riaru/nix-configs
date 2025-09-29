@@ -14,7 +14,7 @@
     ../../../configs/programs/screen-savers.nix
 
     # Tools
-    ../../../configs/programs/firefox
+    ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
 
     ../../../configs/programs/obsidian.nix
@@ -22,6 +22,7 @@
     ../../../configs/programs/thunderbird.nix
 
     ../../../configs/programs/boxes.nix
+    ../../../configs/programs/bottles.nix
 
     ../../../configs/programs/obs-studio.nix
     ../../../configs/programs/shotcut.nix
@@ -46,16 +47,16 @@
     ../../../configs/programs/postgres.nix
     ../../../configs/programs/nix.nix
     ../../../configs/programs/git.nix
-    ../../../configs/programs/vscodium
+    ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/cpp.nix
 
     # Communication
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
-    ../../../configs/programs/slack.nix 
+    ../../../configs/programs/slack.nix
 
     # Media
-    ../../../configs/programs/spotify
+    ../../../configs/programs/spotify/spotify.nix
 
     ../../../configs/programs/file-viewers.nix
     ../../../configs/programs/fonts.nix
