@@ -32,39 +32,41 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ## Featured Configurations (TODO: outdated update)
 
-- [KDE](./modules/programs/kde/) / (karousel, krohnkite) / [touchegg](./modules/programs/touchegg.nix)
+- [Niri](./configs/programs/niri/niri.nix) / [Waybar](./configs/programs/waybar/waybar.nix) / [Walker](./configs/programs/walker.nix)
 
-![kde preview](./.github/kde-preview.gif)
+![niri preview](./.github/kde-preview.gif)
 
-- [Firefox](./modules/programs/firefox/)
+- [Firefox](./configs/programs/firefox/firefox.nix)
 
 TODO: add demo
 
-- [VSCodium](./modules/programs/vscodium/)
+- [VSCodium](./configs/programs/vscodium/)
 
 ![vscodium preview](./.github/vscodium-preview.png)
 
-- [Kitty](./modules/programs/kitty.nix) / [Fish](./modules/programs/fish.nix) / [Starship](./modules/programs/starship.nix) / [Zoxide](./modules/programs/zoxide.nix)
+- [Kitty](./configs/programs/kitty.nix) / [Fish](./configs/programs/fish.nix) / [Starship](./configs/programs/starship.nix) / [Zoxide](./configs/programs/zoxide.nix) / [etc](./configs/groups/cli-base.nix)
 
 ![kitty preview](./.github/kitty-preview.png)
 
-- [Discord](./modules/programs/discord.nix)
+- [Discord](./configs/programs/discord.nix)
 
 TODO: add demo
 
-- [Spotify](./modules/programs/spotify/)
+- [Spotify](./configs/programs/spotify/spotify.nix)
 
 ![spotify preview](./.github/spotify-preview.png)
 
-- [Obsidian](./modules/programs/obsidian.nix)
+- [Obsidian](./configs/programs/obsidian.nix)
 
-![github preview](./.github/obsidian-preview.png)
+![Obsidian preview](./.github/obsidian-preview.png)
 
-- Selfhosted Services ([Mastodon](./modules/services/mastodon/), NextCloud)
+- Selfhosted Services ([Mastodon](./configs/services/mastodon/mastodon.nix), [NextCloud](./configs/services/nextcloud.nix))
 
 ![mastodon preview](./.github/mastodon-preview.png)
 
 ### Keyboard Layout & Shortcuts
+
+[Kanata](./configs/programs/kanata.nix)
 
 ![34 Key split keyboard layout](./.github/keymap.svg)
 
@@ -72,19 +74,10 @@ TODO: add demo
 
 Many application and websites have been themed to match my custom color scheme
 
-### Fonts
-
-| Type      | Font                                               |
-| --------- | -------------------------------------------------- |
-| UI        | [Inter](https://fonts.google.com/specimen/Inter)   |
-| Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) |
-
-### Spacing and layout
-
-| Property | Value | Description                |
-| -------- | ----- | -------------------------- |
-| `gap`    | 5px   | Gap Between Major Sections |
-| `radius` | 8px   | Radius of Cards            |
+|  Fonts      |                                                |\|\| | Spacing |  |            |
+| --------- | -------------------------------------------------- | --- | -------- | ----- | -------------------------- |
+| UI        | [Inter](https://fonts.google.com/specimen/Inter)   |\|\|| `gap`    | 5px   | Gap Between Major Sections |
+| Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) |\|\|| `radius` | 8px   | Radius of Cards            |
 
 ### Color Palette
 
