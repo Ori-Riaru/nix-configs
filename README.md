@@ -38,7 +38,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 - [Firefox](./configs/programs/firefox/firefox.nix)
 
-TODO: add demo
+[Firefox Preview](./.github/firefox-preview.png)
 
 - [VSCodium](./configs/programs/vscodium/)
 
