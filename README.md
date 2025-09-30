@@ -64,6 +64,10 @@ TODO: add demo
 
 ![mastodon preview](./.github/mastodon-preview.png)
 
+### Keyboard Layout & Shortcuts
+
+![34 Key split keyboard layout](./.github/keymap.svg)
+
 ## Theming
 
 Many application and websites have been themed to match my custom color scheme
@@ -81,10 +85,6 @@ Many application and websites have been themed to match my custom color scheme
 | -------- | ----- | -------------------------- |
 | `gap`    | 5px   | Gap Between Major Sections |
 | `radius` | 8px   | Radius of Cards            |
-
-### Keyboard Layout & Shortcuts
-
-![34 Key split keyboard layout](.github/my_keymap.svg)
 
 ### Color Palette
 
