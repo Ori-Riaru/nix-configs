@@ -1,0 +1,300 @@
+draw_config:
+  key_w: 80
+  key_h: 75
+  split_gap: 30.0
+  combo_w: 35
+  combo_h: 30
+  key_rx: 6.0
+  key_ry: 6.0
+  dark_mode: auto
+  n_columns: 2
+  separate_combo_diagrams: false
+  combo_diagrams_scale: 2
+  inner_pad_w: 2.0
+  inner_pad_h: 2.0
+  outer_pad_w: 30.0
+  outer_pad_h: 56.0
+  line_spacing: 1.2
+  arc_radius: 6.0
+  append_colon_to_layer_header: true
+  small_pad: 2.0
+  legend_rel_x: 0.0
+  legend_rel_y: 0.0
+  draw_key_sides: false
+  key_side_pars:
+    rel_x: 0.0
+    rel_y: 4.0
+    rel_w: 12.0
+    rel_h: 12.0
+    rx: 4.0
+    ry: 4.0
+  svg_extra_style: ''
+  footer_text: Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a>
+  shrink_wide_legends: 7
+  style_layer_activators: true
+  glyph_tap_size: 14
+  glyph_hold_size: 12
+  glyph_shifted_size: 10
+  glyphs: {}
+parse_config:
+  preprocess: true
+  skip_binding_parsing: false
+  raw_binding_map: {}
+  sticky_label: sticky
+  toggle_label: toggle
+  tap_toggle_label: tap-toggle
+  trans_legend:
+    t: ▽
+    type: trans
+  layer_legend_map: {}
+  mark_alternate_layer_activators: false
+  modifier_fn_map:
+    left_ctrl: Ctl
+    right_ctrl: Ctl
+    left_shift: Sft
+    right_shift: Sft
+    left_alt: Alt
+    right_alt: AltGr
+    left_gui: Gui
+    right_gui: Gui
+    keycode_combiner: '{mods}+{key}'
+    mod_combiner: '{mod_1}+{mod_2}'
+    special_combinations:
+      left_ctrl+left_alt+left_gui+left_shift: Hyper
+      left_ctrl+left_alt+left_shift: Meh
+  qmk_remove_keycode_prefix:
+  - KC_
+  qmk_keycode_map:
+    XXXXXXX: ''
+    'NO': ''
+    MINUS: '-'
+    MINS: '-'
+    EQUAL: '='
+    EQL: '='
+    LEFT_BRACKET: '['
+    LBRC: '['
+    RIGHT_BRACKET: ']'
+    RBRC: ']'
+    BACKSLASH: \
+    BSLS: \
+    NONUS_HASH: '#'
+    NUHS: '#'
+    SEMICOLON: ;
+    SCLN: ;
+    QUOTE: ''''
+    QUOT: ''''
+    GRAVE: '`'
+    GRV: '`'
+    COMMA: ','
+    COMM: ','
+    DOT: .
+    SLASH: /
+    SLSH: /
+    TILDE: '~'
+    TILD: '~'
+    EXCLAIM: '!'
+    EXLM: '!'
+    AT: '@'
+    HASH: '#'
+    DOLLAR: $
+    DLR: $
+    PERCENT: '%'
+    PERC: '%'
+    CIRCUMFLEX: ^
+    CIRC: ^
+    AMPERSAND: '&'
+    AMPR: '&'
+    ASTERISK: '*'
+    ASTR: '*'
+    LEFT_PAREN: (
+    LPRN: (
+    RIGHT_PAREN: )
+    RPRN: )
+    UNDERSCORE: _
+    UNDS: _
+    PLUS: +
+    LEFT_CURLY_BRACE: '{'
+    LCBR: '{'
+    RIGHT_CURLY_BRACE: '}'
+    RCBR: '}'
+    PIPE: '|'
+    COLON: ':'
+    COLN: ':'
+    DOUBLE_QUOTE: '"'
+    DQUO: '"'
+    DQT: '"'
+    LEFT_ANGLE_BRACKET: <
+    LABK: <
+    LT: <
+    RIGHT_ANGLE_BRACKET: '>'
+    RABK: '>'
+    GT: '>'
+    QUESTION: '?'
+    QUES: '?'
+  zmk_remove_keycode_prefix: []
+  zmk_keycode_map:
+    EXCLAMATION: '!'
+    EXCL: '!'
+    AT_SIGN: '@'
+    AT: '@'
+    HASH: '#'
+    POUND: '#'
+    DOLLAR: $
+    DLLR: $
+    PERCENT: '%'
+    PRCNT: '%'
+    CARET: ^
+    AMPERSAND: '&'
+    AMPS: '&'
+    ASTERISK: '*'
+    ASTRK: '*'
+    STAR: '*'
+    LEFT_PARENTHESIS: (
+    LPAR: (
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    EQUAL: '='
+    PLUS: +
+    MINUS: '-'
+    UNDERSCORE: _
+    UNDER: _
+    SLASH: /
+    FSLH: /
+    QUESTION: '?'
+    QMARK: '?'
+    BACKSLASH: \
+    BSLH: \
+    PIPE: '|'
+    NON_US_BACKSLASH: \
+    PIPE2: '|'
+    NON_US_BSLH: '|'
+    SEMICOLON: ;
+    SEMI: ;
+    COLON: ':'
+    SINGLE_QUOTE: ''''
+    SQT: ''''
+    APOSTROPHE: ''''
+    APOS: ''''
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    COMMA: ','
+    LESS_THAN: <
+    LT: <
+    PERIOD: .
+    DOT: .
+    GREATER_THAN: '>'
+    GT: '>'
+    LEFT_BRACKET: '['
+    LBKT: '['
+    LEFT_BRACE: '{'
+    LBRC: '{'
+    RIGHT_BRACKET: ']'
+    RBKT: ']'
+    RIGHT_BRACE: '}'
+    RBRC: '}'
+    GRAVE: '`'
+    TILDE: '~'
+    NON_US_HASH: '#'
+    NUHS: '#'
+    TILDE2: '~'
+  zmk_combos: {}
+  zmk_preamble: '#define KEYMAP_DRAWER'
+  zmk_additional_includes: []
+
+======================================
+layout: {cols_thumbs_notation: 33333+2 2+33333}
+layers:
+  Default:
+    - [{t: "'", s: "\""}, {t: "-", s: "_"}, {t: ".", s: ","}, P, Y, F, G, C, R, L]
+    - [{h: Meta, t: A}, {h: Alt, t: O}, {h: Ctrl, t: E}, {h: Shift, t: U}, I, D, {h: Ctrl, t: H}, {h: Shift, t: T}, {h: Alt, t: N}, {h: Meta, t: S}]
+    - [{t: ";", s: ":" }, Q, J, K, X, B, M, W, V, Z]
+    - Esc
+    - {h: Nav, t: Space}
+    - {h: Num, t: Enter}
+    - {h: Menu, t: Backspace}
+  
+  Menu:
+    - ["", "","", "", "", "", Default, Game, Qwerty, ""]
+    - ["" , "", "", "", "", "", ⬅, ⬆, ⬇, ➡]
+    - ["Email Macro", "Gmail Macro", "", "Screen Shot", "", "", Volume Up, Volume Down, "", ""]
+    - Esc
+    - Space
+    - ""
+    - {type: held}
+
+    
+  Num:
+    - ["`", "#", "|", "&", "%", /, 1, 2, 3, "="]
+    - [ <, "[", "{", "(", ">", +, 4, 5, 6, 0]
+    - ["@", $, "?", "!", "\\", "*", 7, 8, 9, .]
+    - Esc
+    - Space
+    - {type: held}
+    - ""
+  
+  Num-shifted:
+    - ["", "", "", "", "", "", F1, F2, F3, F11]
+    - ["", "", "", "", "", "", F4, F5, F6, F10]
+    - ["", "", "", "", "", "^", F7, F8, F9, F12]
+    - ""
+    - {type: held}
+    - {type: held}
+    - ""
+    
+  Nav:
+    - [Quit, Full- screen-, -Pallet, Next Monitor, Overview, Save, Undo, Copy, Cut, Paste]
+    - [{h: Meta, t: Focus Left}, {h: Alt, t: Focus/ Workspace Up}, {h: Ctrl, t: Focus/ Workspace Down}, {h: Shift, t: Focus Right}, Lancher, Find, ⬅, ⬆, ⬇, ➡]
+    - [Back, Shink Column, Grow Column, Forward, Float, "", Select All, Expand Select, "", ""]
+    - ""
+    - {type: held}
+    - {h: Nav-shift}
+    - Delete
+    
+  Nav-shift:
+    - ["", Maximize, "", "", Move Next Monitor, "", "", "", "", Clip History]
+    - [Move Left, Move/ Workspace Up, Move/ Workspace Down, Move Right, "", "", "", "", "", ""]
+    - ["", "", "", "", "", "", Select All, Expand Select, "", ""]
+    - ""
+    - {type: held}
+    - {type: held}
+    - ""
+    
+  Game:
+    - [ Tab, Q, W, E, R, T, Y, ⬆, I, ""]
+    - [ Shift, A, S, D, F, G, ⬅, ⬇, ➡, ""]
+    - [ Ctrl, Z, X, C, V, B, "", "", "", M]
+    - {h: Game-Num, t: Esc}
+    - Space
+    - {h: "Default", t: "Enter"}
+    - {h: "Menu", t: "Backspace"}
+    
+  Game-Num: 
+    - [ "", 1, 2, 3, "", "", "", "", "", ""]
+    - [ Shift, 4, 5, 6, 0, "", "", "", "", ""]
+    - [ Alt, 7, 8, 9, ., "", "", "", "", ""]
+    - {type: held}
+    - ""
+    - Enter
+    - Backspace
+    
+  Qwerty:
+    - [ Q, W, E, R, T, Y, U, I, O, P]
+    - [ A, S, D, F, G, H, J, K, L, ;]
+    - [ Z, X, C, V, B, N, M, ",", ".", "/"]
+    - Alt
+    - Space
+    - Alt
+    - {h: "Menu", t: "Meta"}
+    
+combos:
+  - {p: [1, 2], k: "Tab", l: ["Default", "Num"]}
+  - {p: [21, 22], k: "Caps Word", l: ["Default"]}
+  - {p: [0, 1], k: "~", l: ["Default"]}
+  - {p: [2, 3], k: "/", l: ["Default"]}
+  - {p: [10, 20], k: ">", l: ["Num"]}
+  - {p: [11, 21], k: "]", l: ["Num"]}
+  - {p: [12, 22], k: "}", l: ["Num"]}
+  - {p: [13, 23], k: ")", l: ["Num"]}
+  - {p: [16, 17], k: "Home", l: ["Nav"]}
+  - {p: [17, 18], k: "End", l: ["Nav"]}
+  

@@ -66,6 +66,7 @@
             menu      (layer-while-held menu)
             nav-shift (layer-while-held nav-shift)
             blender   (layer-switch blender)
+            num-shift (layer-while-held num-shift)
 
             ;; Special typing modes
             typing (tap-dance-eager 500 (
@@ -85,6 +86,7 @@
 
             ;; Text macros
             email (macro o r i - r i a r u S-2 p r o t o n . m e)
+            google (macro o r i . r i a r u S-2 g m a i l . c o m)
 
             ;; Common shortcuts
             undo     C-z
@@ -98,6 +100,7 @@
             save     C-s
             sall     C-a
             sexpand  C-w
+            screenshot  M-p
 
             ;; Navigation shortcuts
             back     A-left
@@ -109,15 +112,18 @@
             overview M-o
             quit     M-q
             size     M-r
+            size-back M-C-r
             full     M-f
             max      M-S-f
             float    M-w
 
             ;; Focus movement
+            monitor M-d
             focus-left  (tap-hold $tap-time $hold-time M-left  lmet)
             focus-up    (tap-hold $tap-time $hold-time M-up    lalt)
             focus-down  (tap-hold $tap-time $hold-time M-down  lshft)
             focus-right (tap-hold $tap-time $hold-time M-right lctrl)
+            move-monitor M-C-d
             move-left   M-C-lft
             move-up     M-C-up
             move-down   M-C-down
@@ -230,35 +236,42 @@
             `   S-3 S-\ S-7 S-5 /   1 2 3 =
             <   [   S-[ S-9 S-, S-= 4 5 6 0
             S-2 S-4 S-/ S-1 \ S-8 7 8 9 .
-            @esc spc @ret @bspc @bspc
+            @esc @num-shift @ret @bspc @bspc
+          )
+
+          (deflayer num-shift
+            _ _ _ _ _ _ F1 F2 F3 F11
+            _ _ _ _ _ _ F4 F5 F6 F10
+            _ _ _ _ _ _ F8 F7 F8 F12
+               _ _ _ _ _
           )
 
           (deflayer nav
-            @quit       @full     _           @pallet      @overview @save          @undo @copy @cut    @paste
-            @focus-left @focus-up @focus-down @focus-right @launch   @find       lft   up    down     rght
-            @back       _         _           @forward     @float    _           @sall @sexpand _ _
+            @quit       @full     @pallet     @monitor     @overview @save       @undo @copy @cut    @paste
+            @focus-left @focus-up @focus-down @focus-right @launch         @find       lft   up    down     rght
+            @back       @size-back @size  @forward     @float    _           @sall @sexpand _ _
                                               _            _         @nav-shift del   del
           )
 
           (deflayer nav-shift
-            _          @max     _          _           _ _        _ _ _ @cliphist
+            _          @max     _          @move-monitor _ _        _ _ _ @cliphist
             @move-left @move-up @move-down @move-right _ @replace _ _ _ _
             _          _        _          _           _ _        _ _ _ _
                                            _           _ _        _ _
           )
 
           (deflayer menu
-            _    _ _    _ @email _     @base @game @qwerty @blender
-            _ _ _ _  _      _     left up down right
-            _    prev pp   next   _      _     _     volu   voldwn _
-                           _      _      _     _     _
+            _ _ _ @screenshot @email  _ @base @game @qwerty @blender
+            _ _ _ _ @google _ left up down right
+            _ prev pp next  _ _     _     voldwn   volu _
+                            _ _      _     _     _
           )
 
           (deflayer qwerty
             q w e r    t   y    u    i o p
             a s d f    g   h    j    k l ;
             z x c v    b   n    m    , . /
-                  lalt spc ralt @menu @menu
+              lalt spc ralt @menu @menu
           )
 
           (deflayer game
@@ -282,7 +295,7 @@
           ;; past parent p
 
           ;; proportional edit o
-          ;; wirefram undo z
+          ;; wireframe undo z
 
           ;; unwrap u
           ;; bevel b

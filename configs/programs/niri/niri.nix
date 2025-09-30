@@ -127,9 +127,14 @@
       gaps = settings.gap + 2;
       center-focused-column = "never";
       preset-column-widths = [
+        {proportion = 0.15;}
+        {proportion = 0.25;}
         {proportion = 0.33333;}
         {proportion = 0.5;}
         {proportion = 0.66667;}
+        {proportion = 0.75;}
+        {proportion = 0.85;}
+        {proportion = 1.0;}
       ];
       default-column-width = {proportion = 0.5;};
 
@@ -248,9 +253,11 @@
       # Window Management
       "Mod+Q".action.close-window = {};
       "Mod+R".action.switch-preset-column-width = {};
+      "Ctrl+Mod+R".action.switch-preset-column-width-back = {};
+      "Shift+Mod+R".action.expand-column-to-available-width = {};
+
       "Mod+F".action.maximize-column = {};
       "Mod+Shift+F".action.fullscreen-window = {};
-      "Mod+Ctrl+R".action.expand-column-to-available-width = {};
       "Mod+C".action.center-column = {};
       "Mod+O" = {
         action.toggle-overview = {};
@@ -282,9 +289,11 @@
       };
 
       # Monitor Focus
+      "Mod+D".action.focus-monitor-next = {};
       "Mod+1".action.focus-monitor = "Dell Inc. DELL G3223Q C3PM6P3";
       "Mod+2".action.focus-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
       "Mod+3".action.focus-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";
+      "Ctrl+Mod+D".action.move-window-to-monitor-next = {};
       "Ctrl+Mod+1".action.move-window-to-monitor = "Dell Inc. DELL G3223Q C3PM6P3";
       "Ctrl+Mod+2".action.move-window-to-monitor = "Dell Inc. Dell S2417DG #ASMB1cSQQmDd";
       "Ctrl+Mod+3".action.move-window-to-monitor = "Hewlett Packard HP 23cw 6CM5510JRK";

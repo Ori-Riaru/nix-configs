@@ -29,6 +29,7 @@
   environment.variables = {
     NH_FLAKE = lib.mkForce "/data/nfs/riaru/Projects/nix-configs";
   };
+  
 
   # Bootloader
   boot.loader.grub.enable = true;

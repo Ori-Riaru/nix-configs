@@ -8,6 +8,7 @@
     ../../../configs/programs/kitty.nix
     ../../../configs/programs/gparted.nix
     ../../../configs/programs/btop.nix
+    ../../../configs/programs/hyprkan.nix
 
     # CLI
     ../../../configs/groups/cli-base.nix

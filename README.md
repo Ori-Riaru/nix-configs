@@ -4,6 +4,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ## Structure
 
+- [`flake.nix`](./flake.nix): Global Settings and entrypoint for the System and Home Manager configurations
 - [`configs/`](./configs/): Reusable configurations
 
   - [`groups/`](./configs/groups/): Groups of programs or services which are commonly imported together
@@ -28,7 +29,6 @@ My personal Nixos configurations. They are not intended to be used by others how
 - [`packages/`](./packages/): Self package software not available in nix packages
 - [`overlays/`](./overlays/): Patches and version overrides for packages
 - [`secrets/`](./secrets/): Encrypted credentials, passwords, keys, etc
-- [`flake.nix`](./flake.nix): Global Settings and entrypoint for the OS and Home Manager configurations
 
 ## Featured Configurations (TODO: outdated update)
 
@@ -81,6 +81,10 @@ Many application and websites have been themed to match my custom color scheme
 | -------- | ----- | -------------------------- |
 | `gap`    | 5px   | Gap Between Major Sections |
 | `radius` | 8px   | Radius of Cards            |
+
+### Keyboard Layout & Shortcuts
+
+![34 Key split keyboard layout](.github/my_keymap.svg)
 
 ### Color Palette
 
