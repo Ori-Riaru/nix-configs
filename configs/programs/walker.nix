@@ -1,10 +1,11 @@
 {
+  lib,
   pkgs,
   inputs,
   ...
 }: {
   imports = [
-    inputs.walker.homeManagerModules.default
+    inputs.walker.homeManagerModules.walker
   ];
 
   home.packages = with pkgs; [
@@ -14,7 +15,28 @@
 
   programs.walker = {
     enable = true;
-    runAsService = false;
+    runAsService = true;
+  };
+
+  systemd.user.services.elephant = {
+    Unit = {
+      After = lib.mkForce ["xdg-desktop-autostart.target"];
+      PartOf = lib.mkForce ["xdg-desktop-autostart.target"];
+    };
+    Install = {
+      WantedBy = lib.mkForce ["xdg-desktop-autostart.target"];
+    };
+  };
+
+  systemd.user.services.walker = {
+    Unit = {
+      After = lib.mkForce ["xdg-desktop-autostart.target" "elephant.service"];
+      Requires = lib.mkForce ["xdg-desktop-autostart.target"];
+      PartOf = lib.mkForce ["xdg-desktop-autostart.target"];
+    };
+    Install = {
+      WantedBy = lib.mkForce ["xdg-desktop-autostart.target"];
+    };
   };
 
   nix = {

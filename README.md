@@ -8,7 +8,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 - [`configs/`](./configs/): Reusable configurations
 
   - [`groups/`](./configs/groups/): Groups of programs or services which are commonly imported together
-  - [`programs/`](./configs/programs/): Programs and their configurations which can be imported in a system conifguration.nix or a users home.nix
+  - [`programs/`](./configs/programs/): Programs and their configurations which can be imported in a system configuration.nix or a users home.nix
   - [`services/`](./configs/services/): Services and their configurations which can be imported in system configuration.nix
   - [`system/`](./configs/system/): Nix and system configurations not specific to a program or service
 
@@ -60,9 +60,18 @@ TODO: add demo
 
 ![Obsidian preview](./.github/obsidian-preview.png)
 
-- Selfhosted Services ([Mastodon](./configs/services/mastodon/mastodon.nix), [NextCloud](./configs/services/nextcloud.nix))
+## Self-hosted Services
 
-![mastodon preview](./.github/mastodon-preview.png)
+- [Mastodon](./configs/services/mastodon/mastodon.nix)
+  ![mastodon preview](./.github/mastodon-preview.png)
+
+- [NextCloud](./configs/services/nextcloud.nix)
+
+- [NFS shares](./configs/services/nfs.nix)
+
+- [Blocky](./configs/services/blocky.nix)
+
+- [Inadyn](./configs/services/inadyn.nix)
 
 ### Keyboard Layout & Shortcuts
 
@@ -74,10 +83,10 @@ TODO: add demo
 
 Many application and websites have been themed to match my custom color scheme
 
-|  Fonts      |                                                |\|\| | Spacing |  |            |
-| --------- | -------------------------------------------------- | --- | -------- | ----- | -------------------------- |
-| UI        | [Inter](https://fonts.google.com/specimen/Inter)   |\|\|| `gap`    | 5px   | Gap Between Major Sections |
-| Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) |\|\|| `radius` | 8px   | Radius of Cards            |
+| Fonts     |                                                    | \|\| | Spacing  |     |                            |
+| --------- | -------------------------------------------------- | ---- | -------- | --- | -------------------------- |
+| UI        | [Inter](https://fonts.google.com/specimen/Inter)   | \|\| | `gap`    | 5px | Gap Between Major Sections |
+| Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) | \|\| | `radius` | 8px | Radius of Cards            |
 
 ### Color Palette
 
@@ -90,12 +99,12 @@ Many application and websites have been themed to match my custom color scheme
 | Backgrounds        |
 | `base`             | <div style="color: white; background-color: #000000; padding: 15px; border-radius: 6px ">#000000</div>   | ![Base](./.github/swatches/base.png)                         | Window backgrounds                                                |
 | `section`          | <div style="color: white; background-color: #111111; padding: 15px; border-radius: 6px ">#111111</div>   | ![Section](./.github/swatches/section.png)                   | Major Section, Content Only Window                                |
-| `card`             | <div style="color: white; background-color: #181818; padding: 15px; border-radius: 6px ">#181818</div>   | ![Card](.github/swatches/card.png)                           | Card, Input, Semihighlighted button                               |
+| `card`             | <div style="color: white; background-color: #181818; padding: 15px; border-radius: 6px ">#181818</div>   | ![Card](.github/swatches/card.png)                           | Card, Input, highlighted button                               |
 | `overlay`          | <div style="color: white; background-color: #222222; padding: 15px; border-radius: 6px ">#222222</div>   | ![Overlay](./.github/swatches/overlay.png)                   | Search Overlay,                                                   |
 | Customizations     |
-| `accent`           | <div style="color: white; background-color: #a386ff; padding: 15px; border-radius: 6px ">#a386ff</div>   | ![Accent](./.github/swatches/accent.png)                     | Custamizable Primary Accent                                       |
-| `accent-secondary` | <div style="color: white; background-color: #83bbff; padding: 15px; border-radius: 6px ">#83bbff</div>   | ![Accent-Secondary](./.github/swatches/accent-secondary.png) | Customization Secondary Accent                                    |
-| `accent-tertiary`  | <div style="color: black; background-color: #fefb77; padding: 15px; border-radius: 6px ">#fefb77</div>   | ![Accent-Tertiary](./.github/swatches/accent-tertiary.png)   | Customization Tertiary Accent                                     |
+| `accent`           | <div style="color: white; background-color: #a386ff; padding: 15px; border-radius: 6px ">#a386ff</div>   | ![Accent](./.github/swatches/accent.png)                     | Customizable Primary Accent                                       |
+| `accent-secondary` | <div style="color: white; background-color: #83bbff; padding: 15px; border-radius: 6px ">#83bbff</div>   | ![Accent-Secondary](./.github/swatches/accent-secondary.png) | Customizable Secondary Accent                                    |
+| `accent-tertiary`  | <div style="color: black; background-color: #fefb77; padding: 15px; border-radius: 6px ">#fefb77</div>   | ![Accent-Tertiary](./.github/swatches/accent-tertiary.png)   | Customizable Tertiary Accent                                     |
 | Colors             |
 | `Red`              | <div style="color: white; background-color: #fe5970; padding: 15px; border-radius: 6px ">#fe5970</div>   | ![Red](./.github/swatches/red.png)                           | Error, Remove, Close, Delete, Tags (HTML/XML), Annotations        |
 | `Orange`           | <div style="color: white; background-color: #ffa062; padding: 15px; border-radius: 6px ">#ffa062</div>   | ![Orange](./.github/swatches/orange.png)                     | Warning, Numbers                                                  |

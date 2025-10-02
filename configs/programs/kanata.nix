@@ -247,14 +247,14 @@
           )
 
           (deflayer nav
-            @quit       @full     @pallet     @monitor     @overview @save       @undo @copy @cut    @paste
+            @quit       @full     @monitor @pallet          @overview @save       @undo @copy @cut    @paste
             @focus-left @focus-up @focus-down @focus-right @launch         @find       lft   up    down     rght
             @back       @size-back @size  @forward     @float    _           @sall @sexpand _ _
                                               _            _         @nav-shift del   del
           )
 
           (deflayer nav-shift
-            _          @max     _          @move-monitor _ _        _ _ _ @cliphist
+            _          @max     @move-monitor _           _ _        _ _ _ @cliphist
             @move-left @move-up @move-down @move-right _ @replace _ _ _ _
             _          _        _          _           _ _        _ _ _ _
                                            _           _ _        _ _
@@ -263,7 +263,7 @@
           (deflayer menu
             _ _ _ @screenshot @email  _ @base @game @qwerty @blender
             _ _ _ _ @google _ left up down right
-            _ prev pp next  _ _     _     voldwn   volu _
+            _ prev pp next  _ _     _     volu   voldwn  _
                             _ _      _     _     _
           )
 

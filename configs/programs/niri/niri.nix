@@ -169,8 +169,8 @@
       {command = ["mako"];}
       {command = ["swww" "daemon"];}
       {command = ["swww" "clear" "${settings.base}"];}
-      {command = ["elephant"];}
-      {command = ["sh" "-c" "sleep 2 && walker --gapplication-service"];}
+      # {command = ["elephant"];}
+      # {command = ["sh" "-c" "sleep 2 && walker --gapplication-service"];}
       {command = ["clipse" "-listen"];}
     ];
 
@@ -279,7 +279,7 @@
       "Mod+Ctrl+Left".action.consume-or-expel-window-left = {};
       "Mod+Ctrl+Right".action.consume-or-expel-window-right = {};
 
-      # Monitor Managment
+      # Monitor Management
       "Mod+M" = {
         action.spawn = [
           "sh"
@@ -303,5 +303,17 @@
       "Ctrl+Print".action.screenshot-screen = {};
       "Alt+Print".action.screenshot-window = {};
     };
+
+    environment = {
+      NIXOS_OZONE_WL = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      QT_QPA_PLATFORM = "wayland";
+    };
+  };
+
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    QT_QPA_PLATFORM = "wayland";
   };
 }
