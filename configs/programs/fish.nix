@@ -73,6 +73,12 @@
           nix flake init --template ${settings.configPath}/#$argv[1]
         '';
       };
+
+      where = {
+        body = ''
+          readlink (command which $argv[1])
+        '';
+      };
     };
   };
 }
