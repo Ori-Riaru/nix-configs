@@ -12,6 +12,7 @@
     ../programs/ripgrep.nix
     ../programs/fd.nix
     ../programs/jq.nix
+    ../programs/xh.nix
     ../programs/bat.nix
   ];
 }
