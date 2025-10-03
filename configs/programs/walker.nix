@@ -11,11 +11,18 @@
   home.packages = with pkgs; [
     libqalculate
     wl-clipboard
+
+    app2unit
+    xdg-terminal-exec
   ];
 
   programs.walker = {
     enable = true;
     runAsService = true;
+
+    elephant.config = {
+      auto_detect_launch_prefix = false;
+    };
   };
 
   systemd.user.services.elephant = {
