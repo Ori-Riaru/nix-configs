@@ -56,10 +56,6 @@
   padding: 5px !important;
 }
 
-.monaco-workbench .part.panel.bottom .composite.title {
-  display: none !important;
-}
-
 .terminal {
   margin-left: 10px !important;
 }
