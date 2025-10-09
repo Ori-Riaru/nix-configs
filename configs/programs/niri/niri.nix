@@ -168,10 +168,8 @@
       {command = ["waybar"];}
       {command = ["mako"];}
       {command = ["swww" "daemon"];}
-      {command = ["swww" "clear" "${settings.base}"];}
-      # {command = ["elephant"];}
-      # {command = ["sh" "-c" "sleep 2 && walker --gapplication-service"];}
       {command = ["clipse" "-listen"];}
+      {command = ["sh" "-c" "sleep 2 & swww clear ${settings.base}"];}
     ];
 
     prefer-no-csd = true;

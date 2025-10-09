@@ -14,7 +14,6 @@
 
   programs.niri.enable = true;
 
-
   xdg = {
     autostart.enable = true;
     menus.enable = true;
