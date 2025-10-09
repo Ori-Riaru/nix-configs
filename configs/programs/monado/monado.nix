@@ -1,20 +1,21 @@
 {pkgs, ...}: {
-  services.monado = {
-    enable = true;
-    defaultRuntime = true;
-  };
+  # Broken: must be updated
+  # services.monado = {
+  #   enable = true;
+  #   defaultRuntime = true;
+  # };
 
-  environment.systemPackages = with pkgs; [basalt-monado];
+  # environment.systemPackages = with pkgs; [basalt-monado];
 
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-  };
+  # programs.git = {
+  #   enable = true;
+  #   lfs.enable = true;
+  # };
 
-  systemd.user.services.monado.environment = {
-    STEAMVR_LH_ENABLE = "1";
-    XRT_COMPOSITOR_COMPUTE = "1";
-    WMR_HANDTRACKING = "0";
-    XRT_DEBUG_GUI = "0";
-  };
+  # systemd.user.services.monado.environment = {
+  #   STEAMVR_LH_ENABLE = "1";
+  #   XRT_COMPOSITOR_COMPUTE = "1";
+  #   WMR_HANDTRACKING = "0";
+  #   XRT_DEBUG_GUI = "0";
+  # };
 }
