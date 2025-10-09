@@ -233,7 +233,7 @@
           )
 
           (deflayer num
-            `   S-3 S-\ S-7 S-5 /   1 2 3 =
+            `   S-3 S-7 S-\ S-5 /   1 2 3 =
             <   [   S-[ S-9 S-, S-= 4 5 6 0
             S-2 S-4 S-/ S-1 \ S-8 7 8 9 .
             @esc @num-shift @ret @bspc @bspc
