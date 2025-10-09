@@ -4,7 +4,7 @@
   inputs = {
     # Repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/7f6db4bf618acbf8f854577bd776afefc27dccc2";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.05";
 
     nur = {
       url = "github:nix-community/nur";
@@ -38,8 +38,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    elephant = {
+      url = "github:Ori-Riaru/elephant/update-nixos-module";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     walker = {
-      url = "github:abenz1267/walker";
+      url = "github:Ori-riaru/walker/update-nixos-module";
+      inputs.elephant.follows = "elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
