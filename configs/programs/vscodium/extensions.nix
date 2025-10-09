@@ -87,19 +87,19 @@
           # Web
           csstools.postcss
           joy-yu.css-snippets
-          philsinatra.nested-comments
+          # philsinatra.nested-comments
           oven.bun-vscode
           wallabyjs.quokka-vscode
           # wallabyjs.console-ninja
 
           # Other
-          bbenoist.qml #QML language support
-          kdl-org.kdl # KDL language support
-          letrieu.expand-region
-          eww-yuck.yuck
+          bbenoist.qml # QML language support
+          # kdl-org.kdl # KDL language support
+          # letrieu.expand-region
+          # eww-yuck.yuck
 
           # Generic
-          mguellsegarra.highlight-on-copy
+          # mguellsegarra.highlight-on-copy
         ]);
     };
   };
