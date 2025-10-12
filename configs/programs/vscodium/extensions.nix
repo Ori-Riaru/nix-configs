@@ -28,8 +28,8 @@
           vue.volar
 
           # Rust
-          # rust-lang.rust-analyzer
-          # vadimcn.vscode-lldb
+          rust-lang.rust-analyzer
+          vadimcn.vscode-lldb
           tamasfe.even-better-toml
           fill-labs.dependi
 
