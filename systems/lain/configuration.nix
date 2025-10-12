@@ -34,21 +34,33 @@
 
     ../../users/riaru
 
-    # inputs.walker.nixosModules.walker
+    inputs.walker.nixosModules.walker
   ];
 
   networking.hostName = "lain";
 
-  systemd.user.tmpfiles.rules = let
-    configFile = pkgs.writeTextFile {
-      name = "hello.txt";
-      text = "Hello testing";
-      executable = false;
-    };
-  in [
-    "d %h/.config/Testing 0755 - - - -"
-    "L+ %h/.config/Testing/hello.txt - - - - ${configFile}"
+  environment.systemPackages = with pkgs; [
+    # rustc
+    # cargo
+    # rustfmt
+    # rust-analyzer
+    # clippy
+    # pkg-config
+    # glib
+    # gsettings-desktop-schemas
   ];
+
+  # environment.sessionVariables = {
+  #   XDG_DATA_DIRS = ["${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"];
+  # };
+
+  # programs.walker = {
+  #   enable = true;
+  #   runAsService = true;
+  #   config = {
+  #     debug = true;
+  #   };
+  # };
 
   # programs.walker = {
   #   enable = true;
