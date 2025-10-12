@@ -39,14 +39,14 @@
     };
 
     elephant = {
-      url = "github:Ori-Riaru/elephant/update-nixos-module";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:abenz1267/elephant/6a18cc3cbdd3d85627c8f2eb10059f1a2148d972";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     walker = {
-      url = "github:Ori-riaru/walker/update-nixos-module";
+      url = "github:Ori-Riaru/walker/fix-crash-when-service";
       inputs.elephant.follows = "elephant";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Modifications
