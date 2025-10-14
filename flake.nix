@@ -40,13 +40,13 @@
 
     elephant = {
       url = "github:abenz1267/elephant/6a18cc3cbdd3d85627c8f2eb10059f1a2148d972";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     walker = {
-      url = "github:Ori-Riaru/walker/fix-crash-when-service";
+      url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Modifications
@@ -181,6 +181,7 @@
         ];
       };
 
+      # Laptop
       "${settings.username}@slate" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs settings;};

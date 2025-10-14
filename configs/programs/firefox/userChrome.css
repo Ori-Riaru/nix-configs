@@ -16,7 +16,7 @@
 
   /* Backgrounds */
   --base: #080808; /* @nix settings.base */
-  --section: #181818; /* @nix settings.section */
+  --section: #111111; /* @nix settings.section */
   --card: #353535; /* @nix settings.card */
 
   --input: var(--black-2);

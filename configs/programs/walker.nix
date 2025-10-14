@@ -14,212 +14,359 @@
     runAsService = true;
 
     config = {
-      # placeholders."default" = {
-      #   input = "search";
-      #   list = "Example";
-      # };
-
-      # providers.prefixes = [
-      #   {
-      #     provider = "websearch";
-      #     prefix = "+";
-      #   }
-      #   {
-      #     provider = "providerlist";
-      #     prefix = "_";
-      #   }
-      # ];
-
+      theme = "Neutral Dark";
       keybinds.quick_activate = [];
     };
 
     elephant = {
-      # debug = true;
-      # providers = [
-      #   "files"
-      #   "desktopapplications"
-      #   "calc"
-      #   "symbols"
-      #   "providerlist"
-      # ];
-      # config = {
-      #   files = {
-      #     providers = {
-      #       files = {
-      #         min_score = 50;
-      #       };
-      #     };
-      #   };
-      # };
+      config = {
+        files = {
+          providers = {
+            files = {
+              min_score = 1000;
+            };
+          };
+        };
+      };
     };
 
-    # If this is not set the default styling is used.
-    theme.style = ''
-      @define-color window_bg_color ${settings.section};
-      @define-color accent_bg_color ${settings.subtext};
-      @define-color theme_fg_color ${settings.text};
+    themes."Neutral Dark" = {
+      style = ''
+        @define-color window_bg_color ${settings.card};
+        @define-color accent_bg_color ${settings.accent};
+        @define-color theme_fg_color ${settings.text};
+        @define-color error_bg_color ${settings.red};
+        @define-color error_fg_color ${settings.base};
 
-      * {
-        all: unset;
-      }
+        * {
+          all: unset;
+        }
 
-      .normal-icons {
-        -gtk-icon-size: 16px;
-      }
+        .normal-icons {
+          -gtk-icon-size: 16px;
+        }
 
-      .large-icons {
-        -gtk-icon-size: 32px;
-      }
+        .large-icons {
+          -gtk-icon-size: 32px;
+        }
 
-      scrollbar {
-        opacity: 0;
-      }
+        scrollbar {
+          opacity: 0;
+        }
 
-      .box-wrapper {
-        box-shadow:
-          0 19px 38px rgba(0, 0, 0, 0.3),
-          0 15px 12px rgba(0, 0, 0, 0.22);
-        background: @window_bg_color;
-        padding: 20px;
-        border-radius: 20px;
-        border: 1px solid darker(@accent_bg_color);
-      }
+        .box-wrapper {
+          box-shadow:
+            0 19px 38px rgba(0, 0, 0, 0.3),
+            0 15px 12px rgba(0, 0, 0, 0.22);
+          background: @window_bg_color;
+          padding: 20px;
+          border-radius: 8px;
+          border: 2px solid @accent_bg_color;
+        }
 
-      .preview-box,
-      .elephant-hint,
-      .placeholder {
-        color: @theme_fg_color;
-      }
+        .preview-box,
+        .elephant-hint,
+        .placeholder {
+          color: @theme_fg_color;
+        }
 
-      .box {
-      }
+        .box {
+        }
 
-      .search-container {
-        border-radius: 10px;
-      }
+        .search-container {
+          border-radius: 6px;
+        }
 
-      .input placeholder {
-        opacity: 0.5;
-      }
+        .input placeholder {
+          opacity: 0.5;
+        }
 
-      .input {
-        caret-color: @theme_fg_color;
-        background: lighter(@window_bg_color);
-        padding: 10px;
-        color: @theme_fg_color;
-      }
+        .input {
+          caret-color: @theme_fg_color;
+          background: lighter(@window_bg_color);
+          padding: 10px;
+          color: @theme_fg_color;
+        }
 
-      .input:focus,
-      .input:active {
-      }
+        .input:focus,
+        .input:active {
+        }
 
-      .content-container {
-      }
+        .content-container {
+        }
 
-      .placeholder {
-      }
+        .placeholder {
+        }
 
-      .scroll {
-      }
+        .scroll {
+        }
 
-      .list {
-        color: @theme_fg_color;
-      }
+        .list {
+          color: @theme_fg_color;
+        }
 
-      child {
-      }
+        child {
+        }
 
-      .item-box {
-        border-radius: 10px;
-        padding: 10px;
-      }
+        .item-box {
+          border-radius: 6px;
+          padding: 10px;
+        }
 
-      .item-quick-activation {
-        margin-left: 10px;
-        background: alpha(@accent_bg_color, 0.25);
-        border-radius: 5px;
-        padding: 10px;
-      }
+        .item-quick-activation {
+          margin-left: 10px;
+          background: alpha(@accent_bg_color, 0.25);
+          border-radius: 5px;
+          padding: 10px;
+        }
 
-      child:hover .item-box,
-      child:selected .item-box {
-        background: alpha(@accent_bg_color, 0.25);
-      }
+        child:hover .item-box,
+        child:selected .item-box {
+          background: alpha(@accent_bg_color, 0.25);
+        }
 
-      .item-text-box {
-      }
+        .item-text-box {
+        }
 
-      .item-text {
-      }
+        .item-text {
+        }
 
-      .item-subtext {
-        font-size: 12px;
-        opacity: 0.5;
-      }
+        .item-subtext {
+          font-size: 12px;
+          opacity: 0.5;
+        }
 
-      .item-image {
-        margin-right: 10px;
-      }
+        .item-image,
+        .item-image-text {
+          margin-right: 10px;
+        }
 
-      .preview {
-        border: 1px solid alpha(@accent_bg_color, 0.25);
-        padding: 10px;
-        border-radius: 10px;
-        color: @theme_fg_color;
-      }
+        .item-image-text {
+          font-size: 28px;
+        }
 
-      .calc .item-text {
-        font-size: 24px;
-      }
+        .preview {
+          border: 1px solid alpha(@accent_bg_color, 0.25);
+          padding: 10px;
+          border-radius: 6px;
+          color: @theme_fg_color;
+        }
 
-      .calc .item-subtext {
-      }
+        .calc .item-text {
+          font-size: 24px;
+        }
 
-      .symbols .item-image {
-        font-size: 24px;
-      }
+        .calc .item-subtext {
+        }
 
-      .todo.done .item-text-box {
-        opacity: 0.25;
-      }
+        .symbols .item-image {
+          font-size: 24px;
+        }
 
-      .todo.urgent {
-        font-size: 24px;
-      }
+        .todo.done .item-text-box {
+          opacity: 0.25;
+        }
 
-      .todo.active {
-        font-weight: bold;
-      }
+        .todo.urgent {
+          font-size: 24px;
+        }
 
-      .bluetooth.disconnected {
-        opacity: 0.5;
-      }
+        .todo.active {
+          font-weight: bold;
+        }
 
-      .preview .large-icons {
-        -gtk-icon-size: 64px;
-      }
+        .bluetooth.disconnected {
+          opacity: 0.5;
+        }
 
-      .keybinds-wrapper {
-        border-top: 1px solid lighter(@window_bg_color);
-        font-size: 12px;
-        opacity: 0.5;
-        color: @theme_fg_color;
-      }
+        .preview .large-icons {
+          -gtk-icon-size: 64px;
+        }
 
-      .keybinds {
-      }
+        .keybinds-wrapper {
+          border-top: 1px solid lighter(@window_bg_color);
+          font-size: 12px;
+          opacity: 0.5;
+          color: @theme_fg_color;
+        }
 
-      .keybind {
-      }
+        .keybinds {
+        }
 
-      .keybind-bind {
-        /* color: lighter(@window_bg_color); */
-        font-weight: bold;
-      }
+        .keybind {
+        }
 
-      .keybind-label {
-      }
-    '';
+        .keybind-bind {
+          /* color: lighter(@window_bg_color); */
+          font-weight: bold;
+          text-transform: lowercase;
+        }
+
+        .keybind-label {
+        }
+
+        .error {
+          padding: 10px;
+          background: @error_bg_color;
+          color: @error_fg_color;
+        }
+      '';
+
+      layouts = {
+        layout = ''              
+          <?xml version="1.0" encoding="UTF-8"?>
+          <interface>
+            <requires lib="gtk" version="4.0"></requires>
+            <object class="GtkWindow" id="Window">
+              <style>
+                <class name="window"></class>
+              </style>
+              <property name="resizable">true</property>
+              <property name="title">Walker</property>
+              <child>
+                <object class="GtkBox" id="BoxWrapper">
+                  <style>
+                    <class name="box-wrapper"></class>
+                  </style>
+                  <property name="overflow">hidden</property>
+                  <property name="orientation">horizontal</property>
+                  <property name="valign">start</property>
+                  <property name="halign">center</property>
+                  <property name="width-request">800</property>
+                  <property name="height-request">675</property>
+                  <property name="margin-top">400</property>
+                  <child>
+                    <object class="GtkBox" id="Box">
+                      <style>
+                        <class name="box"></class>
+                      </style>
+                      <property name="orientation">vertical</property>
+                      <property name="hexpand-set">true</property>
+                      <property name="hexpand">true</property>
+                      <property name="spacing">10</property>
+                      <child>
+                        <object class="GtkBox" id="SearchContainer">
+                          <style>
+                            <class name="search-container"></class>
+                          </style>
+                          <property name="overflow">hidden</property>
+                          <property name="orientation">horizontal</property>
+                          <property name="halign">fill</property>
+                          <property name="hexpand-set">true</property>
+                          <property name="hexpand">true</property>
+                          <child>
+                            <object class="GtkEntry" id="Input">
+                              <style>
+                                <class name="input"></class>
+                              </style>
+                              <property name="halign">fill</property>
+                              <property name="hexpand-set">true</property>
+                              <property name="hexpand">true</property>
+                            </object>
+                          </child>
+                        </object>
+                      </child>
+                      <child>
+                        <object class="GtkBox" id="ContentContainer">
+                          <style>
+                            <class name="content-container"></class>
+                          </style>
+                          <property name="orientation">horizontal</property>
+                          <property name="spacing">10</property>
+                          <child>
+                            <object class="GtkLabel" id="ElephantHint">
+                              <style>
+                                <class name="elephant-hint"></class>
+                              </style>
+                              <property name="label">Waiting for elephant...</property>
+                              <property name="hexpand">true</property>
+                              <property name="vexpand">true</property>
+                              <property name="valign">0.5</property>
+                            </object>
+                          </child>
+                          <child>
+                            <object class="GtkLabel" id="Placeholder">
+                              <style>
+                                <class name="placeholder"></class>
+                              </style>
+                              <property name="label">No Results</property>
+                              <property name="hexpand">true</property>
+                              <property name="vexpand">true</property>
+                              <property name="valign">0.5</property>
+                            </object>
+                          </child>
+                          <child>
+                            <object class="GtkScrolledWindow" id="Scroll">
+                              <style>
+                                <class name="scroll"></class>
+                              </style>
+                              <property name="can_focus">false</property>
+                              <property name="overlay-scrolling">true</property>
+                              <property name="hexpand">true</property>
+                              <property name="vexpand">true</property>
+                              <property name="max-content-width">500</property>
+                              <property name="min-content-width">500</property>
+                              <property name="max-content-height">400</property>
+                              <property name="propagate-natural-height">true</property>
+                              <property name="propagate-natural-width">true</property>
+                              <property name="hscrollbar-policy">automatic</property>
+                              <property name="vscrollbar-policy">automatic</property>
+                              <child>
+                                <object class="GtkGridView" id="List">
+                                  <style>
+                                    <class name="list"></class>
+                                  </style>
+                                  <property name="max_columns">1</property>
+                                  <property name="can_focus">false</property>
+                                </object>
+                              </child>
+                            </object>
+                          </child>
+                          <child>
+                            <object class="GtkBox" id="Preview">
+                              <style>
+                                <class name="preview"></class>
+                              </style>
+                            </object>
+                          </child>
+                        </object>
+                      </child>
+                      <child>
+                        <object class="GtkBox" id="KeybindsWrapper">
+                          <property name="hexpand">true</property>
+                          <style>
+                            <class name="keybinds-wrapper"></class>
+                          </style>
+                          <child>
+                            <object class="GtkBox" id="Keybinds">
+                              <property name="hexpand">true</property>
+                              <property name="halign">end</property>
+                              <property name="spacing">10</property>
+                              <property name="margin-top">10</property>
+                              <style>
+                                <class name="keybinds"></class>
+                              </style>
+                            </object>
+                          </child>
+                        </object>
+                      </child>
+                      <child>
+                        <object class="GtkLabel" id="Error">
+                          <style>
+                            <class name="error"></class>
+                          </style>
+                          <property name="xalign">0</property>
+                         <property name="visible">false</property>
+                        </object>
+                      </child>
+                    </object>
+                  </child>
+                </object>
+              </child>
+            </object>
+          </interface>'';
+      };
+    };
   };
 
   nix = {
