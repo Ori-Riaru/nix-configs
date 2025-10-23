@@ -39,6 +39,7 @@
       ga = "git add";
       gs = "git status";
       gc = "git commit -m";
+      gca = "git commit --amend";
       gac = "git add . && git commit -m";
       gp = "git push";
       gl = "git pull";
