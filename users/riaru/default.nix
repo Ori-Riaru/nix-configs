@@ -7,7 +7,7 @@
   programs.fish.enable = true;
 
   imports = [
-    ../../configs/system/avatar.nix
+    # ../../configs/system/avatar.nix
   ];
 
   sops.secrets.riaru_pass.neededForUsers = true;
@@ -15,7 +15,7 @@
 
   users.users.${settings.username} = {
     description = "${settings.usernameFull}";
-    icon = ./avatar.jpeg;
+    # icon = ./avatar.jpeg;
     isNormalUser = true;
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.riaru_pass.path;

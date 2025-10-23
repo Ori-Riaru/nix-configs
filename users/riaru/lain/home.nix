@@ -5,10 +5,12 @@
 
     # System
     ../../../configs/groups/niri-desktop.nix
+    ../../../configs/groups/hyprland-desktop.nix
     ../../../configs/programs/kitty.nix
     ../../../configs/programs/gparted.nix
     ../../../configs/programs/btop.nix
     ../../../configs/programs/hyprkan.nix
+    ../../../configs/programs/kde/kde.nix
 
     # CLI
     ../../../configs/groups/cli-base.nix

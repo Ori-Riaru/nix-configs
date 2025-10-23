@@ -1,8 +1,8 @@
 {
-  lib,
   pkgs,
   inputs,
   settings,
+  config,
   ...
 }: {
   imports = [
@@ -20,13 +20,6 @@
 
     elephant = {
       config = {
-        files = {
-          providers = {
-            files = {
-              min_score = 1000;
-            };
-          };
-        };
       };
     };
 
@@ -230,11 +223,11 @@
                   </style>
                   <property name="overflow">hidden</property>
                   <property name="orientation">horizontal</property>
-                  <property name="valign">start</property>
+                  <property name="valign">center</property>
                   <property name="halign">center</property>
                   <property name="width-request">800</property>
                   <property name="height-request">675</property>
-                  <property name="margin-top">400</property>
+                  <property name="margin-bottom">75</property>
                   <child>
                     <object class="GtkBox" id="Box">
                       <style>
