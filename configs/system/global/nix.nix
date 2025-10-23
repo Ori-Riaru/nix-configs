@@ -7,14 +7,14 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-     nh
-     nix-output-monitor
-     alejandra
-     nvd
+    nh
+    nix-output-monitor
+    alejandra
+    nvd
   ];
 
-   environment.variables = {
-     NH_FLAKE = "${settings.configPath}";
+  environment.variables = {
+    NH_FLAKE = "${settings.configPath}";
   };
 
   nix = let

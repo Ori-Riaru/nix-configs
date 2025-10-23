@@ -4,7 +4,7 @@
       {
         location = "top";
         height = 26;
-        hiding = "dodgewindows";
+        hiding = "normalpanel";
         floating = false;
         screen = "all";
 

@@ -2,7 +2,6 @@
   description = "Riaru's System Configuration";
 
   inputs = {
-    # Repositories
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.05";
 
@@ -33,13 +32,18 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     elephant = {
-      url = "github:abenz1267/elephant/6a18cc3cbdd3d85627c8f2eb10059f1a2148d972";
+      url = "github:abenz1267/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -102,7 +106,8 @@
 
       base = "#080808";
       section = "#111111";
-      card = "#222222";
+      card = "#181818";
+      overlay = "#222222";
 
       red = "#ff596b";
       orange = "#ffa062";
@@ -209,5 +214,9 @@
       typescript.path = ./starters/typescript;
       kernel-module.path = ./starters/kernel-module;
     };
+
+    # for use in nix repl
+    inherit settings;
+    inherit (nixpkgs) lib;
   };
 }

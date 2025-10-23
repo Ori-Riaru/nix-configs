@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../system/wayland-hints.nix
-    ../programs/niri/niri.nix
+    ../programs/hyprland/hyprland.nix
     ../programs/walker.nix
     ../programs/waybar/waybar.nix
     ../programs/hypridle.nix

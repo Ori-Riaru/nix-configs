@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
     ./panels.nix
     ./shortcuts.nix
   ];
@@ -14,10 +14,7 @@
     kdePackages.karousel
     # kdePackages.krohnkite
     simple-kickoff
-
     kdePackages.qtstyleplugin-kvantum
-
-    (pkgs.papirus-icon-theme.override {color = "black";}) 
   ];
 
   programs.konsole = {
@@ -37,7 +34,7 @@
 
   programs.plasma = {
     enable = true;
-    # overrideConfig = true;
+    overrideConfig = true;
 
     workspace = {
       cursor = {
@@ -98,12 +95,12 @@
 
       # karousel
       "kwinrc"."Plugins"."karouselEnabled" = true;
-      "kwinrc"."Script-karousel"."gapsInnerHorizontal" = 0;
-      "kwinrc"."Script-karousel"."gapsInnerVertical" = 0;
-      "kwinrc"."Script-karousel"."gapsOuterBottom" = 0;
-      "kwinrc"."Script-karousel"."gapsOuterLeft" = 0;
-      "kwinrc"."Script-karousel"."gapsOuterRight" = 0;
-      "kwinrc"."Script-karousel"."gapsOuterTop" = 26;
+      "kwinrc"."Script-karousel"."gapsInnerHorizontal" = 2;
+      "kwinrc"."Script-karousel"."gapsInnerVertical" = 2;
+      "kwinrc"."Script-karousel"."gapsOuterBottom" = 2;
+      "kwinrc"."Script-karousel"."gapsOuterLeft" = 2;
+      "kwinrc"."Script-karousel"."gapsOuterRight" = 2;
+      "kwinrc"."Script-karousel"."gapsOuterTop" = 2;
       "kwinrc"."Script-karousel"."manualScrollStep" = 150;
       "kwinrc"."Script-karousel"."reMaximize" = true;
       "kwinrc"."Script-karousel"."untileOnDrag" = true;
@@ -181,8 +178,7 @@
       "kxkbrc"."Layout"."LayoutList" = "us,us";
       "kxkbrc"."Layout"."Model" = "trust_slimline";
       "kxkbrc"."Layout"."Use" = true;
-      "kxkbrc"."Layout"."VariantList" = "dvorak,";
-      "kxkbrc"."Layout"."Options" = "ctrl:nocaps";
+      "kxkbrc"."Layout"."VariantList" = ",dvorak";
       "kxkbrc"."Layout"."ResetOldOptions" = true;
 
       ###########
@@ -221,6 +217,4 @@
       "kcminputrc"."Libinput/9610/16/Hailuck Co.,Ltd PTP TouchPad Touchpad"."TapDragLock" = true;
     };
   };
-
-  
 }

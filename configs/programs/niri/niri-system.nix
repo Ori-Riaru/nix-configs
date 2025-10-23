@@ -8,7 +8,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # xwayland-satellite
     xdg-utils
   ];
 
