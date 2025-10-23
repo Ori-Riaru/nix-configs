@@ -14,5 +14,6 @@
     ../programs/jq.nix
     ../programs/xh.nix
     ../programs/bat.nix
+    ../programs/glow.nix
   ];
 }
