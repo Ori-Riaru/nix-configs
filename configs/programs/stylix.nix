@@ -57,6 +57,7 @@
       starship.enable = false;
       waybar.enable = false;
       spotify-player.enable = false;
+      ghostty.enable = false;
     };
   };
 }
