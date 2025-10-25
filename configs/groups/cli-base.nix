@@ -15,6 +15,7 @@
     ../programs/xh.nix
     ../programs/bat.nix
     ../programs/glow.nix
+    ../programs/grex.nix
     ../programs/croc.nix
   ];
 }
