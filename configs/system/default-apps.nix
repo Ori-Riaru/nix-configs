@@ -31,8 +31,8 @@
         "text/x-go" = "codium.desktop";
         "application/x-ruby" = "codium.desktop";
 
-        # Terminal - Kitty
-        "application/x-terminal-emulator" = "kitty.desktop";
+        # Terminal - Ghostty
+        "application/x-terminal-emulator" = "ghostty.desktop";
 
         # 3D
         "application/x-blender" = "blender.desktop";
@@ -115,6 +115,9 @@
         "application/x-xz" = "org.gnome.Nautilus.desktop";
         "application/x-7z-compressed" = "org.gnome.Nautilus.desktop";
         "application/x-rar-compressed" = "org.gnome.Nautilus.desktop";
+
+        # Empty or unknown files - open with VSCodium
+        "application/octet-stream" = "codium.desktop";
       };
     };
   };

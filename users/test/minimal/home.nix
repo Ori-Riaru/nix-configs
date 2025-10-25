@@ -12,7 +12,7 @@
     # Tools
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
-    ../../../configs/programs/kitty.nix
+    ../../../configs/programs/ghostty.nix
 
     # Development
     ../../../configs/programs/nix.nix

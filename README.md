@@ -44,9 +44,9 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ![vscodium preview](./.github/vscodium-preview.png)
 
-- [Kitty](./configs/programs/kitty.nix) / [Fish](./configs/programs/fish.nix) / [Starship](./configs/programs/starship.nix) / [Zoxide](./configs/programs/zoxide.nix) / [etc](./configs/groups/cli-base.nix)
+- [Ghostty](./configs/programs/ghostty.nix) / [Fish](./configs/programs/fish.nix) / [Starship](./configs/programs/starship.nix) / [Zoxide](./configs/programs/zoxide.nix) / [etc](./configs/groups/cli-base.nix)
 
-![kitty preview](./.github/kitty-preview.png)
+![ghostty preview](./.github/ghostty-preview.png)
 
 - [Discord](./configs/programs/discord.nix)
 

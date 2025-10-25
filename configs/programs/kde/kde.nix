@@ -67,8 +67,8 @@
       ###########
 
       # Default Applications
-      "kdeglobals"."General"."TerminalApplication" = "kitty";
-      "kdeglobals"."General"."TerminalService" = "kitty.desktop";
+      "kdeglobals"."General"."TerminalApplication" = "ghostty";
+      "kdeglobals"."General"."TerminalService" = "ghostty.desktop";
       "kdeglobals"."General"."BrowserApplication" = "firefox";
 
       # Highlight non default settings

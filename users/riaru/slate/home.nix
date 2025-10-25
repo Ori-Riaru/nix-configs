@@ -14,7 +14,7 @@
     # Tools
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
-    ../../../configs/programs/kitty.nix
+    ../../../configs/programs/ghostty.nix
     ../../../configs/programs/obsidian.nix
     ../../../configs/programs/blender.nix
     #./programs/resolve.nix

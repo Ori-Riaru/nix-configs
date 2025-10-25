@@ -67,7 +67,7 @@
 
       exec-once = [
         "clipse -listen"
-        "sh -c 'sleep 2 && swww clear ${settings.base}'"
+        "sh -c 'sleep 5 && swww clear ${settings.base}'"
       ];
 
       windowrule = [
@@ -79,7 +79,7 @@
       bind = [
         "SUPER,G,exec,walker"
         "SUPER,V,exec,clipse-gui"
-        "SUPER,T,exec,kitty"
+        "SUPER,T,exec,ghostty"
         "SUPER,ESCAPE,exit,"
         "SUPER+CTRL,L,exec,hyprlock"
         "SUPER,Q,killactive,"
