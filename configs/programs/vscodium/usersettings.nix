@@ -1,6 +1,5 @@
 {settings, ...}: {
   programs.vscode.profiles.default.userSettings = {
-
     "files.autoSave" = "afterDelay";
     "editor.linkedEditing" = true;
     "keyboard.dispatch" = "keyCode";
@@ -314,10 +313,11 @@
       "editor.defaultFormatter" = "kamadorueda.alejandra";
       "editor.formatOnPaste" = true;
       "editor.formatOnSave" = true;
-      "editor.formatOnType" = false;
+      "editor.formatOnType" = true;
     };
-    "alejandra.program" = "alejandra";
 
+    "alejandra.program" = "alejandra";
+    
     "nixEnvSelector.suggestion" = false;
 
     "nix.serverPath" = "nixd";
