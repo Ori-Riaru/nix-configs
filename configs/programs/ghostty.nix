@@ -5,8 +5,8 @@
 }: {
   programs.ghostty = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
-      enableFishIntegration = true;
       confirm-close-surface = false;
 
       keybind = [
