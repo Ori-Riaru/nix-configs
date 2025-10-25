@@ -28,6 +28,7 @@
     ../../configs/programs/sops.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
+    ../../configs/programs/openrgb/openrgb-system.nix
 
     ../../users/riaru
   ];
