@@ -68,6 +68,7 @@
       exec-once = [
         "clipse -listen"
         "sh -c 'sleep 5 && swww clear ${settings.base}'"
+        "sh -c 'sleep 5 && openrgb --profile off"
       ];
 
       windowrule = [

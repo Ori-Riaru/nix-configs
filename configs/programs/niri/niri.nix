@@ -145,7 +145,8 @@
 
     spawn-at-startup = [
       {command = ["clipse" "-listen"];}
-      {command = ["sh -c" "sleep 10 && swww clear ${settings.base}"];}
+      {command = ["sh" "-c" "sleep 5 && swww clear ${settings.base}"];}
+      {command = ["sh" "-c" "sleep 5 && openrgb --profile off"];}
     ];
 
     prefer-no-csd = true;
