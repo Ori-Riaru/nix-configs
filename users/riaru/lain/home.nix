@@ -61,6 +61,7 @@
 
     # Media
     ../../../configs/programs/spotify/spotify.nix
+    ../../../configs/programs/jellyfin-media-player.nix
 
     ../../../configs/programs/file-viewers.nix
     ../../../configs/programs/fonts.nix
