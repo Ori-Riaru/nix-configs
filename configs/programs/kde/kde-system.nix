@@ -12,7 +12,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    kde-rounded-corners
+    # kde-rounded-corners
     kde-geometry-change
 
     # kdePackages.qtstyleplugin-kvantum
