@@ -52,7 +52,7 @@
       nsp = "nix-shell -p";
 
       code = "codium";
-      files = "nautilus";
+      files = "nautilus --new-window /mnt/nfs/riaru";
       fs = "nautilus";
       configs = "codium ${settings.configPath}";
     };
