@@ -222,7 +222,7 @@
       # Applications
       "Mod+G".action.spawn = ["walker"];
       "Mod+V".action.spawn = ["clipse-gui"];
-      "Mod+T".action.spawn = ["kitty"];
+      "Mod+T".action.spawn = ["ghostty"];
 
       # Window Management
       "Mod+Q".action.close-window = {};
