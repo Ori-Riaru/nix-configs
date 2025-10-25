@@ -11,6 +11,7 @@
     ../../../configs/programs/btop.nix
     ../../../configs/programs/hyprkan.nix
     ../../../configs/programs/kde/kde.nix
+    ../../../configs/programs/openrgb/openrgb.nix
 
     # CLI
     ../../../configs/groups/cli-base.nix
