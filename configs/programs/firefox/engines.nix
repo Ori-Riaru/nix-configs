@@ -47,7 +47,7 @@
         "NixosWiki" = {
           urls = [
             {
-              template = "https://nixos.wiki/index.php";
+              template = "https://wiki.nixos.org/w/index.php";
               params = [
                 {
                   name = "search";
@@ -57,7 +57,7 @@
             }
           ];
 
-          icon = "https://nixos.wiki/favicon.ico";
+          icon = "https://wiki.nixos.org/favicon.ico";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [
             "@nixwiki"
