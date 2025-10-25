@@ -120,6 +120,8 @@
         active.color = "${settings.accent}";
       };
 
+      background-color = "transparent";
+
       border = {
         enable = false;
         width = 2;
@@ -143,7 +145,7 @@
 
     spawn-at-startup = [
       {command = ["clipse" "-listen"];}
-      {command = ["swww" "clear" "${settings.base}"];}
+      {command = ["sh -c" "sleep 10 && swww clear ${settings.base}"];}
     ];
 
     prefer-no-csd = true;
