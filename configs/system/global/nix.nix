@@ -11,6 +11,7 @@
     nix-output-monitor
     alejandra
     nvd
+    nixfmt
   ];
 
   environment.variables = {
