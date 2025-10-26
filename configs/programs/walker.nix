@@ -33,6 +33,7 @@
 
         * {
           all: unset;
+          font-family: Inter;
         }
 
         .normal-icons {
@@ -206,7 +207,7 @@
       '';
 
       layouts = {
-        layout = ''              
+        layout = ''          
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
