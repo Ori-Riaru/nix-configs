@@ -43,6 +43,7 @@
       gac = "git add . && git commit -m";
       gp = "git push";
       gl = "git pull";
+      lg = "lazygit";
 
       home = "nh home switch";
       os = "nh os switch";
