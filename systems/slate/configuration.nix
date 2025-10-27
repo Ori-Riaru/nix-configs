@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../configs/system/global
+    ../../configs/groups/global.nix
     ../../configs/system/systemd-boot.nix
     ../../configs/system/audio.nix
     ../../configs/system/gdm.nix

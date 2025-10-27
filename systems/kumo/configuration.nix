@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../configs/system/global
+    ../../configs/groups/global.nix
     ../../users/riaru
 
     ../../configs/services/samba.nix

@@ -4,6 +4,7 @@
   inputs,
   config,
   settings,
+  outputs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -38,6 +39,19 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 1w";
+    };
+  };
+
+  nixpkgs = {
+    overlays = [
+      inputs.nur.overlays.default
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.stable-packages
+    ];
+
+    config = {
+      allowUnfree = true;
     };
   };
 }
