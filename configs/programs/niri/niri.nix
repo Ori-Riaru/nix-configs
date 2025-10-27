@@ -104,13 +104,11 @@
       gaps = settings.gap + 2;
       center-focused-column = "never";
       preset-column-widths = [
-        {proportion = 0.15;}
-        {proportion = 0.25;}
-        {proportion = 0.33333;}
+        {proportion = 0.1666666667;}
+        {proportion = 0.3333333334;}
         {proportion = 0.5;}
-        {proportion = 0.66667;}
-        {proportion = 0.75;}
-        {proportion = 0.85;}
+        {proportion = 0.6666666667;}
+        {proportion = 0.8333333334;}
         {proportion = 1.0;}
       ];
       default-column-width = {proportion = 0.5;};
