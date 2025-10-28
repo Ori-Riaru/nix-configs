@@ -11,8 +11,8 @@
   ];
 
   home.packages = with pkgs; [
-    kdePackages.karousel
-    # kdePackages.krohnkite
+    # kdePackages.karousel
+    kdePackages.krohnkite
     simple-kickoff
     kdePackages.qtstyleplugin-kvantum
   ];
@@ -43,13 +43,9 @@
       };
 
       iconTheme = "Papirus-Dark";
-
-      # Wallpaper & lockscreen
-      #wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
+      wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       clickItemTo = "open";
-
       colorScheme = "Neutral Dark";
-      #windowDecorations
     };
 
     kscreenlocker.appearance.wallpaper = settings.wallpaper;
@@ -75,7 +71,7 @@
       "systemsettingsrc"."systemsettings_sidebar_mode"."HighlightNonDefaultSettings" = true;
 
       # Animation speed
-      "kdeglobals"."KDE"."AnimationDurationFactor" = 0.7071067811865475;
+      "kdeglobals"."KDE"."AnimationDurationFactor" = 0.5;
 
       #####################
       # Window Management #
@@ -146,13 +142,13 @@
       ##########
 
       "kdeglobals"."General"."AccentColor" = "160,128,255";
-      # "kdeglobals"."General"."LastUsedCustomAccentColor" = "160,128,255";
-      # "kdeglobals"."WM"."activeBackground" = "49,54,59";
-      # "kdeglobals"."WM"."activeBlend" = "252,252,252";
-      # "kdeglobals"."WM"."activeForeground" = "252,252,252";
-      # "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
-      # "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
-      # "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
+      "kdeglobals"."General"."LastUsedCustomAccentColor" = "160,128,255";
+      "kdeglobals"."WM"."activeBackground" = "49,54,59";
+      "kdeglobals"."WM"."activeBlend" = "252,252,252";
+      "kdeglobals"."WM"."activeForeground" = "252,252,252";
+      "kdeglobals"."WM"."inactiveBackground" = "42,46,50";
+      "kdeglobals"."WM"."inactiveBlend" = "161,169,177";
+      "kdeglobals"."WM"."inactiveForeground" = "161,169,177";
 
       # Widget style
       "kdeglobals"."KDE"."widgetStyle" = "Breeze";
@@ -176,9 +172,9 @@
 
       "kxkbrc"."Layout"."DisplayNames" = ",";
       "kxkbrc"."Layout"."LayoutList" = "us,us";
+      "kxkbrc"."Layout"."VariantList" = ",dvorak";
       "kxkbrc"."Layout"."Model" = "trust_slimline";
       "kxkbrc"."Layout"."Use" = true;
-      "kxkbrc"."Layout"."VariantList" = ",dvorak";
       "kxkbrc"."Layout"."ResetOldOptions" = true;
 
       ###########

@@ -12,12 +12,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    # kde-rounded-corners
+    # BROKEN: kde-rounded-corners
     kde-geometry-change
-
     # kdePackages.qtstyleplugin-kvantum
-    # sddm-theme-corners
-    # xdg-desktop-portal-gtk
-    # kdePackages.kpackage
   ];
 }

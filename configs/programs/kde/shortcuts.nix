@@ -3,41 +3,70 @@
     shortcuts = {
       kwin = {
         # Window management
-        "Window Close" = "Meta+Z";
-        "Window Maximize" = "Meta+M";
+        "Window Close" = "Meta+Q";
+        "Window Maximize" = "Meta+F";
+        "Window Fullscreen" = "Meta+Shift+F";
         "Window Minimize" = "Meta+W";
+        "Window Toggle Floating" = "Meta+W";
 
-        # Switch desktops
-        "Switch to Next Desktop" = "Meta+R";
-        "Switch to Previous Desktop" = "Meta+C";
-        "Window to Next Desktop" = "Meta+Shift+R";
-        "Window to Previous Desktop" = "Meta+Shift+C";
+        # Switch desktops (keeping your original desktop switching)
+        "Switch to Next Desktop" = "Meta+Down";
+        "Switch to Previous Desktop" = "Meta+Up";
+        "Window to Next Desktop" = "Meta+Ctrl+Down";
+        "Window to Previous Desktop" = "Meta+Ctrl+Up";
 
-        # Karousel change focus
-        "karousel-focus-down" = "Meta+N";
-        "karousel-focus-left" = [
-          "Meta+H"
-          "Meta+Ctrl+Tab"
-        ];
-        "karousel-focus-right" = [
-          "Meta+S"
-          "Meta+Tab"
-        ];
-        "karousel-focus-up" = "Meta+T";
+        # Window Focus
+        "Window Focus Up" = "Meta+Up";
+        "Window Focus Down" = "Meta+Down";
+        "Window Focus Left" = "Meta+Left";
+        "Window Focus Right" = "Meta+Right";
 
-        # Karousel move window
-        "karousel-window-move-down" = "Meta+Shift+N";
-        "karousel-window-move-left" = ["Meta+Ctrl+Shift+Tab" "Meta+Shift+H"];
-        "karousel-window-move-right" = ["Meta+Shift+S" "Meta+Shift+Tab"];
-        "karousel-window-move-up" = "Meta+Shift+T";
-        "karousel-window-toggle-floating" = "Meta+Space";
+        # Window Movement
+        "Window Move Up" = "Meta+Ctrl+Up";
+        "Window Move Down" = "Meta+Ctrl+Down";
+        "Window Move Left" = "Meta+Ctrl+Left";
+        "Window Move Right" = "Meta+Ctrl+Right";
+
+        # Monitor Management
+        "Window to Next Screen" = "Ctrl+Meta+D";
+        "Switch to Screen 0" = "Meta+1";
+        "Switch to Screen 1" = "Meta+2";
+        "Switch to Screen 2" = "Meta+3";
+        "Window to Screen 0" = "Ctrl+Meta+1";
+        "Window to Screen 1" = "Ctrl+Meta+2";
+        "Window to Screen 2" = "Ctrl+Meta+3";
+
+        # Overview/Present Windows
+        "Overview" = "Meta+O";
+
+        # Column width adjustment (KDE equivalent - tile resizing)
+        "Window Grow Horizontal" = "Meta+R";
+        "Window Shrink Horizontal" = "Ctrl+Meta+R";
+        "Window Maximize Horizontal" = "Shift+Meta+R";
+
+        # Center window
+        "Window Quick Tile Center" = "Meta+C";
       };
 
-      # Keyboard Layouts
-      "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Meta+Alt+Space,Meta+Alt+K,Switch to Next Keyboard Layout";
+      # System controls
+      "ksmserver"."Lock Session" = "Meta+Ctrl+L";
 
-      "plasmashell"."activate application launcher" = "Meta";
-      "services/org.kde.krunner.desktop"."_launch" = "Alt";
+      # Keyboard Layouts
+      "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Meta+Alt+Space";
+
+      # Application launcher
+      "plasmashell"."activate application launcher" = "Meta+G";
+
+      # Clipboard manager (if you have one installed)
+      "org.kde.plasma.clipboard"."show-clipboard" = "Meta+V";
+
+      # Terminal
+      "services/org.kde.konsole.desktop"."_launch" = "Meta+T";
+
+      # Screenshots
+      "spectacle"."ActiveWindowScreenShot" = "Alt+Print";
+      "spectacle"."CurrentMonitorScreenShot" = "Ctrl+Print";
+      "spectacle"."RectangularRegionScreenShot" = "Meta+P";
     };
   };
 }
