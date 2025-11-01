@@ -580,6 +580,32 @@
             "pdb;"
           ];
         };
+
+        "Spotify" = {
+          urls = [
+            {
+              template = "https://open.spotify.com/search/{searchTerms}";
+            }
+          ];
+          icon = "https://open.spotify.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [
+            "spot;"
+          ];
+        };
+
+        "Letterboxd" = {
+          urls = [
+            {
+              template = "https://letterboxd.com/search/{searchTerms}";
+            }
+          ];
+          icon = "https://letterboxd.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [
+            "lb;"
+          ];
+        };
       };
     };
   };

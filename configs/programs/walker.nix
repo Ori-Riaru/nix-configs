@@ -19,7 +19,127 @@
     };
 
     elephant = {
-      config = {
+      provider = {
+        "websearch".settings = {
+          entries = [
+            {
+              default = true;
+              name = "DuckDuckGo";
+              prefix = "d;";
+              url = "https://duckduckgo.com/?q=%TERM%";
+            }
+            {
+              name = "Nix";
+              prefix = "nix;";
+              url = "https://mynixos.com/search?q=%TERM%";
+            }
+            {
+              name = "NixosWiki";
+              prefix = "nw;";
+              url = "https://wiki.nixos.org/w/index.php?search=%TERM%";
+            }
+            {
+              name = "Youtube";
+              prefix = "yt;";
+              url = "https://www.youtube.com/results?search_query=%TERM%";
+            }
+            {
+              name = "Google";
+              prefix = "g;";
+              url = "https://www.google.com/search?q=%TERM%";
+            }
+            {
+              name = "AlternativeTo";
+              prefix = "at;";
+              url = "https://alternativeto.net/browse/search?q=%TERM%";
+            }
+            {
+              name = "Reddit";
+              prefix = "r;";
+              url = "https://www.reddit.com/search?type=link&c=&q=%TERM%";
+            }
+            {
+              name = "Amazon";
+              prefix = "am;";
+              url = "https://www.amazon.ca/s?k=%TERM%";
+            }
+            {
+              name = "Lemmy";
+              prefix = "l;";
+              url = "https://phtn.app/search?q=%TERM%";
+            }
+            {
+              name = "Anilist";
+              prefix = "al;";
+              url = "https://anilist.co/search/anime?search=%TERM%";
+            }
+            {
+              name = "Miruro";
+              prefix = "anime;";
+              url = "https://www.miruro.to/search?query=%TERM%&sort=POPULARITY_DESC&type=ANIME";
+            }
+            {
+              name = "Ovagames";
+              prefix = "ova;";
+              url = "https://www.ovagames.com?s=%TERM%&x=0&y=0";
+            }
+            {
+              name = "csrinru";
+              prefix = "cs;";
+              url = "https://cs.rin.ru/forum/search.php?terms=any&author=&sc=1&sf=titleonly&sk=t&sd=d&sr=topics&st=0&ch=300&t=0&submit=Search&keywords=%TERM%";
+            }
+            {
+              name = "Online Fix";
+              prefix = "of;";
+              url = "https://online-fix.me/index.php?do=search&subaction=search&story=%TERM%";
+            }
+            {
+              name = "Steam";
+              prefix = "steam;";
+              url = "https://store.steampowered.com/search?term=%TERM%";
+            }
+            {
+              name = "SteamDB";
+              prefix = "steamdb;";
+              url = "https://steamdb.info/search/?a=all&q=%TERM%";
+            }
+            {
+              name = "Github";
+              prefix = "gh;";
+              url = "https://github.com/search?type=repositories&q=%TERM%";
+            }
+            {
+              name = "Newegg";
+              prefix = "new;";
+              url = "https://www.newegg.ca/p/pl?d=%TERM%";
+            }
+            {
+              name = "ChatGPT";
+              prefix = "gpt;";
+              url = "https://www.chatgpt.com/?q=%TERM%";
+            }
+            {
+              name = "Claude";
+              prefix = "claude;";
+              url = "https://claude.ai/new/?q=%TERM%";
+            }
+            {
+              name = "ProtonDB";
+              prefix = "proton;";
+              url = "https://www.protondb.com/search?q=%TERM%";
+            }
+            {
+              name = "Spotify";
+              prefix = "spot;";
+              url = "https://open.spotify.com/search/%TERM%";
+            }
+            {
+              name = "Letterboxd";
+              prefix = "lb;";
+              url = "https://letterboxd.com/search/%TERM%";
+            }
+          ];
+        };
       };
     };
 
