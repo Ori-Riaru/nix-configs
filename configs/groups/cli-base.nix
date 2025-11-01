@@ -17,5 +17,6 @@
     ../programs/glow.nix
     ../programs/grex.nix
     ../programs/croc.nix
+    ../programs/zip.nix
   ];
 }
