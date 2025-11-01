@@ -100,6 +100,7 @@
 
           # Generic
           mguellsegarra.highlight-on-copy
+          google.gemini-cli-vscode-ide-companion
         ]);
     };
   };

@@ -16,6 +16,7 @@
     # CLI
     ../../../configs/groups/cli-base.nix
     ../../../configs/programs/screen-savers.nix
+    ../../../configs/programs/gemini-cli.nix
 
     # Tools
     ../../../configs/programs/firefox/firefox.nix

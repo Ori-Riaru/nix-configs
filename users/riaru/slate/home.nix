@@ -32,6 +32,7 @@
     # ../../../configs/programs/ventoy.nix
     ../../../configs/programs/godot.nix
     ../../../configs/programs/f3d.nix
+    ../../../configs/programs/gemini-cli.nix
 
     # Development
     ../../../configs/programs/postgres.nix
