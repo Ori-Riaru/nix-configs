@@ -59,6 +59,7 @@
       spotify-player.enable = false;
       ghostty.enable = false;
       kde.enable = false;
+      vesktop.enable = false;
     };
   };
 }
