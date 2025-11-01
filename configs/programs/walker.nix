@@ -9,6 +9,10 @@
     inputs.walker.homeManagerModules.walker
   ];
 
+  home.packages = with pkgs; [
+    gst_all_1.gstreamer
+  ];
+
   programs.walker = {
     enable = true;
     runAsService = true;
@@ -16,6 +20,17 @@
     config = {
       theme = "Neutral Dark";
       keybinds.quick_activate = [];
+
+      providers.default = [
+        "desktopapplications"
+        "windows"
+        "calc"
+        "websearch"
+        "clipboard"
+        "runner"
+        "providerlist"
+        "files"
+      ];
     };
 
     elephant = {
@@ -139,6 +154,30 @@
               url = "https://letterboxd.com/search/%TERM%";
             }
           ];
+        };
+        
+        "files".settings = {
+          search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/bulk"];
+          fd_flags = ''
+            --ignore-vcs
+            --type file --type directory \
+            --exclude 'z-Bulk' \
+            --exclude 'z-Local' \
+            --exclude '**/Backups/*' \
+            --exclude 'Games/Prefixes/*/*' \
+            --exclude 'Games/Installs/*/*' \
+            --exclude '**/{Library,Assets,ProjectSettings,Packages}' \
+            --exclude '**/node_modules' \
+            --exclude '**/data/' \
+            --exclude '**/blendcache*' \
+            --exclude '**/PaperServer' \
+            --exclude '**/Managed' \
+            --exclude '**/Logs' \
+            --exclude '**/target/debug/**' \
+            --exclude '*.mca' \
+            --exclude '*.class' \
+            --exclude '*.o'
+          '';
         };
       };
     };
@@ -327,7 +366,7 @@
       '';
 
       layouts = {
-        layout = ''          
+        layout = ''
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
