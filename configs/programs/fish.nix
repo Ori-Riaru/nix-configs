@@ -54,8 +54,9 @@
 
       code = "codium";
       files = "nautilus --new-window /mnt/nfs/riaru";
-      fs = "nautilus";
+      fs = "nautilus --new-window /mnt/nfs/riaru";
       configs = "codium ${settings.configPath}";
+      bats = "bat --style plain";
     };
 
     functions = {
