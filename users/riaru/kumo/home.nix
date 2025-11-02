@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ../../../configs/system/home-global
+    ../../../configs/programs/sops-home.nix
     ../../../configs/groups/cli-base.nix
     ../../../configs/programs/speedtest-cli.nix
     ../../../configs/programs/screen-savers.nix

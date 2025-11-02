@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ../../../configs/system/home-global
+    ../../../configs/programs/sops-home.nix
     ../../../configs/system/folders.nix
 
     ../../../configs/groups/niri-desktop.nix

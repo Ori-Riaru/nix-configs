@@ -1,13 +1,14 @@
 {
   pkgs,
   settings,
-  inputs,
+  config,
   ...
 }: {
   home.packages = with pkgs; [
     waybar
     pavucontrol
     jq # needed for the kanata layer script
+    python3Packages.python-kasa
   ];
 
   services.network-manager-applet.enable = true;
@@ -74,7 +75,7 @@
 
         modules-left = ["clock"];
         modules-center = ["niri/workspaces" "cffi/niri-taskbar" "custom/application-launcher"];
-        modules-right = ["custom/kanata-layer" "battery" "pulseaudio" "tray"]; # Added kanata-layer here
+        modules-right = ["custom/kasa" "custom/kanata-layer" "battery" "pulseaudio" "tray"]; # Added kanata-layer here
 
         "clock" = {
           "interval" = 60;
@@ -123,6 +124,12 @@
           };
           "scroll-step" = 1;
           "on-click" = "pavucontrol";
+        };
+
+        "custom/kasa" = {
+          "format" = "💡";
+          "on-click" = "kasa --host 192.168.1.72 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";
+          "tooltip" = false;
         };
       };
     };
