@@ -17,6 +17,19 @@
       theme = "Neutral Dark";
       keybinds.quick_activate = [];
 
+      providers.actions.desktopapplications = [
+        {
+          action = "pinup";
+          bind = "ctrl n";
+          after = "AsyncReloadKeepSelection";
+        }
+        {
+          action = "pindown";
+          bind = "ctrl m";
+          after = "AsyncReloadKeepSelection";
+        }
+      ];
+
       providers.default = [
         "desktopapplications"
         "windows"
@@ -153,7 +166,7 @@
         };
 
         "files".settings = {
-          search_dirs = ["/mnt/nfs/riaru/"];
+          search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/Bulk"];
           fd_flags = lib.concatStringsSep " " [
             "--ignore-vcs"
             "-L"
