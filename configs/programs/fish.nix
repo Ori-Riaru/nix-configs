@@ -25,6 +25,8 @@
       c = "clear";
       search = "fzf -q";
       s = "fzf -q";
+      restart = "sudo reboot now";
+      shutdown = "sudo shutdown now";
 
       cp = "cp -i";
       cpd = "pwd | wl-copy";
