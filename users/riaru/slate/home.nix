@@ -3,7 +3,6 @@
     ../../../configs/system/home-global
     ../../../configs/programs/sops-home.nix
     ../../../configs/system/folders.nix
-
     ../../../configs/groups/niri-desktop.nix
 
     # CLI
@@ -52,6 +51,7 @@
     ../../../configs/programs/heroic.nix
 
     # System
+    ../../../configs/system/ssh-bypass.nix
     ../../../configs/programs/file-viewers.nix
     ../../../configs/programs/fonts.nix
     ../../../configs/programs/mouse.nix
