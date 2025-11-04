@@ -70,7 +70,7 @@
         output = [
           "eDP-1"
           "HDMI-A-1"
-          "DP-2"
+          "DP-3"
         ];
 
         modules-left = ["clock"];
