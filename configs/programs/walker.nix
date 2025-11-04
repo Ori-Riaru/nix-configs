@@ -17,19 +17,6 @@
       theme = "Neutral Dark";
       keybinds.quick_activate = [];
 
-      providers.actions.desktopapplications = [
-        {
-          action = "pinup";
-          bind = "ctrl n";
-          after = "AsyncReloadKeepSelection";
-        }
-        {
-          action = "pindown";
-          bind = "ctrl m";
-          after = "AsyncReloadKeepSelection";
-        }
-      ];
-
       providers.default = [
         "desktopapplications"
         "windows"
@@ -297,17 +284,14 @@
         .item-text-box {
         }
 
-        .item-text {
-        }
-
         .item-subtext {
           font-size: 12px;
           opacity: 0.5;
         }
 
-        .item-image,
-        .item-image-text {
-          margin-right: 10px;
+        .providerlist .item-subtext {
+          font-size: unset;
+          opacity: 0.75;
         }
 
         .item-image-text {
@@ -378,6 +362,10 @@
           padding: 10px;
           background: @error_bg_color;
           color: @error_fg_color;
+        }
+
+        :not(.calc).current {
+          font-style: italic;
         }
       '';
 
@@ -450,6 +438,7 @@
                               <property name="label">Waiting for elephant...</property>
                               <property name="hexpand">true</property>
                               <property name="vexpand">true</property>
+                              <property name="visible">false</property>
                               <property name="valign">0.5</property>
                             </object>
                           </child>
@@ -506,6 +495,16 @@
                           <style>
                             <class name="keybinds-wrapper"></class>
                           </style>
+                          <child>
+                            <object class="GtkBox" id="GlobalKeybinds">
+                              <property name="hexpand">true</property>
+                              <property name="spacing">10</property>
+                              <property name="margin-top">10</property>
+                              <style>
+                                <class name="global-keybinds"></class>
+                              </style>
+                            </object>
+                          </child>
                           <child>
                             <object class="GtkBox" id="Keybinds">
                               <property name="hexpand">true</property>
