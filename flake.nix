@@ -43,12 +43,12 @@
     };
 
     elephant = {
-      url = "github:abenz1267/elephant/21aced0d304735d46b86f06a7f91b0fed4e5792f";
+      url = "github:abenz1267/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     walker = {
-      url = "github:abenz1267/walker/42b3a5fdbcb02479be3ea191876515a5561f930d";
+      url = "github:abenz1267/walker/";
       inputs.elephant.follows = "elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
