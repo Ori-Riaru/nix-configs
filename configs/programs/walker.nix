@@ -153,12 +153,13 @@
         };
 
         "files".settings = {
-          search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/Bulk"];
+          search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/bulk"];
           fd_flags = lib.concatStringsSep " " [
             "--ignore-vcs"
             "-L"
             "--type file"
             "--type directory"
+            "--exclude **/.Trash-1000"
             "--exclude **/z-Bulk"
             "--exclude **/z-Local"
             "--exclude **/Backups"

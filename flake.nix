@@ -48,7 +48,7 @@
     };
 
     walker = {
-      url = "github:abenz1267/walker/";
+      url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
