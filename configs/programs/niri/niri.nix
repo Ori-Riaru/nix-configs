@@ -7,6 +7,7 @@
 }: {
   home.packages = with pkgs; [
     xwayland-satellite
+    swww
   ];
 
   imports = [
@@ -143,7 +144,9 @@
 
     spawn-at-startup = [
       {command = ["clipse" "-listen"];}
+      {command = ["sh" "-c" "sleep 4 && swww-daemon"];}
       {command = ["sh" "-c" "sleep 5 && swww clear ${settings.base}"];}
+      {command = ["sh" "-c" "sleep 6 && swww img ${settings.wallpaper} -o DP-2"];}
       {command = ["sh" "-c" "sleep 5 && openrgb --profile off"];}
     ];
 
@@ -222,7 +225,7 @@
 
       # Applications
       "Mod+G".action.spawn = ["walker"];
-      "Mod+V".action.spawn = ["clipse-gui"];
+      "Mod+V".action.spawn = ["walker" "--provider" "clipboard"];
       "Mod+T".action.spawn = ["ghostty"];
 
       # Window Management

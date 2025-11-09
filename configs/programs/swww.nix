@@ -1,3 +1,3 @@
 {...}: {
-  services.swww.enable = true;
+  # services.swww.enable = true;
 }
