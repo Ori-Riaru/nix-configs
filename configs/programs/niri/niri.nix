@@ -180,6 +180,8 @@
       }
     ];
 
+    hotkey-overlay.skip-at-startup = true;
+
     binds = {
       "Mod+H".action.show-hotkey-overlay = {};
 
