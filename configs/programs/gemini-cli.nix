@@ -9,6 +9,9 @@
       ui = {
         hideBanner = true;
         hideTips = true;
+        accessibility = {
+          disableLoadingPhrases = true;
+        };
       };
       security = {
         auth = {
