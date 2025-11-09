@@ -60,6 +60,7 @@
       ghostty.enable = false;
       kde.enable = false;
       vesktop.enable = false;
+      hyprlock.enable = false;
     };
   };
 }

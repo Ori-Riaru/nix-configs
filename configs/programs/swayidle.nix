@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  lib,
+  ...
+}: {
   services.swayidle = {
     enable = true;
     events = [
@@ -38,6 +43,20 @@
     settings = {
       general = {
         hide_cursor = true;
+        no_fade_in = true;
+      };
+
+      background = {
+        color = "0xff${lib.substring 1 7 settings.base}";
+      };
+
+      input-field = {
+        rounding = settings.radius;
+        outer_color = "0xff${lib.substring 1 7 settings.section}";
+        inner_color = "0xff${lib.substring 1 7 settings.section}";
+        font_color = "0xff${lib.substring 1 7 settings.text}";
+        fail_color = "0xff${lib.substring 1 7 settings.red}";
+        check_color = "0xff${lib.substring 1 7 settings.blue}";
       };
     };
   };
