@@ -15,8 +15,8 @@
 
     config = {
       theme = "Neutral Dark";
-      keybinds.quick_activate = [];
 
+      force_keyboard_focus = true;
       providers.default = [
         "desktopapplications"
         "windows"
@@ -28,6 +28,8 @@
         "files"
         "menus:power"
       ];
+
+      keybinds.quick_activate = [];
     };
 
     elephant = {
@@ -52,16 +54,22 @@
                   actions = {restart = "sudo reboot now";};
                 }
                 {
+                  text = "Sleep";
+                  icon = "system-suspend-symbolic";
+                  terminal = true;
+                  actions = {suspend = "systemctl suspend";};
+                }
+                {
                   text = "Suspend";
                   icon = "system-suspend-symbolic";
                   terminal = true;
                   actions = {suspend = "systemctl suspend";};
                 }
                 {
-                  text = "Sleep";
+                  text = "Hibernate";
                   icon = "system-suspend-symbolic";
                   terminal = true;
-                  actions = {suspend = "systemctl sleep";};
+                  actions = {suspend = "systemctl Hibernate";};
                 }
               ];
             };
