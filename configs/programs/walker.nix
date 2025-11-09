@@ -26,11 +26,48 @@
         "runner"
         "providerlist"
         "files"
+        "menus:power"
       ];
     };
 
     elephant = {
       provider = {
+        "menus" = {
+          toml = {
+            "power" = {
+              name = "power";
+              name_pretty = "Power";
+              icon = "system-shutdown-symbolic";
+              entries = [
+                {
+                  text = "Shutdown";
+                  icon = "system-shutdown-symbolic";
+                  terminal = true;
+                  actions = {shutdown = "sudo shutdown now";};
+                }
+                {
+                  text = "Restart";
+                  icon = "system-reboot-symbolic";
+                  terminal = true;
+                  actions = {restart = "sudo reboot now";};
+                }
+                {
+                  text = "Suspend";
+                  icon = "system-suspend-symbolic";
+                  terminal = true;
+                  actions = {suspend = "systemctl suspend";};
+                }
+                {
+                  text = "Sleep";
+                  icon = "system-suspend-symbolic";
+                  terminal = true;
+                  actions = {suspend = "systemctl sleep";};
+                }
+              ];
+            };
+          };
+        };
+
         "websearch".settings = {
           entries = [
             {
