@@ -8,6 +8,12 @@
         port = 8080;
       };
 
+      theme = {
+        background-color = "0 0 7";
+        primary-color = "254 100 76";
+        disable_picker = true;
+      };
+
       pages = [
         {
           name = "Home";
