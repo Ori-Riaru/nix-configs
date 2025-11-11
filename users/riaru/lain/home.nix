@@ -55,6 +55,7 @@
     ../../../configs/programs/git.nix
     ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/cpp.nix
+    ../../../configs/programs/act.nix
 
     # Communication
     ../../../configs/programs/discord.nix
