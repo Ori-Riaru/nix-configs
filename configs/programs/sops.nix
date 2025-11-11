@@ -30,6 +30,7 @@
       "nextcloud_admin_pass" = {};
       "riaru_pass" = {};
       "afraid_pass" = {};
+      "restic_pass" = {};
     };
 
     templates = lib.mkIf config.services.inadyn.enable {
