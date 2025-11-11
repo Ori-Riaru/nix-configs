@@ -43,7 +43,7 @@
     };
 
     elephant = {
-      url = "github:abenz1267/elephant";
+      url = "github:abenz1267lg/elephant/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
