@@ -43,24 +43,21 @@
               entries = [
                 {
                   text = "Shutdown";
+                  keywords = ["shutdown" "power off" "off"];
                   icon = "system-shutdown-symbolic";
                   terminal = true;
                   actions = {shutdown = "sudo shutdown now";};
                 }
                 {
                   text = "Restart";
+                  keywords = ["reboot"];
                   icon = "system-reboot-symbolic";
                   terminal = true;
                   actions = {restart = "sudo reboot now";};
                 }
                 {
-                  text = "Sleep";
-                  icon = "system-suspend-symbolic";
-                  terminal = true;
-                  actions = {suspend = "systemctl suspend";};
-                }
-                {
                   text = "Suspend";
+                  keywords = ["sleep"];
                   icon = "system-suspend-symbolic";
                   terminal = true;
                   actions = {suspend = "systemctl suspend";};
