@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     xwayland-satellite
     swww
+    brightnessctl
   ];
 
   imports = [
