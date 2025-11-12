@@ -9,6 +9,10 @@
     inputs.walker.homeManagerModules.walker
   ];
 
+  home.packages = with pkgs; [
+    wtype
+  ];
+
   programs.walker = {
     enable = true;
     runAsService = true;
@@ -27,6 +31,7 @@
         "providerlist"
         "files"
         "menus:power"
+        "snippets"
       ];
 
       keybinds.quick_activate = [];
@@ -71,6 +76,277 @@
               ];
             };
           };
+        };
+
+        "snippets".settings = let
+          hexToRgb = hex: let
+            hexToInt = h: builtins.fromJSON (builtins.toJSON "0x${h}");
+            clean = builtins.substring 1 (builtins.stringLength hex - 1) hex;
+            r = hexToInt (builtins.substring 0 2 clean);
+            g = hexToInt (builtins.substring 2 2 clean);
+            b = hexToInt (builtins.substring 4 2 clean);
+          in "${toString r},${toString g},${toString b}";
+        in {
+          command = "wtype '%CONTENT%'";
+          snippets = [
+            # Hex Colors
+            {
+              keywords = ["accent"];
+              name = "Accent Hex";
+              content = settings.accent;
+            }
+            {
+              keywords = ["secondary"];
+              name = "Secondary Hex";
+              content = settings.secondary;
+            }
+            {
+              keywords = ["tertiary"];
+              name = "Tertiary Hex";
+              content = settings.tertiary;
+            }
+            {
+              keywords = ["text"];
+              name = "Text Hex";
+              content = settings.text;
+            }
+            {
+              keywords = ["subtext"];
+              name = "Subtext Hex";
+              content = settings.subtext;
+            }
+            {
+              keywords = ["hidden"];
+              name = "Hidden Text Hex";
+              content = settings.hidden;
+            }
+            {
+              keywords = ["base"];
+              name = "Base Hex";
+              content = settings.base;
+            }
+            {
+              keywords = ["section"];
+              name = "Section Hex";
+              content = settings.section;
+            }
+            {
+              keywords = ["card"];
+              name = "Card Hex";
+              content = settings.card;
+            }
+            {
+              keywords = ["overlay"];
+              name = "Overlay Hex";
+              content = settings.overlay;
+            }
+            {
+              keywords = ["red"];
+              name = "Red Hex";
+              content = settings.red;
+            }
+            {
+              keywords = ["orange"];
+              name = "Orange Hex";
+              content = settings.orange;
+            }
+            {
+              keywords = ["tertiary" "yellow"];
+              name = "Yellow Hex";
+              content = settings.yellow;
+            }
+            {
+              keywords = ["green"];
+              name = "Green Hex";
+              content = settings.green;
+            }
+            {
+              keywords = ["teal"];
+              name = "Teal Hex";
+              content = settings.teal;
+            }
+            {
+              keywords = ["cyan"];
+              name = "Cyan Hex";
+              content = settings.cyan;
+            }
+            {
+              keywords = ["secondary" "blue"];
+              name = "Blue Hex";
+              content = settings.blue;
+            }
+            {
+              keywords = ["accent" "purple"];
+              name = "Purple Hex";
+              content = settings.purple;
+            }
+            {
+              keywords = ["pink"];
+              name = "Pink Hex";
+              content = settings.pink;
+            }
+            {
+              keywords = ["brown"];
+              name = "Brown Hex";
+              content = settings.brown;
+            }
+            {
+              keywords = ["white"];
+              name = "White Hex";
+              content = settings.white;
+            }
+            {
+              keywords = ["grey"];
+              name = "Grey Hex";
+              content = settings.grey;
+            }
+            {
+              keywords = ["black"];
+              name = "Black Hex";
+              content = settings.black;
+            }
+
+            # RGB Colors
+
+            {
+              keywords = ["accent" "hex"];
+              name = "Accent RGB";
+              content = hexToRgb (settings.accent);
+            }
+            {
+              keywords = ["secondary"];
+              name = "Secondary RGB";
+              content = hexToRgb (settings.secondary);
+            }
+            {
+              keywords = ["tertiary"];
+              name = "Tertiary RGB";
+              content = hexToRgb (settings.tertiary);
+            }
+            {
+              keywords = ["text"];
+              name = "Text RGB";
+              content = hexToRgb (settings.text);
+            }
+            {
+              keywords = ["subtext"];
+              name = "Subtext RGB";
+              content = hexToRgb (settings.subtext);
+            }
+            {
+              keywords = ["hidden"];
+              name = "Hidden Text RGB";
+              content = hexToRgb (settings.hidden);
+            }
+            {
+              keywords = ["base"];
+              name = "Base RGB";
+              content = hexToRgb (settings.base);
+            }
+            {
+              keywords = ["section"];
+              name = "Section RGB";
+              content = hexToRgb (settings.section);
+            }
+            {
+              keywords = ["card"];
+              name = "Card RGB";
+              content = hexToRgb (settings.card);
+            }
+            {
+              keywords = ["overlay"];
+              name = "Overlay RGB";
+              content = hexToRgb (settings.overlay);
+            }
+            {
+              keywords = ["red"];
+              name = "Red RGB";
+              content = hexToRgb (settings.red);
+            }
+            {
+              keywords = ["orange"];
+              name = "Orange RGB";
+              content = hexToRgb (settings.orange);
+            }
+            {
+              keywords = ["tertiary" "yellow"];
+              name = "Yellow RGB";
+              content = hexToRgb (settings.yellow);
+            }
+            {
+              keywords = ["green"];
+              name = "Green RGB";
+              content = hexToRgb (settings.green);
+            }
+            {
+              keywords = ["teal"];
+              name = "Teal RGB";
+              content = hexToRgb (settings.teal);
+            }
+            {
+              keywords = ["cyan"];
+              name = "Cyan RGB";
+              content = hexToRgb (settings.cyan);
+            }
+            {
+              keywords = ["secondary" "blue"];
+              name = "Blue RGB";
+              content = hexToRgb (settings.blue);
+            }
+            {
+              keywords = ["accent" "purple"];
+              name = "Purple RGB";
+              content = hexToRgb (settings.purple);
+            }
+            {
+              keywords = ["pink"];
+              name = "Pink RGB";
+              content = hexToRgb (settings.pink);
+            }
+            {
+              keywords = ["brown"];
+              name = "Brown RGB";
+              content = hexToRgb (settings.brown);
+            }
+            {
+              keywords = ["white"];
+              name = "White RGB";
+              content = hexToRgb (settings.white);
+            }
+            {
+              keywords = ["grey"];
+              name = "Grey RGB";
+              content = hexToRgb (settings.grey);
+            }
+            {
+              keywords = ["black"];
+              name = "Black RGB";
+              content = hexToRgb (settings.black);
+            }
+
+            # Misc
+
+            {
+              keywords = ["font" "inter"];
+              name = "Inter";
+              content = "Inter";
+            }
+            {
+              keywords = ["monospace" "fontMonospace" "font"];
+              name = "Monospace Font";
+              content = "JetBrainsMono Nerd Font";
+            }
+            {
+              keywords = ["gap"];
+              name = "Gap Size";
+              content = "4px";
+            }
+            {
+              keywords = ["radius"];
+              name = "Border Radius";
+              content = "6px";
+            }
+          ];
         };
 
         "websearch".settings = {
