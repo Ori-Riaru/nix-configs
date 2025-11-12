@@ -31,6 +31,7 @@
         "providerlist"
         "files"
         "menus:power"
+        "menus:bookmarks"
         "snippets"
       ];
 
@@ -41,6 +42,75 @@
       provider = {
         "menus" = {
           toml = {
+            "Bookmarks" = {
+              name = "bookmarks";
+              name_pretty = "Bookmarks";
+              entries = let
+                focus-command = "sleep 0.5 && niri msg action focus-window --id \"$(niri msg --json windows | jq -r '.[] | select(.app_id == \"firefox\") | .id' | head -n 1)\"";
+              in [
+                {
+                  text = "Youtube";
+                  icon = "youtube";
+                  keywords = ["youtube"];
+                  actions = {open = "xdg-open https://www.youtube.com/feed/subscriptions && ${focus-command}";};
+                }
+                {
+                  text = "Jellyfin";
+                  icon = "Jellyfin";
+                  keywords = ["jellyfin"];
+                  actions = {open = "xdg-open https://riaru.undo.it/web && ${focus-command}";};
+                }
+                {
+                  text = "Github";
+                  icon = "github";
+                  keywords = ["github" "git"];
+                  actions = {open = "xdg-open https://github.com && ${focus-command}";};
+                }
+                {
+                  text = "Mastodon";
+                  icon = "mastodon";
+                  keywords = ["mastodon" "void" "my void"];
+                  actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
+                }
+                {
+                  text = "Lemmy";
+                  icon = "lemmy";
+                  keywords = ["lemmy" "phtn"];
+                  actions = {open = "xdg-open https://phtn.app/?type=Subscribed && ${focus-command}";};
+                }
+                {
+                  text = "Anilist";
+                  icon = "anilist";
+                  keywords = ["anilist" "list" "ani"];
+                  actions = {open = "xdg-open https://anilist.co/user/Riaru/animelist && ${focus-command}";};
+                }
+                {
+                  text = "Proton";
+                  icon = "proton";
+                  keywords = ["proton" "mail"];
+                  actions = {open = "xdg-open https://mail.proton.me/u/1/inbox && ${focus-command}";};
+                }
+                {
+                  text = "Claude";
+                  icon = "claude";
+                  keywords = ["claude" "ai"];
+                  actions = {open = "xdg-open https://claude.ai/new && ${focus-command}";};
+                }
+                {
+                  text = "ChatGPT";
+                  icon = "chatgpt";
+                  keywords = ["chatgpt" "ai"];
+                  actions = {open = "xdg-open https://claude.ai/new && ${focus-command}";};
+                }
+                {
+                  text = "Letterboxd";
+                  icon = "letterboxd";
+                  keywords = ["letterboxd" "movies" "movie"];
+                  actions = {open = "xdg-open https://letterboxd.com/Riaru/films/ && ${focus-command}";};
+                }
+              ];
+            };
+
             "power" = {
               name = "power";
               name_pretty = "Power";
@@ -50,27 +120,23 @@
                   text = "Shutdown";
                   keywords = ["shutdown" "power off" "off"];
                   icon = "system-shutdown-symbolic";
-                  terminal = true;
                   actions = {shutdown = "sudo shutdown now";};
                 }
                 {
                   text = "Restart";
                   keywords = ["reboot"];
                   icon = "system-reboot-symbolic";
-                  terminal = true;
                   actions = {restart = "sudo reboot now";};
                 }
                 {
                   text = "Suspend";
                   keywords = ["sleep"];
                   icon = "system-suspend-symbolic";
-                  terminal = true;
                   actions = {suspend = "systemctl suspend";};
                 }
                 {
                   text = "Hibernate";
                   icon = "system-suspend-symbolic";
-                  terminal = true;
                   actions = {suspend = "systemctl Hibernate";};
                 }
               ];
