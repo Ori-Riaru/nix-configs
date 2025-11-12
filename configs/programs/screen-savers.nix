@@ -6,5 +6,6 @@
     cbonsai
     lavat
     kittysay
+    colorpanes
   ];
 }
