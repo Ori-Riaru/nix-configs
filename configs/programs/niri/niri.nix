@@ -182,6 +182,10 @@
         };
         clip-to-geometry = true;
       }
+      {
+        matches = [{app-id = "org.gnome.Nautilus";}];
+        default-column-width = {proportion = 0.1666666667;};
+      }
     ];
 
     hotkey-overlay.skip-at-startup = true;
