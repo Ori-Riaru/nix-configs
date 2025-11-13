@@ -123,7 +123,7 @@
                   text = "ChatGPT";
                   icon = "/home/riaru/.config/elephant/icons/chatgpt.svg";
                   keywords = ["chatgpt" "ai"];
-                  actions = {open = "xdg-open https://claude.ai/new && ${focus-command}";};
+                  actions = {open = "xdg-open https://chatgpt.com && ${focus-command}";};
                 }
                 {
                   text = "Letterboxd";
