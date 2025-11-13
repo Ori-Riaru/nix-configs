@@ -2,7 +2,7 @@
   imports = [
     ../system/wayland-hints.nix
     ../programs/niri/niri.nix
-    ../programs/walker.nix
+    ../programs/walker/walker.nix
     ../programs/waybar/waybar.nix
     ../programs/swayidle.nix
     ../programs/swww.nix

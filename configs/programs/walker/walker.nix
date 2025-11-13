@@ -9,6 +9,11 @@
     inputs.walker.homeManagerModules.walker
   ];
 
+  home.file.".config/elephant/icons" = {
+    source = ./icons;
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
     wtype
   ];
@@ -22,31 +27,49 @@
 
       force_keyboard_focus = true;
       providers.default = [
+        "providerlist"
         "desktopapplications"
         "windows"
-        "calc"
-        "websearch"
-        "clipboard"
         "runner"
-        "providerlist"
+        "websearch"
+        "calc"
+        "clipboard"
         "files"
+        "snippets"
         "menus:power"
         "menus:bookmarks"
-        "snippets"
+        "menus:sessions"
       ];
 
       keybinds.quick_activate = [];
     };
 
     elephant = {
+      providers = [
+        "menus"
+        "websearch"
+        "clipboard"
+        "windows"
+        "unicode"
+        "snippets"
+        "providerlist"
+        "symbols"
+        "runner"
+        "calc"
+        "bluetooth"
+        "desktopapplications"
+        "files"
+      ];
+
       provider = {
         "menus" = {
           toml = {
             "Bookmarks" = {
               name = "bookmarks";
               name_pretty = "Bookmarks";
+              icon = "bookmarks-symbolic";
               entries = let
-                focus-command = "sleep 0.5 && niri msg action focus-window --id \"$(niri msg --json windows | jq -r '.[] | select(.app_id == \"firefox\") | .id' | head -n 1)\"";
+                focus-command = "sleep 0.1 && niri msg action focus-window --id \"$(niri msg --json windows | jq -r '.[] | select(.app_id == \"firefox\") | .id' | head -n 1)\"";
               in [
                 {
                   text = "Youtube";
@@ -56,7 +79,7 @@
                 }
                 {
                   text = "Jellyfin";
-                  icon = "Jellyfin";
+                  icon = "jellyfin";
                   keywords = ["jellyfin"];
                   actions = {open = "xdg-open https://riaru.undo.it/web && ${focus-command}";};
                 }
@@ -68,43 +91,43 @@
                 }
                 {
                   text = "Mastodon";
-                  icon = "mastodon";
+                  icon = "/home/riaru/.config/elephant/icons/mastodon.svg";
                   keywords = ["mastodon" "void" "my void"];
                   actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
                 }
                 {
                   text = "Lemmy";
-                  icon = "lemmy";
+                  icon = "/home/riaru/.config/elephant/icons/lemmy.svg";
                   keywords = ["lemmy" "phtn"];
                   actions = {open = "xdg-open https://phtn.app/?type=Subscribed && ${focus-command}";};
                 }
                 {
                   text = "Anilist";
-                  icon = "anilist";
+                  icon = "/home/riaru/.config/elephant/icons/anilist.svg";
                   keywords = ["anilist" "list" "ani"];
                   actions = {open = "xdg-open https://anilist.co/user/Riaru/animelist && ${focus-command}";};
                 }
                 {
                   text = "Proton";
-                  icon = "proton";
+                  icon = "/home/riaru/.config/elephant/icons/proton.svg";
                   keywords = ["proton" "mail"];
                   actions = {open = "xdg-open https://mail.proton.me/u/1/inbox && ${focus-command}";};
                 }
                 {
                   text = "Claude";
-                  icon = "claude";
+                  icon = "/home/riaru/.config/elephant/icons/claude.svg";
                   keywords = ["claude" "ai"];
                   actions = {open = "xdg-open https://claude.ai/new && ${focus-command}";};
                 }
                 {
                   text = "ChatGPT";
-                  icon = "chatgpt";
+                  icon = "/home/riaru/.config/elephant/icons/chatgpt.svg";
                   keywords = ["chatgpt" "ai"];
                   actions = {open = "xdg-open https://claude.ai/new && ${focus-command}";};
                 }
                 {
                   text = "Letterboxd";
-                  icon = "letterboxd";
+                  icon = "/home/riaru/.config/elephant/icons/letterboxd.svg";
                   keywords = ["letterboxd" "movies" "movie"];
                   actions = {open = "xdg-open https://letterboxd.com/Riaru/films/ && ${focus-command}";};
                 }
@@ -130,14 +153,51 @@
                 }
                 {
                   text = "Suspend";
-                  keywords = ["sleep"];
+                  keywords = ["suspend" "sleep"];
                   icon = "system-suspend-symbolic";
                   actions = {suspend = "systemctl suspend";};
                 }
                 {
                   text = "Hibernate";
+                  keywords = ["suspend" "sleep"];
                   icon = "system-suspend-symbolic";
-                  actions = {suspend = "systemctl Hibernate";};
+                  actions = {hibernate = "systemctl Hibernate";};
+                }
+                {
+                  text = "Logout";
+                  keywords = ["logout"];
+                  icon = "system-log-out-symbolic";
+                  actions = {logout = "niri msg action quit || loginctl terminate-session \"$XDG_SESSION_ID\"";};
+                }
+                {
+                  text = "Lock";
+                  keywords = ["lock" "lockscreen"];
+                  icon = "system-lock-screen-symbolic";
+                  actions = {lock = "loginctl lock-session";};
+                }
+              ];
+            };
+
+            "sessions" = {
+              name = "sessions";
+              name_pretty = "Sessions";
+              entries = [
+                {
+                  text = "Development";
+                  icon = "applications-development-symbolic";
+                  keywords = ["code" "dev" "development"];
+                  actions = {
+                    devsession = ''
+                      niri msg action spawn -- 'nautilus' '--new-window' '/mnt/nfs/riaru/Projects'
+                      sleep 0.25
+                      niri msg action spawn -- 'codium'
+                      sleep 0.5
+                      niri msg action spawn -- 'ghostty'
+                      niri msg action spawn -- 'ghostty'
+                      sleep 0.8
+                      niri msg action consume-or-expel-window-left
+                    '';
+                  };
                 }
               ];
             };

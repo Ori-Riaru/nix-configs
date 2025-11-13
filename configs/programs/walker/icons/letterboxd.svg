@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <title>Letterboxd (Rounded Corners)</title>
+  <defs>
+    <clipPath id="roundedClip">
+      <rect x="0" y="0" width="500" height="500" rx="60" ry="60" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#roundedClip)">
+    <rect fill="#202830" x="0" y="0" width="500" height="500"/>
+    <g transform="translate(61 180)">
+      <ellipse fill="#00E054" cx="189" cy="70" rx="70.079" ry="70"/>
+      <ellipse fill="#40BCF4" cx="307.921" cy="70" rx="70.079" ry="70"/>
+      <ellipse fill="#FF8000" cx="70.079" cy="70" rx="70.079" ry="70"/>
+      <path d="M129.54 107.063C122.81 96.315 118.92 83.611 118.92 70s3.89-26.315 10.618-37.063c6.73 10.748 10.618 23.452 10.618 37.063s-3.889 26.315-10.618 37.063ZM248.46 32.937C255.19 43.685 259.08 56.389 259.08 70s-3.89 26.315-10.618 37.063C241.73 96.315 237.843 83.611 237.843 70s3.889-26.315 10.618-37.063Z" fill="#FFF"/>
+    </g>
+  </g>
+</svg>
