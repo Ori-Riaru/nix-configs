@@ -89,7 +89,7 @@
           joy-yu.css-snippets
           # philsinatra.nested-comments
           oven.bun-vscode
-          wallabyjs.quokka-vscode
+          # wallabyjs.quokka-vscode
           # wallabyjs.console-ninja
 
           # Other
