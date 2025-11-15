@@ -206,12 +206,11 @@
 
         "snippets".settings = let
           hexToRgb = hex: let
-            hexToInt = h: builtins.fromJSON (builtins.toJSON "0x${h}");
             clean = builtins.substring 1 (builtins.stringLength hex - 1) hex;
-            r = hexToInt (builtins.substring 0 2 clean);
-            g = hexToInt (builtins.substring 2 2 clean);
-            b = hexToInt (builtins.substring 4 2 clean);
-          in "${toString r},${toString g},${toString b}";
+            r = builtins.fromTOML "x=0x${builtins.substring 0 2 clean}";
+            g = builtins.fromTOML "x=0x${builtins.substring 2 2 clean}";
+            b = builtins.fromTOML "x=0x${builtins.substring 4 2 clean}";
+          in "${toString r.x},${toString g.x},${toString b.x}";
         in {
           command = "wtype '%CONTENT%'";
           snippets = [
