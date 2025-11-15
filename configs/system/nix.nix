@@ -10,8 +10,9 @@
   environment.systemPackages = with pkgs; [
     nh
     nix-output-monitor
-    alejandra
     nvd
+    statix
+    alejandra
     nixfmt
   ];
 

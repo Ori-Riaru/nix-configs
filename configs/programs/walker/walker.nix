@@ -194,7 +194,7 @@
                       sleep 0.5
                       niri msg action spawn -- 'ghostty'
                       niri msg action spawn -- 'ghostty'
-                      sleep 0.8
+                      sleep 1.5
                       niri msg action consume-or-expel-window-left
                     '';
                   };
@@ -337,117 +337,117 @@
             {
               keywords = ["accent" "hex"];
               name = "Accent RGB";
-              content = hexToRgb (settings.accent);
+              content = hexToRgb settings.accent;
             }
             {
               keywords = ["secondary"];
               name = "Secondary RGB";
-              content = hexToRgb (settings.secondary);
+              content = hexToRgb settings.secondary;
             }
             {
               keywords = ["tertiary"];
               name = "Tertiary RGB";
-              content = hexToRgb (settings.tertiary);
+              content = hexToRgb settings.tertiary;
             }
             {
               keywords = ["text"];
               name = "Text RGB";
-              content = hexToRgb (settings.text);
+              content = hexToRgb settings.text;
             }
             {
               keywords = ["subtext"];
               name = "Subtext RGB";
-              content = hexToRgb (settings.subtext);
+              content = hexToRgb settings.subtext;
             }
             {
               keywords = ["hidden"];
               name = "Hidden Text RGB";
-              content = hexToRgb (settings.hidden);
+              content = hexToRgb settings.hidden;
             }
             {
               keywords = ["base"];
               name = "Base RGB";
-              content = hexToRgb (settings.base);
+              content = hexToRgb settings.base;
             }
             {
               keywords = ["section"];
               name = "Section RGB";
-              content = hexToRgb (settings.section);
+              content = hexToRgb settings.section;
             }
             {
               keywords = ["card"];
               name = "Card RGB";
-              content = hexToRgb (settings.card);
+              content = hexToRgb settings.card;
             }
             {
               keywords = ["overlay"];
               name = "Overlay RGB";
-              content = hexToRgb (settings.overlay);
+              content = hexToRgb settings.overlay;
             }
             {
               keywords = ["red"];
               name = "Red RGB";
-              content = hexToRgb (settings.red);
+              content = hexToRgb settings.red;
             }
             {
               keywords = ["orange"];
               name = "Orange RGB";
-              content = hexToRgb (settings.orange);
+              content = hexToRgb settings.orange;
             }
             {
               keywords = ["tertiary" "yellow"];
               name = "Yellow RGB";
-              content = hexToRgb (settings.yellow);
+              content = hexToRgb settings.yellow;
             }
             {
               keywords = ["green"];
               name = "Green RGB";
-              content = hexToRgb (settings.green);
+              content = hexToRgb settings.green;
             }
             {
               keywords = ["teal"];
               name = "Teal RGB";
-              content = hexToRgb (settings.teal);
+              content = hexToRgb settings.teal;
             }
             {
               keywords = ["cyan"];
               name = "Cyan RGB";
-              content = hexToRgb (settings.cyan);
+              content = hexToRgb settings.cyan;
             }
             {
               keywords = ["secondary" "blue"];
               name = "Blue RGB";
-              content = hexToRgb (settings.blue);
+              content = hexToRgb settings.blue;
             }
             {
               keywords = ["accent" "purple"];
               name = "Purple RGB";
-              content = hexToRgb (settings.purple);
+              content = hexToRgb settings.purple;
             }
             {
               keywords = ["pink"];
               name = "Pink RGB";
-              content = hexToRgb (settings.pink);
+              content = hexToRgb settings.pink;
             }
             {
               keywords = ["brown"];
               name = "Brown RGB";
-              content = hexToRgb (settings.brown);
+              content = hexToRgb settings.brown;
             }
             {
               keywords = ["white"];
               name = "White RGB";
-              content = hexToRgb (settings.white);
+              content = hexToRgb settings.white;
             }
             {
               keywords = ["grey"];
               name = "Grey RGB";
-              content = hexToRgb (settings.grey);
+              content = hexToRgb settings.grey;
             }
             {
               keywords = ["black"];
               name = "Black RGB";
-              content = hexToRgb (settings.black);
+              content = hexToRgb settings.black;
             }
 
             # Misc

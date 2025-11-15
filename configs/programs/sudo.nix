@@ -1,4 +1,4 @@
-{...}: {
+{
   security.sudo.extraRules = [
     {
       users = ["riaru"];

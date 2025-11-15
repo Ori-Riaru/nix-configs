@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ../system/wayland-hints.nix
     ../programs/niri/niri.nix

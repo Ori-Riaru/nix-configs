@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ../system/ssh.nix
     ../system/nix.nix

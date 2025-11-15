@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ../programs/fish.nix
     ../programs/starship.nix

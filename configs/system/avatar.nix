@@ -16,7 +16,7 @@
     filter (entry: entry.icon != null) (
       mapAttrsToList (name: value: {
         inherit name; # Inherit the user name from the original configuration.
-        icon = value.icon; # Inherit the icon path from the user configuration.
+        inherit (value) icon; # Inherit the icon path from the user configuration.
       })
       config.users.users
     ); # Access user configuration from the main config.

@@ -7,13 +7,15 @@
     pkgs.jellyfin-ffmpeg
   ];
 
-  services.nginx.enable = true;
-  services.nginx.virtualHosts."riaru.undo.it" = {
-    forceSSL = true;
-    enableACME = true;
-    locations."/" = {
-      proxyPass = "http://localhost:8096";
-      proxyWebsockets = true;
+  services.nginx = {
+    enable = true;
+    virtualHosts."riaru.undo.it" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://localhost:8096";
+        proxyWebsockets = true;
+      };
     };
   };
 

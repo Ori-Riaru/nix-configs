@@ -73,9 +73,9 @@
           "DP-3"
         ];
 
-        modules-left = ["clock"];
+        modules-left = ["clock" "battery" "custom/kanata-layer"];
         modules-center = ["niri/workspaces" "cffi/niri-taskbar" "custom/application-launcher"];
-        modules-right = ["custom/kasa" "custom/kanata-layer" "battery" "pulseaudio" "tray"]; # Added kanata-layer here
+        modules-right = ["custom/kasa" "pulseaudio" "tray"]; # Added kanata-layer here
 
         "clock" = {
           "interval" = 60;

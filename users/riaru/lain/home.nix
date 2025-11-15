@@ -1,4 +1,4 @@
-{...}: {
+{
   imports = [
     ../../../configs/system/home-global
     ../../../configs/programs/sops-home.nix

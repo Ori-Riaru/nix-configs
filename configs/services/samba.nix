@@ -1,5 +1,5 @@
 # Must add a samba user using smbpasswd -p a <your_user>
-{...}: {
+{
   users.groups.smb-group = {};
   users.users.smb-user = {
     isSystemUser = true;
