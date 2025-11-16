@@ -16,8 +16,14 @@
     nixfmt
   ];
 
-  environment.variables = {
-    NH_FLAKE = "${settings.configPath}";
+  environment = {
+    variables = {
+      NH_FLAKE = "${settings.configPath}";
+    };
+
+    sessionVariables = {
+      NH_FLAKE = "${settings.configPath}";
+    };
   };
 
   nix = let
