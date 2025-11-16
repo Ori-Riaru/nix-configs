@@ -13,7 +13,7 @@
       }
       {
         event = "lock";
-        command = "${pkgs.hyprlock}/bin/hyprlock";
+        command = ''${pkgs.procps}/bin/pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'';
       }
     ];
     timeouts = [
@@ -24,7 +24,7 @@
       }
       {
         timeout = 1680; # 28 minutes - lock session
-        command = "${pkgs.systemd}/bin/loginctl lock-session";
+        command = ''${pkgs.procps}/bin/pidof hyprlock || ${pkgs.hyprlock}/bin/hyprlock'';
       }
       {
         timeout = 1800; # 30 minutes - turn off monitors
