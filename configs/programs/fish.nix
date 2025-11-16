@@ -8,10 +8,13 @@
     interactiveShellInit = ''
       auto_newline
       clear
-      if test -d "/mnt/nfs/riaru"
+
+      if timeout 1 ls /mnt/nfs/riaru >/dev/null 2>&1
         cd /mnt/nfs/riaru
-      else
+      else if test -d "/data"
         cd /data
+      else
+        cd $HOME
       end
     '';
     shellAliases = {
