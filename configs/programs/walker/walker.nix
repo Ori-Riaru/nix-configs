@@ -15,7 +15,10 @@
   };
 
   home.packages = with pkgs; [
-    wtype
+    wtype # for snippets
+
+    jq # for chromium bookmark import
+    sqlite # for firefox based bookmark import
   ];
 
   programs.walker = {
@@ -59,6 +62,7 @@
         "bluetooth"
         "desktopapplications"
         "files"
+        "bookmarks"
       ];
 
       provider = {
@@ -212,7 +216,6 @@
             b = builtins.fromTOML "x=0x${builtins.substring 4 2 clean}";
           in "${toString r.x},${toString g.x},${toString b.x}";
         in {
-          command = "wtype '%CONTENT%'";
           snippets = [
             # Hex Colors
             {
@@ -597,33 +600,57 @@
 
         "files".settings = {
           search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/bulk"];
-          fd_flags = lib.concatStringsSep " " [
+          fd_flags = [
             "--ignore-vcs"
             "-L"
-            "--type file"
-            "--type directory"
-            "--exclude **/.Trash-1000"
-            "--exclude **/z-Bulk"
-            "--exclude **/z-Local"
-            "--exclude **/Backups"
-            "--exclude **/Games/Prefixes/*/*"
-            "--exclude **/Games/Installs/*/*"
-            "--exclude **/node_modules"
-            "--exclude **/data/"
-            "--exclude **/blendcache*"
-            "--exclude **/PaperServer"
-            "--exclude **/Managed"
-            "--exclude **/Logs"
-            "--exclude **/Thry"
-            "--exclude **/target"
-            "--exclude **/__pycache__"
-            "--exclude *.mca"
-            "--exclude *.class"
-            "--exclude *.o"
-            "--exclude **/Library"
-            "--exclude **/Packages"
-            "--exclude **/Assets"
-            "--exclude **/ProjectSettings"
+            "--type"
+            "file"
+            "--type"
+            "directory"
+            "--exclude"
+            "**/.Trash-1000"
+            "--exclude"
+            "**/z-Bulk"
+            "--exclude"
+            "**/z-Local"
+            "--exclude"
+            "**/Backups"
+            "--exclude"
+            "**/Games/Prefixes/*/*"
+            "--exclude"
+            "**/Games/Installs/*/*"
+            "--exclude"
+            "**/node_modules"
+            "--exclude"
+            "**/data/"
+            "--exclude"
+            "**/blendcache*"
+            "--exclude"
+            "**/PaperServer"
+            "--exclude"
+            "**/Managed"
+            "--exclude"
+            "**/Logs"
+            "--exclude"
+            "**/Thry"
+            "--exclude"
+            "**/target"
+            "--exclude"
+            "**/__pycache__"
+            "--exclude"
+            "*.mca"
+            "--exclude"
+            "*.class"
+            "--exclude"
+            "*.o"
+            "--exclude"
+            "**/Library"
+            "--exclude"
+            "**/Packages"
+            "--exclude"
+            "**/Assets"
+            "--exclude"
+            "**/ProjectSettings"
           ];
         };
       };
@@ -681,6 +708,10 @@
           opacity: 0.5;
         }
 
+        .input selection {
+          background: lighter(lighter(lighter(@window_bg_color)));
+        }
+
         .input {
           caret-color: @theme_fg_color;
           background: lighter(@window_bg_color);
@@ -714,13 +745,12 @@
         }
 
         .item-quick-activation {
-          margin-left: 10px;
           background: alpha(@accent_bg_color, 0.25);
           border-radius: 5px;
           padding: 10px;
         }
 
-        child:hover .item-box,
+        /* child:hover .item-box, */
         child:selected .item-box {
           background: alpha(@accent_bg_color, 0.25);
         }
@@ -744,8 +774,8 @@
 
         .preview {
           border: 1px solid alpha(@accent_bg_color, 0.25);
-          padding: 10px;
-          border-radius: 6px;
+          /* padding: 10px; */
+          border-radius: 10px;
           color: @theme_fg_color;
         }
 
@@ -780,26 +810,40 @@
           -gtk-icon-size: 64px;
         }
 
-        .keybinds-wrapper {
+        .keybinds {
+          padding-top: 10px;
           border-top: 1px solid lighter(@window_bg_color);
           font-size: 12px;
-          opacity: 0.5;
           color: @theme_fg_color;
         }
 
-        .keybinds {
+        .global-keybinds {
+        }
+
+        .item-keybinds {
         }
 
         .keybind {
         }
 
+        .keybind-button {
+          opacity: 0.5;
+        }
+
+        .keybind-button:hover {
+          opacity: 0.75;
+          cursor: pointer;
+        }
+
         .keybind-bind {
-          /* color: lighter(@window_bg_color); */
-          font-weight: bold;
           text-transform: lowercase;
+          opacity: 0.35;
         }
 
         .keybind-label {
+          padding: 2px 4px;
+          border-radius: 4px;
+          border: 1px solid @theme_fg_color;
         }
 
         .error {
@@ -811,10 +855,14 @@
         :not(.calc).current {
           font-style: italic;
         }
+
+        .preview-content.archlinuxpkgs {
+          font-family: monospace;
+        }
       '';
 
       layouts = {
-        layout = ''
+        layout = ''                  
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
@@ -835,7 +883,6 @@
                   <property name="halign">center</property>
                   <property name="width-request">800</property>
                   <property name="height-request">675</property>
-                  <property name="margin-bottom">75</property>
                   <child>
                     <object class="GtkBox" id="Box">
                       <style>
@@ -934,29 +981,27 @@
                         </object>
                       </child>
                       <child>
-                        <object class="GtkBox" id="KeybindsWrapper">
+                        <object class="GtkBox" id="Keybinds">
                           <property name="hexpand">true</property>
+                          <property name="margin-top">10</property>
                           <style>
-                            <class name="keybinds-wrapper"></class>
+                            <class name="keybinds"></class>
                           </style>
                           <child>
                             <object class="GtkBox" id="GlobalKeybinds">
-                              <property name="hexpand">true</property>
                               <property name="spacing">10</property>
-                              <property name="margin-top">10</property>
                               <style>
                                 <class name="global-keybinds"></class>
                               </style>
                             </object>
                           </child>
                           <child>
-                            <object class="GtkBox" id="Keybinds">
+                            <object class="GtkBox" id="ItemKeybinds">
                               <property name="hexpand">true</property>
                               <property name="halign">end</property>
                               <property name="spacing">10</property>
-                              <property name="margin-top">10</property>
                               <style>
-                                <class name="keybinds"></class>
+                                <class name="item-keybinds"></class>
                               </style>
                             </object>
                           </child>
@@ -968,7 +1013,7 @@
                             <class name="error"></class>
                           </style>
                           <property name="xalign">0</property>
-                         <property name="visible">false</property>
+                          <property name="visible">false</property>
                         </object>
                       </child>
                     </object>
