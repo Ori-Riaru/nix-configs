@@ -34,7 +34,7 @@
           fill-labs.dependi
 
           # Python
-          # ms-python.python
+          #// ms-python.python
           ms-toolsai.jupyter
 
           # C++
@@ -65,38 +65,37 @@
           github.vscode-pull-request-github
         ]
         ++ (with extensions.open-vsx; [
-          # REMOVED: jeanp413.open-remote-ssh (using patched version above)
           # Web
           yandeu.five-server
-          # gencer.html-slim-scss-css-class-completion
+          #// gencer.html-slim-scss-css-class-completion
 
           tauri-apps.tauri-vscode
 
           # Python
           kevinrose.vsc-python-indent
-          #charliermarsh.ruff
+          #//charliermarsh.ruff
 
           # Other
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
-          # jannisx11.batch-rename-extension
+          #// jannisx11.batch-rename-extension
           sleistner.vscode-fileutils
         ])
         ++ (with extensions.vscode-marketplace; [
           # Web
           csstools.postcss
           joy-yu.css-snippets
-          # philsinatra.nested-comments
+          #// philsinatra.nested-comments
           oven.bun-vscode
-          # wallabyjs.quokka-vscode
-          # wallabyjs.console-ninja
+          #// wallabyjs.quokka-vscode
+          #// wallabyjs.console-ninja
 
           # Other
           bbenoist.qml # QML language support
-          # kdl-org.kdl # KDL language support
+          #// kdl-org.kdl # KDL language support
           letrieu.expand-region
-          # eww-yuck.yuck
+          #// eww-yuck.yuck
 
           # Generic
           mguellsegarra.highlight-on-copy
