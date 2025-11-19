@@ -60,7 +60,7 @@
     "workbench.colorCustomizations" = {
       # General
       "foreground" = "${settings.text}";
-      "disableForeground" = "${settings.text}";
+      "disableForeground" = "${settings.subtext}";
       "widget.border" = "#0000";
       "errorForeground" = "${settings.red}";
       "button.background" = "${settings.accent}";
@@ -95,13 +95,15 @@
       "editorGutter.deletedBackground" = "${settings.red}";
       "editorGutter.modifiedBackground" = "${settings.purple}";
 
-      "editorBracketHighlight.foreground1" = "${settings.accent}";
-      "editorBracketHighlight.foreground2" = "${settings.secondary}";
-      "editorBracketHighlight.foreground3" = "${settings.tertiary}";
-      "editorBracketHighlight.foreground4" = "${settings.yellow}";
-      "editorBracketHighlight.foreground5" = "${settings.teal}";
-      "editorBracketHighlight.foreground6" = "${settings.orange}";
-      "editorBracketHighlight.unmatchedForeground" = "${settings.red}";
+      "editorBracketHighlight.foreground1" = "${settings.text}";
+      "editorBracketHighlight.foreground2" = "${settings.subtext}";
+      "editorBracketHighlight.foreground3" = "${settings.hidden}";
+      "editorBracketHighlight.foreground4" = "${settings.text}";
+      "editorBracketHighlight.foreground5" = "${settings.subtext}";
+      "editorBracketHighlight.foreground6" = "${settings.hidden}";
+      "editorBracketHighlight.foreground7" = "${settings.hidden}";
+      "editorBracketHighlight.foreground8" = "${settings.hidden}";
+      "editorBracketHighlight.unmatchedForeground" = "${settings.text}";
 
       # Side Bar
       "sideBar.background" = "${settings.section}";
@@ -150,19 +152,23 @@
 
     # Syntax Highlighting
     "editor.tokenColorCustomizations" = {
+      # Strings
+      # Numbers / Constants
+
       "textMateRules" = [
         {
           "name" = "Default";
-          "scope" = [
+          scope = [
             ""
             "support.type.property-name.json"
             "meta.attribute.unrecognized"
             "support.type.property-name.css"
             "meta.field.declaration"
             "meta.template.expression"
+            "entity.other.attribute-name"
           ];
           "settings" = {
-            "foreground" = "${settings.text}";
+            "foreground" = settings.text;
           };
         }
 
@@ -170,13 +176,14 @@
           "name" = "comments";
           "scope" = ["comment"];
           "settings" = {
-            "foreground" = "${settings.subtext}";
+            "foreground" = settings.green;
           };
         }
 
         {
           "name" = "string";
           "scope" = [
+            "string"
             "string.quoted.single"
             "string.quoted.double"
             "string.template"
@@ -185,7 +192,7 @@
             "string.quoted.other.nix"
           ];
           "settings" = {
-            "foreground" = "#a080ff";
+            "foreground" = settings.purple;
           };
         }
 
@@ -193,11 +200,12 @@
           "name" = "number";
           "scope" = [
             "constant.numeric"
+            "constant.language"
             "keyword.other.unit"
             "constant.other.color.rgb-value.hex"
           ];
           "settings" = {
-            "foreground" = "#FFA062";
+            "foreground" = settings.blue;
           };
         }
 
@@ -217,7 +225,7 @@
             "punctuation.separator.statement.and.shell"
           ];
           "settings" = {
-            "foreground" = "#8BF9FF";
+            "foreground" = settings.orange;
           };
         }
 
@@ -317,7 +325,7 @@
     };
 
     "alejandra.program" = "alejandra";
-    
+
     "nixEnvSelector.suggestion" = false;
 
     "nix.serverPath" = "nixd";
