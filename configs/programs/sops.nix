@@ -31,6 +31,10 @@
       "riaru_pass" = {};
       "afraid_pass" = {};
       "restic_pass" = {};
+      "copyparty_pass" = lib.mkIf (config.services ? "copyparty" && config.services.copyparty.enable) {
+        owner = config.services.copyparty.user;
+        group = config.services.copyparty.group;
+      };
     };
 
     templates = lib.mkIf config.services.inadyn.enable {
