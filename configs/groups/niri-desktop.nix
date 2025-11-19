@@ -4,7 +4,7 @@
     ../programs/niri/niri.nix
     ../programs/walker/walker.nix
     ../programs/waybar/waybar.nix
-    ../programs/swayidle.nix
+    ../programs/hypridle.nix
     ../programs/swww.nix
     ../programs/clipse.nix
     ../programs/nautilus.nix
