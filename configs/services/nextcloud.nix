@@ -6,7 +6,7 @@
   networking.firewall.allowedTCPPorts = [80 443];
 
   services.nextcloud = {
-    enable = false;
+    enable = true;
 
     # MANUAL update required when new version available.
     package = pkgs.nextcloud31;
