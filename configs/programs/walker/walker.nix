@@ -247,6 +247,7 @@
             b = builtins.fromTOML "x=0x${builtins.substring 4 2 clean}";
           in "${toString r.x},${toString g.x},${toString b.x}";
         in {
+          command = "wl-copy %CONTENT%; wtype -M ctrl v -m ctrl";
           snippets = [
             # Hex Colors
             {
