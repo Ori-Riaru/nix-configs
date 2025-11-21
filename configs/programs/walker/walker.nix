@@ -16,9 +16,14 @@
 
   home.packages = with pkgs; [
     wtype # for snippets
-
     jq # for chromium bookmark import
     sqlite # for firefox based bookmark import
+    efibootmgr # for windows reboot menu
+    (pkgs.writeShellScriptBin "boot-windows" ''
+      WINDOWS_ENTRY=$(efibootmgr | grep -i "Windows Boot Manager" | cut -c5-8)
+      sudo efibootmgr --bootnext $WINDOWS_ENTRY
+      sudo reboot
+    '')
   ];
 
   programs.walker = {
@@ -33,7 +38,6 @@
         "providerlist"
         "desktopapplications"
         "windows"
-        "runner"
         "websearch"
         "calc"
         "clipboard"
@@ -41,7 +45,7 @@
         "snippets"
         "menus:power"
         "menus:bookmarks"
-        "menus:sessions"
+        "menus:efi"
       ];
 
       keybinds.quick_activate = [];
@@ -62,7 +66,7 @@
         "bluetooth"
         "desktopapplications"
         "files"
-        "bookmarks"
+        "nirisessions"
       ];
 
       provider = {
@@ -147,13 +151,13 @@
                   text = "Shutdown";
                   keywords = ["shutdown" "power off" "off"];
                   icon = "system-shutdown-symbolic";
-                  actions = {shutdown = "sudo shutdown now";};
+                  actions = {shutdown = "systemctl shutdown";};
                 }
                 {
                   text = "Restart";
                   keywords = ["reboot"];
                   icon = "system-reboot-symbolic";
-                  actions = {restart = "sudo reboot now";};
+                  actions = {restart = "systemctl reboot";};
                 }
                 {
                   text = "Suspend";
@@ -182,26 +186,16 @@
               ];
             };
 
-            "sessions" = {
-              name = "sessions";
-              name_pretty = "Sessions";
+            "efi" = {
+              name = "efi";
+              name_pretty = "EFI";
+              icon = "󰋊";
               entries = [
                 {
-                  text = "Development";
-                  icon = "applications-development-symbolic";
-                  keywords = ["code" "dev" "development"];
-                  actions = {
-                    devsession = ''
-                      niri msg action spawn -- 'nautilus' '--new-window' '/mnt/nfs/riaru/Projects'
-                      sleep 0.25
-                      niri msg action spawn -- 'codium'
-                      sleep 0.5
-                      niri msg action spawn -- 'ghostty'
-                      niri msg action spawn -- 'ghostty'
-                      sleep 1.5
-                      niri msg action consume-or-expel-window-left
-                    '';
-                  };
+                  text = "Boot Windows";
+                  keywords = ["reboot" "restart" "windows"];
+                  icon = "󰖳";
+                  actions = {"boot windows" = "boot-windows";};
                 }
               ];
             };
@@ -862,7 +856,7 @@
       '';
 
       layouts = {
-        layout = ''                  
+        layout = ''                
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
