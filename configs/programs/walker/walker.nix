@@ -695,6 +695,14 @@
         @define-color error_bg_color ${settings.red};
         @define-color error_fg_color ${settings.base};
 
+
+        popover {
+          background: lighter(@window_bg_color);
+          border: 2px solid @accent_bg_color;
+          border-radius: 6px;
+          padding: 10px;
+        }
+
         * {
           all: unset;
           font-family: Inter;
