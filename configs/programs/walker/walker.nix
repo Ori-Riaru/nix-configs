@@ -43,6 +43,7 @@
         "clipboard"
         "files"
         "snippets"
+        "nirisessions"
         "menus:power"
         "menus:bookmarks"
         "menus:efi"
@@ -199,6 +200,42 @@
                 }
               ];
             };
+          };
+        };
+
+        "nirisessions" = {
+          settings = {
+            name_pretty = "Sessions";
+            sessions = [
+              {
+                name = "Development";
+                workspaces = [
+                  {
+                    windows = [
+                      {
+                        command = "niri msg action spawn -- nautilus --new-window /mnt/nfs/riaru/Projects";
+                        app_id = "org.gnome.Nautilus";
+                      }
+                      {
+                        command = "niri msg action spawn -- codium";
+                        app_id = "codium";
+                      }
+                      {
+                        command = "niri msg action spawn -- ghostty";
+                        app_id = "com.mitchellh.ghostty";
+                      }
+                      {
+                        command = "niri msg action spawn -- ghostty";
+                        app_id = "com.mitchellh.ghostty";
+                        after = [
+                          "sleep 0.2 && niri msg action consume-or-expel-window-left"
+                        ];
+                      }
+                    ];
+                  }
+                ];
+              }
+            ];
           };
         };
 
@@ -856,7 +893,7 @@
       '';
 
       layouts = {
-        layout = ''                
+        layout = ''              
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
