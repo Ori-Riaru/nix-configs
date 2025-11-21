@@ -146,8 +146,8 @@
     spawn-at-startup = [
       {command = ["clipse" "-listen"];}
       {command = ["sh" "-c" "sleep 4 && swww-daemon"];}
-      {command = ["sh" "-c" "sleep 5 && swww clear ${settings.base}"];}
-      {command = ["sh" "-c" "sleep 6 && swww img ${settings.wallpaper} -o DP-2"];}
+      {command = ["sh" "-c" "sleep 5 && swww clear ${settings.base} --transition-type none"];}
+      {command = ["sh" "-c" "sleep 6 && swww img ${settings.wallpaper} -o DP-2 --transition-type none"];}
       {command = ["sh" "-c" "sleep 5 && openrgb --profile off"];}
     ];
 
