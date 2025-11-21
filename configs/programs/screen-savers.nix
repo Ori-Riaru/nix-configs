@@ -7,5 +7,6 @@
     lavat
     kittysay
     colorpanes
+    toipe
   ];
 }

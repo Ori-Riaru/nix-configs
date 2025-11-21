@@ -60,6 +60,9 @@
       code = "codium";
       files = "nautilus --new-window /mnt/nfs/riaru";
       fs = "nautilus --new-window /mnt/nfs/riaru";
+      tt = "toipe";
+      type = "toipe";
+      monkeytype = "toipe";
       configs = "codium ${settings.configPath}";
       bats = "bat --style plain";
     };
