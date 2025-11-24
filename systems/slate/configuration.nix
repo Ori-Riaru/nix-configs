@@ -1,4 +1,8 @@
-{settings, ...}: {
+{
+  settings,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -16,7 +20,6 @@
     ../../configs/system/virtulization.nix
     ../../configs/programs/kdeconnect.nix
     ../../configs/programs/steam.nix
-    # ../../configs/programs/monado.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
 

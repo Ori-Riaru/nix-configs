@@ -14,8 +14,8 @@
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
     ../../configs/programs/niri/niri-system.nix
-    ../../configs/programs/hyprland/hyprland-system.nix
-    ../../configs/programs/kde/kde-system.nix
+    #// ../../configs/programs/hyprland/hyprland-system.nix
+    #// ../../configs/programs/kde/kde-system.nix
     ../../configs/programs/kdeconnect.nix
     ../../configs/programs/nfs-client.nix
     ../../configs/programs/smb-mount.nix
@@ -34,21 +34,6 @@
   ];
 
   networking.hostName = "lain";
-
-  environment.systemPackages = with pkgs; [
-    # rustc
-    # cargo
-    # rustfmt
-    # rust-analyzer
-    # clippy
-    # pkg-config
-    # glib
-    # gsettings-desktop-schemas
-  ];
-
-  # environment.sessionVariables = {
-  #   XDG_DATA_DIRS = ["${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"];
-  # };
 
   services.ratbagd.enable = true;
 
