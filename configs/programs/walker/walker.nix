@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   settings,
+  config,
   lib,
   ...
 }: {
@@ -40,7 +41,6 @@
         "windows"
         "websearch"
         "calc"
-        "clipboard"
         "files"
         "snippets"
         "nirisessions"
@@ -140,6 +140,35 @@
                   keywords = ["letterboxd" "movies" "movie"];
                   actions = {open = "xdg-open https://letterboxd.com/Riaru/films/ && ${focus-command}";};
                 }
+                {
+                  text = "Dashboard";
+                  icon = "x-office-calendar";
+                  keywords = ["dashboard" "school"];
+                  actions = {open = "xdg-open $(cat '${config.sops.secrets.dashboard_url.path}') && ${focus-command}";};
+                }
+                {
+                  text = "Google Docs";
+                  icon = "google-docs";
+                  keywords = ["docs"];
+                  actions = {open = "xdg-open https://docs.google.com/document/u/0/ && ${focus-command}";};
+                }
+                {
+                  text = "Google Slides";
+                  icon = "google-slides";
+                  actions = {open = "xdg-open https://docs.google.com/presentation/u/0/ && ${focus-command}";};
+                }
+                {
+                  text = "Google Drive";
+                  icon = "google-drive";
+                  keywords = ["cloud" "drive"];
+                  actions = {open = "xdg-open https://drive.google.com/drive/u/0/home && ${focus-command}";};
+                }
+                {
+                  text = "Word";
+                  icon = "ms-word";
+                  keywords = ["docs"];
+                  actions = {open = "xdg-open https://word.cloud.microsoft/ && ${focus-command}";};
+                }
               ];
             };
 
@@ -164,13 +193,13 @@
                   text = "Suspend";
                   keywords = ["suspend" "sleep"];
                   icon = "system-suspend-symbolic";
-                  actions = {suspend = "systemctl suspend";};
+                  actions = {suspend = "loginctl lock-session; sleep 1; systemctl suspend";};
                 }
                 {
                   text = "Hibernate";
-                  keywords = ["suspend" "sleep"];
-                  icon = "system-suspend-symbolic";
-                  actions = {hibernate = "systemctl Hibernate";};
+                  keywords = ["sleep"];
+                  icon = "drive-harddisk-symbolic";
+                  actions = {hibernate = "loginctl lock-session; sleep 1; systemctl Hibernate";};
                 }
                 {
                   text = "Logout";
@@ -200,6 +229,81 @@
                 }
               ];
             };
+          };
+
+          lua = {
+            fonts = ''
+              Name = "fonts"
+              NamePretty = "Fonts"
+              Icon = "font-select"
+              HideFromProviderlist = false
+              Cache = false
+              function GetEntries()
+                  local entries = {}
+                  local seen_fonts = {}
+                  local preview_text =
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum."
+                  local handle = io.popen("fc-list : family | head -100")
+                  if handle then
+                      for line in handle:lines() do
+                          local font_name = line:match("^([^,]+)")
+                          if font_name then
+                              font_name = font_name:gsub("^%s*(.-)%s*$", "%1")
+                              if not seen_fonts[font_name] then
+                                  seen_fonts[font_name] = true
+                                  local escaped_font = font_name:gsub("&", "&amp;"):gsub("<", "&lt;"):gsub(">", "&gt;")
+                                  local preview_markup = "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 22' weight='bold'>"
+                                      .. font_name
+                                      .. "</span>\n\n"
+                                      .. "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 15' weight='bold'>Standard Weight Text</span>\n"
+                                      .. "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 12'>"
+                                      .. preview_text
+                                      .. "</span>\n\n"
+                                      .. "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 15' weight='bold'>Bold Text</span>\n"
+                                      .. "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 12' weight='bold'>"
+                                      .. preview_text
+                                      .. "</span>\n\n"
+                                      .. "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 15' weight='bold'>Italic Text</span>\n"
+                                      .. "<span font_desc='"
+                                      .. escaped_font
+                                      .. " 12' style='italic'>"
+                                      .. preview_text
+                                      .. "</span>"
+                                  table.insert(entries, {
+                                      Text = font_name,
+                                      Value = font_name,
+                                      Preview = preview_markup,
+                                      PreviewType = "pango",
+                                      Actions = {
+                                          copy = "echo '" .. font_name .. "' | wl-copy && notify-send 'Copied' '" .. font_name .. "'",
+                                      },
+                                  })
+                              end
+                          end
+                      end
+                      handle:close()
+                  end
+                  if #entries == 0 then
+                      table.insert(entries, {
+                          Text = "No fonts found",
+                          Value = "",
+                      })
+                  end
+                  return entries
+              end
+            '';
           };
         };
 
@@ -248,6 +352,7 @@
           in "${toString r.x},${toString g.x},${toString b.x}";
         in {
           command = "wl-copy %CONTENT%; wtype -M ctrl v -m ctrl";
+          icon = "preferences-color-symbolic";
           snippets = [
             # Hex Colors
             {
@@ -512,43 +617,49 @@
         "websearch".settings = {
           entries = [
             {
-              default = true;
               name = "DuckDuckGo";
+              icon = "duckduckgo";
               prefix = "d;";
               url = "https://duckduckgo.com/?q=%TERM%";
             }
             {
-              name = "Nix";
+              name = "Nix Options Search";
+              icon = "nix-snowflake";
               prefix = "nix;";
               url = "https://mynixos.com/search?q=%TERM%";
             }
             {
-              name = "NixosWiki";
+              name = "Nixos Wiki";
+              icon = "nix-snowflake";
               prefix = "nw;";
               url = "https://wiki.nixos.org/w/index.php?search=%TERM%";
             }
             {
               name = "Youtube";
+              icon = "youtube";
               prefix = "yt;";
               url = "https://www.youtube.com/results?search_query=%TERM%";
             }
             {
               name = "Google";
+              icon = "google";
               prefix = "g;";
               url = "https://www.google.com/search?q=%TERM%";
             }
             {
-              name = "AlternativeTo";
+              name = "Alternative To";
               prefix = "at;";
               url = "https://alternativeto.net/browse/search?q=%TERM%";
             }
             {
               name = "Reddit";
+              icon = "reddit";
               prefix = "r;";
               url = "https://www.reddit.com/search?type=link&c=&q=%TERM%";
             }
             {
               name = "Amazon";
+              icon = "amazon";
               prefix = "am;";
               url = "https://www.amazon.ca/s?k=%TERM%";
             }
@@ -559,6 +670,7 @@
             }
             {
               name = "Anilist";
+              icon = "/home/riaru/.config/elephant/icons/anilist.svg";
               prefix = "al;";
               url = "https://anilist.co/search/anime?search=%TERM%";
             }
@@ -584,6 +696,7 @@
             }
             {
               name = "Steam";
+              icon = "steam";
               prefix = "steam;";
               url = "https://store.steampowered.com/search?term=%TERM%";
             }
@@ -594,6 +707,7 @@
             }
             {
               name = "Github";
+              icon = "github";
               prefix = "gh;";
               url = "https://github.com/search?type=repositories&q=%TERM%";
             }
@@ -604,11 +718,13 @@
             }
             {
               name = "ChatGPT";
+              icon = "/home/riaru/.config/elephant/icons/chatgpt.svg";
               prefix = "gpt;";
               url = "https://www.chatgpt.com/?q=%TERM%";
             }
             {
               name = "Claude";
+              icon = "/home/riaru/.config/elephant/icons/claude.svg";
               prefix = "claude;";
               url = "https://claude.ai/new/?q=%TERM%";
             }
@@ -619,11 +735,13 @@
             }
             {
               name = "Spotify";
+              icon = "spotify";
               prefix = "spot;";
               url = "https://open.spotify.com/search/%TERM%";
             }
             {
               name = "Letterboxd";
+              icon = "/home/riaru/.config/elephant/icons/letterboxd.svg";
               prefix = "lb;";
               url = "https://letterboxd.com/search/%TERM%";
             }
@@ -631,7 +749,7 @@
         };
 
         "files".settings = {
-          search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/bulk"];
+          search_dirs = ["/mnt/nfs/riaru/" "/mnt/nfs/bulk/"];
           fd_flags = [
             "--ignore-vcs"
             "-L"
@@ -902,7 +1020,7 @@
       '';
 
       layouts = {
-        layout = ''              
+        layout = ''                  
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
