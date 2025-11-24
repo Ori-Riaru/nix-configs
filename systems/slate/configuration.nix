@@ -1,12 +1,9 @@
-{
-  settings,
-  pkgs,
-  ...
-}: {
+{settings, ...}: {
   imports = [
     ./hardware-configuration.nix
 
     ../../configs/groups/global.nix
+    ../../configs/system/gsettings-desktop-schema.nix
     ../../configs/system/systemd-boot.nix
     ../../configs/system/audio.nix
     ../../configs/system/gdm.nix
