@@ -7,18 +7,21 @@
     enable = true;
     settings = {
       default-timeout = 2000;
-      background-color = lib.mkForce "${settings.base}FF";
+
+      background-color = lib.mkForce settings.card;
       text-color = lib.mkForce settings.text;
+      border-size = 2;
+      border-radius = lib.mkForce settings.radius;
+      border-color = lib.mkForce settings.accent;
+
       width = 300;
       height = 60;
-      margin = 20;
       padding = 20;
-      border-size = 10;
-      corner-radius = settings.radius;
-      icon-size = 40;
+
+      max-icon-size = 40;
+
       max-visible = 5;
-      position = "top-right";
-      monitor = "eDP-1";
+      anchor = "top-left";
     };
   };
 }
