@@ -12,10 +12,11 @@ in {
   programs.spicetify = {
     enable = true;
     wayland = true;
-    # theme = spicePkgs.themes.dribbblish; (broken)
-    # // {
-    #   additionalCss = builtins.readFile ./spotify.css;
-    # };
+    theme =
+      spicePkgs.themes.dribbblish
+      // {
+        additionalCss = builtins.readFile ./spotify.css;
+      };
 
     colorScheme = "custom";
     customColorScheme = {
@@ -44,7 +45,6 @@ in {
       fullAppDisplay
       hidePodcasts
       shuffle
-
       {
         name = "utilities.js";
         src = pkgs.fetchFromGitHub {
@@ -54,30 +54,17 @@ in {
           hash = "sha256-LZcrmoA+SOpTeTiBeiOtneojzBhvbZfkawTyFRLhNk8=";
         };
       }
-
-      #{
-      #  # Not working
-      #  name = "css-editor.js";
-      #  src = "${pkgs.fetchFromGitHub {
-      #    owner = "FlafyDev";
-      #    repo = "spotify-css-editor/dist";
-      #    rev = "main";
-      #    hash = "sha256-uHPKHr55I0VCZIob3kDxbT5dFp/HrthL9Z7lbebTmrU=";
-      #  }}/dist";
-      #}                    
-
-      # {
-         # Not working 
-         # name = "LibX-Reborn.js";
-         # src = "${pkgs.fetchFromGitHub {
-         #   owner = "sanoojes";
-         #   repo = "spicetify-extensions";
-         #   rev = "master";
-         #   hash = "sha256-ztZFuXzTdPsfA/q2G2Ww1AHsDwAFqALT94zx4eQ2P4E=E";
-         # }}/LibX-Reborn/src";
-      # }
+      {
+        # Not working
+        name = "LibX-Reborn.js";
+        src = "${pkgs.fetchFromGitHub {
+          owner = "sanoojes";
+          repo = "spicetify-extensions";
+          rev = "master";
+          hash = "sha256-ztZFuXzTdPsfA/q2G2Ww1AHsDwAFqALT94zx4eQ2P4E=E";
+        }}/LibX-Reborn/src";
+      }
     ];
-
     enabledCustomApps = with spicePkgs.apps; [
       marketplace
     ];
