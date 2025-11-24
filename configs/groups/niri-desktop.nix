@@ -1,6 +1,7 @@
 {
   imports = [
     ../system/wayland-hints.nix
+    ../system/desktop-scheme.nix
     ../programs/niri/niri.nix
     ../programs/walker/walker.nix
     ../programs/waybar/waybar.nix
