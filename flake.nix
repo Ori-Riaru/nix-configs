@@ -43,7 +43,7 @@
     };
 
     elephant = {
-      url = "github:abenz1267/elephant/dev";
+      url = "github:abenz1267/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -102,7 +102,7 @@
       secondary = blue;
       tertiary = yellow;
 
-      gap = 4; # px
+      gap = 1; # px
       radius = 6; # px
 
       text = "#ffffff";
