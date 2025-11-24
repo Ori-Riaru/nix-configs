@@ -1,10 +1,11 @@
 {
   imports = [
     ../system/wayland-hints.nix
-    ../system/desktop-scheme.nix
+    ../system/gsettings-desktop-schema.nix
     ../programs/hyprland/hyprland.nix
     ../programs/walker/walker.nix
     ../programs/waybar/waybar.nix
+    ../programs/mako.nix
     ../programs/hypridle.nix
     ../programs/swww.nix
     ../programs/clipse.nix
