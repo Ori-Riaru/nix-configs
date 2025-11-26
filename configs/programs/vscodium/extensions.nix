@@ -33,6 +33,10 @@
           tamasfe.even-better-toml
           fill-labs.dependi
 
+          # Go
+          golang.go
+          zxh404.vscode-proto3
+
           # Python
           #// ms-python.python
           ms-toolsai.jupyter
@@ -92,7 +96,9 @@
           #// wallabyjs.console-ninja
 
           # Other
-          bbenoist.qml # QML language support
+          msyrus.go-doc
+          premparihar.gotestexplorer
+          bbenoist.qml
           #// kdl-org.kdl # KDL language support
           letrieu.expand-region
           #// eww-yuck.yuck

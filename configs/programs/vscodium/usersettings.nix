@@ -44,11 +44,10 @@
     # Layout
     "window.titleBarStyle" = "native";
     "window.customTitleBarVisibility" = "never";
-    "workbench.sideBar.location" = "right";
     "workbench.activityBar.location" = "top";
     "window.menuBarVisibility" = "hidden";
     "workbench.statusBar.visible" = false;
-    "workbench.editor.showTabs" = "none";
+    "workbench.editor.showTabs" = "single";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
     "editor.scrollbar.verticalScrollbarSize" = 0;
@@ -315,6 +314,15 @@
     "svelte.enable-ts-plugin" = true;
 
     "redhat.telemetry.enabled" = false;
+
+    # Go
+    "go.inlayHints.assignVariableTypes" = true;
+    "go.inlayHints.compositeLiteralFields" = true;
+    "go.inlayHints.compositeLiteralTypes" = true;
+    "go.inlayHints.constantValues" = true;
+    "go.inlayHints.functionTypeParameters" = true;
+    "go.inlayHints.parameterNames" = true;
+    "go.inlayHints.rangeVariableTypes" = true;
 
     # Nix
     "[nix]" = {
