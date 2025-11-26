@@ -6,7 +6,7 @@
   services.mako = {
     enable = true;
     settings = {
-      default-timeout = 2000;
+      default-timeout = 10000;
 
       background-color = lib.mkForce settings.card;
       text-color = lib.mkForce settings.text;
