@@ -135,6 +135,12 @@
                   actions = {open = "xdg-open https://chatgpt.com && ${focus-command}";};
                 }
                 {
+                  text = "Gemini";
+                  icon = "/home/riaru/.config/elephant/icons/gemini.svg";
+                  keywords = ["gemini" "ai"];
+                  actions = {open = "xdg-open https://gemini.google.com/app && ${focus-command}";};
+                }
+                {
                   text = "Letterboxd";
                   icon = "/home/riaru/.config/elephant/icons/letterboxd.svg";
                   keywords = ["letterboxd" "movies" "movie"];
@@ -617,6 +623,7 @@
         "websearch".settings = {
           entries = [
             {
+              default = true;
               name = "DuckDuckGo";
               icon = "duckduckgo";
               prefix = "d;";
@@ -1020,7 +1027,7 @@
       '';
 
       layouts = {
-        layout = ''                  
+        layout = ''          
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
