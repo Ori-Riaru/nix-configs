@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  # home.packages = with pkgs; [
-  #   shadps4
-  # ];
+  home.packages = with pkgs; [
+    shadps4
+  ];
 }

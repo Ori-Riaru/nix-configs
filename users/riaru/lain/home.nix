@@ -42,6 +42,7 @@
     ../../../configs/programs/heroic.nix
     ../../../configs/programs/prism-launcher.nix
     ../../../configs/programs/mangohud.nix
+    ../../../configs/programs/shadps4.nix
 
     # Development
     ../../../configs/programs/nix.nix
