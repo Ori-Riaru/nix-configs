@@ -53,6 +53,7 @@
     "editor.scrollbar.verticalScrollbarSize" = 0;
     "scm.diffDecorations" = "gutter";
     "workbench.panel.showLabels" = false;
+    "diffEditor.experimental.showMoves" = true;
 
     # Colors
     "workbench.colorTheme" = "Visual Studio Dark";
