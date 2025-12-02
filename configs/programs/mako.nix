@@ -3,6 +3,8 @@
   settings,
   ...
 }: {
+  home.file.".config/mako/notification.mp3" = {source = ../../users/riaru/notification.mp3;};
+
   services.mako = {
     enable = true;
     settings = {
@@ -22,6 +24,8 @@
 
       max-visible = 5;
       anchor = "top-left";
+
+      on-notify = "exec pw-play /home/riaru/.config/mako/notification.mp3";
     };
   };
 }
