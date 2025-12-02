@@ -58,6 +58,7 @@
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/kdiskmark.nix
     ../../../configs/system/default-apps.nix
+    ../../../configs/services/batsignal.nix
 
     ../../../configs/programs/stylix.nix
   ];
