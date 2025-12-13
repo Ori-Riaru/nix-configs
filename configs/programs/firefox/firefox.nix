@@ -44,6 +44,7 @@
         web-clipper-obsidian
 
         # Missing downloads
+        # deadname remover
         # custom new page
         # enhancer-for-youtube
         # infy-scroll
