@@ -57,7 +57,7 @@
           # Generic
           usernamehw.errorlens
           streetsidesoftware.code-spell-checker
-          esbenp.prettier-vscode
+          prettier.prettier-vscode
           bierner.docs-view
           aaron-bond.better-comments
           eamodio.gitlens
