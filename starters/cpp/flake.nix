@@ -1,11 +1,9 @@
 {
-  description = "Kernel module development environment";
-
+  description = "C++ development environment";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-
   outputs = {
     self,
     nixpkgs,
@@ -17,9 +15,9 @@
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            
+            gcc
+            gnumake
           ];
-
           shellHook = ''
 
           '';
