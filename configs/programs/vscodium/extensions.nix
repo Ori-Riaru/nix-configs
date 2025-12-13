@@ -42,7 +42,7 @@
           ms-toolsai.jupyter
 
           # C++
-          llvm-vs-code-extensions.vscode-clangd
+          ms-vscode.cpptools
           ms-vscode.hexeditor
 
           # Java
