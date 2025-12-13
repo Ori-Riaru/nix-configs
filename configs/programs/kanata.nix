@@ -129,6 +129,13 @@
             move-down   M-C-down
             move-right  M-C-rght
 
+            ;; Applications
+            ghostty  M-C-g 
+            firefox  M-C-f
+            nautilus M-C-n
+            codium   M-C-c
+            vesktop  M-C-v
+
             ;; Special functions
             .tp (switch
                   ()  (multi
@@ -261,8 +268,8 @@
           )
 
           (deflayer menu
-            _ _ _ @screenshot @email  _ @base @game @qwerty @blender
-            _ _ _ _ @google _ left up down right
+            _ _ _ @screenshot @email  @google @base @game @qwerty @blender
+             @codium @nautilus @firefox @ghostty @vesktop _ left up down right
             _ prev pp next  _ _     _     volu   voldwn  _
                             _ _      _     _     _
           )
