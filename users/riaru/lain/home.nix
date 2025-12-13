@@ -46,12 +46,14 @@
     ../../../configs/programs/shadps4.nix
 
     # Development
-    ../../../configs/programs/nix.nix
     ../../../configs/programs/git.nix
     ../../../configs/programs/vscodium/vscodium.nix
-    ../../../configs/programs/cpp.nix
     ../../../configs/programs/act.nix
     ../../../configs/programs/opencode/opencode.nix
+
+    ../../../configs/programs/nix.nix
+    ../../../configs/programs/python.nix
+    ../../../configs/programs/cpp.nix
 
     # Communication
     ../../../configs/programs/discord.nix
