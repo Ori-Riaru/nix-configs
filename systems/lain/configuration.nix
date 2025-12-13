@@ -1,4 +1,4 @@
-{settings, ...}: {
+{config, settings, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -13,7 +13,7 @@
     ../../configs/programs/niri/niri-system.nix
     #// ../../configs/programs/hyprland/hyprland-system.nix
     #// ../../configs/programs/kde/kde-system.nix
-    ../../configs/programs/kdeconnect.nix
+    ../../configs/programs/kdeconnect/kdeconnect-system.nix
     ../../configs/programs/nfs-client.nix
     ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
@@ -33,6 +33,8 @@
   networking.hostName = "lain";
 
   services.ratbagd.enable = true;
+
+  environment.systemPackages = [config.boot.kernelPackages.digimend];
 
   hardware.uinput.enable = true;
   users.groups.uinput.members = ["${settings.username}"];

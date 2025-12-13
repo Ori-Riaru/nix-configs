@@ -12,6 +12,7 @@
     ../../../configs/programs/gparted.nix
     ../../../configs/programs/btop.nix
     ../../../configs/programs/openrgb/openrgb.nix
+    ../../../configs/programs/kdeconnect/kdeconnect-home.nix
 
     # CLI
     ../../../configs/groups/cli-base.nix
@@ -50,6 +51,7 @@
     ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/cpp.nix
     ../../../configs/programs/act.nix
+    ../../../configs/programs/opencode/opencode.nix
 
     # Communication
     ../../../configs/programs/discord.nix

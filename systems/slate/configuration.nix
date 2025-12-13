@@ -15,7 +15,7 @@
     ../../configs/programs/nfs-client.nix
     ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
-    ../../configs/programs/kdeconnect.nix
+    ../../configs/programs/kdeconnect/kdeconnect-system.nix
     ../../configs/programs/steam.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix

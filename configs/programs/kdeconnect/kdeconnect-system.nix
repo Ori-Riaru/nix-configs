@@ -1,8 +1,4 @@
-{
-  pkgs,
-  settings,
-  ...
-}: {
+{...}: {
   networking.firewall = rec {
     allowedTCPPortRanges = [
       {
@@ -12,6 +8,4 @@
     ];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
-
-  programs.kdeconnect.enable = true;
 }
