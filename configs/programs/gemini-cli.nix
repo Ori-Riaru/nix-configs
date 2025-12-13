@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       general = {
+        previewFeatures = true;
         preferredEditor = "vscodium";
         disableUpdateNag = true;
       };
