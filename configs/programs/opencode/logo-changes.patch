@@ -1,8 +1,6 @@
-diff --git a/packages/opencode/src/cli/cmd/tui/component/logo.tsx b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
-index 59db5fe7d..46da957d4 100644
 --- a/packages/opencode/src/cli/cmd/tui/component/logo.tsx
 +++ b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
-@@ -3,9 +3,9 @@ import { TextAttributes } from "@opentui/core"
+@@ -2,9 +2,9 @@
  import { For } from "solid-js"
  import { useTheme } from "@tui/context/theme"
  
@@ -14,11 +12,3 @@ index 59db5fe7d..46da957d4 100644
  
  export function Logo() {
    const { theme } = useTheme()
-@@ -22,7 +22,6 @@ export function Logo() {
-         )}
-       </For>
-       <box flexDirection="row" justifyContent="flex-end">
--        <text fg={theme.textMuted}>{Installation.VERSION}</text>
-       </box>
-     </box>
-   )
