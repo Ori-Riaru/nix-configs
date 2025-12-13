@@ -59,6 +59,10 @@
           WebKeybinds.enabled = true;
           WebScreenShareFixes.enabled = true;
           ClearURLs.enabled = true;
+          CustomIdle = {
+            enable = true;
+            remainInIdle = true;
+          };
         };
       };
     };
