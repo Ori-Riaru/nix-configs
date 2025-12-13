@@ -103,7 +103,7 @@
       tertiary = yellow;
 
       gap = 1; # px
-      radius = 6; # px
+      radius = 0; # px
 
       text = "#ffffff";
       subtext = "#888888";
