@@ -57,7 +57,6 @@
           # Generic
           usernamehw.errorlens
           streetsidesoftware.code-spell-checker
-          prettier.prettier-vscode
           bierner.docs-view
           aaron-bond.better-comments
           eamodio.gitlens
@@ -80,6 +79,8 @@
           #//charliermarsh.ruff
 
           # Other
+          prettier.prettier-vscode
+          stylelint.vscode-stylelint
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
