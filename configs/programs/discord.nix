@@ -1,8 +1,4 @@
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   # home.packages = with pkgs; [
   #   (discord.override {
   #     withVencord = true;
@@ -60,7 +56,7 @@
           WebScreenShareFixes.enabled = true;
           ClearURLs.enabled = true;
           CustomIdle = {
-            enable = true;
+            enabled = true;
             remainInIdle = true;
           };
         };
