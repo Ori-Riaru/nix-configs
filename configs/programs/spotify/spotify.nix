@@ -61,7 +61,7 @@ in {
           owner = "sanoojes";
           repo = "spicetify-extensions";
           rev = "master";
-          hash = "sha256-BGIWMpyy6+qNBZq4C03Q3qhapsBjaFbtmQHtfKdKlBs=";
+          hash = "sha256-MXkeFVkDIJ3POOC+yA2hjuEOfoJivoxholuheVz85as=";
         }}/LibX-Reborn/src";
       }
     ];
