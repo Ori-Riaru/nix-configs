@@ -80,17 +80,21 @@
 
           # Other
           prettier.prettier-vscode
-          stylelint.vscode-stylelint
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
           #// jannisx11.batch-rename-extension
           sleistner.vscode-fileutils
         ])
+        
         ++ (with extensions.vscode-marketplace; [
           # Web
           csstools.postcss
           joy-yu.css-snippets
+          rubymaniac.vscode-paste-and-indent
+          pcode-pl.vscode-autohide-plus
+          stylelint.vscode-stylelint
+
           #// philsinatra.nested-comments
           oven.bun-vscode
           #// wallabyjs.quokka-vscode
