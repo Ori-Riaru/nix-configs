@@ -21,7 +21,7 @@
     };
 
     nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
+      url = "github:dseum/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -43,7 +43,7 @@
     };
 
     elephant = {
-      url = "github:abenz1267/elephant";
+      url = "git+file:///mnt/nfs/riaru/Projects/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -93,7 +93,7 @@
       usernameFull = "Ori Riaru";
       email = "ori-riaru@proton.me";
 
-      # --- Themeing ---
+      # --- Theming ---
       avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
       wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
@@ -220,7 +220,14 @@
       kernel-module.path = ./starters/kernel-module;
     };
 
-    # for use in nix repl
+    # Shortcuts for nix-repl
+    lain = self.nixosConfigurations.lain;
+    slate = self.nixosConfigurations.slate;
+    kumo = self.nixosConfigurations.kumo;
+    lain-home = self.homeConfigurations."${settings.username}@lain";
+    slate-home = self.homeConfigurations."${settings.username}@slate";
+    kumo-home = self.homeConfigurations."${settings.username}@kumo";
+
     inherit settings;
     inherit (nixpkgs) lib;
   };
