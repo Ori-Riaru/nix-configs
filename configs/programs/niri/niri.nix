@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   settings,
-  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -33,6 +32,10 @@
       };
       focus-follows-mouse.enable = true;
       focus-follows-mouse.max-scroll-amount = "50%";
+    };
+
+    clipboard = {
+      disable-primary = true;
     };
 
     outputs = {
