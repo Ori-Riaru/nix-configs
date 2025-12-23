@@ -12,6 +12,7 @@
     ../../../configs/programs/btop.nix
 
     # Tools
+    ../../../configs/programs/stylelint.nix
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
     ../../../configs/programs/ghostty.nix

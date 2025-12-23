@@ -70,6 +70,7 @@
     ../../../configs/programs/nvtop.nix
 
     ../../../configs/programs/stylix.nix
+    ../../../configs/programs/stylelint.nix
     ../../../configs/system/default-apps.nix
   ];
 
