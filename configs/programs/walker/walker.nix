@@ -3,7 +3,6 @@
   inputs,
   settings,
   config,
-  lib,
   ...
 }: {
   imports = [
@@ -33,21 +32,62 @@
 
     config = {
       theme = "Neutral Dark";
-
+      selection_wrap = true;
       force_keyboard_focus = true;
-      providers.default = [
-        "providerlist"
-        "desktopapplications"
-        "windows"
-        "websearch"
-        "calc"
-        "files"
-        "snippets"
-        "nirisessions"
-        "menus:power"
-        "menus:bookmarks"
-        "menus:efi"
-      ];
+      columns.symbols = 10;
+      hide_return_action = true;
+      providers = {
+        max_results = 256;
+        default = [
+          "providerlist"
+          "desktopapplications"
+          "windows"
+          "websearch"
+          "calc"
+          # "files"
+          "snippets"
+          "nirisessions"
+          "menus:power"
+          "menus:bookmarks"
+          "menus:efi"
+        ];
+        prefixes = [
+          {
+            prefix = ";";
+            provider = "websearch";
+          }
+          {
+            prefix = "?";
+            provider = "providerlist";
+          }
+          {
+            prefix = "/";
+            provider = "files";
+          }
+          {
+            prefix = "=";
+            provider = "calc";
+          }
+          {
+            prefix = ":";
+            provider = "clipboard";
+          }
+          {
+            prefix = "$";
+            provider = "windows";
+          }
+          {
+            prefix = ".";
+            provider = "symbols";
+          }
+          {
+            prefix = ">";
+            provider = "runner";
+          }
+        ];
+
+        clipboard.time_format = "relative";
+      };
 
       keybinds.quick_activate = [];
     };
@@ -349,6 +389,11 @@
           };
         };
 
+        "clipboard".settings = {
+          max_items = 1000;
+          command = "wl-copy; wtype -M ctrl v -m ctrl";
+        };
+
         "snippets".settings = let
           hexToRgb = hex: let
             clean = builtins.substring 1 (builtins.stringLength hex - 1) hex;
@@ -621,15 +666,32 @@
         };
 
         "websearch".settings = {
+          text_prefix = "";
+          engine_finder_prefix = "e;";
+          engine_finder_default_single = false;
+
           entries = [
             {
+              default = true;
+              default_single = true;
               name = "DuckDuckGo";
               icon = "duckduckgo";
               prefix = "d;";
               url = "https://duckduckgo.com/?q=%TERM%";
+              suggestions_url = "https://ac.duckduckgo.com/ac/?q=%TERM%";
+              suggestions_path = "#.phrase";
             }
             {
-              name = "Nix Options Search";
+              default = true;
+              name = "Google";
+              icon = "google";
+              prefix = "g;";
+              url = "https://www.google.com/search?q=%TERM%";
+              suggestions_url = "https://suggestqueries.google.com/complete/search?client=firefox&q=%TERM%";
+              suggestions_path = "1";
+            }
+            {
+              name = "Nix Options";
               icon = "nix-snowflake";
               prefix = "nix;";
               url = "https://mynixos.com/search?q=%TERM%";
@@ -637,23 +699,22 @@
             {
               name = "Nixos Wiki";
               icon = "nix-snowflake";
-              prefix = "nw;";
+              prefix = "nix;";
               url = "https://wiki.nixos.org/w/index.php?search=%TERM%";
+              suggestions_url = "https://nixos.wiki/api.php?action=opensearch&format=json&formatversion=2&search=%TERM%&namespace=0&limit=10";
+              suggestions_path = "1";
             }
             {
               name = "Youtube";
               icon = "youtube";
               prefix = "yt;";
               url = "https://www.youtube.com/results?search_query=%TERM%";
-            }
-            {
-              name = "Google";
-              icon = "google";
-              prefix = "g;";
-              url = "https://www.google.com/search?q=%TERM%";
+              suggestions_url = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=%TERM%";
+              suggestions_path = "1";
             }
             {
               name = "Alternative To";
+              icon = "/home/riaru/.config/elephant/icons/alternative-to.svg";
               prefix = "at;";
               url = "https://alternativeto.net/browse/search?q=%TERM%";
             }
@@ -679,11 +740,15 @@
               icon = "/home/riaru/.config/elephant/icons/anilist.svg";
               prefix = "al;";
               url = "https://anilist.co/search/anime?search=%TERM%";
+              suggestions_url = "https://myanimelist.net/search/prefix.json?type=all&keyword=%TERM%&v=1";
+              suggestions_path = "categories.#(type==\"anime\").items.#.name";
             }
             {
               name = "Miruro";
               prefix = "anime;";
               url = "https://www.miruro.to/search?query=%TERM%&sort=POPULARITY_DESC&type=ANIME";
+              suggestions_url = "https://myanimelist.net/search/prefix.json?type=all&keyword=%TERM%&v=1";
+              suggestions_path = "categories.#(type==\"anime\").items.#.name";
             }
             {
               name = "Ovagames";
@@ -712,15 +777,35 @@
               url = "https://steamdb.info/search/?a=all&q=%TERM%";
             }
             {
-              name = "Github";
+              name = "Github Code";
+              icon = "github";
+              prefix = "gh;";
+              url = "https://github.com/search?type=code&q=%TERM%";
+            }
+            {
+              name = "Github Repo";
               icon = "github";
               prefix = "gh;";
               url = "https://github.com/search?type=repositories&q=%TERM%";
             }
             {
+              name = "Github Repo";
+              icon = "github";
+              prefix = "repo;";
+              url = "https://github.com/search?type=repositories&q=%TERM%";
+            }
+            {
+              name = "Github Code";
+              icon = "github";
+              prefix = "code;";
+              url = "https://github.com/search?type=repositories&q=%TERM%";
+            }
+            {
               name = "Newegg";
-              prefix = "new;";
+              prefix = "shop;";
               url = "https://www.newegg.ca/p/pl?d=%TERM%";
+              suggestions_url = "https://www.newegg.ca/api/SearchKeyword?CountryCode=CAN&keyword=%TERM%&nodeId=-1&from=www.newegg.ca";
+              suggestions_path = "suggestion.keywords.#.keyword";
             }
             {
               name = "ChatGPT";
@@ -736,6 +821,7 @@
             }
             {
               name = "ProtonDB";
+              icon = "/home/riaru/.config/elephant/icons/protondb.svg";
               prefix = "proton;";
               url = "https://www.protondb.com/search?q=%TERM%";
             }
@@ -750,6 +836,24 @@
               icon = "/home/riaru/.config/elephant/icons/letterboxd.svg";
               prefix = "lb;";
               url = "https://letterboxd.com/search/%TERM%";
+            }
+            {
+              name = "Logo";
+              icon = "/home/riaru/.config/elephant/icons/icons.svg";
+              prefix = "logo;";
+              url = "https://logosear.ch/?q=%TERM%";
+            }
+            {
+              name = "Font Awesome";
+              icon = "/home/riaru/.config/elephant/icons/font-awesome.svg";
+              prefix = "icon;";
+              url = "https://fontawesome.com/search?q=%TERM%";
+            }
+            {
+              name = "Pinterest";
+              icon = "/home/riaru/.config/elephant/icons/pinterest.svg";
+              prefix = "pin;";
+              url = "https://ca.pinterest.com/search/pins/?q=%TERM%";
             }
           ];
         };
@@ -814,6 +918,8 @@
 
     themes."Neutral Dark" = {
       style = ''
+        /* stylelint-disable at-rule-no-unknown, selector-type-no-unknown,selector-pseudo-class-no-unknown, declaration-property-value-no-unknown, block-no-empty */
+
         @define-color window_bg_color ${settings.card};
         @define-color accent_bg_color ${settings.accent};
         @define-color theme_fg_color ${settings.text};
@@ -937,8 +1043,8 @@
         }
 
         .preview {
-          border: 1px solid alpha(@accent_bg_color, 0.25);
-          /* padding: 10px; */
+          border: 0;
+          padding: 10px;
           border-radius: 10px;
           color: @theme_fg_color;
         }
