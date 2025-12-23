@@ -1,19 +1,27 @@
-{settings, ...}: {
+{
+  settings,
+  config,
+  ...
+}: {
   programs.vscode.profiles.default.userSettings = {
     "files.autoSave" = "afterDelay";
     "editor.linkedEditing" = true;
     "keyboard.dispatch" = "keyCode";
-
+    "workbench.quickOpen.preserveInput" = false;
     "workbench.editor.defaultBinaryEditor" = "hexEditor.hexedit";
+    "editor.smoothScrolling" = true;
+    "workbench.list.smoothScrolling" = true;
+    "terminal.integrated.smoothScrolling" = true;
+    "editor.cursorSmoothCaretAnimation" = "on";
+    "explorer.fileNesting.enabled" = true;
+    "editor.cursorSurroundingLines" = 100;
+    "editor.renderWhitespace" = "trailing";
+    "editor.suggestSelection" = "recentlyUsedByPrefix";
+    "git.autofetch" = true;
+    "gitlens.telemetry.enabled" = false;
 
     # Formatting
-    "editor.defaultFormatter" = "esbenp.prettier-vscode";
-    "[c][cpp]" = {
-      "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
-    };
-    "[svelte]" = {
-      "editor.defaultFormatter" = "svelte.svelte-vscode";
-    };
+    "editor.defaultFormatter" = "prettier.prettier-vscode";
     "editor.formatOnSave" = true;
     "editor.formatOnPaste" = true;
     "editor.formatOnType" = true;
@@ -21,6 +29,7 @@
     "files.autoSaveWhenNoErrors" = true;
 
     # Fonts
+
     "editor.fontLigatures" = true;
     "editor.fontFamily" = "${settings.fontMonospace}";
     "terminal.integrated.fontFamily" = "${settings.fontMonospace}";
@@ -42,6 +51,7 @@
     "terminal.integrated.cursorBlinking" = true;
 
     # Layout
+
     "window.titleBarStyle" = "native";
     "window.customTitleBarVisibility" = "never";
     "workbench.activityBar.location" = "top";
@@ -50,15 +60,21 @@
     "workbench.editor.showTabs" = "single";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
+    "editor.minimap.side" = "left";
+    "editor.minimap.maxColumn" = 80;
+    "editor.minimap.scale" = 1;
+    "editor.minimap.showSlider" = "always";
     "editor.scrollbar.verticalScrollbarSize" = 0;
     "scm.diffDecorations" = "gutter";
     "workbench.panel.showLabels" = false;
     "diffEditor.experimental.showMoves" = true;
 
     # Colors
+
     "workbench.colorTheme" = "Visual Studio Dark";
     "workbench.colorCustomizations" = {
       # General
+
       "foreground" = "${settings.text}";
       "disableForeground" = "${settings.subtext}";
       "widget.border" = "#0000";
@@ -69,6 +85,7 @@
       "focusBorder" = "#0000";
 
       # Editor
+
       "editor.foreground" = "${settings.text}";
       "editor.background" = "${settings.section}";
       "editor.lineHighlightBackground" = "${settings.card}";
@@ -81,16 +98,13 @@
       "editorGroup.border" = "#0000";
 
       "editorWarning.foreground" = "${settings.orange}";
-      "errorLens.errorForeground" = "${settings.red}";
-      "errorLens.errorBackground" = "${settings.red}33";
-
-      "errorLens.warningBackground" = "${settings.orange}33";
-      "errorLens.warningForeground" = "${settings.orange}";
 
       # Auto complete popup
+
       "editorWidget.border" = "#0000";
 
       # Git added an removed colors
+
       "editorGutter.addedBackground" = "${settings.teal}";
       "editorGutter.deletedBackground" = "${settings.red}";
       "editorGutter.modifiedBackground" = "${settings.purple}";
@@ -106,6 +120,7 @@
       "editorBracketHighlight.unmatchedForeground" = "${settings.text}";
 
       # Side Bar
+
       "sideBar.background" = "${settings.section}";
 
       "sideBarSectionHeader.background" = "${settings.section}";
@@ -113,10 +128,12 @@
       "sideBar.foreground" = "#FFFFFF";
 
       # Activity Bar
+
       "activityBar.foreground" = "${settings.text}";
       "activityBarBadge.background" = "${settings.accent}";
 
       # Explorer
+
       "list.errorForeground" = "${settings.red}";
       "list.warningForeground" = "${settings.orange}";
       "list.hoverBackground" = "${settings.card}";
@@ -126,6 +143,7 @@
       "gitDecoration.untrackedResourceForeground" = "${settings.teal}";
 
       # Terminal
+
       "terminal.background" = "${settings.section}";
       "terminal.foreground" = "${settings.text}";
       "terminalCursor.foreground" = "${settings.text}";
@@ -151,6 +169,7 @@
     "terminal.integrated.shellIntegration.enabled" = false;
 
     # Syntax Highlighting
+
     "editor.tokenColorCustomizations" = {
       # Strings
       # Numbers / Constants
@@ -288,14 +307,18 @@
     };
 
     # Extension settings
+    "extensions.autoUpdate" = false;
+
     "cSpell.userWords" = [
       "${settings.username}"
       "${settings.usernameFull}"
       "riaru"
       "aki"
       "nixpkgs"
+      "rgba"
       "nixos"
       "pkgs"
+      "direnv"
     ];
 
     "highlightOnCopy.backgroundColor" = "${settings.secondary}";
@@ -305,6 +328,8 @@
     "color-highlight.matchWords" = true;
 
     "terminal.integrated.env.linux" = {};
+    "autoHidePlus.autoHideLeftSideBar" = true;
+    "search.quickOpen.includeHistory" = false;
 
     "console-ninja.featureSet" = "Community";
     "console-ninja.toolsToEnableSupportAutomaticallyFor" = {
@@ -312,11 +337,82 @@
       "live-preview-extension" = true;
     };
 
-    "svelte.enable-ts-plugin" = true;
-
     "redhat.telemetry.enabled" = false;
 
+    "direnv.restart.automatic" = true;
+    # Error Lens
+
+    "errorLens.errorForeground" = "${settings.red}";
+    "errorLens.errorBackground" = "${settings.red}33";
+
+    "errorLens.warningBackground" = "${settings.orange}33";
+    "errorLens.warningForeground" = "${settings.orange}";
+
+    "errorLens.enabled" = true;
+    "errorLens.codeLensEnabled" = true;
+    "editor.codeLensFontFamily" = "JetBrainsMono Nerd Font";
+    "editor.codeLensFontSize" = 14;
+    "errorLens.severityText" = ["" "" "" ""];
+    "errorLens.codeLensTemplate" = "$severity $message";
+    "errorLens.messageTemplate" = " ";
+    "errorLens.onSaveUpdateOnActiveEditorChange" = true;
+
+    "errorLens.delay" = 1000;
+
+    # Stylelint
+
+    "stylelint.enable" = true;
+    "stylelint.configFile" = "${config.home.homeDirectory}/.stylelintrc.json";
+    "stylelint.stylelintPath" = "${config.home.homeDirectory}/.npm-global/lib/node_modules/stylelint";
+    "stylelint.configBasedir" = "${config.home.homeDirectory}/.npm-global/lib/node_modules";
+    "stylelint.validate" = ["css" "postcss" "scss" "less"];
+
+    "editor.codeActionsOnSave" = {
+      "source.fixAll.stylelint" = "explicit";
+    };
+
+    # cpp
+
+    "[c][cpp]" = {
+      "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
+    };
+
+    # Svelte
+
+    "svelte.enable-ts-plugin" = true;
+    "[svelte]" = {
+      "editor.defaultFormatter" = "svelte.svelte-vscode";
+    };
+
+    # css
+
+    "[css][scss]" = {
+      "editor.defaultFormatter" = "prettier.prettier-vscode";
+    };
+
+    # Typescript
+
+    "typescript.inlayHints.parameterNames.enabled" = "all";
+    "typescript.inlayHints.parameterTypes.enabled" = true;
+    "typescript.inlayHints.variableTypes.enabled" = true;
+    "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "typescript.inlayHints.enumMemberValues.enabled" = true;
+
+    # javascript
+
+    "javascript.inlayHints.parameterNames.enabled" = "all";
+    "javascript.inlayHints.parameterTypes.enabled" = true;
+    "javascript.inlayHints.variableTypes.enabled" = true;
+    "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
+
     # Go
+
+    "[go]" = {
+      "editor.defaultFormatter" = "golang.go";
+    };
+
     "go.inlayHints.assignVariableTypes" = true;
     "go.inlayHints.compositeLiteralFields" = true;
     "go.inlayHints.compositeLiteralTypes" = true;
@@ -326,6 +422,7 @@
     "go.inlayHints.rangeVariableTypes" = true;
 
     # Nix
+
     "[nix]" = {
       "editor.defaultFormatter" = "kamadorueda.alejandra";
       "editor.formatOnPaste" = true;
@@ -349,6 +446,18 @@
       };
       "nixos" = {
         "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.slate.options";
+      };
+      "niri" = {
+        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.niri.homeModules.niri.options";
+      };
+      "stylix" = {
+        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.stylix.homeManagerModules.stylix.options";
+      };
+      "spicetify" = {
+        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.spicetify-nix.homeManagerModules.default.options";
+      };
+      "plasma-manager" = {
+        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.plasma-manager.homeManagerModules.plasma-manager.options";
       };
     };
   };

@@ -1,3 +1,5 @@
+/* stylelint-disable custom-property-pattern */
+
 :root {
   --base: #080808;
   --gap: 5px;
@@ -6,13 +8,15 @@
 
 .monaco-workbench {
   --vscode-tab-inactiveBackground: #181818 !important;
-  --vscode-tab-activeBackground: #222222 !important;
+  --vscode-tab-activeBackground: #222 !important;
+
+  background: var(--base) !important;
 }
 
 /* Add gap between panels */
 .part {
-  border-radius: var(--radius) !important;
   height: 100% !important;
+  border-radius: var(--radius) !important;
 }
 
 .left {
@@ -33,8 +37,8 @@
 }
 
 .tab.active {
-  border-radius: 8px;
   margin: 2px !important;
+  border-radius: 8px;
   margin-top: 0 !important;
 }
 
@@ -51,8 +55,8 @@
 }
 
 .panel {
-  margin-top: 0 !important;
   height: calc(100% - var(--gap)) !important;
+  margin-top: 0 !important;
   padding: 5px !important;
 }
 
@@ -64,18 +68,14 @@
   padding-left: 0 !important;
 }
 
-.monaco-workbench {
-  background: var(--base) !important;
-}
-
 .content {
   width: 100% !important;
 }
 
 /* Move Notifications to the left */
 .notifications-toasts {
-  left: 3px !important;
   right: unset !important;
+  left: 3px !important;
 }
 
 /* Evenly space out sidebar tabs */
@@ -85,7 +85,7 @@
   flex: 1;
 }
 
-.monaco-action-bar .action-item .action-label:before {
+.monaco-action-bar .action-item .action-label::before {
   left: unset !important;
 }
 
@@ -95,9 +95,9 @@
 
 /* Move open editor close button to the left */
 .open-editors .monaco-list .monaco-list-row {
-  padding-left: 14px !important;
-  padding-right: 12px !important;
   flex-direction: row-reverse !important;
+  padding-right: 12px !important;
+  padding-left: 14px !important;
 }
 
 /* Remove sidebar Header */
@@ -108,4 +108,37 @@
 /* Remove panel border top */
 .monaco-workbench .part.panel.bottom .composite.title {
   border-top: none !important;
+}
+
+/* Code Lens Color by type */
+.codelens-decoration a[title^=""] {
+  color: #ff596b !important;
+
+  &:hover {
+    color: #ff7a88 !important;
+  }
+}
+
+.codelens-decoration a[title^=""] {
+  color: #fffb77 !important;
+
+  &:hover {
+    color: #fffc99 !important;
+  }
+}
+
+.codelens-decoration a[title^=""] {
+  color: #83bbff !important;
+
+  &:hover {
+    color: #a0ccff !important;
+  }
+}
+
+.codelens-decoration a[title^=""] {
+  color: #99ff82 !important;
+
+  &:hover {
+    color: #b3ff9f !important;
+  }
 }
