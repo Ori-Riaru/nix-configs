@@ -90,6 +90,28 @@
           readlink (command which $argv[1])
         '';
       };
+
+      cd = {
+        body = ''
+          set -l limit 50
+
+          if test (count $argv) -gt 0
+            builtin cd $argv[1]
+          else
+            builtin cd
+          end
+
+          set -l entries (lsd -1)
+          set -l count (count $entries)
+
+          if test $count -le $limit
+            lsd
+          else
+            lsd -1 | head -n $limit
+            echo "… ($count items total)"
+          end
+        '';
+      };
     };
   };
 }
