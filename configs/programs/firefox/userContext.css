@@ -2,12 +2,11 @@
   /* Firefox variables */
   --sidebar-width-collapsed: 36px;
   --sidebar-width-expanded: 250px;
-
   --bookmark-columns: 3;
 
   /* Generic variables */
-  --font: Inter;
-  --font-mono-space: JetBrainsMono Nerd Font;
+  --font: inter;
+  --font-mono-space: "JetBrainsMono Nerd Font";
 
   /* accent, link, selection background */
   --accent: var(--purple-1);
@@ -18,7 +17,6 @@
   --base: #080808; /* @nix settings.base */
   --section: #181818; /* @nix settings.section */
   --card: #353535; /* @nix settings.card */
-
   --input: var(--black-2);
   --overlay: var(--black-2);
 
@@ -26,15 +24,14 @@
   --spacing-0: 3px;
   --spacing-1: 8px;
   --spacing-2: 12px;
-
   --border-1: 0px;
   --border-2: 0px;
-
-  --radius-1: 8px; /* @nix settings.radius-1 */
-  --radius-2: 12px; /* @nix settings.radius-2 */
-  --radius-3: 18px; /* @nix settings.radius-3 */
+  --radius-1: 0px; /* @nix settings.radius-1 */
+  --radius-2: 0px; /* @nix settings.radius-2 */
+  --radius-3: 0px; /* @nix settings.radius-3 */
 
   /* Main text, Headlines */
+
   /* Punctuation (brackets, semicolons, etc.) */
   --text: var(--white-3); /* @nix settings.text */
 
@@ -49,21 +46,24 @@
   --black-0: #141414; /* @nix settings.black */
 
   /* white */
-  --white-4: #ffffff; /* @nix settings.white */
+  --white-4: #fff; /* @nix settings.white */
   --white-3: #f0f0f0;
   --white-2: #dfdfdf;
   --white-1: #cacaca;
   --white-0: #ababab;
 
   /* error, remove, close, delete */
+
   /* Tags (HTML/XML), annotations */
   --red: #ff596b; /* @nix settings.red */
 
   /* warning */
+
   /* Numbers, numeric literals */
   --orange: #ffa062; /* @nix settings.orange */
 
   /* info, help */
+
   /* Classes, constructors, special types */
   --yellow: #fffb77; /* @nix settings.yellow */
 
@@ -71,6 +71,7 @@
   --green: #99ff82; /* @nix settings.green */
 
   /* success, new, add */
+
   /* Variable names, constants */
   --teal: #80ffc1; /* @nix settings.teal */
 
@@ -78,22 +79,28 @@
   --cyan: #7ef8fe; /* @nix settings.cyan */
 
   /* neutral */
+
   /* Function names, declarations */
   --blue: #83bbff; /* @nix settings.blue */
 
   /* modified, changed, edit */
+
   /* Keywords, reserved words, important terms */
   --purple: #a386ff; /* @nix settings.purple */
 
   /* Operators (+, -, *, etc.) */
   --pink: #fe99fe; /* @nix settings.pink */
-
   --brown: #ba8d70; /* @nix settings.brown */
 }
 
-@-moz-document url("about:home"), url("about:newtab") {
+/* stylelint-disable-next-line at-rule-no-deprecated */
+@document url("about:home"), url("about:newtab") {
   :root {
     color: blue !important;
+  }
+
+  html {
+    overflow: hidden;
   }
 
   .outer-wrapper {
@@ -101,8 +108,16 @@
   }
 
   main {
-    margin: 0 !important;
     width: 100% !important;
+    margin: 0 !important;
+  }
+
+  main.newtab-main {
+    min-width: 0;
+  }
+
+  .newtab-main {
+    overflow: hidden;
   }
 
   .activity-stream {
@@ -114,62 +129,12 @@
   }
 
   .search-handoff-button {
-    background: var(--input) !important;
     height: 4em;
-  }
-
-  .body-wrapper {
-    margin: 0 !important;
-    width: 100% !important;
-  }
-
-  .top-sites-list {
-    width: 100% !important;
-    margin: 0 !important;
-  }
-
-  .top-sites {
-    padding: 0;
-  }
-
-  .top-sites-list {
-    display: grid !important;
-    gap: 5px !important;
-  }
-
-  .top-site-outer {
-    min-width: 0 !important;
-    width: 100% !important;
-    height: 100%;
-    background: var(--card);
-    margin: 0;
-  }
-
-  main.newtab-main {
-    min-width: 0;
-  }
-
-  .newtab-main {
-    overflow: hidden;
-  }
-
-  .collapsible-section.top-sites {
-    padding: 0;
-  }
-
-  .tile {
-    background: transparent !important;
-    box-sizing: ;
-    box-shadow: none !important;
+    background: var(--input) !important;
   }
 
   .search-wrapper {
     padding: 0 !important;
-  }
-
-  .collapsible-section.top-sites {
-    padding: 20px !important;
-    padding-top: 0 !important;
   }
 
   .search-inner-wrapper {
@@ -178,33 +143,41 @@
     padding-bottom: 5px;
   }
 
-  /* Inline #11 | about:newtab */
+  .body-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+  }
 
-  .top-site-icon.rich-icon {
-    width: 100%;
+  /* Top Sites */
+  .top-sites {
+    padding: 0;
+  }
+
+  .collapsible-section.top-sites {
+    padding: 20px !important;
+    padding-top: 0 !important;
+  }
+
+  .top-sites-list {
+    display: grid !important;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 5px !important;
+
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .top-site-outer {
+    width: 100% !important;
+    min-width: 0 !important;
     height: 100%;
-    position: absolute;
-    top: 0;
-  }
+    margin: 0;
 
-  .icon-wrapper {
-    display: contents !important;
-  }
-
-  .tile {
-    display: contents !important;
+    background: var(--card);
   }
 
   .top-site-inner {
     height: 100%;
-  }
-
-  .top-sites-list {
-    grid-template-rows: repeat(8, 1fr);
-  }
-
-  html {
-    overflow: hidden;
   }
 
   .title-label {
@@ -214,22 +187,49 @@
 
   .title.has-icon.pinned {
     position: absolute;
-    top: 0;
-    left: 0;
-    background: var(--card);
+    inset: 0;
+
+    margin: var(--spacing-0);
+    padding: 0;
+    border-radius: var(--radius-1);
+
     opacity: 0;
+    background: var(--card);
   }
 
   .top-site-inner:hover .title.has-icon.pinned {
     opacity: 1;
   }
 
-  .title.has-icon.pinned {
-    bottom: 0;
-    right: 0;
-    padding: 0;
-    margin: var(--spacing-0);
-    border-radius: var(--radius-1);
+  .top-site-button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+  }
+
+  .top-site-icon.rich-icon {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .top-site-icon.default-icon {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  /* Tiles & Icons */
+  .tile {
+    display: contents !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .icon-wrapper {
+    display: contents !important;
   }
 
   .icon.icon-pin-small {
@@ -239,31 +239,24 @@
   .context-menu-button.icon {
     top: var(--spacing-0);
   }
+}
 
-  .top-site-button {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 0 !important;
-  }
-
-  .top-site-icon.default-icon {
-    width: 100%;
-    height: 100%;
-  }
-
-  .top-site-icon.default-icon {
-    background-size: cover;
+/* stylelint-disable-next-line at-rule-no-deprecated */
+@document url("about:home"), url("about:newtab"), url("about:blank") {
+  body {
+    background-color: #080808 !important;
   }
 }
 
-@-moz-document url("about:blank") {
+/* stylelint-disable-next-line at-rule-no-deprecated */
+@document url("about:blank") {
   * {
     background-color: var(--section) !important;
   }
 }
 
-@-moz-document regexp("^moz-extension://.*?/sidebar/sidebar.html")
+/* stylelint-disable-next-line at-rule-no-deprecated */
+@document regexp("^moz-extension://.*?/sidebar/sidebar.html")
 {
   body {
     --s-frame-bg: var(--section) !important;

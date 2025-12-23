@@ -606,6 +606,48 @@
             "lb;"
           ];
         };
+
+        "Logo" = {
+          urls = [
+            {
+              template = "https://logosear.ch/?q={searchTerms}";
+            }
+          ];
+          icon = "https://letterboxd.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [
+            "logo;"
+          ];
+        };
+
+        "Font Awesome" = {
+          urls = [
+            {
+              template = "https://fontawesome.com/search?q={searchTerms}";
+            }
+          ];
+          icon = "https://letterboxd.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [
+            "icons;"
+            "icon;"
+            "font;"
+            "fa;"
+          ];
+        };
+        "Pinterest" = {
+          urls = [
+            {
+              template = "https://ca.pinterest.com/search/pins/?q={searchTerms}";
+            }
+          ];
+          icon = "https://letterboxd.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [
+            "pin;"
+            "pinterest;"
+          ];
+        };
       };
     };
   };
