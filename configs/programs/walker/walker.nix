@@ -118,13 +118,29 @@
               name_pretty = "Bookmarks";
               icon = "bookmarks-symbolic";
               entries = let
-                focus-command = "sleep 0.1 && niri msg action focus-window --id \"$(niri msg --json windows | jq -r '.[] | select(.app_id == \"firefox\") | .id' | head -n 1)\"";
+                focus-command = ''
+                  sleep 0.1 && \
+                  current_id="$(niri msg --json focused-window | jq -r '.id')" && \
+                  current_app="$(niri msg --json windows | jq -r --arg id "$current_id" '.[] | select(.id == ($id|tonumber)) | .app_id')" && \
+                  [ "$current_app" = "firefox" ] || \
+                  niri msg action focus-window --id "$(
+                    niri msg --json windows \
+                      | jq -r '.[] | select(.app_id == "firefox") | .id' \
+                      | head -n 1
+                  )"
+                '';
               in [
                 {
                   text = "Youtube";
                   icon = "youtube";
-                  keywords = ["youtube"];
+                  keywords = ["youtube" "yt"];
                   actions = {open = "xdg-open https://www.youtube.com/feed/subscriptions && ${focus-command}";};
+                }
+                {
+                  text = "Online Fix";
+                  icon = "online fix";
+                  keywords = ["online fix"];
+                  actions = {open = "xdg-open https://online-fix.me/ && ${focus-command}";};
                 }
                 {
                   text = "Jellyfin";
@@ -135,12 +151,18 @@
                 {
                   text = "Github";
                   icon = "github";
-                  keywords = ["github" "git"];
+                  keywords = ["gh" "github" "git"];
                   actions = {open = "xdg-open https://github.com && ${focus-command}";};
                 }
                 {
                   text = "Mastodon";
                   icon = "/home/riaru/.config/elephant/icons/mastodon.svg";
+                  keywords = ["mastodon" "void" "my void"];
+                  actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
+                }
+                {
+                  text = "Void";
+                  icon = "/home/riaru/.config/elephant/icons/void.png";
                   keywords = ["mastodon" "void" "my void"];
                   actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
                 }
@@ -701,7 +723,7 @@
               icon = "nix-snowflake";
               prefix = "nix;";
               url = "https://wiki.nixos.org/w/index.php?search=%TERM%";
-              suggestions_url = "https://nixos.wiki/api.php?action=opensearch&format=json&formatversion=2&search=%TERM%&namespace=0&limit=10";
+              suggestions_url = "https://wiki.nixos.org/w/rest.php/v1/search/title?q=%TERM%&limit=10";
               suggestions_path = "1";
             }
             {
@@ -1132,7 +1154,7 @@
       '';
 
       layouts = {
-        layout = ''                  
+        layout = ''            
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
