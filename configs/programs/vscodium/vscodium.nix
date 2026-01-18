@@ -1,8 +1,10 @@
 {
   pkgs,
   settings,
+  config,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     direnv
   ];
@@ -21,74 +23,74 @@
 
       keybindings = [
         # Move word by default
-        {
-          "key" = "left";
-          "command" = "-cursorLeft";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "right";
-          "command" = "-cursorRight";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "ctrl+left";
-          "command" = "-cursorWordLeft";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "ctrl+right";
-          "command" = "-cursorWordRight";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "alt+right";
-          "command" = "-workbench.action.navigateForward";
-        }
-        {
-          "key" = "alt+left";
-          "command" = "-workbench.action.navigateBack";
-        }
-        {
-          "key" = "left";
-          "command" = "cursorWordPartLeft";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "right";
-          "command" = "cursorWordPartRight";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "ctrl+left";
-          "command" = "cursorLeft";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "ctrl+right";
-          "command" = "cursorRight";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "shift+left";
-          "command" = "cursorWordPartLeftSelect";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "shift+right";
-          "command" = "cursorWordPartRightSelect";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "ctrl+shift+left";
-          "command" = "cursorLeftSelect";
-          "when" = "editorTextFocus";
-        }
-        {
-          "key" = "ctrl+shift+right";
-          "command" = "cursorRightSelect";
-          "when" = "editorTextFocus";
-        }
+        # {
+        #   "key" = "left";
+        #   "command" = "-cursorLeft";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "right";
+        #   "command" = "-cursorRight";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "ctrl+left";
+        #   "command" = "-cursorWordLeft";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "ctrl+right";
+        #   "command" = "-cursorWordRight";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "alt+right";
+        #   "command" = "-workbench.action.navigateForward";
+        # }
+        # {
+        #   "key" = "alt+left";
+        #   "command" = "-workbench.action.navigateBack";
+        # }
+        # {
+        #   "key" = "left";
+        #   "command" = "cursorWordPartLeft";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "right";
+        #   "command" = "cursorWordPartRight";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "ctrl+left";
+        #   "command" = "cursorLeft";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "ctrl+right";
+        #   "command" = "cursorRight";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "shift+left";
+        #   "command" = "cursorWordPartLeftSelect";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "shift+right";
+        #   "command" = "cursorWordPartRightSelect";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "ctrl+shift+left";
+        #   "command" = "cursorLeftSelect";
+        #   "when" = "editorTextFocus";
+        # }
+        # {
+        #   "key" = "ctrl+shift+right";
+        #   "command" = "cursorRightSelect";
+        #   "when" = "editorTextFocus";
+        # }
 
         # Jump cursor by 4 lines
         {
@@ -136,37 +138,37 @@
 
         # Delete word by default
 
-        {
-          "key" = "delete";
-          "command" = "-deleteRight";
-          "when" = "editorTextFocus && !editorReadonly";
-        }
-        {
-          "key" = "backspace";
-          "command" = "-deleteLeft";
-          "when" = "editorTextFocus && !editorReadonly";
-        }
+        # {
+        #   "key" = "delete";
+        #   "command" = "-deleteRight";
+        #   "when" = "editorTextFocus && !editorReadonly";
+        # }
+        # {
+        #   "key" = "backspace";
+        #   "command" = "-deleteLeft";
+        #   "when" = "editorTextFocus && !editorReadonly";
+        # }
 
-        {
-          "key" = "delete";
-          "command" = "deleteWordPartRight";
-          "when" = "editorTextFocus && !editorReadonly";
-        }
-        {
-          "key" = "backspace";
-          "command" = "deleteWordPartLeft";
-          "when" = "editorTextFocus && !editorReadonly";
-        }
-        {
-          "key" = "ctrl+delete";
-          "command" = "deleteRight";
-          "when" = "editorTextFocus && !editorReadonly";
-        }
-        {
-          "key" = "ctrl+backspace";
-          "command" = "deleteLeft";
-          "when" = "editorTextFocus && !editorReadonly";
-        }
+        # {
+        #   "key" = "delete";
+        #   "command" = "deleteWordPartRight";
+        #   "when" = "editorTextFocus && !editorReadonly";
+        # }
+        # {
+        #   "key" = "backspace";
+        #   "command" = "deleteWordPartLeft";
+        #   "when" = "editorTextFocus && !editorReadonly";
+        # }
+        # {
+        #   "key" = "ctrl+delete";
+        #   "command" = "deleteRight";
+        #   "when" = "editorTextFocus && !editorReadonly";
+        # }
+        # {
+        #   "key" = "ctrl+backspace";
+        #   "command" = "deleteLeft";
+        #   "when" = "editorTextFocus && !editorReadonly";
+        # }
 
         # Expand region shortcuts
         {
