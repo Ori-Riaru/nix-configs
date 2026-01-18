@@ -26,6 +26,17 @@
     '')
   ];
 
+  # MANUAL
+  # rbw register
+  # rbw login
+  programs.rbw = {
+    enable = true;
+    settings = {
+      email = "ori-riaru@proton.me";
+      pinentry = pkgs.pinentry-tty;
+    };
+  };
+
   programs.walker = {
     enable = true;
     runAsService = true;
@@ -50,6 +61,7 @@
           "menus:power"
           "menus:bookmarks"
           "menus:efi"
+          "menu:smarthome"
         ];
         prefixes = [
           {
@@ -84,7 +96,26 @@
             prefix = ">";
             provider = "runner";
           }
+          {
+            prefix = "@";
+            provider = "bitwarden";
+          }
         ];
+
+        actions = {
+          bitwarden = [
+            {
+              action = "copypassword";
+              default = true;
+              bind = "Return";
+            }
+            {
+              action = "copypassword";
+              default = true;
+              bind = "shift Return";
+            }
+          ];
+        };
 
         clipboard.time_format = "relative";
       };
@@ -94,6 +125,11 @@
 
     elephant = {
       providers = [
+        "desktopapplications"
+        "runner"
+        "symbols"
+        "calc"
+        "windows"
         "menus"
         "websearch"
         "clipboard"
@@ -108,9 +144,15 @@
         "desktopapplications"
         "files"
         "nirisessions"
+        "niriactions"
+        "bitwarden"
       ];
 
       provider = {
+        "desktopapplications".settings = {
+          launch_prefix = "systemd-run --user --scope";
+        };
+
         "menus" = {
           toml = {
             "Bookmarks" = {
@@ -249,7 +291,7 @@
                   text = "Shutdown";
                   keywords = ["shutdown" "power off" "off"];
                   icon = "system-shutdown-symbolic";
-                  actions = {shutdown = "systemctl shutdown";};
+                  actions = {shutdown = "systemctl poweroff";};
                 }
                 {
                   text = "Restart";
@@ -293,6 +335,19 @@
                   text = "Boot Windows";
                   keywords = ["reboot" "restart" "windows"];
                   icon = "󰖳";
+                  actions = {"boot windows" = "boot-windows";};
+                }
+              ];
+            };
+
+            "smarthome" = {
+              name = "smarthome";
+              name_pretty = "Smart Home";
+              icon = "";
+              entries = [
+                {
+                  text = "Toggle Lights";
+                  icon = "";
                   actions = {"boot windows" = "boot-windows";};
                 }
               ];
@@ -419,14 +474,25 @@
         "snippets".settings = let
           hexToRgb = hex: let
             clean = builtins.substring 1 (builtins.stringLength hex - 1) hex;
-            r = builtins.fromTOML "x=0x${builtins.substring 0 2 clean}";
-            g = builtins.fromTOML "x=0x${builtins.substring 2 2 clean}";
-            b = builtins.fromTOML "x=0x${builtins.substring 4 2 clean}";
+            r = fromTOML "x=0x${builtins.substring 0 2 clean}";
+            g = fromTOML "x=0x${builtins.substring 2 2 clean}";
+            b = fromTOML "x=0x${builtins.substring 4 2 clean}";
           in "${toString r.x},${toString g.x},${toString b.x}";
         in {
           command = "wl-copy %CONTENT%; wtype -M ctrl v -m ctrl";
           icon = "preferences-color-symbolic";
           snippets = [
+            # login
+            {
+              keywords = ["proton" "ori" "email"];
+              name = "ori-riaru@proton.me";
+              content = "ori-riaru@proton.me";
+            }
+            {
+              keywords = ["google" "ori" "gmail"];
+              name = "ori.riaru@gmail.com";
+              content = "ori.riaru@gmail.com";
+            }
             # Hex Colors
             {
               keywords = ["accent"];
@@ -691,6 +757,7 @@
           text_prefix = "";
           engine_finder_prefix = "e;";
           engine_finder_default_single = false;
+          browser_profile_path = "/home/riaru/.mozilla/firefox/riaru";
 
           entries = [
             {
@@ -1154,7 +1221,7 @@
       '';
 
       layouts = {
-        layout = ''            
+        layout = ''              
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
@@ -1174,7 +1241,7 @@
                   <property name="valign">center</property>
                   <property name="halign">center</property>
                   <property name="width-request">800</property>
-                  <property name="height-request">675</property>
+                  <property name="height-request">700</property>
                   <child>
                     <object class="GtkBox" id="Box">
                       <style>
