@@ -43,6 +43,7 @@
     ../../../configs/programs/cpp.nix
     ../../../configs/programs/act.nix
     ../../../configs/programs/opencode/opencode.nix
+    ../../../configs/programs/rstudio.nix
 
     # Communication
     ../../../configs/programs/discord.nix

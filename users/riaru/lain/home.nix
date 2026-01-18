@@ -22,7 +22,6 @@
     # Tools
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
-
     ../../../configs/programs/obsidian.nix
     ../../../configs/programs/libre-office.nix
     ../../../configs/programs/boxes.nix
@@ -50,6 +49,7 @@
     ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/act.nix
     ../../../configs/programs/opencode/opencode.nix
+    ../../../configs/programs/rstudio.nix
 
     ../../../configs/programs/nix.nix
     ../../../configs/programs/python.nix
