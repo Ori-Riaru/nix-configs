@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.11";
 
     nur = {
       url = "github:nix-community/nur";
@@ -26,12 +26,6 @@
     };
 
     # Programs
-    xremap-flake = {
-      url = "github:xremap/nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,6 +44,11 @@
     walker = {
       url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -213,9 +212,13 @@
     templates = {
       web.path = ./starters/web;
       cpp.path = ./starters/cpp;
+      opengl-path = ./starters/opengl;
+      r.path = ./starters/r;
+      r-notebook.path = ./starters/r-notebook;
       rust.path = ./starters/rust;
       java.path = ./starters/java;
       python.path = ./starters/python;
+      python-notebook.path = ./starters/python-notebook;
       typescript.path = ./starters/typescript;
       kernel-module.path = ./starters/kernel-module;
     };
