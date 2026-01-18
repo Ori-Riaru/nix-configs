@@ -1,4 +1,8 @@
-{config, settings, ...}: {
+{
+  config,
+  settings,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -26,6 +30,7 @@
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
     ../../configs/programs/openrgb/openrgb-system.nix
+    ../../configs/programs/sleepy-launcher.nix
 
     ../../users/riaru
   ];
