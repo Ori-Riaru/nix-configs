@@ -71,7 +71,7 @@
         scale = 1.25;
         position = {
           x = 1152;
-          y = 1080;
+          y = 160;
         };
       };
 
@@ -86,23 +86,23 @@
         scale = 1.25;
         position = {
           x = 0;
-          y = 920;
-        };
-      };
-
-      "Hewlett Packard HP 23cw 6CM5510JRK" = {
-        mode = {
-          height = 1080;
-          width = 1920;
-          refresh = 60.0;
-        };
-        transform.rotation = 180;
-        scale = 1;
-        position = {
-          x = 1462;
           y = 0;
         };
       };
+
+      # "Hewlett Packard HP 23cw 6CM5510JRK" = {
+      #   mode = {
+      #     height = 1080;
+      #     width = 1920;
+      #     refresh = 60.0;
+      #   };
+      #   transform.rotation = 180;
+      #   scale = 1;
+      #   position = {
+      #     x = 1462;
+      #     y = 0;
+      #   };
+      # };
     };
 
     layout = {
