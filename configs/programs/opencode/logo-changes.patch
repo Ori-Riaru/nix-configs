@@ -1,14 +1,16 @@
+diff --git a/packages/opencode/src/cli/cmd/tui/component/logo.tsx b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
+index 771962b75..05c186e89 100644
 --- a/packages/opencode/src/cli/cmd/tui/component/logo.tsx
 +++ b/packages/opencode/src/cli/cmd/tui/component/logo.tsx
-@@ -2,9 +2,9 @@
- import { For } from "solid-js"
- import { useTheme } from "@tui/context/theme"
+@@ -8,9 +8,9 @@ import { useTheme, tint } from "@tui/context/theme"
+ // ~ = shadow top only (▀ with fg=shadow)
+ const SHADOW_MARKER = /[_^~]/
  
--const LOGO_LEFT = [`                   `, `█▀▀█ █▀▀█ █▀▀█ █▀▀▄`, `█░░█ █░░█ █▀▀▀ █░░█`, `▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀  ▀`]
-+const LOGO_LEFT = [`                   `, `                   `, `                   `, `                   `]
+-const LOGO_LEFT = [`                   `, `█▀▀█ █▀▀█ █▀▀█ █▀▀▄`, `█__█ █__█ █^^^ █__█`, `▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀~~▀`]
++const LOGO_LEFT: string[] = []
  
--const LOGO_RIGHT = [`             ▄     `, `█▀▀▀ █▀▀█ █▀▀█ █▀▀█`, `█░░░ █░░█ █░░█ █▀▀▀`, `▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀`]
-+const LOGO_RIGHT = [`                   `, `                   `, `                   `, `                   `]
+-const LOGO_RIGHT = [`             ▄     `, `█▀▀▀ █▀▀█ █▀▀█ █▀▀█`, `█___ █__█ █__█ █^^^`, `▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀`]
++const LOGO_RIGHT: string[] = []
  
  export function Logo() {
    const { theme } = useTheme()
