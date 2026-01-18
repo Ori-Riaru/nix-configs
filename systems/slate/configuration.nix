@@ -9,7 +9,6 @@
     ../../configs/system/gdm.nix
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
-    ../../configs/programs/kde/kde-system.nix
     ../../configs/programs/sops.nix
     ../../configs/programs/niri/niri-system.nix
     ../../configs/programs/nfs-client.nix
