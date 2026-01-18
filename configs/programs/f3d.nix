@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    f3d
+  # BROKEN
+  #  f3d
   ];
 }
