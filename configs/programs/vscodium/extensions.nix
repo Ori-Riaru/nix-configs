@@ -3,6 +3,13 @@
   inputs,
   ...
 }: {
+  # Required for `reditorsupport` extension
+  home.file.".Rprofile".text = ''
+    if (interactive() && Sys.getenv("RSTUDIO") == "") {
+      source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
+    }
+  '';
+
   programs.vscode = {
     mutableExtensionsDir = false;
 
@@ -38,7 +45,7 @@
           zxh404.vscode-proto3
 
           # Python
-          #// ms-python.python
+          ms-python.python
           ms-toolsai.jupyter
 
           # C++
@@ -47,6 +54,10 @@
 
           # Java
           redhat.java
+
+          # R
+          reditorsupport.r
+          reditorsupport.r-syntax
 
           # Other
           grapecity.gc-excelviewer # CSV viewer
@@ -79,14 +90,13 @@
           #//charliermarsh.ruff
 
           # Other
-          prettier.prettier-vscode
+          # prettier.prettier-vscode
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
           #// jannisx11.batch-rename-extension
           sleistner.vscode-fileutils
         ])
-        
         ++ (with extensions.vscode-marketplace; [
           # Web
           csstools.postcss
