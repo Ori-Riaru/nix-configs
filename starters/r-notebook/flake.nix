@@ -9,31 +9,49 @@
     nixpkgs,
     flake-utils,
   }:
-    flake-utils.lib.eachDefaultSystem (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs;
-            [
-              R
-              radian
-              (python3.withPackages (ps: [
-                ps.jupyter
-                ps.notebook
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
+      devShells.default = pkgs.mkShell {
+        packages = with pkgs;
+          [
+            R
+            radian
+            (pkgs.python3.withPackages (python-pkgs:
+              with python-pkgs; [
+                jupyter
+                notebook
               ]))
-            ]
-            ++ (with rPackages; [
-              languageserver
-              IRkernel
-            ]);
-          shellHook = ''
-            mkdir -p .jupyter/kernels/ir
-            cp -r ${pkgs.rPackages.IRkernel}/library/IRkernel/kernelspec/* .jupyter/kernels/ir/
-            chmod -R u+w .jupyter/kernels/ir
-            export JUPYTER_PATH="$PWD/.jupyter"
-          '';
-        };
-      }
-    );
+          ]
+          ++ (with rPackages; [
+            languageserver
+            IRkernel
+            # tidyverse
+          ]);
+
+        shellHook = ''
+          # Register R kernel
+          mkdir -p .jupyter/kernels/nix_r
+          cat > .jupyter/kernels/nix_r/kernel.json <<EOF
+          {
+            "argv": [
+              "${pkgs.R}/bin/R",
+              "--slave",
+              "-e",
+              "IRkernel::main()",
+              "--args",
+              "{connection_file}"
+            ],
+            "display_name": "R (Nix)",
+            "language": "R"
+          }
+          EOF
+
+          export JUPYTER_PATH="$PWD/.jupyter:$JUPYTER_PATH"
+        '';
+      };
+    });
 }
