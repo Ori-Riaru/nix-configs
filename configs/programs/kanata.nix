@@ -306,13 +306,11 @@
 
           ;; unwrap u
           ;; bevel b
-
-
           (deflayer blender
             q    x y z i a y u i o
             shft g r s e g h j k l
             ctl  a c v k b n m . p
-                     alt @gesc ret @menu bspc
+                 alt @gesc ret @menu @menu
           )
 
           (deflayer gamenum
