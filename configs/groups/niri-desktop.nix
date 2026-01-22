@@ -5,6 +5,7 @@
     ../programs/walker/walker.nix
     ../programs/waybar/waybar.nix
     ../programs/mako.nix
+    ../programs/libnotify.nix
     ../programs/hypridle.nix
     ../programs/swww.nix
     ../programs/clipse.nix
