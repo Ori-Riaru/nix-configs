@@ -53,9 +53,9 @@
           "Music" = "󰝚 ";
           "Captures" = " ";
           "Games" = "";
-          "Notes" = "";      # Changed to sticky note icon
-          "Temp" = "";       # Stopwatch/timer for temporary
-          "Backups" = "";    # Hard drive icon for backups
+          "Notes" = ""; # Changed to sticky note icon
+          "Temp" = ""; # Stopwatch/timer for temporary
+          "Backups" = ""; # Hard drive icon for backups
           "Trash" = "";
         };
 
@@ -149,7 +149,13 @@
         show_always = true;
         style_user = "bg:purple fg:text";
         style_root = "bg:purple fg:text";
-        format = "[](fg:purple)[ $hostname ]($style)[](fg:purple)";
+        format = "[](fg:purple)[ $user ]($style)[](fg:purple)";
+      };
+
+      hostname = {
+        ssh_only = true;
+        style = "bg:purple fg:text";
+        format = " [](fg:purple)[ @$hostname ]($style)[](fg:purple) ";
       };
 
       line_break = {
