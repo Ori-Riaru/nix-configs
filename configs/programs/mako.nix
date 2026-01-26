@@ -8,7 +8,7 @@
   services.mako = {
     enable = true;
     settings = {
-      default-timeout = 1000;
+      default-timeout = 10000;
 
       background-color = lib.mkForce settings.card;
       text-color = lib.mkForce settings.text;
@@ -18,7 +18,7 @@
 
       width = 300;
       height = 1000;
-      padding = 20;
+      padding = 10;
 
       max-icon-size = 40;
 
