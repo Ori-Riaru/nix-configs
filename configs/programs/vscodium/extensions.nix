@@ -74,7 +74,6 @@
           gruntfuggly.todo-tree
           ms-vsliveshare.vsliveshare
           pkief.material-product-icons
-          github.copilot
           github.copilot-chat
           github.vscode-pull-request-github
         ]
@@ -104,6 +103,7 @@
           rubymaniac.vscode-paste-and-indent
           pcode-pl.vscode-autohide-plus
           stylelint.vscode-stylelint
+          ms-toolsai.jupyter-renderers
 
           #// philsinatra.nested-comments
           oven.bun-vscode
