@@ -45,7 +45,10 @@
       gs = "git status";
       gc = "git commit -m";
       gca = "git commit --amend";
+      gcl = "git clone";
       gac = "git add . && git commit -m";
+      gb = "git branch";
+      gf = "git fetch";
       gp = "git push";
       gl = "git pull";
       lg = "lazygit";
@@ -57,11 +60,11 @@
       ns = "nix-shell";
       nsp = "nix-shell -p";
 
+      oc = "opencode";
       code = "codium";
       files = "nautilus --new-window /mnt/nfs/riaru";
       fs = "nautilus --new-window /mnt/nfs/riaru";
       tt = "toipe";
-      type = "toipe";
       monkeytype = "toipe";
       configs = "codium ${settings.configPath}";
       bats = "bat --style plain";
@@ -81,7 +84,11 @@
 
       init = {
         body = ''
-          nix flake init --template ${settings.configPath}/#$argv[1]
+          if test (count $argv) -gt 0
+            mkdir $argv[1] && cd $argv[1] && nix flake init --template ${settings.configPath}/#$argv[2]
+          else
+            nix flake init --template ${settings.configPath}/#$argv[1]
+          end
         '';
       };
 
