@@ -37,12 +37,12 @@
     };
 
     elephant = {
-      url = "git+file:///mnt/nfs/riaru/Projects/elephant";
+      url = "github:Ori-Riaru/elephant/websearch-temp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     walker = {
-      url = "github:abenz1267/walker";
+      url = "github:abenz1267/walker/dev";
       inputs.elephant.follows = "elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
