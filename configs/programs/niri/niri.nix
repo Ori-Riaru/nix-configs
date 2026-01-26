@@ -108,6 +108,7 @@
     layout = {
       gaps = settings.gap + 2;
       center-focused-column = "never";
+      default-column-display = "tabbed";
       preset-column-widths = [
         {proportion = 0.1666666667;}
         {proportion = 0.3333333334;}
@@ -116,7 +117,7 @@
         {proportion = 0.8333333334;}
         {proportion = 1.0;}
       ];
-      default-column-width = {proportion = 0.5;};
+      default-column-width = {proportion = 0.3333333334;}; # TODO: make host specific
 
       focus-ring = {
         width = 2;
@@ -234,6 +235,7 @@
       # Applications
       "Mod+G".action.spawn = ["walker"];
       "Mod+V".action.spawn = ["walker" "--provider" "clipboard"];
+      "Mod+S".action.spawn = ["walker" "--provider" "websearch"];
       "Mod+Ctrl+G".action.spawn = ["ghostty"];
       "Mod+Ctrl+F".action.spawn = ["firefox"];
       "Mod+Ctrl+N".action.spawn = ["nautilus"];
@@ -254,7 +256,7 @@
         repeat = false;
       };
       "Mod+W".action.toggle-window-floating = {};
-      "Mod+L".action.toggle-column-tabbed-display = {};
+      "Mod+T".action.toggle-column-tabbed-display = {};
 
       # Window Focus
       "Mod+Up".action.focus-window-or-workspace-up = {};
