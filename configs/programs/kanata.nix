@@ -18,9 +18,10 @@
           ;; =====================
 
           (defvar
-            tap-time 200
-            hold-time 150
-            idle-time 60
+            idle-time 50
+            tap-time 100
+            hold-time 140
+            chord-time 200
           )
 
           ;; Base keyboard layout
@@ -31,82 +32,36 @@
                   lalt spc ralt rmet  rctl
           )
 
-          ;; =====================
-          ;; Templates & Helpers
-          ;; =====================
-
-          (defvirtualkeys
-            to-base (layer-switch default)
-          )
-
-          (deftemplate homerowmod (timeouttap timeouthold keytap keyhold)
-            (tap-hold $timeouttap $timeouthold
-              (multi $keytap  @.tp)
-              $keyhold
-            )
-          )
-
-          (deftemplate homerowmodfilter (timeouttap timeouthold keytap keyhold typinglist)
-            (tap-hold-except-keys $timeouttap $timeouthold
-              (multi $keytap  @.tp)
-              $keyhold
-              $typinglist
-            )
-          )
-
-          ;; =====================
+          ;; ====================
           ;; Aliases & Shortcuts
-          ;; =====================
+          ;; ====================
 
           (defalias
-            ;; Layer switching
-            game      (layer-switch game)
-            base      (layer-switch default)
-            qwerty    (layer-switch qwerty)
-            menu      (layer-while-held menu)
-            nav-shift (layer-while-held nav-shift)
-            blender   (layer-switch blender)
-            num-shift (layer-while-held num-shift)
-
-            ;; Special typing modes
-            typing (tap-dance-eager 500 (
-                (tap-hold $tap-time $hold-time ret (layer-while-held typing))
-                (layer-while-held num)
-              ))
-
-
-
-            ;; Modifiers
-            spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-            esc  (tap-hold $tap-time $hold-time esc (layer-while-held menu))
-            ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
-            tab  (tap-hold $tap-time $hold-time tab lalt)
-            gesc (tap-hold $tap-time $hold-time esc (layer-while-held gamenum))
-            bspc (tap-hold $tap-time $hold-time bspc (layer-while-held menu))
-
             ;; Text macros
             email (macro o r i - r i a r u S-2 p r o t o n . m e)
             google (macro o r i . r i a r u S-2 g m a i l . c o m)
 
-            ;; Common shortcuts
-            undo     C-z
-            redo     C-S-z
-            cut      C-x
-            paste    C-v
-            cliphist M-v
-            copy     C-c
-            find     C-f
-            replace  C-h
-            save     C-s
-            sall     C-a
-            sexpand  C-w
+            ;; General shortcuts
+            undo        C-z
+            redo        C-S-z
+            cut         C-x
+            paste       C-v
+            cliphist    M-v
+            websearch   M-s
+            copy        C-c
+            find        C-f
+            replace     C-h
+            save        C-s
+            sall        C-a
+            sexpand     C-e
+            sline       C-l
+            back        A-left
+            forward     A-rght
             screenshot  M-p
-
-            ;; Navigation shortcuts
-            back     A-left
-            forward  A-rght
+            close       C-w
 
             ;; Window management
+            open     C-o
             pallet   C-p
             launch   M-g
             overview M-o
@@ -130,20 +85,72 @@
             move-right  M-C-rght
 
             ;; Applications
-            ghostty  M-C-g 
+            ghostty  M-C-g
             firefox  M-C-f
             nautilus M-C-n
             codium   M-C-c
             vesktop  M-C-v
 
+            ;; Modifiers
+            spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
+            esc  (tap-hold $tap-time $hold-time esc (layer-while-held mouse))
+            ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
+            tab  (tap-hold $tap-time $hold-time tab lalt)
+            bspc (tap-hold $tap-time $hold-time bspc (layer-while-held menu))
+
+            ;; Mouse
+            ms-up      (movemouse-accel-up    1 1000 1 5)
+            ms-down    (movemouse-accel-down  1 1000 1 5)
+            ms-left    (movemouse-accel-left  1 1000 1 5)
+            ms-right   (movemouse-accel-right 1 1000 1 5)
+
+            ;; Dynamic macro recording/playback
+            m-rec-1    (dynamic-macro-record 1)
+            m-rec-2    (dynamic-macro-record 2)
+            m-play-1   (dynamic-macro-play 1)
+            m-play-2   (dynamic-macro-play 2)
+            m-stop     dynamic-macro-record-stop
+
+            ;; Layer switching
+            game      (layer-switch game)
+            base      (layer-switch default)
+            qwerty    (layer-switch qwerty)
+            menu      (layer-while-held menu)
+            nav-shift (layer-while-held nav-shift)
+            gamenum   (layer-while-held gamenum)
+            typing (tap-dance-eager 500 (
+              (tap-hold $tap-time $hold-time ret (layer-while-held default-game))
+              (layer-while-held num)
+            ))
+
             ;; Special functions
             .tp (switch
-                  ()  (multi
-                        (layer-switch typing)
-                        (on-idle $idle-time tap-vkey to-base)
-                      ) break
+                  () (multi
+                    (layer-switch typing)
+                    (on-idle $idle-time tap-vkey to-base)
+                  ) break
                 )
+
             .spc-typing (multi (layer-switch default) spc)
+          )
+
+          ;; =====================
+          ;; Templates & Helpers
+          ;; =====================
+
+          (deftemplate homerowmod (timeouttap timeouthold keytap keyhold)
+            (tap-hold $timeouttap $timeouthold
+              (multi $keytap  @.tp)
+              $keyhold
+            )
+          )
+
+          (deftemplate homerowmodfilter (timeouttap timeouthold keytap keyhold typinglist)
+            (tap-hold-except-keys $timeouttap $timeouthold
+              (multi $keytap  @.tp)
+              $keyhold
+              $typinglist
+            )
           )
 
           ;; =====================
@@ -152,30 +159,34 @@
 
           (defchordsv2
             ;; Global chords
-            (w e) tab              100 first-release (game gamenum qwerty nav)
-            (x c) (caps-word 500) 100 first-release (game blender gamenum qwerty typing)
-            (e r) /                100 first-release (game blender gamenum qwerty typing)
-            (q w) S-`              100 first-release (game blender gamenum qwerty typing)
+            (w e) tab              $chord-time first-release (game gamenum qwerty typing nav)
+            (x c) (caps-word 1000) $chord-time first-release (game gamenum qwerty typing)
+            (e r) /                $chord-time first-release (game gamenum qwerty typing)
+            (q w) S-`              $chord-time first-release (game gamenum qwerty typing)
 
             ;; Navigation chords
-            (p spc)   C-v    200        first-release (        game blender qwerty gamenum num )
-            (j k)     home   200        first-release (default game blender qwerty gamenum num typing)
-            (j k spc) home   200        first-release (        game blender qwerty gamenum num typing)
-            (k l)     end    200        first-release (default game blender qwerty gamenum num typing)
-            (k l spc) end    200        first-release (        game blender qwerty gamenum num typing)
-            (d j k)   S-home $hold-time first-release (default game blender qwerty gamenum num typing)
-            (d k l)   S-end  $hold-time first-release (default game blender qwerty gamenum num typing)
+            (p spc)   C-v    $chord-time first-release (        game qwerty gamenum num typing)
+            (j k)     home   $chord-time first-release (default game qwerty gamenum num typing)
+            (j k spc) home   $chord-time first-release (        game qwerty gamenum num typing)
+            (k l)     end    $chord-time first-release (default game qwerty gamenum num typing)
+            (k l spc) end    $chord-time first-release (        game qwerty gamenum num typing)
+            (d j k)   S-home $chord-time first-release (default game qwerty gamenum num typing)
+            (d k l)   S-end  $chord-time first-release (default game qwerty gamenum num typing)
 
             ;; Number/Symbol chords
-            (a z) S-, $hold-time first-release (default blender game qwerty gamenum nav typing)
-            (d c) S-} $hold-time first-release (default blender game qwerty gamenum nav typing)
-            (s x) }   $hold-time first-release (default blender game qwerty gamenum nav typing)
-            (f v) S-0 $hold-time first-release (default blender game qwerty gamenum nav typing)
+            (a s) }   $chord-time first-release (default game qwerty gamenum nav typing)
+            (s d) S-} $chord-time first-release (default game qwerty gamenum nav typing)
+            (d f) S-0 $chord-time first-release (default game qwerty gamenum nav typing)
+            (a f) S-, $chord-time first-release (default game qwerty gamenum nav typing)
           )
 
           ;; =====================
           ;; Key Overrides
           ;; =====================
+
+          (defvirtualkeys
+            to-base (layer-switch default)
+          )
 
           (defoverrides
             (lsft .)    (,)
@@ -202,16 +213,16 @@
             o (multi r @.tp)
             p (multi l @.tp)
 
-            a (t! homerowmod       $tap-time 200 a lmet)
-            s (t! homerowmod       $tap-time 200 o lalt)
-            d (t! homerowmodfilter $tap-time 160 e lsft (a b))
-            f (t! homerowmod       $tap-time 160 u lctl)
+            a (t! homerowmod       $tap-time 150 a lmet)
+            s (t! homerowmod       $tap-time 150 o lalt)
+            d (t! homerowmodfilter $tap-time 140 e lsft (a b))
+            f (t! homerowmod       $tap-time 140 u lctl)
             g (multi i @.tp)
             h (multi d @.tp)
-            j (t! homerowmod       $tap-time 160 h rctl)
-            k (t! homerowmodfilter $tap-time 160 t rsft (j))
-            l (t! homerowmod       $tap-time 200 n ralt)
-            ; (t! homerowmod       $tap-time 200 s rmet)
+            j (t! homerowmod       $tap-time 140 h rctl)
+            k (t! homerowmodfilter $tap-time 140 t rsft (j))
+            l (t! homerowmod       $tap-time 150 n ralt)
+            ; (t! homerowmod       $tap-time 150 s rmet)
 
             z (multi ; @.tp)
             x (multi q @.tp)
@@ -231,6 +242,47 @@
             rctl @bspc
           )
 
+          (deflayermap (default-game)
+            q '
+            w -
+            e .
+            r p
+            t y
+            y f
+            u g
+            i c
+            o r
+            p l
+
+            a (tap-hold             $tap-time 150 a lmet)
+            s (tap-hold             $tap-time 150 o lalt)
+            d (tap-hold-except-keys $tap-time 140 e lsft (a b))
+            f (tap-hold             $tap-time 140 u lctl)
+            g i
+            h d
+            j (tap-hold             $tap-time 140 h rctl)
+            k (tap-hold-except-keys $tap-time 140 t rsft (j))
+            l (tap-hold             $tap-time 150 n ralt)
+            ; (tap-hold             $tap-time 150 s rmet)
+
+            z ;
+            x q
+            c j
+            v k
+            b x
+            n b
+            m m
+            , w
+            . v
+            / z
+
+            lalt @esc
+            spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
+            ralt _
+            rmet @bspc
+            rctl @bspc
+          )
+
           ;; Additional layers
           (deflayer typing
             ' - . p y   f    g  c r l
@@ -241,37 +293,37 @@
 
           (deflayer num
             `   S-3 S-7 S-\ S-5 /   1 2 3 =
-            <   [   S-[ S-9 S-, S-= 4 5 6 0
-            S-2 S-4 S-/ S-1 \ S-8 7 8 9 .
-            @esc @num-shift @ret @bspc @bspc
-          )
-
-          (deflayer num-shift
-            _ _ _ _ _ _ F1 F2 F3 F11
-            _ _ _ _ _ _ F4 F5 F6 F10
-            _ _ _ _ _ _ F8 F7 F8 F12
-               _ _ _ _ _
+            <   [   S-[ S-9 S-6 S-8 4 5 6 0
+            S-2 S-4 S-/ S-1 \   S-= 7 8 9 -
+            . @nav-shift @ret @bspc @bspc
           )
 
           (deflayer nav
-            @quit       @full     @monitor @pallet          @overview @save       @undo @copy @cut    @paste
-            @focus-left @focus-up @focus-down @focus-right @launch         @find       lft   up    down     rght
-            @back       @size-back @size  @forward     @float    _           @sall @sexpand _ _
-                                              _            _         @nav-shift del   del
+            @quit       @full      @launch     @open        @pallet  @save      @undo    @copy    @cut @paste
+            @focus-left @focus-up  @focus-down @focus-right @monitor @find      lft      up       down rght
+            @back       @size-back @size       @forward     @float   @sall      @sexpand @sline   _    _
+                                               _            _        @nav-shift del del
           )
 
           (deflayer nav-shift
-            _          @max     @move-monitor _           _ _        _ _ _ @cliphist
-            @move-left @move-up @move-down @move-right _ @replace _ _ _ _
-            _          _        _          _           _ _        _ _ _ _
+            @close     @max     @websearch _         _ @cliphist F1 F2 F3 F10
+            @move-left @move-up @move-down @move-right @move-monitor @replace F4 F5 F6 F11
+            _          _        _          _           _ _         F7 F8 F9 F12
                                            _           _ _        _ _
           )
 
           (deflayer menu
-            _ _ _ @screenshot @email  @google @base @game @qwerty @blender
-             @codium @nautilus @firefox @ghostty @vesktop _ left up down right
-            _ prev pp next  _ _     _     volu   voldwn  _
-                            _ _      _     _     _
+            @email  @google   _        @screenshot _        @m-stop @base     @game    @qwerty _
+            @codium @nautilus @firefox @ghostty    @vesktop @m-rec-1    left      up       down    right
+            _       prev      pp       next        _        @m-rec-2    @m-play-1 @m-play-2 volu    voldwn
+            _       _         _        _           _
+          )
+
+          (deflayer mouse
+            _          mwl        @ms-up     mwr         _          _    mlft mmid mrgt _
+            _     @ms-left   @ms-down   @ms-right        _ _   mlft mmid mrgt _
+            _          mbck       mwd        mwu         mfwd       _    _    _    _    _
+                                  mlft       mrgt        @menu      _    _
           )
 
           (deflayer qwerty
@@ -282,41 +334,16 @@
           )
 
           (deflayer game
-            @tab q w e     r   t   y     up   i     @menu
-            shft a s d     f   g   left  down right ret
-            ctl  z x c     v   b   h     _    _     m
-                     @gesc spc @typing   @bspc @bspc
-          )
-
-          ;;Application layers
-          ;; inset i
-          ;; extrude e
-          ;; select all a
-          ;; quick favorites q
-          ;; select linked l
-          ;; hide h
-          ;; knife k
-
-          ;; loop r
-          ;; copy circle select c
-          ;; past parent p
-
-          ;; proportional edit o
-          ;; wireframe undo z
-
-          ;; unwrap u
-          ;; bevel b
-          (deflayer blender
-            q    x y z i a y u i o
-            shft g r s e g h j k l
-            ctl  a c v k b n m . p
-                 alt @gesc ret @menu @menu
+            tab  q w e        r   t   y     up   i     j
+            shft a s d        f   g   left  down right ret
+            ctl  z x c        v   b   h     u    n     m
+                     @gamenum spc @typing   @bspc @bspc
           )
 
           (deflayer gamenum
-            _   1 2 3 _ _ _ _ _ _
-            tab 4 5 6 0 _ _ _ _ _
-            _   7 8 9 . _ _ _ _ _
+            esc 1 2 3 - +   F1 F2  F3  F4
+            tab 4 5 6 0 S-8 F5 F6  F7  F8
+            /  7 8 9 .  =   F9 F10 F11 F12
                   _ _ _ _ _
           )
         '';
