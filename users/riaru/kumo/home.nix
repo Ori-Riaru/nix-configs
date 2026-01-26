@@ -7,6 +7,7 @@
     ../../../configs/programs/screen-savers.nix
     ../../../configs/programs/btop.nix
     ../../../configs/programs/git.nix
+    ../../../configs/programs/ghostty.nix
     ../../../configs/system/folders.nix
   ];
 
