@@ -2,9 +2,9 @@
   services.nfs.server = {
     enable = true;
     exports = ''
-      /export 192.168.1.0/24(rw,fsid=0,no_subtree_check) 100.64.0.0/10(rw,fsid=0,no_subtree_check)
-      /export/riaru 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async) 100.64.0.0/10(rw,nohide,insecure,no_subtree_check,async)
-      /export/bulk 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async) 100.64.0.0/10(rw,nohide,insecure,no_subtree_check,async)
+      /export 192.168.1.0/24(rw,fsid=0,no_subtree_check,no_root_squash) 100.64.0.0/10(rw,fsid=0,no_subtree_check,no_root_squash)
+      /export/riaru 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async,no_root_squash) 100.64.0.0/10(rw,nohide,insecure,no_subtree_check,async,no_root_squash)
+      /export/bulk 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async,no_root_squash) 100.64.0.0/10(rw,nohide,insecure,no_subtree_check,async,no_root_squash)
     '';
   };
 
