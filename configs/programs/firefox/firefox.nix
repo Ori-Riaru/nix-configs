@@ -42,8 +42,10 @@
         redirector
         pwas-for-firefox
         web-clipper-obsidian
-
+        
         # Missing downloads
+        # copy-url-with-ctrl-shift-c
+        # claude-usage-tracker
         # deadname remover
         # custom new page
         # enhancer-for-youtube
