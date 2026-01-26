@@ -19,6 +19,7 @@
     "editor.suggestSelection" = "recentlyUsedByPrefix";
     "git.autofetch" = true;
     "gitlens.telemetry.enabled" = false;
+    "editor.find.seedSearchStringFromSelection" = "never";
 
     # Formatting
     "editor.defaultFormatter" = "prettier.prettier-vscode";
@@ -338,7 +339,7 @@
     };
 
     "redhat.telemetry.enabled" = false;
-
+    "chat.disableAIFeatures" = false;
     "direnv.restart.automatic" = true;
     # Error Lens
 
@@ -349,7 +350,7 @@
     "errorLens.warningForeground" = "${settings.orange}";
 
     "errorLens.enabled" = true;
-    "errorLens.codeLensEnabled" = true;
+    "errorLens.codeLensEnabled" = false;
     "editor.codeLensFontFamily" = "JetBrainsMono Nerd Font";
     "editor.codeLensFontSize" = 14;
     "errorLens.severityText" = ["" "" "" ""];
