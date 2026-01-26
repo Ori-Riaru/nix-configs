@@ -25,6 +25,7 @@
     ../../../configs/programs/obsidian.nix
     ../../../configs/programs/libre-office.nix
     ../../../configs/programs/boxes.nix
+    ../../../configs/programs/gnome-disk-util.nix
 
     ../../../configs/programs/obs-studio.nix
     ../../../configs/programs/shotcut.nix
