@@ -23,7 +23,6 @@
         ublock-origin
         fastforwardteam
         tampermonkey
-        darkreader
         stylus
         wayback-machine
         istilldontcareaboutcookies
@@ -34,7 +33,7 @@
         sidebery
         swift-selection-search
         buster-captcha-solver
-        user-agent-string-switcher
+        # user-agent-string-switcher
         userchrome-toggle
         windscribe
         augmented-steam
@@ -42,13 +41,13 @@
         redirector
         pwas-for-firefox
         web-clipper-obsidian
-        
+
         # Missing downloads
         # copy-url-with-ctrl-shift-c
         # claude-usage-tracker
         # deadname remover
         # custom new page
-        # enhancer-for-youtube
+        # tweaks for youtube
         # infy-scroll
         # automail
         # smart-prevent-duplicate-tabs
