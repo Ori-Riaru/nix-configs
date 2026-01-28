@@ -22,10 +22,11 @@
     # Tools
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
+    ../../../configs/programs/vivaldi.nix
     ../../../configs/programs/obsidian.nix
     ../../../configs/programs/libre-office.nix
     ../../../configs/programs/boxes.nix
-    ../../../configs/programs/gnome-disk-util.nix
+    ../../../configs/programs/baobab.nix
 
     ../../../configs/programs/obs-studio.nix
     ../../../configs/programs/shotcut.nix
