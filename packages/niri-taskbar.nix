@@ -1,13 +1,14 @@
 {pkgs ? import <nixpkgs> {}}:
 pkgs.rustPlatform.buildRustPackage rec {
   pname = "niri-taskbar";
-  version = "0.3.0";
+  version = "0.4.0";
   src = pkgs.fetchFromGitHub {
-    owner = "LawnGnome";
+    owner = "oniX0n";
     repo = "niri-taskbar";
-    rev = "v${version}+niri.25.08";
-    sha256 = "sha256-Gbzh4OTkvtP9F/bfDUyA14NH2DMDdr3i6oFoFwinEAg=";
+    rev = "main";
+    sha256 = "sha256-new3meof7jO3wljTzutdYGXpJTTgchKm/eUbHqU6S9M=";
   };
+
   cargoLock.lockFile = src + "/Cargo.lock";
 
   nativeBuildInputs = [
