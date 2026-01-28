@@ -5,12 +5,12 @@
       enable = true;
       defaultApplications = {
         # Web
-        "text/html" = "firefox.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/about" = "firefox.desktop";
-        "x-scheme-handler/unknown" = "firefox.desktop";
-        "application/xhtml+xml" = "firefox.desktop";
+        "text/html" = "vivaldi-stable";
+        "x-scheme-handler/http" = "vivaldi-stable.desktop";
+        "x-scheme-handler/https" = "vivaldi-stable.desktop";
+        "x-scheme-handler/about" = "vivaldi-stable.desktop";
+        "x-scheme-handler/unknown" = "vivaldi-stable.desktop";
+        "application/xhtml+xml" = "vivaldi-stable.desktop";
 
         # Text files and code - VSCodium
         "text/plain" = "codium.desktop";
@@ -105,7 +105,7 @@
         "application/x-matroska" = "dragon.desktop";
 
         # PDFs
-        "application/pdf" = "firefox.desktop";
+        "application/pdf" = "vivaldi-stable.desktop";
 
         # Archives - Nautilus (GNOME Files can handle basic archives)
         "application/zip" = "org.gnome.Nautilus.desktop";

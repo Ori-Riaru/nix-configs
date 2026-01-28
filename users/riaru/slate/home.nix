@@ -13,6 +13,7 @@
 
     # Tools
     ../../../configs/programs/stylelint.nix
+    ../../../configs/programs/vivaldi.nix
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
     ../../../configs/programs/ghostty.nix
@@ -51,7 +52,7 @@
     ../../../configs/programs/slack.nix
 
     # Media
-    ../../../configs/programs/spotify/spotify.nix
+    # ../../../configs/programs/spotify/spotify.nix
     ../../../configs/programs/heroic.nix
 
     # System

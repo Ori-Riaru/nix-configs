@@ -1,0 +1,126 @@
+#theming-customcss-input {
+        height: 900px !important;
+}
+
+:root, a {
+  --border-radius-rounded: 12px !important;
+  --border-radius-pill: 12px !important;
+}
+
+button {
+  border-radius: 12px !important;
+}
+
+.list-item {
+    border-radius: 12px !important;
+}
+
+.header-right {
+  position: fixed;
+  bottom: 8px;
+  left: 0;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+#user-menu {
+  margin: 0;
+}
+
+:not(.side-menu-always-displayed) body {
+   left: 50px !important;
+}
+
+#content,
+#content-vue {
+  width: calc(100% - 50px) !important;
+  height: 100%;
+  margin: 0 !important;
+}
+
+#side-menu {
+  z-index: 2;
+  min-width: 50px !important;
+  margin-right: -50px !important;
+  box-shadow: none;
+}
+
+#contactsmenu {
+  overflow: visible;
+}
+
+#header-menu-notifications,
+#header-menu-contactsmenu {
+  position: absolute;
+  top: -350px;
+  left: 60px !important;
+
+  width: 365px;
+  height: 400px;
+}
+
+#header-menu-user-menu {
+  position: absolute;
+  left: 55px;
+  translate: 0 -330px;
+
+  width: 270px;
+  height: fit-content;
+}
+
+.unified-search-menu,
+#notifications > button > span > span > span > svg,
+#contactsmenu > button > span > span > span > svg {
+  filter: invert(1);
+}
+
+#header {
+  height:  0 !important;
+}
+
+.side-menu-header {
+    display: none;
+}
+
+.app-navigation {
+    width: 250px !important;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.splitpanes.default-theme .splitpanes__splitter {
+    border: none !important;
+    background: var(--color-main-background) !important;
+}
+
+.html-message-body {
+    margin: 0 !important;
+}
+
+.app-navigation,
+#app-navigation,
+#app-navigation:not(.vue) {
+    backdrop-filter: none !important;
+}
+
+#side-menu, #body-settings {
+    background: transparent !important;
+}
+
+html {
+    background: var(--color-primary) !important;
+}
+
+.side-menu-app {
+    overflow: hidden;
+    margin: 2px;
+    border-radius: 6px;
+}
+
+.side-menu-app > a {
+    padding: 9px 13px;
+}
+
+.side-menu-opener {
+    display: none;
+}
