@@ -40,6 +40,7 @@
                   type = "bookmarks";
                   groups = [
                     {
+                      same-tab = true;
                       links = [
                         {
                           title = "Github";
@@ -71,6 +72,8 @@
                 }
                 {
                   type = "videos";
+                  style = "grid-cards";
+                  limit = 50;
                   channels = [
                     "UCshObcm-nLhbu8MY50EZ5Ng" # Benn Jordan
                     "UCx_Qyb3447P9bBaT4o8QSjQ" # LilAggy
