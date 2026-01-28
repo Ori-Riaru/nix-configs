@@ -1019,7 +1019,7 @@
         popover {
           background: lighter(@window_bg_color);
           border: 2px solid @accent_bg_color;
-          border-radius: 6px;
+          border-radius: ${settings.radius};
           padding: 10px;
         }
 
@@ -1046,7 +1046,7 @@
             0 15px 12px rgba(0, 0, 0, 0.22);
           background: @window_bg_color;
           padding: 20px;
-          border-radius: 8px;
+          border-radius: ${settings.radius};
           border: 2px solid @accent_bg_color;
         }
 
@@ -1060,7 +1060,7 @@
         }
 
         .search-container {
-          border-radius: 6px;
+          border-radius: ${settings.radius};
         }
 
         .input placeholder {
@@ -1099,13 +1099,13 @@
         }
 
         .item-box {
-          border-radius: 6px;
+          border-radius: ${settings.radius};
           padding: 10px;
         }
 
         .item-quick-activation {
           background: alpha(@accent_bg_color, 0.25);
-          border-radius: 5px;
+          border-radius: ${settings.radius};
           padding: 10px;
         }
 
@@ -1134,7 +1134,7 @@
         .preview {
           border: 0;
           padding: 10px;
-          border-radius: 10px;
+          border-radius: ${settings.radius};
           color: @theme_fg_color;
         }
 
@@ -1201,7 +1201,7 @@
 
         .keybind-label {
           padding: 2px 4px;
-          border-radius: 4px;
+          border-radius: ${settings.radius};
           border: 1px solid @theme_fg_color;
         }
 
@@ -1221,7 +1221,7 @@
       '';
 
       layouts = {
-        layout = ''              
+        layout = ''            
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
