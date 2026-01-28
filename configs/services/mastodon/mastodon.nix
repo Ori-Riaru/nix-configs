@@ -17,7 +17,10 @@
     localDomain = "my.v0id.nl";
     configureNginx = true;
     smtp.fromAddress = "ori-riaru@proton.me";
-    extraConfig.SINGLE_USER_MODE = "true";
+    extraConfig = {
+      SINGLE_USER_MODE = "true";
+      ALTERNATE_DOMAINS = "kumo.tailcba954.ts.net";
+    };
     streamingProcesses = 3;
 
     package = pkgs.callPackage "${pkgs.path}/pkgs/servers/mastodon" {
