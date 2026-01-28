@@ -90,6 +90,7 @@
             nautilus M-C-n
             codium   M-C-c
             vesktop  M-C-v
+            lights M-l
 
             ;; Modifiers
             spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
@@ -308,14 +309,14 @@
           (deflayer nav-shift
             @close     @max     @websearch _         _ @cliphist F1 F2 F3 F10
             @move-left @move-up @move-down @move-right @move-monitor @replace F4 F5 F6 F11
-            _          _        _          _           _ _         F7 F8 F9 F12
-                                           _           _ _        _ _
+            _          _        _          _           _ _        F7 F8 F9 F12
+                                           _           _ _        _  _
           )
 
           (deflayer menu
-            @email  @google   _        @screenshot _        @m-stop @base     @game    @qwerty _
-            @codium @nautilus @firefox @ghostty    @vesktop @m-rec-1    left      up       down    right
-            _       prev      pp       next        _        @m-rec-2    @m-play-1 @m-play-2 volu    voldwn
+            @email   @google   _        @screenshot _         @lights @base @game @qwerty _
+            @codium  @nautilus @firefox @ghostty    @vesktop  _       left  up    down    right
+            @m-rec-1 @m-rec-2  @m-stop  @m-play-1   @m-play-2 prev    pp    volu  voldwn  next
             _       _         _        _           _
           )
 

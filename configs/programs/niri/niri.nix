@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   settings,
+  config,
   ...
 }: {
   home.packages = with pkgs; [
@@ -196,6 +197,8 @@
 
     binds = {
       "Mod+H".action.show-hotkey-overlay = {};
+
+      "Mod+L".action.spawn = ["sh" "-c" "kasa --host 192.168.1.72 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle"];
 
       # System controls
       "Mod+Ctrl+L" = {
