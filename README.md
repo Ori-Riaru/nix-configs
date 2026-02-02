@@ -36,15 +36,15 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ![niri preview](./.github/kde-preview.gif)
 
-- [Firefox](./configs/programs/firefox/firefox.nix)
+- [Vivaldi](./configs/programs/vivaldi.nix)
 
-![Firefox Preview](./.github/firefox-preview.png)
+![Vivaldi Preview](./.github/vivaldi-preview.png)
 
 - [VSCodium](./configs/programs/vscodium/)
 
 ![vscodium preview](./.github/vscodium-preview.png)
 
-- [Ghostty](./configs/programs/ghostty.nix) / [Fish](./configs/programs/fish.nix) / [Starship](./configs/programs/starship.nix) / [Zoxide](./configs/programs/zoxide.nix) / [etc](./configs/groups/cli-base.nix)
+- [Ghostty](./configs/programs/ghostty.nix) / [Fish](./configs/programs/fish.nix) /  [Starship](./configs/programs/starship.nix) / [Zoxide](./configs/programs/zoxide.nix) / [etc](./configs/groups/cli-base.nix)
 
 ![ghostty preview](./.github/ghostty-preview.png)
 

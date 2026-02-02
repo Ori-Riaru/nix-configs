@@ -201,100 +201,117 @@ parse_config:
   zmk_preamble: '#define KEYMAP_DRAWER'
   zmk_additional_includes: []
 
-======================================
-layout: {cols_thumbs_notation: 33333+2 2+33333}
+===
+layout: {cols_thumbs_notation: 33333+2 3+33333}
 layers:
   Default:
     - [{t: "'", s: "\""}, {t: "-", s: "_"}, {t: ".", s: ","}, P, Y, F, G, C, R, L]
-    - [{h: Meta, t: A}, {h: Alt, t: O}, {h: Ctrl, t: E}, {h: Shift, t: U}, I, D, {h: Ctrl, t: H}, {h: Shift, t: T}, {h: Alt, t: N}, {h: Meta, t: S}]
-    - [{t: ";", s: ":" }, Q, J, K, X, B, M, W, V, Z]
-    - Esc
+    - [{h: Meta, t: A}, {h: Alt, t: O}, {h: Shift, t: E}, {h: Ctrl, t: U}, I, D, {h: Ctrl, t: H}, {h: Shift, t: T}, {h: Alt, t: N}, {h: Meta, t: S}]
+    - [{t: ";", s: ":"}, Q, J, K, X, B, M, W, V, Z]
+    - {h: Mouse, t: Esc}
     - {h: Nav, t: Space}
     - {h: Num, t: Enter}
     - {h: Menu, t: Backspace}
-  
-  Menu:
-    - ["", "","", "", "", "", Default, Game, Qwerty, ""]
-    - ["" , "", "", "", "", "", ⬅, ⬆, ⬇, ➡]
-    - ["Email Macro", "Gmail Macro", "", "Screen Shot", "", "", Volume Up, Volume Down, "", ""]
-    - Esc
-    - Space
-    - ""
-    - {type: held}
+    - {h: Menu, t: Backspace}
 
-    
-  Num:
-    - ["`", "#", "|", "&", "%", /, 1, 2, 3, "="]
-    - [ <, "[", "{", "(", ">", +, 4, 5, 6, 0]
-    - ["@", $, "?", "!", "\\", "*", 7, 8, 9, .]
-    - Esc
+  Typing:
+    - ["'", "-", ".", P, Y, F, G, C, R, L]
+    - [A, O, E, U, I, D, H, T, N, S]
+    - [";", Q, J, K, X, B, M, W, V, Z]
+    - {h: Mouse, t: Esc}
     - Space
-    - {type: held}
-    - ""
-  
-  Num-shifted:
-    - ["", "", "", "", "", "", F1, F2, F3, F11]
-    - ["", "", "", "", "", "", F4, F5, F6, F10]
-    - ["", "", "", "", "", "^", F7, F8, F9, F12]
-    - ""
-    - {type: held}
-    - {type: held}
-    - ""
-    
+    - {h: Num, t: Enter}
+    - {h: Menu, t: Backspace}
+    - {h: Menu, t: Backspace}
+
   Nav:
-    - [Quit, Full- screen-, -Pallet, Next Monitor, Overview, Save, Undo, Copy, Cut, Paste]
-    - [{h: Meta, t: Focus Left}, {h: Alt, t: Focus/ Workspace Up}, {h: Ctrl, t: Focus/ Workspace Down}, {h: Shift, t: Focus Right}, Lancher, Find, ⬅, ⬆, ⬇, ➡]
-    - [Back, Shink Column, Grow Column, Forward, Float, "", Select All, Expand Select, "", ""]
+    - [Quit, Fullscreen, Launcher, Open, Pallet, Save, Undo, Copy, Cut, Paste]
+    - [{h: Meta, t: Focus Left}, {h: Alt, t: Focus Up}, {h: Shift, t: Focus Down}, {h: Ctrl, t: Focus Right}, Monitor, Find, ⬅, ⬆, ⬇, ➡]
+    - [Back, Resize Back, Resize, Forward, Float, Select All, Expand Select, Select Line, "", ""]
     - ""
     - {type: held}
     - {h: Nav-shift}
     - Delete
-    
+    - Delete
+
   Nav-shift:
-    - ["", Maximize, "", "", Move Next Monitor, "", "", "", "", Clip History]
-    - [Move Left, Move/ Workspace Up, Move/ Workspace Down, Move Right, "", "", "", "", "", ""]
-    - ["", "", "", "", "", "", Select All, Expand Select, "", ""]
+    - [Close, Maximize, Web Search, "", "", Clip History, F1, F2, F3, F10]
+    - [Move Left, Move Up, Move Down, Move Right, Move Monitor, Replace, F4, F5, F6, F11]
+    - ["", "", "", "", "", "", F7, F8, F9, F12]
     - ""
     - {type: held}
     - {type: held}
     - ""
-    
+    - ""
+
+  Num:
+    - ["`", "#", "&", "|", "%", "/", 1, 2, 3, "="]
+    - ["<", "[", "{", "(", "^", "*", 4, 5, 6, 0]
+    - ["@", "$", "?", "!", "\\", "+", 7, 8, 9, "-"]
+    - "."
+    - {h: Nav-shift}
+    - {type: held}
+    - {h: Menu, t: Backspace}
+    - {h: Menu, t: Backspace}
+
+  Menu:
+    - [Email Macro, Gmail Macro, "", Screenshot, "", Lights, Default, Game, Qwerty, ""]
+    - [Codium, Nautilus, Browser, Ghostty, Vesktop, "", ⬅, ⬆, ⬇, ➡]
+    - [Macro Rec 1, Macro Rec 2, Macro Stop, Macro Play 1, Macro Play 2, Prev, Play/Pause, Vol Up, Vol Down, Next]
+    - ""
+    - ""
+    - ""
+    - {type: held}
+    - {type: held}
+
+  Mouse:
+    - ["", Scroll Left, Mouse Up, Scroll Right, "", "", Left Click, Middle Click, Right Click, ""]
+    - ["", Mouse Left, Mouse Down, Mouse Right, "", "", Left Click, Middle Click, Right Click, ""]
+    - ["", Back, Scroll Down, Scroll Up, Forward, "", "", "", "", ""]
+    - {type: held}
+    - Left Click
+    - Right Click
+    - {h: Menu}
+    - ""
+
   Game:
-    - [ Tab, Q, W, E, R, T, Y, ⬆, I, ""]
-    - [ Shift, A, S, D, F, G, ⬅, ⬇, ➡, ""]
-    - [ Ctrl, Z, X, C, V, B, "", "", "", M]
+    - [Tab, Q, W, E, R, T, Y, ⬆, I, J]
+    - [Shift, A, S, D, F, G, ⬅, ⬇, ➡, Enter]
+    - [Ctrl, Z, X, C, V, B, H, U, N, M]
     - {h: Game-Num, t: Esc}
     - Space
-    - {h: "Default", t: "Enter"}
-    - {h: "Menu", t: "Backspace"}
-    
-  Game-Num: 
-    - [ "", 1, 2, 3, "", "", "", "", "", ""]
-    - [ Shift, 4, 5, 6, 0, "", "", "", "", ""]
-    - [ Alt, 7, 8, 9, ., "", "", "", "", ""]
+    - {h: Typing, t: Enter}
+    - {h: Menu, t: Backspace}
+    - {h: Menu, t: Backspace}
+
+  Game-Num:
+    - [Esc, 1, 2, 3, "-", "+", F1, F2, F3, F4]
+    - [Tab, 4, 5, 6, 0, "*", F5, F6, F7, F8]
+    - ["/", 7, 8, 9, ".", "=", F9, F10, F11, F12]
     - {type: held}
     - ""
-    - Enter
-    - Backspace
-    
+    - ""
+    - ""
+    - ""
+
   Qwerty:
-    - [ Q, W, E, R, T, Y, U, I, O, P]
-    - [ A, S, D, F, G, H, J, K, L, ;]
-    - [ Z, X, C, V, B, N, M, ",", ".", "/"]
+    - [Q, W, E, R, T, Y, U, I, O, P]
+    - [A, S, D, F, G, H, J, K, L, ";"]
+    - [Z, X, C, V, B, N, M, ",", ".", "/"]
     - Alt
     - Space
     - Alt
-    - {h: "Menu", t: "Meta"}
-    
+    - {h: Menu, t: Meta}
+    - {h: Menu, t: Meta}
+
 combos:
   - {p: [1, 2], k: "Tab", l: ["Default", "Num"]}
-  - {p: [21, 22], k: "Caps Word", l: ["Default"]}
-  - {p: [0, 1], k: "~", l: ["Default"]}
-  - {p: [2, 3], k: "/", l: ["Default"]}
-  - {p: [10, 20], k: ">", l: ["Num"]}
-  - {p: [11, 21], k: "]", l: ["Num"]}
-  - {p: [12, 22], k: "}", l: ["Num"]}
-  - {p: [13, 23], k: ")", l: ["Num"]}
+  - {p: [21, 22], k: "Caps Word", l: ["Default", "Num"]}
+  - {p: [0, 1], k: "~", l: ["Default", "Num"]}
+  - {p: [2, 3], k: "/", l: ["Default", "Num"]}
+  - {p: [10, 11], k: "]", l: ["Num"]}
+  - {p: [11, 12], k: "}", l: ["Num"]}
+  - {p: [12, 13], k: ")", l: ["Num"]}
+  - {p: [10, 13], k: "<", l: ["Num"], a: bottom}
   - {p: [16, 17], k: "Home", l: ["Nav"]}
   - {p: [17, 18], k: "End", l: ["Nav"]}
-  
