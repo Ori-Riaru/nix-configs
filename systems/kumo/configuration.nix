@@ -18,10 +18,10 @@
     ../../configs/services/blocky.nix
     ../../configs/services/glance.nix
     ../../configs/services/inadyn.nix
+    ../../configs/services/nextcloud.nix
 
     #// ../../configs/services/n8n.nix
     #// ../../configs/services/hytale.nix
-    #// ../../configs/services/nextcloud.nix
     #// ../../configs/services/minecraft.nix
     #// ../../configs/services/factorio.nix
     #// ../../configs/services/homeassistant.nix
