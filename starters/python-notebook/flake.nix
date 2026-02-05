@@ -26,6 +26,7 @@
             ipykernel
             jupyter
             notebook
+            pip
             # numpy
             # pandas
             # matplotlib
