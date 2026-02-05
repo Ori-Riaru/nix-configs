@@ -62,8 +62,7 @@
 
       oc = "opencode";
       code = "codium";
-      files = "nautilus --new-window /mnt/nfs/riaru";
-      fs = "nautilus --new-window /mnt/nfs/riaru";
+      fs = "files";
       tt = "toipe";
       monkeytype = "toipe";
       configs = "codium ${settings.configPath}";
@@ -84,7 +83,7 @@
 
       init = {
         body = ''
-          if test (count $argv) -gt 0
+          if test (count $argv) -gt 1
             mkdir $argv[1] && cd $argv[1] && nix flake init --template ${settings.configPath}/#$argv[2]
           else
             nix flake init --template ${settings.configPath}/#$argv[1]
@@ -116,6 +115,16 @@
           else
             lsd -1 | head -n $limit
             echo "… ($count items total)"
+          end
+        '';
+      };
+      
+      files = {
+        body = ''
+          if test (count $argv) -gt 0
+            nautilus $argv[1] >/dev/null 2>&1 & disown
+          else
+            nautilus /mnt/nfs/riaru >/dev/null 2>&1 & disown
           end
         '';
       };
