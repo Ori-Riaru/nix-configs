@@ -3,6 +3,7 @@
   inputs,
   settings,
   config,
+  lib,
   ...
 }: {
   imports = [
@@ -164,10 +165,10 @@
                   sleep 0.1 && \
                   current_id="$(niri msg --json focused-window | jq -r '.id')" && \
                   current_app="$(niri msg --json windows | jq -r --arg id "$current_id" '.[] | select(.id == ($id|tonumber)) | .app_id')" && \
-                  [ "$current_app" = "firefox" ] || \
+                  [ "$current_app" = "vivaldi-stable" ] || \
                   niri msg action focus-window --id "$(
                     niri msg --json windows \
-                      | jq -r '.[] | select(.app_id == "firefox") | .id' \
+                      | jq -r '.[] | select(.app_id == "vivaldi-stable") | .id' \
                       | head -n 1
                   )"
                 '';
@@ -278,6 +279,15 @@
                   icon = "ms-word";
                   keywords = ["docs"];
                   actions = {open = "xdg-open https://word.cloud.microsoft/ && ${focus-command}";};
+                }
+                {
+                  text = "Miruro";
+                  keywords = ["anime"];
+                  actions = {open = "xdg-open https://www.miruro.to/ && ${focus-command}";};
+                }
+                {
+                  text = "Arena";
+                  actions = {open = "xdg-open https://arena.ai && ${focus-command}";};
                 }
               ];
             };
@@ -1019,7 +1029,7 @@
         popover {
           background: lighter(@window_bg_color);
           border: 2px solid @accent_bg_color;
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
           padding: 10px;
         }
 
@@ -1046,7 +1056,7 @@
             0 15px 12px rgba(0, 0, 0, 0.22);
           background: @window_bg_color;
           padding: 20px;
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
           border: 2px solid @accent_bg_color;
         }
 
@@ -1060,7 +1070,7 @@
         }
 
         .search-container {
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
         }
 
         .input placeholder {
@@ -1099,13 +1109,13 @@
         }
 
         .item-box {
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
           padding: 10px;
         }
 
         .item-quick-activation {
           background: alpha(@accent_bg_color, 0.25);
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
           padding: 10px;
         }
 
@@ -1134,7 +1144,7 @@
         .preview {
           border: 0;
           padding: 10px;
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
           color: @theme_fg_color;
         }
 
@@ -1201,7 +1211,7 @@
 
         .keybind-label {
           padding: 2px 4px;
-          border-radius: ${settings.radius};
+          border-radius: ${toString settings.radius}px;
           border: 1px solid @theme_fg_color;
         }
 
@@ -1221,7 +1231,7 @@
       '';
 
       layouts = {
-        layout = ''            
+        layout = ''                  
           <?xml version="1.0" encoding="UTF-8"?>
           <interface>
             <requires lib="gtk" version="4.0"></requires>
