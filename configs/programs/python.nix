@@ -5,6 +5,15 @@
       (python-pkgs:
         with python-pkgs; [
           ruff
+          ipython
+          ipykernel
+          jupyter
+          notebook
+          numpy
+          matplotlib
+          torch
+          torchvision
+          pip
         ])
     )
   ];
