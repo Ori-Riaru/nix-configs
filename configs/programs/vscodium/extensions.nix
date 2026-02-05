@@ -86,7 +86,7 @@
 
           # Python
           kevinrose.vsc-python-indent
-          #//charliermarsh.ruff
+          charliermarsh.ruff
 
           # Other
           # prettier.prettier-vscode

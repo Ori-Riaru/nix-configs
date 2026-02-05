@@ -47,24 +47,48 @@
                           url = "https://github.com/";
                         }
                         {
-                          title = "Anilist";
-                          url = "https://anilist.co/";
-                        }
-                        {
                           title = "Proton";
                           url = "https://mail.proton.me/u/4/inbox";
                         }
                         {
-                          title = "Claude";
-                          url = "https://claude.ai/";
+                          title = "Online Fix";
+                          url = "https://online-fix.me/";
+                        }
+                        {
+                          title = "Anilist";
+                          url = "https://anilist.co/";
                         }
                         {
                           title = "Letterboxd";
                           url = "https://letterboxd.com/";
                         }
                         {
-                          title = "My Void";
-                          url = "https://my.v0id.nl/";
+                          title = "Jellyfin";
+                          url = "https://riaru.undo.it/web";
+                        }
+                        {
+                          title = "Void";
+                          url = "https://my.v0id.nl";
+                        }
+                        {
+                          title = "Lemmy";
+                          url = "https://phtn.app/?type=Subscribed";
+                        }
+                        {
+                          title = "Claude";
+                          url = "https://claude.ai/";
+                        }
+                        {
+                          title = "ChatGPT";
+                          url = "https://chatgpt.com";
+                        }
+                        {
+                          title = "Gemini";
+                          url = "https://gemini.google.com/app";
+                        }
+                        {
+                          title = "Arena";
+                          url = "https://arena.ai";
                         }
                       ];
                     }
