@@ -10,6 +10,7 @@
           process-unmapped-keys yes
           concurrent-tap-hold yes
           override-release-on-activation yes
+          dynamic-macro-max-presses 1000
         '';
 
         config = ''
@@ -86,7 +87,7 @@
 
             ;; Applications
             ghostty  M-C-g
-            firefox  M-C-f
+            browser  M-C-f
             nautilus M-C-n
             codium   M-C-c
             vesktop  M-C-v
@@ -110,7 +111,7 @@
             m-rec-2    (dynamic-macro-record 2)
             m-play-1   (dynamic-macro-play 1)
             m-play-2   (dynamic-macro-play 2)
-            m-stop     dynamic-macro-record-stop
+            m-stop     (dynamic-macro-record-stop-truncate 1)
 
             ;; Layer switching
             game      (layer-switch game)
@@ -315,7 +316,7 @@
 
           (deflayer menu
             @email   @google   _        @screenshot _         @lights @base @game @qwerty _
-            @codium  @nautilus @firefox @ghostty    @vesktop  _       left  up    down    right
+            @codium  @nautilus @browser @ghostty    @vesktop  _       left  up    down    right
             @m-rec-1 @m-rec-2  @m-stop  @m-play-1   @m-play-2 prev    pp    volu  voldwn  next
             _       _         _        _           _
           )

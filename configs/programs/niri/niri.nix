@@ -240,7 +240,7 @@
       "Mod+V".action.spawn = ["walker" "--provider" "clipboard"];
       "Mod+S".action.spawn = ["walker" "--provider" "websearch"];
       "Mod+Ctrl+G".action.spawn = ["ghostty"];
-      "Mod+Ctrl+F".action.spawn = ["firefox"];
+      "Mod+Ctrl+F".action.spawn = ["vivaldi"];
       "Mod+Ctrl+N".action.spawn = ["nautilus"];
       "Mod+Ctrl+C".action.spawn = ["codium"];
       "Mod+Ctrl+V".action.spawn = ["vesktop"];
