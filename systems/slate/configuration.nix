@@ -18,6 +18,7 @@
     ../../configs/programs/steam.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
+    ../../configs/programs/renderdoc.nix
 
     ../../configs/services/tailscale.nix
 

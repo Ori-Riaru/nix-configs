@@ -31,6 +31,7 @@
     ../../configs/programs/sudo.nix
     ../../configs/programs/openrgb/openrgb-system.nix
     ../../configs/programs/sleepy-launcher.nix
+    ../../configs/programs/renderdoc.nix
 
     ../../users/riaru
   ];
