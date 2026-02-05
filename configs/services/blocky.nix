@@ -32,6 +32,7 @@
         mapping = {
           "my.v0id.nl" = "${settings.serverLocalIP}";
           "riaru.undo.it" = "${settings.serverLocalIP}";
+          "riaru.home.kg" = "${settings.serverLocalIP}";
           "router.box" = "192.168.1.41";
         };
       };

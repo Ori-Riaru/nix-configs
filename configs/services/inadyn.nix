@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       provider."afraid.org" = {
-        hostname = ["my.v0id.nl" "riaru.undo.it" "riaru.developer.li"];
+        hostname = ["my.v0id.nl" "riaru.undo.it" "riaru.developer.li" "riaru.home.kg"];
         username = "riaru";
         include = config.sops.templates."afraid_pass.conf".path;
       };

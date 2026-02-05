@@ -7,9 +7,7 @@
 {pkgs, ...}: {
   security.acme = {
     acceptTerms = true;
-    defaults = {
-      email = "riaruazaki@proton.me";
-    };
+    defaults.email = "ori-riaru@proton.me";
   };
 
   services.mastodon = {
