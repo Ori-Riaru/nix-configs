@@ -45,6 +45,8 @@
     ../../../configs/programs/act.nix
     ../../../configs/programs/opencode/opencode.nix
     ../../../configs/programs/rstudio.nix
+    # ../../../configs/programs/kde/kde.nix
+    ../../../configs/programs/unityhub.nix
 
     # Communication
     ../../../configs/programs/discord.nix

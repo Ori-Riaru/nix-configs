@@ -56,6 +56,7 @@
     ../../../configs/programs/nix.nix
     ../../../configs/programs/python.nix
     ../../../configs/programs/cpp.nix
+    ../../../configs/programs/unityhub.nix
 
     # Communication
     ../../../configs/programs/discord.nix
