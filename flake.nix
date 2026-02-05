@@ -102,7 +102,7 @@
       tertiary = yellow;
 
       gap = 1; # px
-      radius = 0; # px
+      radius = 2; # px
 
       text = "#ffffff";
       subtext = "#888888";
@@ -212,7 +212,7 @@
     templates = {
       web.path = ./starters/web;
       cpp.path = ./starters/cpp;
-      opengl-path = ./starters/opengl;
+      opengl.path = ./starters/opengl;
       r.path = ./starters/r;
       r-notebook.path = ./starters/r-notebook;
       rust.path = ./starters/rust;
