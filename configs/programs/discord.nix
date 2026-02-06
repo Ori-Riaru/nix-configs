@@ -5,6 +5,7 @@
     vencord = {
       themes = {
         "adblock" = "@import url(https://croissantdunord.github.io/discord-adblock/adblock.css);";
+        "color" = "@import url(https://KillYoy.github.io/DiscordNight/DiscordNight.css)";
       };
 
       settings = {
