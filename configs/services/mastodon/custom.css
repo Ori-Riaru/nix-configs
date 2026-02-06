@@ -1,16 +1,56 @@
 /* stylelint-disable selector-class-pattern, selector-id-pattern */
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
 :root {
-  --section: #181818;
+  --section: #111;
   --subtext: #eee;
-  --base: #080808 !important;
-  --card: #222;
-  --radius: 6px;
+  --base: #111 !important;
+  --card: #181818;
+  --radius: 2px;
   --text: white;
-  --gap: 5px;
-  --accent: #a080ff;
+  --gap: 7px;
+  --accent: #a386ff;
   --background-color: var(--base) !important;
   --background-border-color: #0000 !important;
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 100 900;
+
+  src:
+    local("Hiragino Sans"),
+    local("Hiragino Kaku Gothic ProN"),
+    local("Yu Gothic"),
+    local("Meiryo"),
+    local("Noto Sans CJK JP"),
+    local("Noto Sans JP");
+  unicode-range:
+    U+3000-303F,   /* Japanese punctuation */
+    U+3040-309F,   /* Hiragana */
+    U+30A0-30FF,   /* Katakana */
+    U+4E00-9FFF,   /* CJK Unified Ideographs */
+    U+F900-FAFF,   /* CJK Compatibility Ideographs */
+    U+FF00-FFEF;   /* Fullwidth Forms */
+}
+
+body,
+.compose-form__highlightable,
+.status__content,
+.account__header__bio,
+.reply-indicator__content,
+.compose-form .autosuggest-textarea__textarea,
+.compose-form .spoiler-input__input {
+  font-family:
+    Inter,
+    "Noto Sans JP",       
+    "Hiragino Sans",      
+    "Hiragino Kaku Gothic ProN", 
+    "Yu Gothic",          
+    Meiryo,             
+    "Noto Sans CJK JP",  
+    sans-serif !important;
 }
 
 /* Layout & Structure */
@@ -19,44 +59,15 @@ article,
   margin-bottom: var(--gap) !important;
   border: 0 !important;
   border-radius: var(--radius) !important;
-  background: var(--section) !important;
+  background: var(--card) !important;
 }
 
-.columns-area__panels__pane__inner {
-  padding-right: 10px !important;
-  padding-left: 10px !important;
-  border-radius: 10px !important;
-  background: #181818 !important;
-}
-
-.columns-area__panels__pane__inner:has(.compose-panel) {
-  translate: calc(17px - var(--gap));
-}
-
-.columns-area__panels__pane__inner:has(.navigation-panel) {
-  translate: calc(var(--gap) - 17px);
-}
-
-.columns-area__panels__main {
-  translate: 0 calc(0px - var(--gap));
-}
 
 .navigation-panel__logo {
   display: none !important;
 }
 
 /* Tabs & Navigation */
-.tabs-bar__wrapper {
-  top: calc(55px + var(--gap));
-  padding: 0 !important;
-  padding-top: var(--gap) !important;
-  padding-bottom: var(--gap) !important;
-}
-
-#tabs-bar__portal {
-  border-radius: 10px !important;
-  background: #181818 !important;
-}
 
 .column-link.active {
   color: var(--accent);
@@ -278,4 +289,8 @@ article,
   .columns-area__panels__pane--navigational .columns-area__panels__pane__inner {
     width: calc(280px - var(--gap));
   }
+}
+
+button, a, img, .media-gallery__item, .media-gallery {
+  border-radius: var(--radius) !important;
 }
