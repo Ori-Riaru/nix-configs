@@ -345,7 +345,7 @@
           (deflayer gamenum
             esc 1 2 3 - +   F1 F2  F3  F4
             tab 4 5 6 0 S-8 F5 F6  F7  F8
-            /  7 8 9 .  =   F9 F10 F11 F12
+            alt 7 8 9 .  =   F9 F10 F11 F12
                   _ _ _ _ _
           )
         '';
