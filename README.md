@@ -34,7 +34,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 - [Niri](./configs/programs/niri/niri.nix) / [Waybar](./configs/programs/waybar/waybar.nix) / [Walker](./configs/programs/walker.nix)
 
-![niri preview](./.github/kde-preview.gif)
+![niri preview](./.github/niri-preview.png)
 
 - [Vivaldi](./configs/programs/vivaldi.nix)
 
@@ -63,7 +63,8 @@ TODO: add demo
 ## Self-hosted Services
 
 - [Mastodon](./configs/services/mastodon/mastodon.nix)
-  ![mastodon preview](./.github/mastodon-preview.png)
+
+![mastodon preview](./.github/mastodon-preview.png)
 
 - [NextCloud](./configs/services/nextcloud.nix)
 
@@ -85,35 +86,35 @@ Many application and websites have been themed to match my custom color scheme
 
 | Fonts     |                                                    | \|\| | Spacing  |     |                            |
 | --------- | -------------------------------------------------- | ---- | -------- | --- | -------------------------- |
-| UI        | [Inter](https://fonts.google.com/specimen/Inter)   | \|\| | `gap`    | 5px | Gap Between Major Sections |
-| Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) | \|\| | `radius` | 8px | Radius of Cards            |
+| UI        | [Inter](https://fonts.google.com/specimen/Inter)   | \|\| | `gap`    | 0px | Gap Between Major Sections |
+| Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) | \|\| | `radius` | 2px | Radius of Cards            |
 
 ### Color Palette
 
 | Color              | Hex                                                                                                      | Swatch                                                       | Usage                                                             |
 | ------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------- |
 | Text               |
-| `Text`             | <div style="color: white; background-color: #111111; padding: 15px; border-radius: 6px ">#ffffff</div>   | ![Text](./.github/swatches/text.png)                         | Basic text, Headers                                               |
-| `Subtext`          | <div style="color: #aaaaaa; background-color: #111111; padding: 15px; border-radius: 6px ">#aaaaaa</div> | ![Subtext](./.github/swatches/subtext.png)                   | Subtext, Placeholder, Comments                                    |
-| `Hidden`           | <div style="color: #606060; background-color: #111111; padding: 15px; border-radius: 6px ">#606060</div> | ![Hidden](./.github/swatches/hidden.png)                     | Disabled, Hidden                                                  |
+| `Text`             | <div style="color: white; background-color: #111111; padding: 15px; border-radius: 2px ">#eeeeee</div>   | ![Text](./.github/swatches/text.png)                         | Basic text, Headers                                               |
+| `Subtext`          | <div style="color: #aaaaaa; background-color: #111111; padding: 15px; border-radius: 2px ">#aaaaaa</div> | ![Subtext](./.github/swatches/subtext.png)                   | Subtext, Placeholder, Comments                                    |
+| `Hidden`           | <div style="color: #606060; background-color: #111111; padding: 15px; border-radius: 2px ">#606060</div> | ![Hidden](./.github/swatches/hidden.png)                     | Disabled, Hidden                                                  |
 | Backgrounds        |
-| `base`             | <div style="color: white; background-color: #000000; padding: 15px; border-radius: 6px ">#000000</div>   | ![Base](./.github/swatches/base.png)                         | Window backgrounds                                                |
-| `section`          | <div style="color: white; background-color: #111111; padding: 15px; border-radius: 6px ">#111111</div>   | ![Section](./.github/swatches/section.png)                   | Major Section, Content Only Window                                |
-| `card`             | <div style="color: white; background-color: #181818; padding: 15px; border-radius: 6px ">#181818</div>   | ![Card](.github/swatches/card.png)                           | Card, Input, highlighted button                               |
-| `overlay`          | <div style="color: white; background-color: #222222; padding: 15px; border-radius: 6px ">#222222</div>   | ![Overlay](./.github/swatches/overlay.png)                   | Search Overlay,                                                   |
+| `base`             | <div style="color: white; background-color: #000000; padding: 15px; border-radius: 2px ">#000000</div>   | ![Base](./.github/swatches/base.png)                         | Window backgrounds                                                |
+| `section`          | <div style="color: white; background-color: #111111; padding: 15px; border-radius: 2px ">#111111</div>   | ![Section](./.github/swatches/section.png)                   | Major Section, Content Only Window                                |
+| `card`             | <div style="color: white; background-color: #181818; padding: 15px; border-radius: 2px ">#181818</div>   | ![Card](.github/swatches/card.png)                           | Card, Input, highlighted button                               |
+| `overlay`          | <div style="color: white; background-color: #222222; padding: 15px; border-radius: 2px ">#222222</div>   | ![Overlay](./.github/swatches/overlay.png)                   | Search Overlay,                                                   |
 | Customizations     |
-| `accent`           | <div style="color: white; background-color: #a386ff; padding: 15px; border-radius: 6px ">#a386ff</div>   | ![Accent](./.github/swatches/accent.png)                     | Customizable Primary Accent                                       |
-| `accent-secondary` | <div style="color: white; background-color: #83bbff; padding: 15px; border-radius: 6px ">#83bbff</div>   | ![Accent-Secondary](./.github/swatches/accent-secondary.png) | Customizable Secondary Accent                                    |
-| `accent-tertiary`  | <div style="color: black; background-color: #fefb77; padding: 15px; border-radius: 6px ">#fefb77</div>   | ![Accent-Tertiary](./.github/swatches/accent-tertiary.png)   | Customizable Tertiary Accent                                     |
+| `accent`           | <div style="color: white; background-color: #a386ff; padding: 15px; border-radius: 2px ">#a386ff</div>   | ![Accent](./.github/swatches/accent.png)                     | Customizable Primary Accent                                       |
+| `accent-secondary` | <div style="color: white; background-color: #83bbff; padding: 15px; border-radius: 2px ">#83bbff</div>   | ![Accent-Secondary](./.github/swatches/accent-secondary.png) | Customizable Secondary Accent                                    |
+| `accent-tertiary`  | <div style="color: black; background-color: #fefb77; padding: 15px; border-radius: 2px ">#fefb77</div>   | ![Accent-Tertiary](./.github/swatches/accent-tertiary.png)   | Customizable Tertiary Accent                                     |
 | Colors             |
-| `Red`              | <div style="color: white; background-color: #fe5970; padding: 15px; border-radius: 6px ">#fe5970</div>   | ![Red](./.github/swatches/red.png)                           | Error, Remove, Close, Delete, Tags (HTML/XML), Annotations        |
-| `Orange`           | <div style="color: white; background-color: #ffa062; padding: 15px; border-radius: 6px ">#ffa062</div>   | ![Orange](./.github/swatches/orange.png)                     | Warning, Numbers                                                  |
-| `Yellow`           | <div style="color: black; background-color: #fefb77; padding: 15px; border-radius: 6px ">#fefb77</div>   | ![Yellow](./.github/swatches/yellow.png)                     | Info, Help                                                        |
-| `Green`            | <div style="color: black; background-color: #99ff82; padding: 15px; border-radius: 6px ">#99ff82</div>   | ![Green](./.github/swatches/green.png)                       | Strings                                                           |
-| `Teal`             | <div style="color: black; background-color: #80ffc1; padding: 15px; border-radius: 6px ">#80ffc1</div>   | ![Teal](./.github/swatches/teal.png)                         | Success, New, Add,                                                |
-| `Cyan`             | <div style="color: black; background-color: #7ef8fe; padding: 15px; border-radius: 6px ">#7ef8fe</div>   | ![Cyan](./.github/swatches/cyan.png)                         | Attributes, Properties (HTML/CSS/JSX)                             |
-| `Blue`             | <div style="color: white; background-color: #83bbff; padding: 15px; border-radius: 6px ">#83bbff</div>   | ![Blue](./.github/swatches/blue.png)                         | Neutral, Function Names, Declarations                             |
-| `Purple`           | <div style="color: white; background-color: #a386ff; padding: 15px; border-radius: 6px ">#a386ff</div>   | ![Purple](./.github/swatches/purple.png)                     | Modified, Change, Edit, Keywords, Reserved Words, Important Terms |
-| `Pink`             | <div style="color: black; background-color: #fe99fe; padding: 15px; border-radius: 6px ">#fe99fe</div>   | ![Pink](./.github/swatches/pink.png)                         | Operators (+, -, \*, etc.)                                        |
-| `White`            | <div style="color: black; background-color: #ffffff; padding: 15px; border-radius: 6px ">#ffffff</div>   | ![White](./.github/swatches/white.png)                       |                                                                   |
-| `Black`            | <div style="color: white; background-color: #000000; padding: 15px; border-radius: 6px ">#000000</div>   | ![Black](./.github/swatches/black.png)                       |                                                                   |
+| `Red`              | <div style="color: white; background-color: #fe5970; padding: 15px; border-radius: 2px ">#fe5970</div>   | ![Red](./.github/swatches/red.png)                           | Error, Remove, Close, Delete, Tags (HTML/XML), Annotations        |
+| `Orange`           | <div style="color: white; background-color: #ffa062; padding: 15px; border-radius: 2px ">#ffa062</div>   | ![Orange](./.github/swatches/orange.png)                     | Warning, Numbers                                                  |
+| `Yellow`           | <div style="color: black; background-color: #fefb77; padding: 15px; border-radius: 2px ">#fefb77</div>   | ![Yellow](./.github/swatches/yellow.png)                     | Info, Help                                                        |
+| `Green`            | <div style="color: black; background-color: #99ff82; padding: 15px; border-radius: 2px ">#99ff82</div>   | ![Green](./.github/swatches/green.png)                       | Strings                                                           |
+| `Teal`             | <div style="color: black; background-color: #80ffc1; padding: 15px; border-radius: 2px ">#80ffc1</div>   | ![Teal](./.github/swatches/teal.png)                         | Success, New, Add,                                                |
+| `Cyan`             | <div style="color: black; background-color: #7ef8fe; padding: 15px; border-radius: 2px ">#7ef8fe</div>   | ![Cyan](./.github/swatches/cyan.png)                         | Attributes, Properties (HTML/CSS/JSX)                             |
+| `Blue`             | <div style="color: white; background-color: #83bbff; padding: 15px; border-radius: 2px ">#83bbff</div>   | ![Blue](./.github/swatches/blue.png)                         | Neutral, Function Names, Declarations                             |
+| `Purple`           | <div style="color: white; background-color: #a386ff; padding: 15px; border-radius: 2px ">#a386ff</div>   | ![Purple](./.github/swatches/purple.png)                     | Modified, Change, Edit, Keywords, Reserved Words, Important Terms |
+| `Pink`             | <div style="color: black; background-color: #fe99fe; padding: 15px; border-radius: 2px ">#fe99fe</div>   | ![Pink](./.github/swatches/pink.png)                         | Operators (+, -, \*, etc.)                                        |
+| `White`            | <div style="color: black; background-color: #ffffff; padding: 15px; border-radius: 2px ">#ffffff</div>   | ![White](./.github/swatches/white.png)                       |                                                                   |
+| `Black`            | <div style="color: white; background-color: #000000; padding: 15px; border-radius: 2px ">#000000</div>   | ![Black](./.github/swatches/black.png)                       |                                                                   |

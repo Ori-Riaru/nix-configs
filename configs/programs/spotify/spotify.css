@@ -51,11 +51,11 @@ button > span {
 
 /* Panel Gap */
 
-.Root__top-container {
+/* .Root__top-container {
   gap: 10px !important;
-}
+} */
 
-.Root__now-playing-bar {
+/* .Root__now-playing-bar {
   padding-top: 20px;
 }
 
@@ -69,8 +69,21 @@ button > span {
   max-width: 75vw;
   border-radius: 10px;
   background: var(--spice-card);
-}
+} */
 
 .main-globalNav-searchInputContainer input {
   border: none !important;
+}
+
+.main-yourLibraryX-entryPoints {
+    background-color: #111 !important;
+}
+
+.Root__top-container, .main-navBar-mainNav>div {
+  background-color: #111 !important;
+}
+
+.contentSpacing {
+  padding-right: 20px;
+  padding-left: 20px;
 }

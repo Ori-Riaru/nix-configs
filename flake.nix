@@ -104,7 +104,7 @@
       gap = 1; # px
       radius = 2; # px
 
-      text = "#ffffff";
+      text = "#EEEEEE";
       subtext = "#888888";
       hidden = "#555555";
 
