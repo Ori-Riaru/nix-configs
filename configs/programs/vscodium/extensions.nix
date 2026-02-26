@@ -3,13 +3,6 @@
   inputs,
   ...
 }: {
-  # Required for `reditorsupport` extension
-  home.file.".Rprofile".text = ''
-    if (interactive() && Sys.getenv("RSTUDIO") == "") {
-      source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
-    }
-  '';
-
   programs.vscode = {
     mutableExtensionsDir = false;
 
@@ -51,7 +44,8 @@
           # C++
           ms-vscode.cpptools
           ms-vscode.hexeditor
-
+          xaver.clang-format
+          
           # Java
           redhat.java
 
@@ -89,7 +83,7 @@
           charliermarsh.ruff
 
           # Other
-          # prettier.prettier-vscode
+          #// prettier.prettier-vscode
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
@@ -115,8 +109,9 @@
           premparihar.gotestexplorer
           bbenoist.qml
           #// kdl-org.kdl # KDL language support
-          letrieu.expand-region
+          #// letrieu.expand-region
           #// eww-yuck.yuck
+          dandehoon.vscode-generic-expand-selection
 
           # Generic
           mguellsegarra.highlight-on-copy
@@ -125,10 +120,27 @@
     };
   };
 
-  # Extensions like custom css and js don't work because of nix store. This manually injects custom css and js the same way the extension would
+  # Required for `reditorsupport` extension
+  home.file.".Rprofile".text = ''
+    if (interactive() && Sys.getenv("RSTUDIO") == "") {
+      source(file.path(Sys.getenv(if (.Platform$OS.type == "windows") "USERPROFILE" else "HOME"), ".vscode-R", "init.R"))
+    }
+  '';
+
+  # Extensions like custom css and js don't work because of nix store. Instead
+  # achieve the same result we manually injects custom css and js the same way
+  # the extension would below
   nixpkgs.overlays = let
-    customCss = builtins.replaceStrings ["'" "\"" "\n" "\r"] ["\\'" "\\\"" "\\n" ""] (builtins.readFile ./custom.css);
-    customJs = builtins.replaceStrings ["'" "\"" "\n" "\r" "`" "$"] ["\\'" "\\\"" "\\n" "" "\\`" "\\$"] (builtins.readFile ./custom.js);
+    customCss =
+      builtins.replaceStrings
+      ["'" "\"" "\n" "\r"]
+      ["\\'" "\\\"" "\\n" ""]
+      (builtins.readFile ./custom.css);
+    customJs =
+      builtins.replaceStrings
+      ["'" "\"" "\n" "\r" "`" "$"]
+      ["\\'" "\\\"" "\\n" "" "\\`" "\\$"]
+      (builtins.readFile ./custom.js);
   in [
     (self: super: {
       vscodium = super.vscodium.overrideAttrs (attrs: {

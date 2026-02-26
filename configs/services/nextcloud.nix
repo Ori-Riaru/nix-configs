@@ -1,5 +1,6 @@
 {
   config,
+  settings,
   pkgs,
   ...
 }: {
@@ -7,7 +8,7 @@
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = "ori-riaru@proton.me";
+    defaults.email = settings.email;
     defaults.enableDebugLogs = true;
   };
 

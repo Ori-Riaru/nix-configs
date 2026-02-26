@@ -9,8 +9,8 @@
       auto_newline
       clear
 
-      if timeout 1 ls /mnt/nfs/riaru >/dev/null 2>&1
-        cd /mnt/nfs/riaru
+      if timeout 1 ls ${settings.nasPath} >/dev/null 2>&1
+        cd ${settings.nasPath}
       else if test -d "/data"
         cd /data
       else
@@ -26,6 +26,7 @@
       l = "lsd";
       ls = "lsd";
       c = "clear";
+      claer = "clear";
       search = "fzf -q";
       s = "fzf -q";
       restart = "sudo reboot now";
@@ -118,13 +119,13 @@
           end
         '';
       };
-      
+
       files = {
         body = ''
           if test (count $argv) -gt 0
             nautilus $argv[1] >/dev/null 2>&1 & disown
           else
-            nautilus /mnt/nfs/riaru >/dev/null 2>&1 & disown
+            nautilus ${settings.nasPath} >/dev/null 2>&1 & disown
           end
         '';
       };

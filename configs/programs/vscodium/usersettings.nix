@@ -61,14 +61,28 @@
     "workbench.editor.showTabs" = "single";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
-    "editor.minimap.side" = "left";
+    "editor.minimap.side" = "right";
     "editor.minimap.maxColumn" = 80;
     "editor.minimap.scale" = 1;
     "editor.minimap.showSlider" = "always";
-    "editor.scrollbar.verticalScrollbarSize" = 0;
+    "editor.minimap.autohide" = "mouseover";
+    "editor.scrollbar.verticalScrollbarSize" = 10;
     "scm.diffDecorations" = "gutter";
     "workbench.panel.showLabels" = false;
     "diffEditor.experimental.showMoves" = true;
+    "editor.rulers" = [
+      {
+        "column" = 80;
+        "color" = "#AAAAAA30";
+      }
+      {
+        "column" = 100;
+        "color" = "#ff596c40";
+      }
+      {
+        "column" = 120;
+      }
+    ];
 
     # Colors
 
@@ -92,6 +106,7 @@
       "editor.lineHighlightBackground" = "${settings.card}";
       "editor.selectionBackground" = "${settings.accent}";
       "editor.selectionForeground" = "${settings.text}";
+      "editorRuler.foreground" = "${settings.red}";
 
       "editorCursor.foreground" = "${settings.text}";
       "editorLineNumber.foreground" = "${settings.subtext}";
@@ -310,23 +325,270 @@
     # Extension settings
     "extensions.autoUpdate" = false;
 
-    "cSpell.userWords" = [
-      "${settings.username}"
-      "${settings.usernameFull}"
-      "riaru"
-      "aki"
-      "nixpkgs"
-      "rgba"
-      "nixos"
-      "pkgs"
-      "direnv"
-    ];
+    "cSpell.userWords" =
+      [
+        # === Generic ===
+
+        "deadname"
+        "rgba"
+        "substituters"
+        "smarthome"
+        "Activatable"
+        "Shinigami"
+        "shinigami"
+        "autohide"
+        "USERPROFILE"
+        "urlbar"
+        "favourite"
+
+        # === Names ===
+
+        settings.username
+        settings.usernameFull
+        settings.email
+        "riaru"
+        "aki"
+        "Pharr"
+        "Jakob"
+        "abenz"
+        "ajay"
+        "rycee"
+
+        # === Language Specific ===
+
+        # Nix
+        "direnv"
+        "nixos"
+        "pkgs"
+        "nixpkgs"
+        "cachix"
+        "stdenv"
+        "pname"
+        "fetchurl"
+        "tmpfiles"
+        "stylix"
+        "homemanager"
+        "statix"
+        "autofetch"
+        "automount"
+        "bootnext"
+
+        # OpenGL
+        "tinyobjloader"
+        "glfw"
+        "glew"
+        "openexr"
+        "pbrt"
+        "cropwindow"
+        "opengl"
+        "glsl"
+        "preproc"
+
+        # Python
+        "numpy"
+        "matplotlib"
+        "seaborn"
+        "tqdm"
+        "pytest"
+        "ipython"
+        "ipynb"
+        "jupyterlab"
+        "tidyverse"
+        "torchtext"
+        "torchvision"
+        "pycache"
+        "venv"
+        "venvs"
+        "virtualenv"
+        "kernelspec"
+
+        # Kanata / kbd
+        "kanata"
+        "defchordsv"
+        "deflayer"
+        "deflayermap"
+        "defoverrides"
+        "defsrc"
+        "deftemplate"
+        "defvar"
+        "defvirtualkeys"
+        "defalias"
+        "keybind"
+        "keybinds"
+        "Keybinds"
+        "keyhold"
+        "keytap"
+        "homerowmod"
+        "homerowmodfilter"
+        "timeouthold"
+        "timeouttap"
+        "nocaps"
+        "lalt"
+        "ralt"
+        "lctl"
+        "lctrl"
+        "rctl"
+        "lmet"
+        "rmet"
+        "lsft"
+        "rsft"
+        "vkey"
+        "gesc"
+        "pgdn"
+        "pgup"
+
+        # Rust
+        "tauri"
+
+        # === Program / Application Specific ===
+
+        # Apps
+        "niri"
+        "spicetify"
+
+        # Websites
+        "csrinru"
+        "nixoswiki"
+        "nixwiki"
+        "Newegg"
+        "phtn"
+        "protondb"
+        "steamdb"
+        "monkeytype"
+        "windscribe"
+        "miru"
+        "Miruro"
+        "Anilist"
+        "alternativeto"
+        "bitwarden"
+        "Bitwarden"
+        "onlinefix"
+        "Ovagames"
+        "Lemmy"
+        "Jellyfin"
+
+        # Games
+        "Enigmatica"
+        "hytale"
+
+        # Walker
+        "niriactions"
+        "nirisessions"
+
+        # KDE
+        "karousel"
+        "krohnkite"
+        "kwin"
+        "Kwin"
+        "kwinrc"
+        "krunner"
+        "Krunner"
+        "krunnerrc"
+        "kscreenlocker"
+        "ksmserverrc"
+        "ksplashrc"
+        "klaunchrc"
+        "kdeglobals"
+        "kcminputrc"
+        "kxkbrc"
+        "konsole"
+        "kdeconnect"
+        "systemsettings"
+        "systemsettingsrc"
+        "powerdevil"
+        "plasmusic"
+        "baloosearch"
+        "desktopapplications"
+        "bookmarksrunner"
+        "contactsmenu"
+
+        # Firefox
+        "userchrome"
+        "firefoxpwa"
+        "pwas"
+        "newtaboverride"
+        "newtab"
+        "newtabpage"
+        "tabbrowser"
+        "tabbar"
+        "tabpanels"
+        "browsertabs"
+        "typeaheadfind"
+        "formautofill"
+        "healthreport"
+        "contentarea"
+        "gamemode"
+        "gamenum"
+        "gametype"
+        "urlbar"
+        "alltabs"
+        "shinigamieyes"
+        "agenedia"
+        "automail"
+        "darkreader"
+        "dearrow"
+        "enhancerforyoutube"
+        "fastforward"
+        "fastforwardteam"
+        "filips"
+        "guus"
+        "idcac"
+        "infy"
+        "Infy"
+        "istilldontcareaboutcookies"
+        "jetpack"
+        "joolee"
+        "maximerf"
+        "ninetailed"
+        "raymondhill"
+        "redirector"
+        "Redirector"
+        "Scroller"
+        "sidebery"
+        "Sidebery"
+        "sponsorblock"
+        "sponsorblocker"
+        "tampermonkey"
+        "Tampermonkey"
+        "ublock"
+        "VAFA"
+        "videocontrols"
+        "wayback"
+        "Wayback"
+        "windscribeff"
+
+        # Nautilus
+        "lzma"
+        "tarz"
+        "zstd"
+
+        # Vscode
+        "hexedit"
+      ]
+      ++ (map (package: package.pname or package.name or "") (config.home.packages))
+      ++ (map (package: package.pname or package.name or "") (config.home.packages or []))
+      ++ (
+        map
+        (extension: extension.name or "")
+        config.programs.firefox.profiles.${settings.username}.extensions.packages
+      )
+      ++ (
+        map
+        (extension: extension.vscodeExtPublisher)
+        (config.programs.vscode.profiles.default.extensions or [])
+      )
+      ++ (
+        map
+        (extension: extension.vscodeExtName)
+        (config.programs.vscode.profiles.default.extensions or [])
+      );
 
     "highlightOnCopy.backgroundColor" = "${settings.secondary}";
     "highlightOnCopy.foregroundColor" = "#fff";
 
     "color-highlight.matchRgbWithNoFunction" = true;
     "color-highlight.matchWords" = true;
+    "color-highlight.markRuler" = false;
 
     "terminal.integrated.env.linux" = {};
     "autoHidePlus.autoHideLeftSideBar" = true;
@@ -341,8 +603,8 @@
     "redhat.telemetry.enabled" = false;
     "chat.disableAIFeatures" = false;
     "direnv.restart.automatic" = true;
-    # Error Lens
 
+    # Error Lens
     "errorLens.errorForeground" = "${settings.red}";
     "errorLens.errorBackground" = "${settings.red}33";
 
@@ -355,13 +617,12 @@
     "editor.codeLensFontSize" = 14;
     "errorLens.severityText" = ["" "" "" ""];
     "errorLens.codeLensTemplate" = "$severity $message";
-    "errorLens.messageTemplate" = " ";
+    "errorLens.messageTemplate" = "$message";
     "errorLens.onSaveUpdateOnActiveEditorChange" = true;
 
     "errorLens.delay" = 1000;
 
     # Stylelint
-
     "stylelint.enable" = true;
     "stylelint.configFile" = "${config.home.homeDirectory}/.stylelintrc.json";
     "stylelint.stylelintPath" = "${config.home.homeDirectory}/.npm-global/lib/node_modules/stylelint";
@@ -373,26 +634,23 @@
     };
 
     # cpp
-
-    "[c][cpp]" = {
-      "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
+    "clang-format.fallbackStyle" = "Google";
+    "[cpp]" = {
+      "editor.defaultFormatter" = "xaver.clang-format";
     };
 
     # Svelte
-
     "svelte.enable-ts-plugin" = true;
     "[svelte]" = {
       "editor.defaultFormatter" = "svelte.svelte-vscode";
     };
 
     # css
-
     "[css][scss]" = {
       "editor.defaultFormatter" = "prettier.prettier-vscode";
     };
 
     # Typescript
-
     "typescript.inlayHints.parameterNames.enabled" = "all";
     "typescript.inlayHints.parameterTypes.enabled" = true;
     "typescript.inlayHints.variableTypes.enabled" = true;
@@ -401,7 +659,6 @@
     "typescript.inlayHints.enumMemberValues.enabled" = true;
 
     # javascript
-
     "javascript.inlayHints.parameterNames.enabled" = "all";
     "javascript.inlayHints.parameterTypes.enabled" = true;
     "javascript.inlayHints.variableTypes.enabled" = true;
@@ -409,7 +666,6 @@
     "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
 
     # Go
-
     "[go]" = {
       "editor.defaultFormatter" = "golang.go";
     };
@@ -423,7 +679,6 @@
     "go.inlayHints.rangeVariableTypes" = true;
 
     # Nix
-
     "[nix]" = {
       "editor.defaultFormatter" = "kamadorueda.alejandra";
       "editor.formatOnPaste" = true;

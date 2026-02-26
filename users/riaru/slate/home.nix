@@ -52,6 +52,7 @@
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
     ../../../configs/programs/slack.nix
+    ../../../configs/programs/kdeconnect/kdeconnect-home.nix
 
     # Media
     # ../../../configs/programs/spotify/spotify.nix

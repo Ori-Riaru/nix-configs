@@ -3,7 +3,9 @@
   settings,
   ...
 }: {
-  programs.firefox = {
+  programs.firefox = let
+    update_interval = 24 * 60 * 60 * 1000; # 24 hours
+  in {
     profiles.${settings.username}.search = {
       default = "ddg";
       force = true;
@@ -58,7 +60,7 @@
           ];
 
           icon = "https://wiki.nixos.org/favicon.ico";
-          updateInterval = 24 * 60 * 60 * 1000;
+          updateInterval = update_interval;
           definedAliases = [
             "@nixwiki"
             "@nixoswiki"

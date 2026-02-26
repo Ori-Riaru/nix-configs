@@ -18,7 +18,7 @@
     boot.supportedFilesystems = ["nfs"];
 
     fileSystems = {
-      "/mnt/nfs/riaru" = {
+      "${settings.nasPath}" = {
         device = "${config.services.nfs-client.serverIP}:/riaru";
         fsType = "nfs";
         options = [
@@ -54,7 +54,7 @@
 
     systemd.tmpfiles.rules = [
       "d /mnt/nfs 0755 root root -"
-      "d /mnt/nfs/riaru 0755 riaru users -"
+      "d ${settings.nasPath} 0755 riaru users -"
       "d /mnt/nfs/bulk 0755 riaru users -"
     ];
 

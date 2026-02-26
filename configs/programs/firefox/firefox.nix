@@ -88,6 +88,8 @@
 
     # Enable extensions by default
     policies = {
+      # The ExtensionID required bellow can be found at
+      # about:debugging#/runtime/this-firefox after installing firefox
       Extensions.Locked = [
         "1be309c5-3e4f-4b99-927d-bb500eb4fa88" # Augmented Steam
         "c2c003ee-bd69-42a2-b0e9-6f34222cb046" # Auto Tab Discard

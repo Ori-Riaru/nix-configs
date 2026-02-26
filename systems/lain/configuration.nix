@@ -40,7 +40,7 @@
 
   services.ratbagd.enable = true;
 
-  environment.systemPackages = [config.boot.kernelPackages.digimend];
+  # environment.systemPackages = [config.boot.kernelPackages.digimend];
 
   hardware.uinput.enable = true;
   users.groups.uinput.members = ["${settings.username}"];

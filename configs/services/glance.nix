@@ -60,7 +60,7 @@
                         }
                         {
                           title = "Letterboxd";
-                          url = "https://letterboxd.com/";
+                          url = "https://letterboxd.com/riaru/films/by/entry-rating/";
                         }
                         {
                           title = "Jellyfin";
@@ -99,6 +99,7 @@
                   style = "grid-cards";
                   limit = 50;
                   channels = [
+                    # spell-checker: disable
                     "UCshObcm-nLhbu8MY50EZ5Ng" # Benn Jordan
                     "UCx_Qyb3447P9bBaT4o8QSjQ" # LilAggy
                     "UCdBXOyqr8cDshsp7kcKDAkg" # Big A
@@ -400,6 +401,8 @@
                     "UCe0DNp0mKMqrYVaTundyr9w" # VaatiVidya
                     "UCqf0X7s2oubwgX1MvBqH7ZA" # josh (with parentheses)
                     "UCaXh9z3or5QbM0HPGen2Quw" # TodePond
+                    "UC1X4v8N9U3qnVl6zzuEtUqQ" # Wumbo
+                    # spell-checker: enable
                   ];
                 }
               ];

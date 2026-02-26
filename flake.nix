@@ -2,6 +2,8 @@
   description = "Riaru's System Configuration";
 
   inputs = {
+    # === Repositories ===
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.11";
 
@@ -21,11 +23,12 @@
     };
 
     nix-vscode-extensions = {
-      url = "github:dseum/nix-vscode-extensions";
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Programs
+    # === Programs ===
+
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,7 +45,7 @@
     };
 
     walker = {
-      url = "github:abenz1267/walker/dev";
+      url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -57,7 +60,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Modifications
+    # === Modifications ===
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,12 +91,22 @@
     ...
   } @ inputs: let
     settings = rec {
-      # --- Primary User Settings ---
+      # === Primary User Settings ===
+
       username = "riaru";
       usernameFull = "Ori Riaru";
       email = "ori-riaru@proton.me";
 
-      # --- Theming ---
+      # === General ===
+
+      keyboard = "dvorak"; # Only changes the layout not shortcuts
+      serverLocalIP = "192.168.1.101";
+      serverTailscaleIP = "100.103.185.35";
+      nasPath = "/mnt/nfs/riaru";
+      configPath = "/mnt/nfs/riaru/Projects/nix-configs";
+
+      # === Theming ===
+
       avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
       wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
       secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
@@ -129,13 +143,6 @@
 
       font = "Inter";
       fontMonospace = "JetBrainsMono Nerd Font";
-
-      keyboard = "dvorak"; # This won't correct shortcuts, only change the layout
-
-      serverLocalIP = "192.168.1.101";
-      serverTailscaleIP = "100.103.185.35";
-      nasPath = "/mnt/nfs/nas";
-      configPath = "/mnt/nfs/riaru/Projects/nix-configs";
     };
 
     inherit (self) outputs;
@@ -150,9 +157,13 @@
 
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    packages = forAllSystems (system: import ./packages nixpkgs.legacyPackages.${system});
+    packages =
+      forAllSystems
+      (system: import ./packages nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs outputs;};
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    formatter =
+      forAllSystems
+      (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
       # Desktop
@@ -231,7 +242,6 @@
     slate-home = self.homeConfigurations."${settings.username}@slate";
     kumo-home = self.homeConfigurations."${settings.username}@kumo";
 
-    inherit settings;
-    inherit (nixpkgs) lib;
+    inherit (nixpkgs) lib settings;
   };
 }

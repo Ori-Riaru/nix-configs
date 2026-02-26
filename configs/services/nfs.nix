@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:{
+{
   services.nfs.server = {
     enable = true;
     exports = ''
@@ -21,15 +21,15 @@
   fileSystems = {
     "/export/riaru" = {
       device = "/data/nfs/riaru";
-      options = [ "bind" ];
+      options = ["bind"];
     };
     "/export/bulk" = {
-	    device = "/mnt/bulk/data/";
-	    options = [ "bind" ];
+      device = "/mnt/bulk/data/";
+      options = ["bind"];
     };
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ 2049 ];
+    allowedTCPPorts = [2049];
   };
 }

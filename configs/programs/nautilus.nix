@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   home.packages = with pkgs; [
     nautilus
     # nautilus-hide
@@ -11,7 +15,7 @@
     name = "Files";
     comment = "Access and organize files";
     icon = "org.gnome.Nautilus";
-    exec = "nautilus --new-window /mnt/nfs/riaru";
+    exec = "nautilus --new-window ${settings.nasPath}";
     terminal = false;
     type = "Application";
     startupNotify = true;
@@ -55,7 +59,7 @@
     actions = {
       new-window = {
         name = "New Window";
-        exec = "nautilus --new-window /mnt/nfs/riaru";
+        exec = "nautilus --new-window ${settings.nasPath}";
       };
     };
   };
