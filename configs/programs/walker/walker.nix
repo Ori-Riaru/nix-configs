@@ -799,6 +799,12 @@
             suggestions_path = "1";
           }
           {
+            name = "Nixpkgs";
+            icon = "nix-snowflake";
+            prefix = "ngh;";
+            url = "https://github.com/NixOS/nixpkgs/issues?q=is%3Aissue%20state%3Aopen%20%TERM%";
+          }
+          {
             name = "Youtube";
             icon = "youtube";
             prefix = "yt;";
