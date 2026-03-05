@@ -19,6 +19,7 @@
     ../../configs/services/glance.nix
     ../../configs/services/inadyn.nix
     ../../configs/services/nextcloud.nix
+    ../../configs/services/matrix.nix
 
     #// ../../configs/services/n8n.nix
     #// ../../configs/services/hytale.nix

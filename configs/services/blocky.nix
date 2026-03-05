@@ -27,15 +27,14 @@
           default = ["ads"];
           "192.168.1.75" = [];
         };
-
         loading = {
           refreshPeriod = "24h";
         };
       };
-
       customDNS = {
         mapping = {
           "my.v0id.nl" = "${settings.serverLocalIP}";
+          "signal.v0id.nl" = "${settings.serverLocalIP}";
           "riaru.undo.it" = "${settings.serverLocalIP}";
           "riaru.home.kg" = "${settings.serverLocalIP}";
           "router.box" = "192.168.1.41";
