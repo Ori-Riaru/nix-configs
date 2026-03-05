@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  settings,
+  ...
+}: {
   services.jellyfin.enable = true;
 
   environment.systemPackages = [
@@ -6,6 +10,11 @@
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
   ];
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = settings.email;
+  };
 
   services.nginx = {
     enable = true;
