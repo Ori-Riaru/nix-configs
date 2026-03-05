@@ -340,6 +340,8 @@
         "USERPROFILE"
         "urlbar"
         "favourite"
+        "tweening"
+        "colour"
 
         # === Names ===
 
@@ -621,6 +623,11 @@
     "errorLens.onSaveUpdateOnActiveEditorChange" = true;
 
     "errorLens.delay" = 1000;
+
+    # Python
+    "[python]" = {
+      "editor.defaultFormatter" = "charliermarsh.ruff";
+    };
 
     # Stylelint
     "stylelint.enable" = true;
