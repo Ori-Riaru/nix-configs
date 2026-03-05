@@ -3,6 +3,13 @@
   inputs,
   ...
 }: {
+  home.packages = with pkgs; [
+    # dotnet-runtime_10
+    # dotnet-sdk_10
+    dotnet-runtime_9 # Required for c# extensions
+    dotnet-sdk_9
+  ];
+
   programs.vscode = {
     mutableExtensionsDir = false;
 
@@ -13,6 +20,8 @@
 
       extensions = with pkgs.vscode-extensions;
         [
+          # === Language Support ===
+
           # Nix
           mkhl.direnv
           arrterian.nix-env-selector
@@ -45,9 +54,14 @@
           ms-vscode.cpptools
           ms-vscode.hexeditor
           xaver.clang-format
-          
+
           # Java
           redhat.java
+
+          # C#
+          ms-dotnettools.vscode-dotnet-runtime
+          ms-dotnettools.csdevkit
+          ms-dotnettools.csharp
 
           # R
           reditorsupport.r
@@ -58,8 +72,10 @@
           tomoki1207.pdf # PDF viewer
           redhat.vscode-xml # XML support
           redhat.vscode-yaml # YAML support
+          visualstudiotoolsforunity.vstuc # Unity support
 
-          # Generic
+          # === Generic ===
+
           usernamehw.errorlens
           streetsidesoftware.code-spell-checker
           bierner.docs-view
