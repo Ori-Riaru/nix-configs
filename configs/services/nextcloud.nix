@@ -3,7 +3,7 @@
   settings,
   pkgs,
   ...
-}: {
+}:  {
   networking.firewall.allowedTCPPorts = [80 443];
 
   security.acme = {
@@ -50,7 +50,7 @@
 
       theming_customcss = pkgs.fetchNextcloudApp {
         url = "https://github.com/nextcloud/theming_customcss/releases/download/v1.19.0/theming_customcss.tar.gz";
-        sha256 = "sha256-MsF+im9yCt7bRNIE8ait0wxcVzMXsHMNbp+IIzY/zJI=";
+        sha256 = "sha256-tDU6GIGX5PFr6+iBYjUl4iGcZKUmc/3MUBt5xD561uw=";
         license = "gpl3";
       };
 
