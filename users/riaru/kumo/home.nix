@@ -8,7 +8,9 @@
     ../../../configs/programs/btop.nix
     ../../../configs/programs/git.nix
     ../../../configs/programs/ghostty.nix
+    ../../../configs/programs/opencode/opencode.nix
     ../../../configs/system/folders.nix
+    
   ];
 
   home.stateVersion = "24.05";
