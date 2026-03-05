@@ -35,7 +35,7 @@
     enable = true;
     settings = {
       email = settings.email;
-      pinentry = pkgs.pinentry-tty;
+      pinentry = pkgs.pinentry-gnome3;
     };
   };
 
