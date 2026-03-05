@@ -19,8 +19,13 @@
             "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/pro.txt"
           ];
         };
+        allowlists = {
+          ads = [
+          ];
+        };
         clientGroupsBlock = {
           default = ["ads"];
+          "192.168.1.75" = [];
         };
 
         loading = {
