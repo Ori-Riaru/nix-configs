@@ -25,7 +25,7 @@
     };
     streamingProcesses = 3;
 
-    package = pkgs.callPackage "${pkgs.path}/pkgs/servers/mastodon" {
+    package = pkgs.mastodon.override {
       patches = [./charlimit.patch];
     };
   };
