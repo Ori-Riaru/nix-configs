@@ -61,7 +61,7 @@
           # C#
           ms-dotnettools.vscode-dotnet-runtime
           ms-dotnettools.csdevkit
-          ms-dotnettools.csharp
+          # ms-dotnettools.csharp
 
           # R
           reditorsupport.r
