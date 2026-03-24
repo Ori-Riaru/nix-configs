@@ -1,4 +1,5 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   additions = final: _prev: import ../packages final.pkgs;
 
   modifications = final: prev: {
@@ -9,7 +10,14 @@
 
   stable-packages = final: _prev: {
     stable = import inputs.nixpkgs-stable {
-      inherit (final) system;
+      system = final.stdenv.hostPlatform.system;
+      config.allowUnfree = true;
+    };
+  };
+
+  master-packages = final: _prev: {
+    master = import inputs.nixpkgs-master {
+      system = final.stdenv.hostPlatform.system;
       config.allowUnfree = true;
     };
   };

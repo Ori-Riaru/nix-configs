@@ -7,6 +7,10 @@
   outputs,
   ...
 }: {
+  imports = [
+    inputs.nix-index-database.nixosModules.default
+  ];
+
   environment.systemPackages = with pkgs; [
     nh
     nix-output-monitor
@@ -15,6 +19,8 @@
     alejandra
     nixfmt
   ];
+
+  programs.nix-index-database.comma.enable = true;
 
   environment = {
     variables = {
@@ -55,6 +61,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.stable-packages
+      outputs.overlays.master-packages
     ];
 
     config = {
