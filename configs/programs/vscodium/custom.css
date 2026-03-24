@@ -38,8 +38,8 @@
 
 .tab.active {
   margin: 2px !important;
-  border-radius: 8px;
   margin-top: 0 !important;
+  border-radius: 8px;
 }
 
 .editor-actions {
@@ -141,4 +141,16 @@
   &:hover {
     color: #b3ff9f !important;
   }
+}
+
+/* 
+Increases the thickness of the indentation guide and adds a tick between each
+line on the guide 
+*/
+.monaco-editor .lines-content .core-guide-indent {
+    box-shadow: 1.5px 0 1px 0 var(--indent-color) inset !important;
+}
+
+.monaco-editor .lines-content .core-guide-indent-active {
+    box-shadow: 1.5px 0 1px 0 var(--indent-active-color) inset !important;
 }
