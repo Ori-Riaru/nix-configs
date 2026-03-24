@@ -6,7 +6,6 @@
       zoxide init fish | source
     '';
     interactiveShellInit = ''
-      auto_newline
       clear
 
       if timeout 1 ls ${settings.nasPath} >/dev/null 2>&1
@@ -28,7 +27,14 @@
       c = "clear";
       claer = "clear";
       search = "fzf -q";
-      s = "fzf -q";
+      s = "systemctl";
+      ss = "systemctl status";
+      sr = "systemctl restart";
+      sx = "systemctl stop";
+      su = "systemctl --user";
+      sus = "systemctl --user status";
+      sur = "systemctl --user restart";
+      sux = "systemctl --user stop";
       restart = "sudo reboot now";
       shutdown = "sudo shutdown now";
 
@@ -60,6 +66,7 @@
       update = "nix flake update --flake ${settings.configPath}";
       ns = "nix-shell";
       nsp = "nix-shell -p";
+      pbrt = "/mnt/nfs/riaru/Projects/advanced-computer-graphics/assignment-2/pbrt-v3/build/pbrt";
 
       oc = "opencode";
       code = "codium";
