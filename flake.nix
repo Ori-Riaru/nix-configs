@@ -3,8 +3,8 @@
 
   inputs = {
     # === Repositories ===
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.11";
 
     nur = {
@@ -40,7 +40,7 @@
     };
 
     elephant = {
-      url = "github:Ori-Riaru/elephant/websearch-temp";
+      url = "github:Ori-Riaru/elephant/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -57,6 +57,11 @@
 
     copyparty = {
       url = "github:9001/copyparty";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    unreal-engine = {
+      url = "github:BridgerB/unreal-engine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -82,6 +87,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -105,7 +115,7 @@
       nasPath = "/mnt/nfs/riaru";
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
 
-      # === Theming ===
+      # === Themsing ===
 
       avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
       wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
@@ -118,25 +128,25 @@
       gap = 1; # px
       radius = 2; # px
 
-      text = "#EEEEEE";
-      subtext = "#888888";
-      hidden = "#555555";
+      text = "#DDDDDD";
+      subtext = "#777777";
+      hidden = "#333333";
 
       base = "#080808";
       section = "#111111";
       card = "#181818";
       overlay = "#222222";
 
-      red = "#ff596b";
-      orange = "#ffa062";
-      yellow = "#fffb77";
-      green = "#99ff82";
-      teal = "#80ffc1";
-      cyan = "#7ef8fe";
-      blue = "#83bbff";
-      purple = "#a386ff";
-      pink = "#fe99fe";
-      brown = "#ba8d70";
+      red = "#e67378";
+      orange = "#faa795";
+      yellow = "#fceaa2";
+      green = "#85ed9b";
+      teal = "#86edbd";
+      cyan = "#94e3e9";
+      blue = "#94c5e9";
+      purple = "#a19afc";
+      pink = "#ffa2c9";
+      brown = "#9c7970";
       white = "#ffffff";
       grey = "#272727";
       black = "#353535";
