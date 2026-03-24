@@ -4,7 +4,7 @@
   settings,
   ...
 }: let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   removeHashtag = str: builtins.substring 1 (builtins.stringLength str) str;
 in {
   imports = [inputs.spicetify-nix.homeManagerModules.spicetify];
@@ -57,12 +57,14 @@ in {
       {
         # Not working
         name = "LibX-Reborn.js";
-        src = "${pkgs.fetchFromGitHub {
-          owner = "sanoojes";
-          repo = "spicetify-extensions";
-          rev = "master";
-          hash = "sha256-MXkeFVkDIJ3POOC+yA2hjuEOfoJivoxholuheVz85as=";
-        }}/LibX-Reborn/src";
+        src = "${
+          pkgs.fetchFromGitHub {
+            owner = "sanoojes";
+            repo = "spicetify-extensions";
+            rev = "master";
+            hash = "sha256-MXkeFVkDIJ3POOC+yA2hjuEOfoJivoxholuheVz85as=";
+          }
+        }/LibX-Reborn/src";
       }
     ];
     enabledCustomApps = with spicePkgs.apps; [
