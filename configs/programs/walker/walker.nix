@@ -36,6 +36,7 @@
     settings = {
       email = settings.email;
       pinentry = pkgs.pinentry-gnome3;
+      lock_timeout = 24 * 60 * 365;
     };
   };
 
@@ -53,7 +54,7 @@
         default = [
           "providerlist"
           "desktopapplications"
-          "windows"
+          #"windows"
           "websearch"
           "calc"
           "snippets"
@@ -420,40 +421,43 @@
         '';
       };
 
-      "nirisessions" = {
-        settings = {
-          name_pretty = "Sessions";
-          sessions = [
-            {
-              name = "Development";
-              workspaces = [
-                {
-                  windows = [
-                    {
-                      command = "niri msg action spawn -- nautilus --new-window /mnt/nfs/riaru/Projects";
-                      app_id = "org.gnome.Nautilus";
-                    }
-                    {
-                      command = "niri msg action spawn -- codium";
-                      app_id = "codium";
-                    }
-                    {
-                      command = "niri msg action spawn -- ghostty";
-                      app_id = "com.mitchellh.ghostty";
-                    }
-                    {
-                      command = "niri msg action spawn -- ghostty";
-                      app_id = "com.mitchellh.ghostty";
-                      after = [
-                        "sleep 0.2 && niri msg action consume-or-expel-window-left"
-                      ];
-                    }
-                  ];
-                }
-              ];
-            }
-          ];
-        };
+      "bitwarden".settings = {
+        copy_command = "wl-copy --";
+        clear_command = "";
+      };
+
+      "nirisessions".settings = {
+        name_pretty = "Sessions";
+        sessions = [
+          {
+            name = "Development";
+            workspaces = [
+              {
+                windows = [
+                  {
+                    command = "niri msg action spawn -- nautilus --new-window /mnt/nfs/riaru/Projects";
+                    app_id = "org.gnome.Nautilus";
+                  }
+                  {
+                    command = "niri msg action spawn -- codium";
+                    app_id = "codium";
+                  }
+                  {
+                    command = "niri msg action spawn -- ghostty";
+                    app_id = "com.mitchellh.ghostty";
+                  }
+                  {
+                    command = "niri msg action spawn -- ghostty";
+                    app_id = "com.mitchellh.ghostty";
+                    after = [
+                      "sleep 0.2 && niri msg action consume-or-expel-window-left"
+                    ];
+                  }
+                ];
+              }
+            ];
+          }
+        ];
       };
 
       "clipboard".settings = {
@@ -756,6 +760,10 @@
             content = "\----------------------------------------";
           }
         ];
+      };
+
+      "calc".settings = {
+        async = true;
       };
 
       "websearch".settings = {
