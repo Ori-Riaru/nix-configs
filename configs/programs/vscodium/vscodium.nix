@@ -21,6 +21,10 @@
       enableUpdateCheck = false;
 
       keybindings = [
+        {
+          key = "alt";
+          command = "-workbench.action.toggleMenuBar";
+        }
         # Fast Cursor movement with ctrl
         {
           "key" = "ctrl+up";
