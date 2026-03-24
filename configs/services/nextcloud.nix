@@ -3,13 +3,12 @@
   settings,
   pkgs,
   ...
-}:  {
+}: {
   networking.firewall.allowedTCPPorts = [80 443];
 
   security.acme = {
     acceptTerms = true;
     defaults.email = settings.email;
-    defaults.enableDebugLogs = true;
   };
 
   services.nginx.virtualHosts.${config.services.nextcloud.hostName} = {
@@ -21,7 +20,7 @@
     enable = true;
 
     # MANUAL update required when new version available.
-    package = pkgs.nextcloud32;
+    package = pkgs.nextcloud33;
 
     hostName = "riaru.home.kg";
     https = true;
@@ -38,7 +37,7 @@
     settings = {
       maintenance_window_start = 4;
       default_phone_region = "CA";
-      trusted_domains = ["riaru.home.kg"];
+      trusted_domains = [config.services.nextcloud.hostName];
     };
     extraAppsEnable = true;
     extraApps = {
