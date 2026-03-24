@@ -20,8 +20,8 @@
 
           (defvar
             idle-time 50
-            tap-time 100
-            hold-time 140
+            tap-time 115
+            hold-time 115
             chord-time 200
           )
 
@@ -215,16 +215,16 @@
             o (multi r @.tp)
             p (multi l @.tp)
 
-            a (t! homerowmod       $tap-time 150 a lmet)
-            s (t! homerowmod       $tap-time 150 o lalt)
-            d (t! homerowmodfilter $tap-time 140 e lsft (a b))
-            f (t! homerowmod       $tap-time 140 u lctl)
+            a (t! homerowmod $tap-time 115 a lmet)
+            s (t! homerowmod $tap-time 115 o lalt)
+            d (t! homerowmod $tap-time 115 e lsft)
+            f (t! homerowmod $tap-time 115 u lctl)
             g (multi i @.tp)
             h (multi d @.tp)
-            j (t! homerowmod       $tap-time 140 h rctl)
-            k (t! homerowmodfilter $tap-time 140 t rsft (j))
-            l (t! homerowmod       $tap-time 150 n ralt)
-            ; (t! homerowmod       $tap-time 150 s rmet)
+            j (t! homerowmod $tap-time 115 h rctl)
+            k (t! homerowmodfilter $tap-time 115 t rsft (j))
+            l (t! homerowmod $tap-time 115 n ralt)
+            ; (t! homerowmod $tap-time 115 s rmet)
 
             z (multi ; @.tp)
             x (multi q @.tp)
@@ -322,9 +322,9 @@
           )
 
           (deflayer mouse
-            _          mwl        @ms-up     mwr         _          _    mlft mmid mrgt _
-            _     @ms-left   @ms-down   @ms-right        _ _   mlft mmid mrgt _
-            _          mbck       mwd        mwu         mfwd       _    _    _    _    _
+            0          1        2     3        .          _    mlft mmid mrgt _
+            -          4        5     6        0 _   mlft mmid mrgt _
+            C-z        7        8     9         mfwd       _    _    _    _    _
                                   mlft       mrgt        @menu      _    _
           )
 
