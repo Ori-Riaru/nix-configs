@@ -4,6 +4,8 @@
   ...
 }: {
   programs.vscode.profiles.default.userSettings = {
+    # === Function ===
+
     "files.autoSave" = "afterDelay";
     "editor.linkedEditing" = true;
     "keyboard.dispatch" = "keyCode";
@@ -29,6 +31,42 @@
     "editor.find.autoFindInSelection" = "multiline";
     "files.autoSaveWhenNoErrors" = true;
 
+    # === Layout ===
+
+    "window.titleBarStyle" = "native";
+    "window.customTitleBarVisibility" = "never";
+    "window.customMenuBarAltFocus" = true;
+    "workbench.activityBar.location" = "top";
+    "window.menuBarVisibility" = "hidden";
+    "workbench.statusBar.visible" = false;
+    "workbench.secondarySideBar.defaultVisibility" = "hidden";
+    "workbench.startupEditor" = "none";
+    "workbench.editor.showTabs" = "single";
+    "breadcrumbs.enabled" = false;
+    "editor.minimap.renderCharacters" = false;
+    "editor.minimap.side" = "right";
+    "editor.minimap.maxColumn" = 80;
+    "editor.minimap.scale" = 1;
+    "editor.minimap.showSlider" = "always";
+    "editor.minimap.autohide" = "mouseover";
+    "editor.scrollbar.verticalScrollbarSize" = 10;
+    "scm.diffDecorations" = "gutter";
+    "workbench.panel.showLabels" = false;
+    "diffEditor.experimental.showMoves" = true;
+    "editor.rulers" = [
+      {
+        "column" = 80;
+        "color" = "${settings.subtext}50";
+      }
+      {
+        "column" = 100;
+        "color" = "${settings.red}40";
+      }
+      {
+        "column" = 120;
+      }
+    ];
+
     # Fonts
 
     "editor.fontLigatures" = true;
@@ -51,91 +89,72 @@
     "terminal.integrated.minimumContrastRatio" = 5;
     "terminal.integrated.cursorBlinking" = true;
 
-    # Layout
-
-    "window.titleBarStyle" = "native";
-    "window.customTitleBarVisibility" = "never";
-    "workbench.activityBar.location" = "top";
-    "window.menuBarVisibility" = "hidden";
-    "workbench.statusBar.visible" = false;
-    "workbench.editor.showTabs" = "single";
-    "breadcrumbs.enabled" = false;
-    "editor.minimap.renderCharacters" = false;
-    "editor.minimap.side" = "right";
-    "editor.minimap.maxColumn" = 80;
-    "editor.minimap.scale" = 1;
-    "editor.minimap.showSlider" = "always";
-    "editor.minimap.autohide" = "mouseover";
-    "editor.scrollbar.verticalScrollbarSize" = 10;
-    "scm.diffDecorations" = "gutter";
-    "workbench.panel.showLabels" = false;
-    "diffEditor.experimental.showMoves" = true;
-    "editor.rulers" = [
-      {
-        "column" = 80;
-        "color" = "#AAAAAA30";
-      }
-      {
-        "column" = 100;
-        "color" = "#ff596c40";
-      }
-      {
-        "column" = 120;
-      }
-    ];
-
     # Colors
 
     "workbench.colorTheme" = "Visual Studio Dark";
     "workbench.colorCustomizations" = {
-      # General
-
-      "foreground" = "${settings.text}";
-      "disableForeground" = "${settings.subtext}";
+      # === General ===
+      "foreground" = settings.text;
+      "disableForeground" = settings.subtext;
       "widget.border" = "#0000";
-      "errorForeground" = "${settings.red}";
-      "button.background" = "${settings.accent}";
-      "button.hoverBackground" = "${settings.accent}";
-      "input.background" = "${settings.card}";
+      "errorForeground" = settings.red;
+      "button.background" = settings.accent;
+      "button.hoverBackground" = settings.accent;
+      "input.background" = settings.card;
       "focusBorder" = "#0000";
 
-      # Editor
-
+      # === Editor ===
       "editor.foreground" = "${settings.text}";
       "editor.background" = "${settings.section}";
       "editor.lineHighlightBackground" = "${settings.card}";
       "editor.selectionBackground" = "${settings.accent}";
-      "editor.selectionForeground" = "${settings.text}";
+      "editor.selectionForeground" = "${settings.base}";
       "editorRuler.foreground" = "${settings.red}";
-
-      "editorCursor.foreground" = "${settings.text}";
-      "editorLineNumber.foreground" = "${settings.subtext}";
       "scrollbar.shadow" = "#0000";
       "editorGroup.border" = "#0000";
+      "editorCursor.foreground" = "${settings.text}";
 
+      "editorLineNumber.foreground" = "${settings.hidden}";
+      "editorLineNumber.activeForeground" = "${settings.subtext}";
       "editorWarning.foreground" = "${settings.orange}";
+      "editorIndentGuide.background1" = settings.hidden;
+      "editorIndentGuide.background2" = settings.hidden;
+      "editorIndentGuide.background3" = settings.hidden;
+      "editorIndentGuide.background4" = settings.hidden;
+      "editorIndentGuide.activeBackground1" = settings.hidden;
+      "editorIndentGuide.activeBackground2" = settings.hidden;
+      "editorIndentGuide.activeBackground3" = settings.hidden;
+      "editorIndentGuide.activeBackground4" = settings.hidden;
+
+      "editorBracketHighlight.foreground1" = settings.text;
+      "editorBracketHighlight.foreground2" = settings.subtext;
+      "editorBracketHighlight.foreground3" = settings.hidden;
+      "editorBracketHighlight.foreground4" = settings.text;
+      "editorBracketHighlight.foreground5" = settings.subtext;
+      "editorBracketHighlight.foreground6" = settings.hidden;
+      "editorBracketHighlight.foreground7" = settings.hidden;
+      "editorBracketHighlight.foreground8" = settings.hidden;
+      "editorBracketHighlight.unmatchedForeground" = settings.text;
 
       # Auto complete popup
-
       "editorWidget.border" = "#0000";
 
-      # Git added an removed colors
+      # git status colors
+      "editorGutter.addedBackground" = settings.teal;
+      "editorGutter.deletedBackground" = settings.red;
+      "editorGutter.modifiedBackground" = settings.purple;
+      "editorGutter.addedSecondaryBackground" = settings.green;
+      "editorGutter.modifiedSecondaryBackground" = settings.blue;
+      "editorGutter.deletedSecondaryBackground" = settings.orange;
 
-      "editorGutter.addedBackground" = "${settings.teal}";
-      "editorGutter.deletedBackground" = "${settings.red}";
-      "editorGutter.modifiedBackground" = "${settings.purple}";
+      "gitDecoration.untrackedResourceForeground" = settings.teal;
+      "gitDecoration.deletedResourceForeground" = settings.red;
+      "gitDecoration.modifiedResourceForeground" = settings.purple;
+      "gitDecoration.addedResourceForeground" = settings.green;
+      "gitDecoration.stageModifiedResourceForeground" = settings.blue;
+      "gitDecoration.stagedDeletedResourceForeground" = settings.orange;
 
-      "editorBracketHighlight.foreground1" = "${settings.text}";
-      "editorBracketHighlight.foreground2" = "${settings.subtext}";
-      "editorBracketHighlight.foreground3" = "${settings.hidden}";
-      "editorBracketHighlight.foreground4" = "${settings.text}";
-      "editorBracketHighlight.foreground5" = "${settings.subtext}";
-      "editorBracketHighlight.foreground6" = "${settings.hidden}";
-      "editorBracketHighlight.foreground7" = "${settings.hidden}";
-      "editorBracketHighlight.foreground8" = "${settings.hidden}";
-      "editorBracketHighlight.unmatchedForeground" = "${settings.text}";
-
-      # Side Bar
+      # === Side Bar ===
 
       "sideBar.background" = "${settings.section}";
 
@@ -150,13 +169,9 @@
 
       # Explorer
 
-      "list.errorForeground" = "${settings.red}";
-      "list.warningForeground" = "${settings.orange}";
-      "list.hoverBackground" = "${settings.card}";
-
-      "gitDecoration.deletedResourceForeground" = "${settings.red}";
-      "gitDecoration.modifiedResourceForeground" = "${settings.purple}";
-      "gitDecoration.untrackedResourceForeground" = "${settings.teal}";
+      "list.errorForeground" = settings.red;
+      "list.warningForeground" = settings.orange;
+      "list.hoverBackground" = settings.card;
 
       # Terminal
 
@@ -184,7 +199,7 @@
     "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
     "terminal.integrated.shellIntegration.enabled" = false;
 
-    # Syntax Highlighting
+    # === Syntax Highlighting ===
 
     "editor.tokenColorCustomizations" = {
       # Strings
@@ -283,7 +298,7 @@
             "entity.name.command.shell"
           ];
           "settings" = {
-            "foreground" = "#61FFB3";
+            "foreground" = settings.green;
           };
         }
 
@@ -300,7 +315,7 @@
             "punctuation.definition.tag.begin"
           ];
           "settings" = {
-            "foreground" = "#FFA6FE";
+            "foreground" = settings.pink;
           };
         }
         {
@@ -316,7 +331,7 @@
             "support.type.builtin"
           ];
           "settings" = {
-            "foreground" = "#80B9FF";
+            "foreground" = settings.blue;
           };
         }
       ];
@@ -404,6 +419,11 @@
         "virtualenv"
         "kernelspec"
 
+        # R
+        "ggplot"
+        "xlab"
+        "ylab"
+
         # Kanata / kbd
         "kanata"
         "defchordsv"
@@ -417,7 +437,6 @@
         "defalias"
         "keybind"
         "keybinds"
-        "Keybinds"
         "keyhold"
         "keytap"
         "homerowmod"
@@ -654,7 +673,11 @@
 
     # css
     "[css][scss]" = {
-      "editor.defaultFormatter" = "prettier.prettier-vscode";
+      "editor.defaultFormatter" = "stylelint.vscode-stylelint";
+    };
+
+    "[rust]" = {
+      "editor.defaultFormatter" = "rust-lang.rust-analyzer";
     };
 
     # Typescript
