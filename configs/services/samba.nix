@@ -13,7 +13,7 @@
 
   services.samba = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
