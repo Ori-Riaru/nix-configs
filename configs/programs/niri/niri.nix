@@ -174,6 +174,14 @@
         open-floating = true;
       }
       {
+        matches = [
+          {
+            app-id = "org.gnome.Loupe";
+          }
+        ];
+        open-floating = true;
+      }
+      {
         matches = [{title = "Clipse GUI";}];
         open-floating = true;
       }
