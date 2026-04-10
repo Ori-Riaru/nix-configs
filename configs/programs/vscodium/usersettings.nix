@@ -659,6 +659,15 @@
       "source.fixAll.stylelint" = "explicit";
     };
 
+    # R
+    "[R]" = {
+      "editor.defaultFormatter" = "REditorSupport.r";
+    };
+
+    "[rmd]" = {
+      "editor.defaultFormatter" = "REditorSupport.r";
+    };
+
     # cpp
     "clang-format.fallbackStyle" = "Google";
     "[cpp]" = {

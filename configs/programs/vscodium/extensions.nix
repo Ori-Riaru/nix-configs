@@ -4,10 +4,11 @@
   ...
 }: {
   home.packages = with pkgs; [
+    # BROKEN: c# and unity extensions don't work because microsoft is evil
     # dotnet-runtime_10
     # dotnet-sdk_10
-    dotnet-runtime_9 # Required for c# extensions
-    dotnet-sdk_9
+    # dotnet-runtime_9 # Required for c# extensions
+    # dotnet-sdk_9
   ];
 
   programs.vscode = {
@@ -59,8 +60,8 @@
           redhat.java
 
           # C#
-          ms-dotnettools.vscode-dotnet-runtime
-          ms-dotnettools.csdevkit
+          # ms-dotnettools.vscode-dotnet-runtime
+          # ms-dotnettools.csdevkit
           # ms-dotnettools.csharp
 
           # R
@@ -72,7 +73,8 @@
           tomoki1207.pdf # PDF viewer
           redhat.vscode-xml # XML support
           redhat.vscode-yaml # YAML support
-          visualstudiotoolsforunity.vstuc # Unity support
+          # visualstudiotoolsforunity.vstuc # Unity support
+          ms-vscode.makefile-tools
 
           # === Generic ===
 
@@ -99,23 +101,25 @@
           charliermarsh.ruff
 
           # Other
-          #// prettier.prettier-vscode
+          prettier.prettier-vscode
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
-          #// jannisx11.batch-rename-extension
+          qwtel.sqlite-viewer
+          drinfinite.batch-rename
           sleistner.vscode-fileutils
+          pcode-pl.vscode-autohide-plus
         ])
         ++ (with extensions.vscode-marketplace; [
           # Web
           csstools.postcss
           joy-yu.css-snippets
           rubymaniac.vscode-paste-and-indent
-          pcode-pl.vscode-autohide-plus
           stylelint.vscode-stylelint
           ms-toolsai.jupyter-renderers
+          posit.air-vscode
 
-          #// philsinatra.nested-comments
+          philsinatra.nested-comments
           oven.bun-vscode
           #// wallabyjs.quokka-vscode
           #// wallabyjs.console-ninja
