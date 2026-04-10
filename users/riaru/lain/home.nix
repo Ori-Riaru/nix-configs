@@ -62,6 +62,7 @@
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
     ../../../configs/programs/slack.nix
+    ../../../configs/programs/cinny-desktop.nix
 
     # Media
     ../../../configs/programs/spotify/spotify.nix
