@@ -275,6 +275,10 @@
               text = "Arena";
               actions = {open = "xdg-open https://arena.ai && ${focus-command}";};
             }
+            {
+              text = "unicode";
+              action = {open = "xdg-open 'https://charcuterie.elastiq.ch/#1F5C5' && ${focus-command}";};
+            }
           ];
         };
 
