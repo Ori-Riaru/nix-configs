@@ -128,7 +128,7 @@
 
           (defchordsv2
             ;; Global chords
-            (w e) tab              $chord-time first-release (game gamenum qwerty  nav)
+            (s d          ) tab              $chord-time first-release (game gamenum qwerty  nav)
             (x c) (caps-word 1000) $chord-time first-release (game gamenum qwerty)
             (e r) /                $chord-time first-release (game gamenum qwerty)
             (q w) S-`              $chord-time first-release (game gamenum qwerty)
@@ -144,7 +144,7 @@
 
             ;; Number/Symbol chords
             (a s) }   $chord-time first-release (default game qwerty gamenum nav)
-            (s d) S-} $chord-time first-release (default game qwerty gamenum nav)
+            ;;(s d) S-} $chord-time first-release (default game qwerty gamenum nav)
             (d f) S-0 $chord-time first-release (default game qwerty gamenum nav)
             (a f) S-, $chord-time first-release (default game qwerty gamenum nav)
           )
