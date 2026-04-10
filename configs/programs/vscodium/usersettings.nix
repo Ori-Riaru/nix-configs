@@ -698,11 +698,12 @@
     "typescript.inlayHints.enumMemberValues.enabled" = true;
 
     # javascript
-    "javascript.inlayHints.parameterNames.enabled" = "all";
-    "javascript.inlayHints.parameterTypes.enabled" = true;
-    "javascript.inlayHints.variableTypes.enabled" = true;
-    "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
-    "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "js/ts.inlayHints.enumMemberValues.enabled" = true;
+    "js/ts.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "js/ts.inlayHints.parameterNames.enabled" = "all";
+    "js/ts.inlayHints.parameterTypes.enabled" = true;
+    "js/ts.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "js/ts.inlayHints.variableTypes.enabled" = true;
 
     # Go
     "[go]" = {
