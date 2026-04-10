@@ -20,8 +20,8 @@
 
           (defvar
             idle-time 50
-            tap-time 115
-            hold-time 115
+            tap-time 160
+            hold-time 160
             chord-time 200
           )
 
