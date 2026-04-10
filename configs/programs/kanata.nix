@@ -102,12 +102,6 @@
             tab  (tap-hold $tap-time $hold-time tab lalt)
             bspc (tap-hold $tap-time $hold-time bspc (layer-while-held menu))
 
-            ;; Mouse
-            ms-up      (movemouse-accel-up    1 1000 1 5)
-            ms-down    (movemouse-accel-down  1 1000 1 5)
-            ms-left    (movemouse-accel-left  1 1000 1 5)
-            ms-right   (movemouse-accel-right 1 1000 1 5)
-
             ;; Dynamic macro recording/playback
             m-rec-1    (dynamic-macro-record 1)
             m-rec-2    (dynamic-macro-record 2)
@@ -122,39 +116,10 @@
             menu      (layer-while-held menu)
             nav-shift (layer-while-held nav-shift)
             gamenum   (layer-while-held gamenum)
-            typing (tap-dance-eager 500 (
-              (tap-hold $tap-time $hold-time ret (layer-while-held default-game))
+            game-type (tap-dance-eager 500 (
+              (tap-hold $tap-time $hold-time ret (layer-while-held default))
               (layer-while-held num)
             ))
-
-            ;; Special functions
-            .tp (switch
-                  () (multi
-                    (layer-switch typing)
-                    (on-idle $idle-time tap-vkey to-base)
-                  ) break
-                )
-
-            .spc-typing (multi (layer-switch default) spc)
-          )
-
-          ;; =====================
-          ;; Templates & Helpers
-          ;; =====================
-
-          (deftemplate homerowmod (timeouttap timeouthold keytap keyhold)
-            (tap-hold $timeouttap $timeouthold
-              (multi $keytap  @.tp)
-              $keyhold
-            )
-          )
-
-          (deftemplate homerowmodfilter (timeouttap timeouthold keytap keyhold typinglist)
-            (tap-hold-except-keys $timeouttap $timeouthold
-              (multi $keytap  @.tp)
-              $keyhold
-              $typinglist
-            )
           )
 
           ;; =====================
@@ -163,25 +128,25 @@
 
           (defchordsv2
             ;; Global chords
-            (w e) tab              $chord-time first-release (game gamenum qwerty typing nav)
-            (x c) (caps-word 1000) $chord-time first-release (game gamenum qwerty typing)
-            (e r) /                $chord-time first-release (game gamenum qwerty typing)
-            (q w) S-`              $chord-time first-release (game gamenum qwerty typing)
+            (w e) tab              $chord-time first-release (game gamenum qwerty  nav)
+            (x c) (caps-word 1000) $chord-time first-release (game gamenum qwerty)
+            (e r) /                $chord-time first-release (game gamenum qwerty)
+            (q w) S-`              $chord-time first-release (game gamenum qwerty)
 
             ;; Navigation chords
-            (p spc)   C-v    $chord-time first-release (        game qwerty gamenum num typing)
-            (j k)     home   $chord-time first-release (default game qwerty gamenum num typing)
-            (j k spc) home   $chord-time first-release (        game qwerty gamenum num typing)
-            (k l)     end    $chord-time first-release (default game qwerty gamenum num typing)
-            (k l spc) end    $chord-time first-release (        game qwerty gamenum num typing)
-            (d j k)   S-home $chord-time first-release (default game qwerty gamenum num typing)
-            (d k l)   S-end  $chord-time first-release (default game qwerty gamenum num typing)
+            (p spc)   C-v    $chord-time first-release (        game qwerty gamenum num)
+            (j k)     home   $chord-time first-release (default game qwerty gamenum num)
+            (j k spc) home   $chord-time first-release (        game qwerty gamenum num)
+            (k l)     end    $chord-time first-release (default game qwerty gamenum num)
+            (k l spc) end    $chord-time first-release (        game qwerty gamenum num)
+            (d j k)   S-home $chord-time first-release (default game qwerty gamenum num)
+            (d k l)   S-end  $chord-time first-release (default game qwerty gamenum num)
 
             ;; Number/Symbol chords
-            (a s) }   $chord-time first-release (default game qwerty gamenum nav typing)
-            (s d) S-} $chord-time first-release (default game qwerty gamenum nav typing)
-            (d f) S-0 $chord-time first-release (default game qwerty gamenum nav typing)
-            (a f) S-, $chord-time first-release (default game qwerty gamenum nav typing)
+            (a s) }   $chord-time first-release (default game qwerty gamenum nav)
+            (s d) S-} $chord-time first-release (default game qwerty gamenum nav)
+            (d f) S-0 $chord-time first-release (default game qwerty gamenum nav)
+            (a f) S-, $chord-time first-release (default game qwerty gamenum nav)
           )
 
           ;; =====================
@@ -206,47 +171,6 @@
 
           ;; Default layer
           (deflayermap (default)
-            q (multi ' @.tp)
-            w (multi - @.tp)
-            e (multi . @.tp)
-            r (multi p @.tp)
-            t (multi y @.tp)
-            y (multi f @.tp)
-            u (multi g @.tp)
-            i (multi c @.tp)
-            o (multi r @.tp)
-            p (multi l @.tp)
-
-            a (t! homerowmod $tap-time 115 a lmet)
-            s (t! homerowmod $tap-time 115 o lalt)
-            d (t! homerowmod $tap-time 115 e lsft)
-            f (t! homerowmod $tap-time 115 u lctl)
-            g (multi i @.tp)
-            h (multi d @.tp)
-            j (t! homerowmod $tap-time 115 h rctl)
-            k (t! homerowmodfilter $tap-time 115 t rsft (j))
-            l (t! homerowmod $tap-time 115 n ralt)
-            ; (t! homerowmod $tap-time 115 s rmet)
-
-            z (multi ; @.tp)
-            x (multi q @.tp)
-            c (multi j @.tp)
-            v (multi k @.tp)
-            b (multi x @.tp)
-            n (multi b @.tp)
-            m (multi m @.tp)
-            , (multi w @.tp)
-            . (multi v @.tp)
-            / (multi z @.tp)
-
-            lalt @esc
-            spc  (tap-hold $tap-time $hold-time @.spc-typing (layer-while-held nav))
-            ralt @ret
-            rmet @bspc
-            rctl @bspc
-          )
-
-          (deflayermap (default-game)
             q '
             w -
             e .
@@ -258,16 +182,16 @@
             o r
             p l
 
-            a (tap-hold             $tap-time 150 a lmet)
-            s (tap-hold             $tap-time 150 o lalt)
-            d (tap-hold-except-keys $tap-time 140 e lsft (a b))
-            f (tap-hold             $tap-time 140 u lctl)
+            a (tap-hold $tap-time $hold-time a lmet)
+            s (tap-hold $tap-time $hold-time o lalt)
+            d (tap-hold $tap-time $hold-time e lsft)
+            f (tap-hold $tap-time $hold-time u lctl)
             g i
             h d
-            j (tap-hold             $tap-time 140 h rctl)
-            k (tap-hold-except-keys $tap-time 140 t rsft (j))
-            l (tap-hold             $tap-time 150 n ralt)
-            ; (tap-hold             $tap-time 150 s rmet)
+            j (tap-hold $tap-time $hold-time h rctl)
+            k (tap-hold $tap-time $hold-time t rsft)
+            l (tap-hold $tap-time $hold-time n ralt)
+            ; (tap-hold $tap-time $hold-time s rmet)
 
             z ;
             x q
@@ -285,14 +209,6 @@
             ralt @ret
             rmet @bspc
             rctl @bspc
-          )
-
-          ;; Additional layers
-          (deflayer typing
-            ' - . p y   f    g  c r l
-            a o e u i   d    h  t n s
-            ; q j k x   b    m  w v z
-            @esc spc @ret @bspc @bspc
           )
 
           (deflayer num
@@ -341,7 +257,7 @@
             tab  q w e        r   t   y     up   i     j
             shft a s d        f   g   left  down right ret
             ctl  z x c        v   b   h     u    n     m
-                     @gamenum spc @typing   @bspc @bspc
+                     @gamenum spc @game-type   @bspc @bspc
           )
 
           (deflayer gamenum
