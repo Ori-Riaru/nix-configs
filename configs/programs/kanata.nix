@@ -282,7 +282,7 @@
 
             lalt @esc
             spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-            ralt _
+            ralt @ret
             rmet @bspc
             rctl @bspc
           )
