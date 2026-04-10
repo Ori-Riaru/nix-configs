@@ -118,6 +118,12 @@
         {proportion = 0.8333333334;}
         {proportion = 1.0;}
       ];
+      preset-window-heights = [
+        {proportion = 0.33333;}
+        {proportion = 0.5;}
+        {proportion = 0.66667;}
+      ];
+
       default-column-width = {proportion = 0.3333333334;}; # TODO: make host specific
 
       focus-ring = {
@@ -204,7 +210,7 @@
     hotkey-overlay.skip-at-startup = true;
 
     binds = {
-      "Mod+H".action.show-hotkey-overlay = {};
+      "Mod+slash".action.show-hotkey-overlay = {};
 
       "Mod+L".action.spawn = ["sh" "-c" "kasa --host 192.168.1.72 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle"];
 
@@ -257,6 +263,8 @@
       "Mod+Q".action.close-window = {};
       "Mod+R".action.switch-preset-column-width = {};
       "Ctrl+Mod+R".action.switch-preset-column-width-back = {};
+      "Mod+H".action.switch-preset-window-height = {};
+      "Ctrl+Mod+H".action.switch-preset-window-height-back = {};
       "Shift+Mod+R".action.expand-column-to-available-width = {};
 
       "Mod+F".action.maximize-column = {};

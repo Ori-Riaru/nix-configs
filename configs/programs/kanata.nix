@@ -69,6 +69,8 @@
             quit     M-q
             size     M-r
             size-back M-C-r
+            h-up     M-h
+            h-down   M-C-h
             full     M-f
             max      M-S-f
             float    M-w
@@ -310,7 +312,7 @@
           (deflayer nav-shift
             @close     @max     @websearch _         _ @cliphist F1 F2 F3 F10
             @move-left @move-up @move-down @move-right @move-monitor @replace F4 F5 F6 F11
-            _          _        _          _           _ _        F7 F8 F9 F12
+            _          @h-up   @h-down          _           _ _        F7 F8 F9 F12
                                            _           _ _        _  _
           )
 
