@@ -7,6 +7,7 @@
 }: {
   imports = [
     inputs.walker.homeManagerModules.walker
+    inputs.elephant.homeManagerModules.elephant
     ./theme.nix
     # ./menus/
   ];
@@ -110,6 +111,7 @@
   };
 
   programs.elephant = {
+    enable = true;
     providers = [
       "desktopapplications"
       "runner"
