@@ -55,7 +55,7 @@
         default = [
           "providerlist"
           "desktopapplications"
-          #"windows"
+          "windows"
           "websearch"
           "calc"
           "snippets"
