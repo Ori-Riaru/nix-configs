@@ -7,7 +7,6 @@
 }: {
   imports = [
     inputs.walker.homeManagerModules.walker
-    inputs.elephant.homeManagerModules.elephant
     ./theme.nix
     # ./menus/
   ];
@@ -63,7 +62,7 @@
           "menus:power"
           "menus:bookmarks"
           "menus:efi"
-          "menu:smarthome"
+          "menus:smarthome"
         ];
         prefixes = [
           {
@@ -348,7 +347,7 @@
             {
               text = "Toggle Lights";
               icon = "";
-              actions = {"boot windows" = "boot-windows";};
+              actions = {"Toggle lights" = "kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";};
             }
           ];
         };

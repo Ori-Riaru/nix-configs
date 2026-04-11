@@ -128,7 +128,7 @@
 
         "custom/kasa" = {
           "format" = "    ";
-          "on-click" = "kasa --host 192.168.1.72 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";
+          "on-click" = "kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";
           "tooltip" = false;
         };
       };
