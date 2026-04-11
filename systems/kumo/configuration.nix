@@ -20,6 +20,7 @@
     ../../configs/services/inadyn.nix
     ../../configs/services/nextcloud.nix
     ../../configs/services/matrix.nix
+    ../../configs/services/hydroxide.nix
 
     #// ../../configs/services/copyparty.nix
     #// ../../configs/services/n8n.nix
@@ -27,7 +28,6 @@
     #// ../../configs/services/minecraft.nix
     #// ../../configs/services/factorio.nix
     #// ../../configs/services/homeassistant.nix
-    #// ../../configs/services/hydroxide.nix
     #// ../../configs/services/palworld.nix
   ];
 
