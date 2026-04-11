@@ -35,7 +35,10 @@
         owner = config.services.copyparty.user;
         group = config.services.copyparty.group;
       };
-      "turn_secret" = {};
+      "turn_secret" = {
+        owner = "turnserver";
+        group = "turnserver";
+      };
     };
 
     templates = lib.mkIf config.services.inadyn.enable {
