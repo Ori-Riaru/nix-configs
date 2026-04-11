@@ -3,10 +3,13 @@
   settings,
   ...
 }: {
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    package = pkgs.master.jellyfin;
+  };
 
   environment.systemPackages = [
-    pkgs.jellyfin
+    pkgs.master.jellyfin
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
   ];
