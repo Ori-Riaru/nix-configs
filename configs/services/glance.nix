@@ -187,7 +187,6 @@
                     "UCbWcXB0PoqOsAvAdfzWMf0w" # Fredrik Knudsen
                     "UC7M-Wz4zK8oikt6ATcoTwBA" # Freya Holmér
                     "UCniqJdv-ZQHj1w1Xg6eLWYA" # From Scratch
-                    "UCa5uMMs0cVg9opJt_Kw3HLA" # Futurology — An Optimistic Future
                     "UCn_FAXem2-e3HQvmK-mOH4g" # GLITCH
                     "UCCk6atPf8zBPd-5C7rgEkRg" # Gneiss Name
                     "UCwffSP9kO8pMZVr1Ugqvbzw" # HTX Studio
@@ -349,7 +348,6 @@
                     "UCj4OTbKSiCxjGoQhalUvrdg" # runevision
                     "UCRORSN_alHEPyyM_x27wBXQ" # savannahXYZ
                     "UCpXwMqnXfJzazKS5fJ8nrVw" # shiey
-                    "UCRsSVa7zu3l5e0CI3j14NrA" # soiboi soft
                     "UCO3AOLFI3GsXAuRhYOR-wyA" # sorry stacy
                     "UCJYJgj7rzsn0vdR7fkgjuIA" # styropyro
                     "UC3azLjQuz9s5qk76KEXaTvA" # suckerpinch
