@@ -10,7 +10,7 @@
 
     ../../configs/services/samba.nix
     ../../configs/services/mastodon/mastodon.nix
-    ../../configs/services/copyparty.nix
+
     ../../configs/services/tailscale.nix
     ../../configs/services/nfs.nix
     ../../configs/services/restic.nix
@@ -21,6 +21,7 @@
     ../../configs/services/nextcloud.nix
     ../../configs/services/matrix.nix
 
+    #// ../../configs/services/copyparty.nix
     #// ../../configs/services/n8n.nix
     #// ../../configs/services/hytale.nix
     #// ../../configs/services/minecraft.nix
