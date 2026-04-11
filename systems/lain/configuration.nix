@@ -43,8 +43,8 @@
   # environment.systemPackages = [config.boot.kernelPackages.digimend];
 
   hardware.uinput.enable = true;
-  users.groups.uinput.members = ["${settings.username}"];
-  users.groups.input.members = ["${settings.username}"];
+  users.groups.uinput.members = [settings.username];
+  users.groups.input.members = [settings.username];
 
   system.stateVersion = "24.05";
 }
