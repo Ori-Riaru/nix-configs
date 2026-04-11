@@ -263,8 +263,8 @@
       "Mod+Q".action.close-window = {};
       "Mod+R".action.switch-preset-column-width = {};
       "Ctrl+Mod+R".action.switch-preset-column-width-back = {};
-      "Mod+H".action.switch-preset-window-height = {};
-      "Ctrl+Mod+H".action.switch-preset-window-height-back = {};
+      "Mod+H".action.switch-preset-window-height-back = {};
+      "Ctrl+Mod+H".action.switch-preset-window-height = {};
       "Shift+Mod+R".action.expand-column-to-available-width = {};
 
       "Mod+F".action.maximize-column = {};
