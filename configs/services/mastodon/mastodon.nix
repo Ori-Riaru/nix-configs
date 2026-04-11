@@ -18,7 +18,7 @@
     enable = true;
     localDomain = "my.v0id.nl";
     configureNginx = true;
-    smtp.fromAddress = "ori-riaru@proton.me";
+    smtp.fromAddress = settings.email;
     extraConfig = {
       SINGLE_USER_MODE = "true";
       ALTERNATE_DOMAINS = "kumo.tailcba954.ts.net";
