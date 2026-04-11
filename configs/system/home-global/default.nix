@@ -15,6 +15,9 @@
     config = {
       allowUnfree = true;
       allowBroken = true;
+      permittedInsecurePackages = [
+        "electron-38.8.4"
+      ];
     };
   };
 
