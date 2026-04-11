@@ -40,7 +40,14 @@
 
   services.ratbagd.enable = true;
 
-  # environment.systemPackages = [config.boot.kernelPackages.digimend];
+  services.xserver.digimend.enable = true;
+
+  environment.systemPackages = [config.boot.kernelPackages.digimend];
+
+  hardware.opentabletdriver = {
+    enable = true;
+    daemon.enable = true;
+  };
 
   hardware.uinput.enable = true;
   users.groups.uinput.members = [settings.username];
