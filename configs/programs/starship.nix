@@ -27,7 +27,7 @@
       };
 
       format = ''
-        $character$cmd_duration$directory$fill$c$rust$nix_shell$golang$nodejs$php$java$kotlin$haskell$python$git_branch$git_status$username$hostname$line_break 󰜴 '';
+        $character$cmd_duration$directory$git_status$git_branch$fill$c$rust$nix_shell$golang$nodejs$php$java$kotlin$haskell$python$username$hostname$line_break 󰜴 '';
 
       add_newline = false;
 
@@ -46,6 +46,7 @@
       directory = {
         substitutions = {
           "~" = "󰉋";
+          "/mnt/nfs/riaru" = "";
           "Projects" = "";
           "nix-configs" = "";
           ".config" = "";
@@ -54,14 +55,14 @@
           "Music" = "󰝚 ";
           "Captures" = " ";
           "Games" = "";
-          "Notes" = ""; # Changed to sticky note icon
-          "Temp" = ""; # Stopwatch/timer for temporary
-          "Backups" = ""; # Hard drive icon for backups
+          "Notes" = "";
+          "Temp" = "";
+          "Backups" = "";
           "Trash" = "";
         };
 
         format = "[](fg:background)[$path](fg:text bg:background)[](fg:background) ";
-        truncation_length = 10;
+        truncation_length = 32;
         truncation_symbol = "…/";
       };
 
@@ -71,13 +72,13 @@
 
       git_branch = {
         symbol = "";
-        style = "bg:cyan";
-        format = "[](fg:cyan)[[ $symbol $branch ](fg:foreground bg:cyan)]($style)";
+        style = "bg:purple";
+        format = "[[$symbol $branch ](fg:foreground bg:purple)]($style)[](fg:purple)";
       };
 
       git_status = {
-        style = "bg:cyan";
-        format = "[[($all_status$ahead_behind )](fg:foreground bg:cyan)]($style)[](fg:cyan) ";
+        style = "bg:purple";
+        format = "[](fg:purple)[($all_status$ahead_behind)](fg:foreground bg:purple)";
       };
 
       nodejs = {
