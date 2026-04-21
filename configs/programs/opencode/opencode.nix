@@ -8,4 +8,11 @@
         ];
     }))
   ];
+
+  home.file.".config/opencode/opencode.json".text = ''
+    {
+      "$schema": "https://opencode.ai/config.json",
+      "autoupdate": false
+    }
+  '';
 }
