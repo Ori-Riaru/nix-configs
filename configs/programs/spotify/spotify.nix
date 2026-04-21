@@ -38,7 +38,6 @@ in {
       misc = removeHashtag "${settings.pink}";
     };
 
-    # Extensions
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
       bookmark
@@ -46,16 +45,6 @@ in {
       hidePodcasts
       shuffle
       {
-        name = "utilities.js";
-        src = pkgs.fetchFromGitHub {
-          owner = "kyrie25";
-          repo = "spicetify-utilities";
-          rev = "main";
-          hash = "sha256-LZcrmoA+SOpTeTiBeiOtneojzBhvbZfkawTyFRLhNk8=";
-        };
-      }
-      {
-        # Not working
         name = "LibX-Reborn.js";
         src = "${
           pkgs.fetchFromGitHub {
