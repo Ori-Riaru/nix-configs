@@ -35,7 +35,7 @@
         owner = config.services.copyparty.user;
         group = config.services.copyparty.group;
       };
-      "turn_secret" = {
+      "turn_secret" = lib.mkIf config.services.coturn.enable {
         owner = "turnserver";
         group = "turnserver";
       };
