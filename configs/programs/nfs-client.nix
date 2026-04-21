@@ -23,15 +23,15 @@
         fsType = "nfs";
         options = [
           "nfsvers=4.2"
+          "nconnect=16"
+          "_netdev"
           "x-systemd.automount"
           "noauto"
           "x-systemd.idle-timeout=600"
-          "x-systemd.mount-timeout=10"
-          "soft"
-          "timeo=50"
-          "retrans=2"
-          "rsize=131072"
-          "wsize=131072"
+          "x-systemd.mount-timeout=15"
+          "timeo=150"
+          "rsize=1048576"
+          "wsize=1048576"
         ];
       };
       "/mnt/nfs/bulk" = {
@@ -39,15 +39,15 @@
         fsType = "nfs";
         options = [
           "nfsvers=4.2"
+          "nconnect=16"
+          "_netdev"
           "x-systemd.automount"
           "noauto"
           "x-systemd.idle-timeout=600"
-          "x-systemd.mount-timeout=10"
-          "soft"
-          "timeo=50"
-          "retrans=2"
-          "rsize=131072"
-          "wsize=131072"
+          "x-systemd.mount-timeout=15"
+          "timeo=150"
+          "rsize=1048576"
+          "wsize=1048576"
         ];
       };
     };
