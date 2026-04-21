@@ -69,6 +69,7 @@
       pbrt = "/mnt/nfs/riaru/Projects/advanced-computer-graphics/assignment-2/pbrt-v3/build/pbrt";
 
       oc = "opencode";
+      ocr = "opencode --continue";
       code = "codium";
       fs = "files";
       tt = "toipe";
