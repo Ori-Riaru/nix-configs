@@ -134,7 +134,6 @@
                     "UCp1GVorJ_63HU8lRfHVK-jg" # Arglin Kampling [Third Gen]
                     "UCR2uRTQ53V_egXKFflMMaaw" # Artem Kirsanov
                     "UCSW_6zSlR7mn6Gqh-njFWFw" # Artem Yashin
-                    "UCgv4dPk_qZNAbUW9WkuLPSA" # Atrioc
                     "UCA2FRonDi81FIkgI-49zV3g" # Azalae
                     "UClLOsBKtKS8i9N12l6Uza3g" # Azeal
                     "UChHxJaKDqH4bOs0pX3hkKnA" # Basically Homeless
@@ -161,7 +160,6 @@
                     "UCSpFnDQr88xCZ80N-X7t0nQ" # Corridor Crew
                     "UCsn6cjffsvyOZCZxvGoJxGg" # Corridor Digital
                     "UCcWZY8dxd4HhlH5vY_Luzgw" # CyanVoxel
-                    "UC1qIX2Ya5ErOrU9tv0GVUAw" # CyberYamu
                     "UCW9KvoeUz2CsBwIGh3ux1ew" # Cymaera
                     "UCUQo7nzH1sXVpzL92VesANw" # DIY Perks
                     "UCuWLGQB4WRBKvW1C26zA2og" # Daedalus Community
@@ -216,7 +214,6 @@
                     "UCSp-OaMpsO8K0KkOqyBl7_w" # Let's Get Rusty
                     "UC-qC-Fmxe949YVQrOYb8NrA" # Levi Magony
                     "UCeZyoDTk0J-UPhd7MUktexw" # LibrePhoenix
-                    "UCXuqSBlHAE6Xw-yeJA0Tunw" # Linus Tech Tips
                     "UCnHX5FjwtQpxkCGziuh4NJA" # Logan Smith
                     "UCLusf7tT1gGAcoZbGwVAR5w" # MARKitekta
                     "UC9OFDumeHCcZfzUKZW8F7gw" # MallBat
@@ -230,7 +227,6 @@
                     "UClUc_jq1BuEczLm0asOeNcw" # Mirabeau Studios
                     "UCj2iyEUusvLJlWAS8HV4y1Q" # Miss Twisted
                     "UCSJ2epYmnRCdXWWg_xjpgfA" # Momo PTFL
-                    "UCX6OQ3DkcsbYNE6H8uQQuVA" # MrBeast
                     "UCr0oCYeULCgv--aP0WMsWBw" # Nachtwind
                     "UCSdma21fnJzgmPodhC9SJ3g" # NakeyJakey
                     "UCSRp5VNnG16gd80vNZp4neA" # Neoly
@@ -286,7 +282,6 @@
                     "UCl_dlV_7ofr4qeP1drJQ-qg" # Tantacrul
                     "UChl_NKOs1qqh_x7yJfaDpDw" # Tantan
                     "UCjSEJkpGbcZhvo0lr-44X_w" # TechHut
-                    "UCeeFfhMcJa1kjtfZAGskOCA" # TechLinked
                     "UCy0tKL1T7wFoYcxCe0xjN6Q" # Technology Connections
                     "UC1VLQPn9cYSqx8plbk9RxxQ" # The Action Lab
                     "UC5UAwBUum7CPN5buc-_N1Fw" # The Linux Experiment
