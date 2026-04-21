@@ -23,7 +23,7 @@
       SINGLE_USER_MODE = "true";
       ALTERNATE_DOMAINS = "kumo.tailcba954.ts.net";
     };
-    streamingProcesses = 3;
+    streamingProcesses = 2;
 
     package = pkgs.mastodon.override {
       patches = [./charlimit.patch];
