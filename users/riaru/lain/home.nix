@@ -13,6 +13,7 @@
     ../../../configs/programs/btop.nix
     ../../../configs/programs/openrgb/openrgb.nix
     ../../../configs/programs/kdeconnect/kdeconnect-home.nix
+    ../../../configs/programs/mission-control.nix
 
     # CLI
     ../../../configs/groups/cli-base.nix
@@ -52,7 +53,6 @@
     ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/act.nix
     ../../../configs/programs/opencode/opencode.nix
-    ../../../configs/programs/rstudio.nix
 
     ../../../configs/programs/nix.nix
     ../../../configs/programs/python.nix
