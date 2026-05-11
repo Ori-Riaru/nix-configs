@@ -9,6 +9,7 @@
     xwayland-satellite
     awww
     brightnessctl
+    python314Packages.python-kasa
   ];
 
   imports = [
@@ -23,8 +24,8 @@
           variant = ",${settings.keyboard}";
           options = "";
         };
-        repeat-delay = 200;
-        repeat-rate = 20;
+        repeat-delay = 170;
+        repeat-rate = 30;
       };
 
       touchpad = {
@@ -156,9 +157,9 @@
 
     spawn-at-startup = [
       {command = ["clipse" "-listen"];}
-      {command = ["sh" "-c" "sleep 4 && swww-daemon"];}
-      {command = ["sh" "-c" "sleep 5 && swww clear ${settings.base} --transition-type none"];}
-      {command = ["sh" "-c" "sleep 6 && swww img ${settings.wallpaper} -o DP-2 --transition-type none"];}
+      {command = ["sh" "-c" "sleep 4 && awww-daemon"];}
+      {command = ["sh" "-c" "sleep 5 && awww clear ${settings.base} --transition-type none"];}
+      {command = ["sh" "-c" "sleep 6 && awww img ${settings.wallpaper} -o DP-2 --transition-type none"];}
       {command = ["sh" "-c" "sleep 5 && openrgb --profile off"];}
     ];
 
