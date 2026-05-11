@@ -62,7 +62,7 @@
         };
 
         format = "[](fg:background)[$path](fg:text bg:background)[](fg:background) ";
-        truncation_length = 32;
+        truncation_length = 256;
         truncation_symbol = "…/";
       };
 
