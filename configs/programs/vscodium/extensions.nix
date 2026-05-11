@@ -133,6 +133,7 @@
           #// letrieu.expand-region
           #// eww-yuck.yuck
           dandehoon.vscode-generic-expand-selection
+          dioxuslabs.dioxus
 
           # Generic
           mguellsegarra.highlight-on-copy
