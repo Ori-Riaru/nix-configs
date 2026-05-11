@@ -32,6 +32,8 @@
           meganrogge.template-string-converter
           svelte.svelte-vscode
           vue.volar
+          dbaeumer.vscode-eslint
+          yoavbls.pretty-ts-errors
 
           # Rust
           rust-lang.rust-analyzer
