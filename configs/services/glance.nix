@@ -86,10 +86,6 @@
                           title = "Gemini";
                           url = "https://gemini.google.com/app";
                         }
-                        {
-                          title = "Arena";
-                          url = "https://arena.ai";
-                        }
                       ];
                     }
                   ];
@@ -140,7 +136,6 @@
                     "UCshObcm-nLhbu8MY50EZ5Ng" # Benn Jordan
                     "UCdBXOyqr8cDshsp7kcKDAkg" # Big A
                     "UCp7EwodJcppc6GqiRcnCpOw" # Blender Secrets
-                    "UCZXW8E1__d5tZb-wLFOt8TQ" # Bog
                     "UC9pXmjxsQHeFH9vgCeRsHcw" # Brendan Galea
                     "UCvW5ZYoNR2fkn0xkanZKdWA" # Bryce Bostwick
                     "UC2C_jShtL725hvbm1arSV9w" # CGP Grey
@@ -303,7 +298,6 @@
                     "UCop6aovOTLqHsw2IgrRgYTQ" # Whatcookie
                     "UCyiCGuV7iQJhIx7QhG6yLHg" # WhatsItLike
                     "UCLLj278KKxRAIJ1ZdNY4nsg" # Will Morrison
-                    "UCbguawtJlHjxXzdAskubQVg" # William Osman 2
                     "UC0G7e3uCtTyKQy2vZbRaKxg" # Works By Design
                     "UC1X4v8N9U3qnVl6zzuEtUqQ" # Wumbo
                     "UC2_X49uo6B7jSVSOwJSjznQ" # YukkoEX
@@ -329,7 +323,6 @@
                     "UCf_mM4e4fKMnLHyagLPpA0A" # green hoodie cat
                     "UCc5MSmIx-pROLCviehbvlLw" # harry blends
                     "UClt01z1wHHT7c5lKcU8pxRQ" # hbomberguy
-                    "UCjFXxPECBuCPUJP9i1usJlA" # iris olympia
                     "UC-BIyaiQIzNbjXErkDRCqXg" # ito can't sleep
                     "UCqf0X7s2oubwgX1MvBqH7ZA" # josh (with parentheses)
                     "UCkaRHEADYAt97-QeVcKXj2A" # kodiakwhale
