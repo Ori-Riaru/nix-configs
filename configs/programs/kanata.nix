@@ -20,7 +20,7 @@
 
           (defvar
             idle-time 50
-            tap-time 160
+            tap-time 170
             hold-time 160
             chord-time 200
           )
@@ -130,23 +130,23 @@
             ;; Global chords
             (s d          ) tab              $chord-time first-release (game gamenum qwerty  nav)
             (x c) (caps-word 1000) $chord-time first-release (game gamenum qwerty)
-            (e r) /                $chord-time first-release (game gamenum qwerty)
+            (w e) /               $chord-time first-release (game gamenum qwerty)
             (q w) S-`              $chord-time first-release (game gamenum qwerty)
 
             ;; Navigation chords
-            (p spc)   C-v    $chord-time first-release (        game qwerty gamenum num)
+            (p spc)   C-v    $chord-time first-release  (game qwerty gamenum num)
             (j k)     home   $chord-time first-release (default game qwerty gamenum num)
-            (j k spc) home   $chord-time first-release (        game qwerty gamenum num)
+            (j k spc) home   $chord-time first-release (default game qwerty gamenum num)
             (k l)     end    $chord-time first-release (default game qwerty gamenum num)
-            (k l spc) end    $chord-time first-release (        game qwerty gamenum num)
+            (k l spc) end    $chord-time first-release (default game qwerty gamenum num)
             (d j k)   S-home $chord-time first-release (default game qwerty gamenum num)
             (d k l)   S-end  $chord-time first-release (default game qwerty gamenum num)
 
-            ;; Number/Symbol chords
-            (a s) }   $chord-time first-release (default game qwerty gamenum nav)
+            ;; Number/Symbol chord
+            (a s) }     $chord-time first-release (default game qwerty gamenum nav)
             ;;(s d) S-} $chord-time first-release (default game qwerty gamenum nav)
-            (d f) S-0 $chord-time first-release (default game qwerty gamenum nav)
-            (a f) S-, $chord-time first-release (default game qwerty gamenum nav)
+            (d f) S-0   $chord-time first-release (default game qwerty gamenum nav)
+            (a f) S-,   $chord-time first-release (default game qwerty gamenum nav)
           )
 
           ;; =====================
