@@ -102,7 +102,8 @@
           matangover.mypy
 
           # Other
-          prettier.prettier-vscode
+
+          esbenp.prettier-vscode
           slevesque.shader
           hideoo.toggler
           littensy.charmed-icons
