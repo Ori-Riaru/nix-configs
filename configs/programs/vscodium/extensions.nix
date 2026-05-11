@@ -84,7 +84,6 @@
           gruntfuggly.todo-tree
           ms-vsliveshare.vsliveshare
           pkief.material-product-icons
-          github.copilot-chat
           github.vscode-pull-request-github
         ]
         ++ (with extensions.open-vsx; [
@@ -137,7 +136,6 @@
 
           # Generic
           mguellsegarra.highlight-on-copy
-          google.gemini-cli-vscode-ide-companion
         ]);
     };
   };
