@@ -1,9 +1,12 @@
 {
+  lib,
   settings,
   config,
   ...
-}: {
-  programs.vscode.profiles.default.userSettings = {
+}: let
+  inherit (lib.strings) splitString;
+in {
+  programs.vscodium.profiles.default.userSettings = {
     # === Function ===
 
     "files.autoSave" = "afterDelay";
@@ -16,7 +19,7 @@
     "terminal.integrated.smoothScrolling" = true;
     "editor.cursorSmoothCaretAnimation" = "on";
     "explorer.fileNesting.enabled" = true;
-    "editor.cursorSurroundingLines" = 100;
+    "editor.cursorSurroundingLines" = 20;
     "editor.renderWhitespace" = "trailing";
     "editor.suggestSelection" = "recentlyUsedByPrefix";
     "git.autofetch" = true;
@@ -24,7 +27,7 @@
     "editor.find.seedSearchStringFromSelection" = "never";
 
     # Formatting
-    "editor.defaultFormatter" = "prettier.prettier-vscode";
+    "editor.defaultFormatter" = "esbenp.prettier-vscode";
     "editor.formatOnSave" = true;
     "editor.formatOnPaste" = true;
     "editor.formatOnType" = true;
@@ -56,14 +59,15 @@
     "editor.rulers" = [
       {
         "column" = 80;
-        "color" = "${settings.subtext}50";
+        "color" = "${settings.subtext}22";
       }
       {
         "column" = 100;
-        "color" = "${settings.red}40";
+        "color" = "${settings.red}22";
       }
       {
         "column" = 120;
+        "color" = "${settings.red}33";
       }
     ];
 
@@ -91,7 +95,7 @@
 
     # Colors
 
-    "workbench.colorTheme" = "Visual Studio Dark";
+    "workbench.colorTheme" = "Experimental Dark";
     "workbench.colorCustomizations" = {
       # === General ===
       "foreground" = settings.text;
@@ -102,21 +106,26 @@
       "button.hoverBackground" = settings.accent;
       "input.background" = settings.card;
       "focusBorder" = "#0000";
+      "quickInput.background" = settings.card;
+      "editor.findWidgetBackground" = settings.card;
+      "editorWidget.background" = settings.card;
 
       # === Editor ===
-      "editor.foreground" = "${settings.text}";
-      "editor.background" = "${settings.section}";
-      "editor.lineHighlightBackground" = "${settings.card}";
-      "editor.selectionBackground" = "${settings.accent}";
-      "editor.selectionForeground" = "${settings.base}";
-      "editorRuler.foreground" = "${settings.red}";
+      "editor.foreground" = settings.text;
+      "editor.background" = settings.section;
+      "editorGutter.background" = settings.section;
+      "editor.lineHighlightBackground" = settings.card;
+      "editor.selectionBackground" = "${settings.white}22";
+      "editor.inactiveSelectionBackground" = "${settings.white}06";
+      "editor.selectionForeground" = settings.section;
+      "editorRuler.foreground" = "${settings.red}22";
       "scrollbar.shadow" = "#0000";
       "editorGroup.border" = "#0000";
-      "editorCursor.foreground" = "${settings.text}";
+      "editorCursor.foreground" = settings.text;
 
-      "editorLineNumber.foreground" = "${settings.hidden}";
-      "editorLineNumber.activeForeground" = "${settings.subtext}";
-      "editorWarning.foreground" = "${settings.orange}";
+      "editorLineNumber.foreground" = settings.hidden;
+      "editorLineNumber.activeForeground" = settings.subtext;
+      "editorWarning.foreground" = settings.orange;
       "editorIndentGuide.background1" = settings.hidden;
       "editorIndentGuide.background2" = settings.hidden;
       "editorIndentGuide.background3" = settings.hidden;
@@ -127,13 +136,13 @@
       "editorIndentGuide.activeBackground4" = settings.hidden;
 
       "editorBracketHighlight.foreground1" = settings.text;
-      "editorBracketHighlight.foreground2" = settings.subtext;
-      "editorBracketHighlight.foreground3" = settings.hidden;
+      "editorBracketHighlight.foreground2" = settings.text;
+      "editorBracketHighlight.foreground3" = settings.text;
       "editorBracketHighlight.foreground4" = settings.text;
-      "editorBracketHighlight.foreground5" = settings.subtext;
-      "editorBracketHighlight.foreground6" = settings.hidden;
-      "editorBracketHighlight.foreground7" = settings.hidden;
-      "editorBracketHighlight.foreground8" = settings.hidden;
+      "editorBracketHighlight.foreground5" = settings.text;
+      "editorBracketHighlight.foreground6" = settings.text;
+      "editorBracketHighlight.foreground7" = settings.text;
+      "editorBracketHighlight.foreground8" = settings.text;
       "editorBracketHighlight.unmatchedForeground" = settings.text;
 
       # Auto complete popup
@@ -201,141 +210,141 @@
 
     # === Syntax Highlighting ===
 
-    "editor.tokenColorCustomizations" = {
-      # Strings
-      # Numbers / Constants
+    # "editor.tokenColorCustomizations" = {
+    #   # Strings
+    #   # Numbers / Constants
 
-      "textMateRules" = [
-        {
-          "name" = "Default";
-          scope = [
-            ""
-            "support.type.property-name.json"
-            "meta.attribute.unrecognized"
-            "support.type.property-name.css"
-            "meta.field.declaration"
-            "meta.template.expression"
-            "entity.other.attribute-name"
-          ];
-          "settings" = {
-            "foreground" = settings.text;
-          };
-        }
+    #   "textMateRules" = [
+    #     {
+    #       "name" = "Default";
+    #       scope = [
+    #         ""
+    #         "support.type.property-name.json"
+    #         "meta.attribute.unrecognized"
+    #         "support.type.property-name.css"
+    #         "meta.field.declaration"
+    #         "meta.template.expression"
+    #         "entity.other.attribute-name"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.text;
+    #       };
+    #     }
 
-        {
-          "name" = "comments";
-          "scope" = ["comment"];
-          "settings" = {
-            "foreground" = settings.green;
-          };
-        }
+    #     {
+    #       "name" = "comments";
+    #       "scope" = ["comment"];
+    #       "settings" = {
+    #         "foreground" = settings.green;
+    #       };
+    #     }
 
-        {
-          "name" = "string";
-          "scope" = [
-            "string"
-            "string.quoted.single"
-            "string.quoted.double"
-            "string.template"
-            "punctuation.definition.string.template"
-            "variable.parameter.url.css"
-            "string.quoted.other.nix"
-          ];
-          "settings" = {
-            "foreground" = settings.purple;
-          };
-        }
+    #     {
+    #       "name" = "string";
+    #       "scope" = [
+    #         "string"
+    #         "string.quoted.single"
+    #         "string.quoted.double"
+    #         "string.template"
+    #         "punctuation.definition.string.template"
+    #         "variable.parameter.url.css"
+    #         "string.quoted.other.nix"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.purple;
+    #       };
+    #     }
 
-        {
-          "name" = "number";
-          "scope" = [
-            "constant.numeric"
-            "constant.language"
-            "keyword.other.unit"
-            "constant.other.color.rgb-value.hex"
-          ];
-          "settings" = {
-            "foreground" = settings.blue;
-          };
-        }
+    #     {
+    #       "name" = "number";
+    #       "scope" = [
+    #         "constant.numeric"
+    #         "constant.language"
+    #         "keyword.other.unit"
+    #         "constant.other.color.rgb-value.hex"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.blue;
+    #       };
+    #     }
 
-        {
-          "name" = "Keywords";
-          "scope" = [
-            "keyword.control"
-            "keyword.operator"
-            "variable.language"
-            "constant.language"
-            "storage.modifier"
-            "entity.other.ng-binding-name.template.html"
-            "source.css meta.property-value"
-            "string.regexp"
-            "punctuation.definition.template-expression.begin"
-            "support.type.object.module"
-            "punctuation.separator.statement.and.shell"
-          ];
-          "settings" = {
-            "foreground" = settings.orange;
-          };
-        }
+    #     {
+    #       "name" = "Keywords";
+    #       "scope" = [
+    #         "keyword.control"
+    #         "keyword.operator"
+    #         "variable.language"
+    #         "constant.language"
+    #         "storage.modifier"
+    #         "entity.other.ng-binding-name.template.html"
+    #         "source.css meta.property-value"
+    #         "string.regexp"
+    #         "punctuation.definition.template-expression.begin"
+    #         "support.type.object.module"
+    #         "punctuation.separator.statement.and.shell"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.orange;
+    #       };
+    #     }
 
-        {
-          "name" = "function";
-          "scope" = [
-            "storage.type"
-            "meta.definition.method"
-            "meta.definition.function"
-            "entity.name.type.class"
-            "meta.function-call"
-            "entity.name.tag"
-            "entity.name.tag"
-            "entity.other.attribute-name.id.css"
-            "entity.other.attribute-name.class.css"
-            "meta.at-rule.keyframes"
-            "support.function.misc"
-            "support.class.component"
-            "support.function.builtin.shell"
-            "entity.name.command.shell"
-          ];
-          "settings" = {
-            "foreground" = settings.green;
-          };
-        }
+    #     {
+    #       "name" = "function";
+    #       "scope" = [
+    #         "storage.type"
+    #         "meta.definition.method"
+    #         "meta.definition.function"
+    #         "entity.name.type.class"
+    #         "meta.function-call"
+    #         "entity.name.tag"
+    #         "entity.name.tag"
+    #         "entity.other.attribute-name.id.css"
+    #         "entity.other.attribute-name.class.css"
+    #         "meta.at-rule.keyframes"
+    #         "support.function.misc"
+    #         "support.class.component"
+    #         "support.function.builtin.shell"
+    #         "entity.name.command.shell"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.green;
+    #       };
+    #     }
 
-        {
-          "name" = "Keyword";
-          "scope" = [
-            "source.css punctuation.definition.keyword"
-            "source.css keyword"
-            "entity.name.tag.reference"
-            "keyword.other.important"
-            "string.unquoted.heredoc.expanded.shell"
-            "keyword.control.at-rule"
-            "punctuation.definition.tag.end"
-            "punctuation.definition.tag.begin"
-          ];
-          "settings" = {
-            "foreground" = settings.pink;
-          };
-        }
-        {
-          "name" = "types";
-          "scope" = [
-            "entity.name.type"
-            "support.type.primitive"
-            "meta.interface"
-            "storage.type.class.jsdoc"
-            "variable.other.normal.shell"
-            "variable.parameter.positional.shell"
-            "variable.other.assignment.shell"
-            "support.type.builtin"
-          ];
-          "settings" = {
-            "foreground" = settings.blue;
-          };
-        }
-      ];
-    };
+    #     {
+    #       "name" = "Keyword";
+    #       "scope" = [
+    #         "source.css punctuation.definition.keyword"
+    #         "source.css keyword"
+    #         "entity.name.tag.reference"
+    #         "keyword.other.important"
+    #         "string.unquoted.heredoc.expanded.shell"
+    #         "keyword.control.at-rule"
+    #         "punctuation.definition.tag.end"
+    #         "punctuation.definition.tag.begin"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.pink;
+    #       };
+    #     }
+    #     {
+    #       "name" = "types";
+    #       "scope" = [
+    #         "entity.name.type"
+    #         "support.type.primitive"
+    #         "meta.interface"
+    #         "storage.type.class.jsdoc"
+    #         "variable.other.normal.shell"
+    #         "variable.parameter.positional.shell"
+    #         "variable.other.assignment.shell"
+    #         "support.type.builtin"
+    #       ];
+    #       "settings" = {
+    #         "foreground" = settings.blue;
+    #       };
+    #     }
+    #   ];
+    # };
 
     # Extension settings
     "extensions.autoUpdate" = false;
@@ -372,6 +381,10 @@
         "rycee"
 
         # === Language Specific ===
+
+        # Web Tech
+        "onclick"
+        "oninput"
 
         # Nix
         "direnv"
@@ -602,10 +615,13 @@
         map
         (extension: extension.vscodeExtName)
         (config.programs.vscode.profiles.default.extensions or [])
+      )
+      ++ (
+        splitString "\n" (builtins.readFile ./lorem.txt)
       );
 
-    "highlightOnCopy.backgroundColor" = "${settings.secondary}";
-    "highlightOnCopy.foregroundColor" = "#fff";
+    "highlightOnCopy.backgroundColor" = "${settings.accent}33";
+    "highlightOnCopy.foregroundColor" = settings.text;
 
     "color-highlight.matchRgbWithNoFunction" = true;
     "color-highlight.matchWords" = true;
@@ -624,6 +640,10 @@
     "redhat.telemetry.enabled" = false;
     "chat.disableAIFeatures" = false;
     "direnv.restart.automatic" = true;
+
+    # Git Lens
+    "gitlens.currentLine.pullRequests.enabled" = false;
+    "gitlens.currentLine.enabled" = false;
 
     # Error Lens
     "errorLens.errorForeground" = "${settings.red}";
@@ -663,6 +683,7 @@
     "[R]" = {
       "editor.defaultFormatter" = "REditorSupport.r";
     };
+    "r.lsp.promptToInstall" = false;
 
     "[rmd]" = {
       "editor.defaultFormatter" = "REditorSupport.r";
@@ -681,6 +702,8 @@
     };
 
     # css
+    "css.validate" = false;
+    "scss.validate" = false;
     "[css][scss]" = {
       "editor.defaultFormatter" = "stylelint.vscode-stylelint";
     };
@@ -689,13 +712,17 @@
       "editor.defaultFormatter" = "rust-lang.rust-analyzer";
     };
 
+    "[typescriptreact]" = {
+      "editor.defaultFormatter" = "esbenp.prettier-vscode";
+    };
+
     # Typescript
-    "typescript.inlayHints.parameterNames.enabled" = "all";
-    "typescript.inlayHints.parameterTypes.enabled" = true;
-    "typescript.inlayHints.variableTypes.enabled" = true;
-    "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
-    "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
-    "typescript.inlayHints.enumMemberValues.enabled" = true;
+    "ts/js.inlayHints.parameterNames.enabled" = "all";
+    "ts/js.inlayHints.parameterTypes.enabled" = true;
+    "ts/js.inlayHints.variableTypes.enabled" = true;
+    "ts/js.inlayHints.propertyDeclarationTypes.enabled" = true;
+    "ts/js.inlayHints.functionLikeReturnTypes.enabled" = true;
+    "ts/js.inlayHints.enumMemberValues.enabled" = true;
 
     # javascript
     "js/ts.inlayHints.enumMemberValues.enabled" = true;
