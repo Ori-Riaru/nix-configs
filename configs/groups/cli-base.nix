@@ -18,5 +18,6 @@
     ../programs/grex.nix
     ../programs/croc.nix
     ../programs/zip.nix
+    ../programs/cloc.nix
   ];
 }
