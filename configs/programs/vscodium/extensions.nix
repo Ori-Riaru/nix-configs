@@ -113,12 +113,12 @@
         ])
         ++ (with extensions.vscode-marketplace; [
           # Web
-          csstools.postcss
           joy-yu.css-snippets
           rubymaniac.vscode-paste-and-indent
           stylelint.vscode-stylelint
           ms-toolsai.jupyter-renderers
           posit.air-vscode
+          pucelle.vscode-css-navigation
 
           philsinatra.nested-comments
           oven.bun-vscode
