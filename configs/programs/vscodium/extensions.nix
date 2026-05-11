@@ -11,7 +11,7 @@
     # dotnet-sdk_9
   ];
 
-  programs.vscode = {
+  programs.vscodium = {
     mutableExtensionsDir = false;
 
     profiles.default = let
