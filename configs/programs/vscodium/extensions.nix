@@ -4,11 +4,7 @@
   ...
 }: {
   home.packages = with pkgs; [
-    # BROKEN: c# and unity extensions don't work because microsoft is evil
-    # dotnet-runtime_10
-    # dotnet-sdk_10
-    # dotnet-runtime_9 # Required for c# extensions
-    # dotnet-sdk_9
+    mypy
   ];
 
   programs.vscodium = {
@@ -99,6 +95,9 @@
           # Python
           kevinrose.vsc-python-indent
           charliermarsh.ruff
+          njqdev.vscode-python-typehint
+          ericsia.pythonsnippets3
+          matangover.mypy
 
           # Other
           prettier.prettier-vscode
