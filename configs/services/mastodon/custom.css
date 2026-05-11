@@ -1,6 +1,6 @@
 /* stylelint-disable selector-class-pattern, selector-id-pattern */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
 
 :root {
   --section: #111;
@@ -20,19 +20,24 @@
   font-weight: 100 900;
 
   src:
-    local("Hiragino Sans"),
-    local("Hiragino Kaku Gothic ProN"),
-    local("Yu Gothic"),
-    local("Meiryo"),
-    local("Noto Sans CJK JP"),
+    local("Hiragino Sans"), local("Hiragino Kaku Gothic ProN"),
+    local("Yu Gothic"), local("Meiryo"), local("Noto Sans CJK JP"),
     local("Noto Sans JP");
   unicode-range:
-    U+3000-303F,   /* Japanese punctuation */
-    U+3040-309F,   /* Hiragana */
-    U+30A0-30FF,   /* Katakana */
-    U+4E00-9FFF,   /* CJK Unified Ideographs */
-    U+F900-FAFF,   /* CJK Compatibility Ideographs */
-    U+FF00-FFEF;   /* Fullwidth Forms */
+    U+3000-303F,
+    /* Japanese punctuation */ U+3040-309F,
+    /* Hiragana */ U+30A0-30FF,
+    /* Katakana */ U+4E00-9FFF,
+    /* CJK Unified Ideographs */ U+F900-FAFF,
+    /* CJK Compatibility Ideographs */ U+FF00-FFEF; /* Fullwidth Forms */
+}
+
+button,
+a,
+img,
+.media-gallery__item,
+.media-gallery {
+  border-radius: var(--radius) !important;
 }
 
 body,
@@ -43,14 +48,8 @@ body,
 .compose-form .autosuggest-textarea__textarea,
 .compose-form .spoiler-input__input {
   font-family:
-    Inter,
-    "Noto Sans JP",       
-    "Hiragino Sans",      
-    "Hiragino Kaku Gothic ProN", 
-    "Yu Gothic",          
-    Meiryo,             
-    "Noto Sans CJK JP",  
-    sans-serif !important;
+    Inter, "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Yu Gothic", Meiryo, "Noto Sans CJK JP", sans-serif !important;
 }
 
 /* Layout & Structure */
@@ -61,7 +60,6 @@ article,
   border-radius: var(--radius) !important;
   background: var(--card) !important;
 }
-
 
 .navigation-panel__logo {
   display: none !important;
@@ -289,8 +287,4 @@ article,
   .columns-area__panels__pane--navigational .columns-area__panels__pane__inner {
     width: calc(280px - var(--gap));
   }
-}
-
-button, a, img, .media-gallery__item, .media-gallery {
-  border-radius: var(--radius) !important;
 }
