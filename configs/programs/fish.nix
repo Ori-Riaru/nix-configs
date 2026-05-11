@@ -25,6 +25,7 @@
       l = "lsd";
       ls = "lsd";
       c = "clear";
+      cl = "clear";
       claer = "clear";
       search = "fzf -q";
       s = "systemctl";
@@ -35,6 +36,8 @@
       sus = "systemctl --user status";
       sur = "systemctl --user restart";
       sux = "systemctl --user stop";
+      mk = "make";
+      run = "systemd-run --user";
       restart = "sudo reboot now";
       shutdown = "sudo shutdown now";
 
@@ -108,7 +111,7 @@
 
       cd = {
         body = ''
-          set -l limit 50
+          set -l limit 20
 
           if test (count $argv) -gt 0
             builtin cd $argv[1]
@@ -127,6 +130,11 @@
           end
         '';
       };
+
+      clear = ''
+        command clear
+        ls
+      '';
 
       files = {
         body = ''
