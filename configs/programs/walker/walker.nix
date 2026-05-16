@@ -814,6 +814,12 @@
             url = "https://github.com/NixOS/nixpkgs/issues?q=is%3Aissue%20state%3Aopen%20%TERM%";
           }
           {
+            name = "Nixpkgs";
+            icon = "nix-snowflake";
+            prefix = "ngl;";
+            url = "https://noogle.dev/q/?term=%TERM%";
+          }
+          {
             name = "Youtube";
             icon = "youtube";
             prefix = "yt;";

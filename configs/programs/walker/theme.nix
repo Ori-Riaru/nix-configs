@@ -18,6 +18,10 @@
         @define-color error_bg_color ${settings.red};
         @define-color error_fg_color ${settings.base};
 
+        * {
+          all: unset;
+        }
+
         popover {
           background: lighter(@window_bg_color);
           border: 2px solid @accent_bg_color;
@@ -112,7 +116,8 @@
         }
 
         /* child:hover .item-box, */
-        child:selected .item-box {
+        child:selected .item-box,
+        row:selected .item-box {
           background: alpha(@accent_bg_color, 0.25);
         }
 
@@ -193,7 +198,6 @@
 
         .keybind-button:hover {
           opacity: 0.75;
-          cursor: pointer;
         }
 
         .keybind-bind {
@@ -217,7 +221,8 @@
           font-style: italic;
         }
 
-        .preview-content.archlinuxpkgs {
+        .preview-content.archlinuxpkgs,
+        .preview-content.dnfpackages {
           font-family: monospace;
         }
       '';
