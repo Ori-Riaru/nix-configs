@@ -221,7 +221,6 @@
                     "UC2wNnyb3vWhOt0K6LpBrtGg" # Mental Checkpoint
                     "UClUc_jq1BuEczLm0asOeNcw" # Mirabeau Studios
                     "UCj2iyEUusvLJlWAS8HV4y1Q" # Miss Twisted
-                    "UCSJ2epYmnRCdXWWg_xjpgfA" # Momo PTFL
                     "UCr0oCYeULCgv--aP0WMsWBw" # Nachtwind
                     "UCSdma21fnJzgmPodhC9SJ3g" # NakeyJakey
                     "UCSRp5VNnG16gd80vNZp4neA" # Neoly
@@ -284,7 +283,6 @@
                     "UCV5vCi3jPJdURZwAOO_FNfQ" # The Thought Emporium
                     "UCcmEL8JoDBE25gvCFkrqhcw" # TheVolgun
                     "UCSbdMXOI_3HGiFviLZO6kNA" # ThrillSeeker
-                    "UCaXh9z3or5QbM0HPGen2Quw" # TodePond
                     "UC67gfx2Fg7K2NSHqoENVgwA" # Tom Stanton
                     "UCVQa3eDp9rFpKw3LZ3AsMCg" # Um, Actually
                     "UCMX1A8WPVQtOTZmanT8YseA" # Useless Game Dev
