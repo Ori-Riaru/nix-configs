@@ -31,7 +31,8 @@
     ../../configs/programs/sudo.nix
     ../../configs/programs/openrgb/openrgb-system.nix
     ../../configs/programs/sleepy-launcher.nix
-    ../../configs/programs/renderdoc.nix
+    # ../../configs/programs/renderdoc.nix
+    # ../../../configs/programs/appimage.nix
 
     ../../users/riaru
   ];
@@ -44,10 +45,10 @@
 
   environment.systemPackages = [config.boot.kernelPackages.digimend];
 
-  hardware.opentabletdriver = {
-    enable = true;
-    daemon.enable = true;
-  };
+  # hardware.opentabletdriver = {
+  #   enable = true;
+  #   daemon.enable = true;
+  # };
 
   hardware.uinput.enable = true;
   users.groups.uinput.members = [settings.username];
