@@ -7,6 +7,7 @@
     gh
     git
     lazygit
+    git-filter-repo
   ];
 
   programs.git = {
