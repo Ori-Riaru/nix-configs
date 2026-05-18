@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   services.minecraft-server = {
     enable = false;
     eula = true;
@@ -17,9 +21,8 @@
     };
   };
 
-  
   # Modded minecraft
-  networking.firewall.allowedTCPPorts = [25565];
+  networking.firewall.allowedTCPPorts = [config.services.minecraft-server.serverProperties.server-port];
 
   environment.systemPackages = with pkgs; [
     screen

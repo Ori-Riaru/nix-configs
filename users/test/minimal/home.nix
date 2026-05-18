@@ -21,7 +21,7 @@
 
     # System
     ../../../configs/programs/file-viewers.nix
-    ../../../configs/programs/fonts.nix
+    ../../../configs/system/fonts.nix
   ];
 
   home.stateVersion = "24.05";

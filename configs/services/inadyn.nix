@@ -9,7 +9,6 @@
           "signal.v0id.nl"
           "riaru.undo.it"
           "riaru.home.kg"
-          # "riaru.developer.li"
         ];
         username = "riaru";
         include = config.sops.templates."afraid_pass.conf".path;

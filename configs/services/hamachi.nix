@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  services.logmein-hamachi.enable = false;
+  services.logmein-hamachi.enable = true;
 }

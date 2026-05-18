@@ -23,4 +23,9 @@
       };
     };
   };
+
+  home.file.".config/lazygit".text = ''
+    # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+    notARepository: 'skip'
+  '';
 }

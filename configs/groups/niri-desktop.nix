@@ -10,7 +10,6 @@
     ../programs/awww.nix
     ../programs/clipse.nix
     ../programs/nautilus.nix
-    ../programs/kitty.nix
     ../programs/papirus-icons.nix
   ];
 }

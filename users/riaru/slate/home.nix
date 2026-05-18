@@ -61,7 +61,7 @@
     # System
     ../../../configs/system/ssh-bypass.nix
     ../../../configs/programs/file-viewers.nix
-    ../../../configs/programs/fonts.nix
+    ../../../configs/system/fonts.nix
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/kdiskmark.nix
     ../../../configs/system/default-apps.nix

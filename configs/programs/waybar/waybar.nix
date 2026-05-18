@@ -8,7 +8,7 @@
     waybar
     pavucontrol
     jq # needed for the kanata layer script
-    python3Packages.python-kasa
+    # python3Packages.python-kasa
   ];
 
   services.network-manager-applet.enable = true;

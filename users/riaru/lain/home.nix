@@ -70,7 +70,7 @@
     ../../../configs/programs/jellyfin-media-player.nix
 
     ../../../configs/programs/file-viewers.nix
-    ../../../configs/programs/fonts.nix
+    ../../../configs/system/fonts.nix
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/nvtop.nix
 

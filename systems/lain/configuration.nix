@@ -22,7 +22,6 @@
     ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
     ../../configs/services/tailscale.nix
-    ../../configs/services/hamachi.nix
     ../../configs/programs/steam.nix
     ../../configs/services/quake.nix
     ../../configs/programs/monado/monado.nix
