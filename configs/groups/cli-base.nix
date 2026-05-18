@@ -19,5 +19,6 @@
     ../programs/croc.nix
     ../programs/zip.nix
     ../programs/cloc.nix
+    ../programs/lnav.nix
   ];
 }
