@@ -111,6 +111,10 @@
           drinfinite.batch-rename
           sleistner.vscode-fileutils
           pcode-pl.vscode-autohide-plus
+          wix.vscode-import-cost
+          markdown-inline-preview.markdown-inline-preview
+          davidanson.vscode-markdownlint
+          yzhang.markdown-all-in-one
         ])
         ++ (with extensions.vscode-marketplace; [
           # Web

@@ -663,6 +663,11 @@ in {
 
     "errorLens.delay" = 1000;
 
+    # Markdown
+    "markdown.extension.completion.enabled" = false;
+    "markdown.extension.tableFormatter.enabled" = false;
+    "markdownInline.showCheckboxCodeLens" = false;
+
     # Python
     "[python]" = {
       "editor.defaultFormatter" = "charliermarsh.ruff";

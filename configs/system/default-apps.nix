@@ -18,9 +18,9 @@
 
         # === Text / Code ===
         "text/plain" = "codium.desktop";
-        "text/markdown" = "obsidian.desktop";
-        "text/x-markdown" = "obsidian.desktop";
-        "application/x-markdown" = "obsidian.desktop";
+        "text/markdown" = "codium.desktop";
+        "text/x-markdown" = "codium.desktop";
+        "application/x-markdown" = "codium.desktop";
         "text/x-c" = "codium.desktop";
         "text/x-chdr" = "codium.desktop";
         "text/x-c++src" = "codium.desktop";
