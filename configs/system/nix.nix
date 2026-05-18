@@ -18,6 +18,7 @@
     statix
     alejandra
     nixfmt
+    nurl
   ];
 
   programs.nix-index-database.comma.enable = true;
