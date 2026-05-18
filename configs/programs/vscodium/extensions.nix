@@ -50,7 +50,8 @@
           ms-toolsai.jupyter
 
           # C++
-          ms-vscode.cpptools
+          # ms-vscode.cpptools
+          llvm-vs-code-extensions.vscode-clangd
           ms-vscode.hexeditor
           xaver.clang-format
 
