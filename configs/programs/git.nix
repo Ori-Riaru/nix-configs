@@ -8,6 +8,7 @@
     git
     lazygit
     git-filter-repo
+    git-lfs
   ];
 
   programs.git = {
