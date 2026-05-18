@@ -115,7 +115,7 @@
       nasPath = "/mnt/nfs/riaru";
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
 
-      # === Themsing ===
+      # === Theming ===
 
       avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
       wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
@@ -126,7 +126,7 @@
       tertiary = yellow;
 
       gap = 1; # px
-      radius = 2; # px
+      radius = 8; # px
 
       text = "#DDDDDD";
       subtext = "#777777";
