@@ -4,10 +4,6 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [
-    direnv
-  ];
-
   imports = [
     ./extensions.nix
     ./usersettings.nix
