@@ -153,6 +153,24 @@
       };
     };
 
+    # Holds the previous frame until the resize is complete then immediately switches to the new frame
+    animations.window-resize.custom-shader = ''
+      vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
+          if (niri_clamped_progress < 0.99) {
+              vec3 coords_prev_geo = niri_curr_geo_to_prev_geo * coords_curr_geo;
+              if (coords_prev_geo.x < 0.0 || coords_prev_geo.x > 1.0 ||
+                  coords_prev_geo.y < 0.0 || coords_prev_geo.y > 1.0) {
+                  return vec4(0.067, 0.067, 0.067, 1.0);
+              }
+              vec3 coords_tex_prev = niri_geo_to_tex_prev * coords_prev_geo;
+              return texture2D(niri_tex_prev, coords_tex_prev.st);
+          } else {
+              vec3 coords_tex_next = niri_geo_to_tex_next * coords_curr_geo;
+              return texture2D(niri_tex_next, coords_tex_next.st);
+          }
+      }
+    '';
+
     overview.backdrop-color = "#000000";
 
     spawn-at-startup = [
