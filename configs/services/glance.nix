@@ -337,7 +337,6 @@
                     "UCO3AOLFI3GsXAuRhYOR-wyA" # sorry stacy
                     "UCJYJgj7rzsn0vdR7fkgjuIA" # styropyro
                     "UC3azLjQuz9s5qk76KEXaTvA" # suckerpinch
-                    "UCqZgilaCgI6P0BD7tPrDXhg" # zacoons
                     "UCe8dQ26klK0jAb5yH0-qotw" # zweek
                     "UCA1VwEPTqVLO2XtuM545Idg" # たたかう伊藤
                     "UCfKA1OFAOHIpL-s4DCaA8iw" # ゆーり🍎🐥〔25〕
