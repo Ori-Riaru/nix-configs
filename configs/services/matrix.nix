@@ -199,8 +199,8 @@ in {
     allowedUDPPorts = [3478 5349];
     allowedUDPPortRanges = [
       {
-        from = config.services.livekit.settings.rtc.port_range_start;
-        to = config.services.livekit.settings.rtc.port_range_end;
+        from = 50100;
+        to = 50200;
       }
       {
         from = config.services.coturn.min-port;
