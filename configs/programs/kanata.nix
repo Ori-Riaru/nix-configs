@@ -87,7 +87,7 @@
             lights   M-l
 
             ;; Modifiers
-            esc  (tap-hold $tap-time $hold-time esc (layer-while-held mouse))
+            esc  (tap-hold $tap-time $hold-time esc (layer-while-held left-num))
             tab  (tap-hold $tap-time $hold-time tab lalt)
             bspc (tap-hold $tap-time $hold-time bspc (layer-while-held menu))
 
@@ -201,9 +201,9 @@
           )
 
           (deflayer num
-           _ `   S-3 S-7 S-\ S-5 /   1 2 3 =
-           _ <   [   S-[ S-9 S-6 S-8 4 5 6 0
-           _ S-2 S-4 S-/ S-1 \   S-= 7 8 9 -
+           _ `   S-3 S-7 S-\    S-5 /   1 2 3 =
+           _ <   [   S-[ S-9    S-6 S-8 4 5 6 0
+           _ S-2 S-4 S-/ S-1    \   S-= 7 8 9 -
            ${
             if config.networking.hostName == "lain"
             then "_ .          @nav-shift    ret @bspc _     _"
@@ -236,10 +236,10 @@
             _ _ _    _ _ _ _
           )
 
-          (deflayer mouse
-            _ 0   1 2 3 .       _ mlft mmid mrgt _
-            _ -   4 5 6 0       _ mlft mmid mrgt _
-            _ C-z 7 8 9 mfwd    _ _    _    _    _
+          (deflayer left-num
+            S-0  = 1 2 3 /   S-5    S-\ S-7 S-3 `
+            S-9  0 4 5 6 S-8 S-6    S-9 S-[ [   <
+            bspc - 7 8 9 S-= \      S-1 S-4 S-/ S-2
             ${
             if config.networking.hostName == "lain"
             then "_ mlft mrgt    _ @menu _     _"
@@ -283,7 +283,7 @@
           (deflayer gamenum
             _ _   1 2 3 - +      F1 F2  F3  F4
             _ alt 4 5 6 0 S-8    F5 F6  F7  F8
-            _ ~   7 8 9 . =      F9 F10 F11 F12
+            _ `   7 8 9 . =      F9 F10 F11 F12
             _ _ _    _ _ _ _
           )
         '';
