@@ -24,6 +24,8 @@ in {
     "editor.suggestSelection" = "recentlyUsedByPrefix";
     "git.autofetch" = true;
     "gitlens.telemetry.enabled" = false;
+    "gitlens.codeLens.enabled" = false;
+
     "editor.find.seedSearchStringFromSelection" = "never";
 
     # Formatting
@@ -33,6 +35,8 @@ in {
     "editor.formatOnType" = true;
     "editor.find.autoFindInSelection" = "multiline";
     "files.autoSaveWhenNoErrors" = true;
+
+    "telemetry.feedback.enabled" = false;
 
     # === Layout ===
 
@@ -44,7 +48,7 @@ in {
     "workbench.statusBar.visible" = false;
     "workbench.secondarySideBar.defaultVisibility" = "hidden";
     "workbench.startupEditor" = "none";
-    "workbench.editor.showTabs" = "single";
+    "workbench.editor.showTabs" = "multiple";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
     "editor.minimap.side" = "right";
