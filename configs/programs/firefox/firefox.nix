@@ -8,10 +8,6 @@
     ./engines.nix
   ];
 
-  home.packages = with pkgs; [
-    firefoxpwa
-  ];
-
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [pkgs.firefoxpwa];
