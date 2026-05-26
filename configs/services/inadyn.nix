@@ -13,7 +13,7 @@
         username = "riaru";
         include = config.sops.templates."afraid_pass.conf".path;
       };
-      period = 300; # 5 minutes
+      period = 600; # 10 minutes
     };
   };
 }
