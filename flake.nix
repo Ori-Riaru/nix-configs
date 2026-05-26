@@ -29,14 +29,10 @@
 
     # === Programs ===
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     elephant = {
@@ -55,15 +51,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    copyparty = {
-      url = "github:9001/copyparty";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # copyparty = {
+    #   url = "github:9001/copyparty";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
-    unreal-engine = {
-      url = "github:BridgerB/unreal-engine";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # unreal-engine = {
+    #   url = "github:BridgerB/unreal-engine";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # === Modifications ===
 
@@ -72,15 +73,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nur.follows = "nur";
     };
 
     sops-nix = {
@@ -92,6 +88,12 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # plasma-manager = {
+    #   url = "github:nix-community/plasma-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.home-manager.follows = "home-manager";
+    # };
   };
 
   outputs = {
@@ -125,8 +127,8 @@
       secondary = blue;
       tertiary = yellow;
 
-      gap = 1; # px
-      radius = 8; # px
+      gap = 3; # px
+      radius = 6; # px
 
       text = "#DDDDDD";
       subtext = "#777777";
@@ -171,9 +173,6 @@
       forAllSystems
       (system: import ./packages nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs outputs;};
-    formatter =
-      forAllSystems
-      (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     nixosConfigurations = {
       # Desktop
@@ -251,7 +250,7 @@
     lain-home = self.homeConfigurations."${settings.username}@lain";
     slate-home = self.homeConfigurations."${settings.username}@slate";
     kumo-home = self.homeConfigurations."${settings.username}@kumo";
-
-    inherit (nixpkgs) lib settings;
+    settings = settings;
+    nixpkgs = nixpkgs;
   };
 }
