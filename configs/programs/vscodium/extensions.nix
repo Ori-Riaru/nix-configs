@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   home.packages = with pkgs; [
@@ -14,6 +15,8 @@
       extensions = inputs.nix-vscode-extensions.extensions.x86_64-linux;
     in {
       enableExtensionUpdateCheck = false;
+
+  
 
       extensions = with pkgs.vscode-extensions;
         [
@@ -47,7 +50,7 @@
           zxh404.vscode-proto3
 
           # Python
-          ms-python.python
+          # ms-python.python
           ms-toolsai.jupyter
 
           # C++
@@ -65,8 +68,8 @@
           # ms-dotnettools.csharp
 
           # R
-          reditorsupport.r
-          reditorsupport.r-syntax
+          # reditorsupport.r
+          # reditorsupport.r-syntax
 
           # Other
           grapecity.gc-excelviewer # CSV viewer
@@ -103,7 +106,6 @@
           matangover.mypy
 
           # Other
-
           esbenp.prettier-vscode
           slevesque.shader
           hideoo.toggler
@@ -116,6 +118,7 @@
           markdown-inline-preview.markdown-inline-preview
           davidanson.vscode-markdownlint
           yzhang.markdown-all-in-one
+          shd101wyy.markdown-preview-enhanced
         ])
         ++ (with extensions.vscode-marketplace; [
           # Web
@@ -137,7 +140,8 @@
           bbenoist.qml
           #// kdl-org.kdl # KDL language support
           #// letrieu.expand-region
-          #// eww-yuck.yuck
+          eww-yuck.yuck
+          eduarddyckman.vscode-parinfer
           dandehoon.vscode-generic-expand-selection
           dioxuslabs.dioxus
 
