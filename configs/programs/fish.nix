@@ -69,6 +69,7 @@
       update = "nix flake update --flake ${settings.configPath}";
       ns = "nix-shell";
       nsp = "nix-shell -p";
+      repl = "nix repl /mnt/nfs/riaru/Projects/nix-configs";
       pbrt = "/mnt/nfs/riaru/Projects/advanced-computer-graphics/assignment-2/pbrt-v3/build/pbrt";
 
       oc = "opencode";
