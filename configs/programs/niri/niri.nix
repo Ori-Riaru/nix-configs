@@ -32,7 +32,7 @@
         natural-scroll = true;
       };
       focus-follows-mouse.enable = true;
-      focus-follows-mouse.max-scroll-amount = "50%";
+      focus-follows-mouse.max-scroll-amount = "25%";
     };
 
     clipboard = {
