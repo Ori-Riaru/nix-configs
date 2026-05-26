@@ -24,7 +24,7 @@
     };
   };
 
-  home.file.".config/lazygit".text = ''
+  home.file.".config/lazygit/config.yml".text = ''
     # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
     notARepository: 'skip'
   '';
