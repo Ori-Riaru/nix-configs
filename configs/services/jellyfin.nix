@@ -3,10 +3,7 @@
   settings,
   ...
 }: {
-  services.jellyfin = {
-    enable = true;
-    package = pkgs.master.jellyfin;
-  };
+  services.jellyfin.enable = true;
 
   environment.systemPackages = [
     pkgs.master.jellyfin
