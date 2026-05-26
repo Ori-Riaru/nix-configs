@@ -27,7 +27,7 @@
       };
 
       format = ''
-        $character$cmd_duration$directory$git_status$git_branch$fill$c$rust$nix_shell$golang$nodejs$php$java$kotlin$haskell$python$username$hostname$line_break 󰜴 '';
+        $character$cmd_duration$directory$git_branch$git_status$fill$c$rust$nix_shell$golang$nodejs$php$java$kotlin$haskell$python$username$hostname$line_break 󰜴 '';
 
       add_newline = false;
 
@@ -72,13 +72,13 @@
 
       git_branch = {
         symbol = "";
-        style = "bg:purple";
-        format = "[[$symbol $branch ](fg:foreground bg:purple)]($style)[](fg:purple)";
+        style = "bg:card";
+        format = "[](fg:background)[[$symbol $branch ](fg:text bg:card)]($style)";
       };
 
       git_status = {
-        style = "bg:purple";
-        format = "[](fg:purple)[($all_status$ahead_behind)](fg:foreground bg:purple)";
+        style = "bg:card";
+        format = "[($all_status$ahead_behind)](fg:text bg:card)[](fg:background)";
       };
 
       nodejs = {
@@ -118,7 +118,7 @@
       };
 
       java = {
-        symbol = " ";
+        symbol = "m ";
         style = "bg:blue";
         format = "[](fg:red)[[$symbol( $version)](fg:foreground bg:red)]($style)[](fg:red) ";
       };
@@ -148,7 +148,7 @@
       };
 
       username = {
-        show_always = true;
+        show_always = false;
         style_user = "bg:purple fg:foreground";
         style_root = "bg:purple fg:foreground";
         format = "[](fg:purple)[ $user ]($style)[](fg:purple)";
