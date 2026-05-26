@@ -105,24 +105,17 @@
         '';
       };
 
-      where = {
+      ns = {
         body = ''
-          readlink (command which $argv[1])
+          nix-shell --run "fish" $argv[1..]
         '';
       };
 
-      cd = {
+      nsp = {
         body = ''
-          set -l limit 20
-
-          if test (count $argv) -gt 0
-            builtin cd $argv[1]
-          else
-            builtin cd
-          end
-
-          set -l entries (lsd -1)
-          set -l count (count $entries)
+          nix-shell -p $argv[1] --run "fish" $argv[1..]
+        '';
+      };
 
       where = {
         body = ''
