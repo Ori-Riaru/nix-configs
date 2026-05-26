@@ -1,9 +1,6 @@
 {
   services.displayManager = {
     defaultSession = "niri";
-    gdm = {
-      enable = true;
-      wayland = true;
-    };
+    cosmic-greeter.enable = true;
   };
 }
