@@ -29,7 +29,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 05:00:00";
         Persistent = true;
       };
     };
@@ -54,7 +54,7 @@
     # mastodon = {
     #   repository = "/mnt/bulk/data/Backups/restic/mastodon";
     #   initialize = true;
-    #   paths = ["/var/lib/mastodon"];
+    #   paths = ["/var/lib/mastodon"]; # add postgress data
     #   passwordFile = config.sops.secrets.restic_pass.path;
     #   pruneOpts = [
     #     "--keep-daily 7"
@@ -80,7 +80,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 05:00:00";
         Persistent = true;
       };
     };
@@ -97,7 +97,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 05:00:00";
         Persistent = true;
       };
     };
@@ -114,7 +114,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 05:00:00";
         Persistent = true;
       };
     };
@@ -131,7 +131,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 05:00:00";
         Persistent = true;
       };
     };
