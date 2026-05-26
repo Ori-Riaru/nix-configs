@@ -7,55 +7,44 @@
 
     # CLI
     ../../../configs/groups/cli-base.nix
-    ../../../configs/programs/ripgrep.nix
     ../../../configs/programs/screen-savers.nix
     ../../../configs/programs/btop.nix
 
     # Tools
     ../../../configs/programs/stylelint.nix
-    ../../../configs/programs/vivaldi.nix
+    ../../../configs/programs/vivaldi/vivaldi.nix
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
     ../../../configs/programs/ghostty.nix
     ../../../configs/programs/obsidian.nix
     ../../../configs/programs/blender.nix
-    #./programs/resolve.nix
     ../../../configs/programs/inkscape.nix
     ../../../configs/programs/libre-office.nix
-    # ../../../configs/programs/gimp.nix
+
     ../../../configs/programs/krita.nix
-    ../../../configs/programs/thunderbird.nix
     ../../../configs/programs/cura.nix
     ../../../configs/programs/boxes.nix
-    ../../../configs/programs/meshlab.nix
     ../../../configs/programs/obs-studio.nix
     ../../../configs/programs/shotcut.nix
     ../../../configs/programs/gparted.nix
-    # ../../../configs/programs/ventoy.nix
     ../../../configs/programs/godot.nix
     ../../../configs/programs/f3d.nix
-    ../../../configs/programs/gemini-cli.nix
 
     # Development
-    ../../../configs/programs/postgres.nix
+
     ../../../configs/programs/nix.nix
     ../../../configs/programs/git.nix
     ../../../configs/programs/vscodium/vscodium.nix
-    ../../../configs/programs/cpp.nix
-    ../../../configs/programs/act.nix
+
     ../../../configs/programs/opencode/opencode.nix
-    ../../../configs/programs/rstudio.nix
-    # ../../../configs/programs/kde/kde.nix
     ../../../configs/programs/unityhub.nix
 
     # Communication
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
-    ../../../configs/programs/slack.nix
     ../../../configs/programs/kdeconnect/kdeconnect-home.nix
 
-    # Media
-    # ../../../configs/programs/spotify/spotify.nix
+    # Medi
     ../../../configs/programs/heroic.nix
 
     # System
@@ -63,12 +52,11 @@
     ../../../configs/programs/file-viewers.nix
     ../../../configs/system/fonts.nix
     ../../../configs/programs/mouse.nix
-    ../../../configs/programs/kdiskmark.nix
     ../../../configs/system/default-apps.nix
     ../../../configs/services/batsignal.nix
 
     ../../../configs/programs/stylix.nix
   ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
 }

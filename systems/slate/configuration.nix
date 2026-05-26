@@ -12,14 +12,12 @@
     ../../configs/programs/sops.nix
     ../../configs/programs/niri/niri-system.nix
     ../../configs/programs/nfs-client.nix
-    ../../configs/programs/smb-mount.nix
+    #// ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
     ../../configs/programs/kdeconnect/kdeconnect-system.nix
     ../../configs/programs/steam.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
-    ../../configs/programs/renderdoc.nix
-
     ../../configs/services/tailscale.nix
 
     ../../users/riaru
@@ -33,5 +31,5 @@
   hardware.sensor.iio.enable = true;
   hardware.uinput.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 }

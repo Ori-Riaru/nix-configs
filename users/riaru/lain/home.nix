@@ -6,8 +6,6 @@
 
     # System
     ../../../configs/groups/niri-desktop.nix
-    #// ../../../configs/groups/hyprland-desktop.nix
-    #// ../../../configs/programs/kde/kde.nix
     ../../../configs/programs/ghostty.nix
     ../../../configs/programs/gparted.nix
     ../../../configs/programs/btop.nix
@@ -18,13 +16,11 @@
     # CLI
     ../../../configs/groups/cli-base.nix
     ../../../configs/programs/screen-savers.nix
-    ../../../configs/programs/gemini-cli.nix
-    ../../../configs/programs/qwen-code.nix
 
     # Tools
     ../../../configs/programs/firefox/firefox.nix
     ../../../configs/programs/chromium.nix
-    ../../../configs/programs/vivaldi.nix
+    ../../../configs/programs/vivaldi/vivaldi.nix
     ../../../configs/programs/obsidian.nix
     ../../../configs/programs/libre-office.nix
     ../../../configs/programs/boxes.nix
@@ -53,21 +49,16 @@
     ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/act.nix
     ../../../configs/programs/opencode/opencode.nix
-
     ../../../configs/programs/nix.nix
-    ../../../configs/programs/python.nix
-    ../../../configs/programs/cpp.nix
     ../../../configs/programs/unityhub.nix
 
     # Communication
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
-    ../../../configs/programs/slack.nix
     ../../../configs/programs/cinny-desktop.nix
 
     # Media
     ../../../configs/programs/spotify/spotify.nix
-    ../../../configs/programs/jellyfin-media-player.nix
 
     ../../../configs/programs/file-viewers.nix
     ../../../configs/system/fonts.nix
@@ -79,5 +70,5 @@
     ../../../configs/system/default-apps.nix
   ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "26.05";
 }

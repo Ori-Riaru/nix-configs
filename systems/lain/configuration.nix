@@ -14,24 +14,18 @@
     ../../configs/system/gdm.nix
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
+    ../../configs/system/gvfs.nix
     ../../configs/programs/niri/niri-system.nix
-    #// ../../configs/programs/hyprland/hyprland-system.nix
-    #// ../../configs/programs/kde/kde-system.nix
     ../../configs/programs/kdeconnect/kdeconnect-system.nix
     ../../configs/programs/nfs-client.nix
-    ../../configs/programs/smb-mount.nix
     ../../configs/system/virtulization.nix
     ../../configs/services/tailscale.nix
     ../../configs/programs/steam.nix
-    ../../configs/services/quake.nix
-    ../../configs/programs/monado/monado.nix
     ../../configs/programs/sops.nix
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
     ../../configs/programs/openrgb/openrgb-system.nix
     ../../configs/programs/sleepy-launcher.nix
-    # ../../configs/programs/renderdoc.nix
-    # ../../../configs/programs/appimage.nix
 
     ../../users/riaru
   ];
@@ -53,5 +47,5 @@
   users.groups.uinput.members = [settings.username];
   users.groups.input.members = [settings.username];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "26.05";
 }
