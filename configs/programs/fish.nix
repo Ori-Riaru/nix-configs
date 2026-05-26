@@ -134,9 +134,8 @@
         '';
       };
 
-      clear = ''
-        command clear
-        ls
+      man = ''
+        command man -P cat $argv | bat -l man
       '';
 
       files = {
