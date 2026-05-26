@@ -24,7 +24,7 @@
       hm = "cd ~";
       l = "lsd";
       ls = "lsd";
-      c = "clear";
+
       cl = "clear";
       claer = "clear";
       search = "fzf -q";
@@ -75,6 +75,8 @@
       oc = "opencode";
       ocr = "opencode --continue";
       code = "codium";
+      c = "codium";
+      f = "files";
       fs = "files";
       tt = "toipe";
       monkeytype = "toipe";
