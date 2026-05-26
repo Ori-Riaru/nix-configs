@@ -1,9 +1,4 @@
 {
-  pkgs,
-  settings,
-  config,
-  ...
-}: {
   imports = [
     ./extensions.nix
     ./usersettings.nix

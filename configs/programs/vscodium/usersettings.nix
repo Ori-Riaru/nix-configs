@@ -48,7 +48,7 @@ in {
     "workbench.statusBar.visible" = false;
     "workbench.secondarySideBar.defaultVisibility" = "hidden";
     "workbench.startupEditor" = "none";
-    "workbench.editor.showTabs" = "multiple";
+    "workbench.editor.showTabs" = "single";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
     "editor.minimap.side" = "right";
@@ -113,6 +113,8 @@ in {
       "quickInput.background" = settings.card;
       "editor.findWidgetBackground" = settings.card;
       "editorWidget.background" = settings.card;
+      "editorStickyScroll.background" = "#111111";
+      "editorStickyScrollHover.background" = settings.section;
 
       # === Editor ===
       "editor.foreground" = settings.text;
@@ -768,28 +770,19 @@ in {
 
     "nix.serverPath" = "nixd";
     "nix.enableLanguageServer" = true;
-    "nixpkgs" = {
-      "expr" = "import <nixpkgs> {}";
-    };
-
-    "options" = {
-      "home_manager" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").homeConfigurations.${settings.username}@slate.options";
-      };
-      "nixos" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").nixosConfigurations.slate.options";
-      };
-      "niri" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.niri.homeModules.niri.options";
-      };
-      "stylix" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.stylix.homeManagerModules.stylix.options";
-      };
-      "spicetify" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.spicetify-nix.homeManagerModules.default.options";
-      };
-      "plasma-manager" = {
-        "expr" = "(builtins.getFlake \"/home/${settings.username}/Projects/nix-configs/\").inputs.plasma-manager.homeManagerModules.plasma-manager.options";
+    "nix.serverSettings" = {
+      "nixd" = {
+        "options" = {
+          "nixpkgs" = {
+            "expr" = "import (builtins.getFlake \"/mnt/nfs/${settings.username}/Projects/nix-configs/\").inputs.nixpkgs { }";
+          };
+          "home-manager" = {
+            "expr" = "(builtins.getFlake \"/mnt/nfs/${settings.username}/Projects/nix-configs/\").homeConfigurations.\"${settings.username}@lain\".options";
+          };
+          "nixos" = {
+            "expr" = "(builtins.getFlake \"/mnt/nfs/${settings.username}/Projects/nix-configs/\").nixosConfigurations.lain.options";
+          };
+        };
       };
     };
   };
