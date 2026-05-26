@@ -7,7 +7,6 @@
 }: {
   home.packages = with pkgs; [
     xwayland-satellite
-    awww
     brightnessctl
     python314Packages.python-kasa
   ];

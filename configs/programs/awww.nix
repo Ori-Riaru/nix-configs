@@ -1,3 +1,5 @@
-{
-  # services.swww.enable = true;
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    awww
+  ];
 }

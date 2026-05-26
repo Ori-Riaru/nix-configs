@@ -6,8 +6,7 @@
     ../programs/waybar/waybar.nix
     ../programs/mako.nix
     ../programs/hypridle.nix
-    ../programs/swww.nix
-    ../programs/clipse.nix
+    ../programs/awww.nix
     ../programs/nautilus.nix
     ../programs/kitty.nix
     ../programs/papirus-icons.nix
