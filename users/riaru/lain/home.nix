@@ -40,7 +40,7 @@
     ../../../configs/programs/blender.nix
     ../../../configs/programs/f3d.nix
     ../../../configs/programs/godot.nix
-    ../../../configs/programs/cura.nix
+    ../../../configs/programs/prusa-slicer.nix
 
     # Gaming
     ../../../configs/programs/heroic.nix
