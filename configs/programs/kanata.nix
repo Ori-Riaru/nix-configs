@@ -50,6 +50,7 @@
             back       A-left
             forward    A-rght
             screenshot M-p
+            pick-color M-c
             close      C-w
 
             ;; Window management
@@ -230,9 +231,9 @@
           )
 
           (deflayer menu
-            _ @email   @google   _        @screenshot    _         @lights @base @game @gametype @qwerty
-            _ @codium  @nautilus @browser @ghostty       @vesktop  _       left  up    down    right
-            _ @m-rec-1 @m-rec-2  @m-stop  @m-play-1      @m-play-2 prev    pp    volu  voldwn  next
+            _ @email   @google   _        @screenshot    @pick-color @lights @base @game @gametype @qwerty
+            _ @codium  @nautilus @browser @ghostty       @vesktop    _       left  up    down    right
+            _ @m-rec-1 @m-rec-2  @m-stop  @m-play-1      @m-play-2   prev    pp    volu  voldwn  next
             _ _ _    _ _ _ _
           )
 

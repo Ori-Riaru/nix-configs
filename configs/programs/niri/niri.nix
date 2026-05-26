@@ -287,7 +287,6 @@
 
       "Mod+F".action.maximize-column = {};
       "Mod+Shift+F".action.fullscreen-window = {};
-      "Mod+C".action.center-column = {};
       "Mod+O" = {
         action.toggle-overview = {};
         repeat = false;
@@ -329,8 +328,9 @@
 
       # Screenshots
       "Mod+P".action.screenshot = {};
-      "Ctrl+Print".action.screenshot-screen = {};
-      "Alt+Print".action.screenshot-window = {};
+      "Ctrl+Shift+Mod+P".action.screenshot-screen = {};
+      "Ctrl+Mod+P".action.screenshot-window = {};
+      "Mod+C".action.spawn = ["sh" "-c" "niri msg pick-color | grep -oE '#[0-9A-Fa-f]{6}' | tr -d '\\n' | wl-copy"];
     };
   };
 }
