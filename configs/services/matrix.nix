@@ -11,7 +11,6 @@ in {
 
   services.matrix-continuwuity = {
     enable = true;
-    package = pkgs.master.matrix-continuwuity;
     settings.global = {
       server_name = "signal.v0id.nl";
       allow_registration = true;
