@@ -175,7 +175,6 @@
     overview.backdrop-color = "#000000";
 
     spawn-at-startup = [
-      {command = ["clipse" "-listen"];}
       {command = ["sh" "-c" "sleep 4 && awww-daemon"];}
       {command = ["sh" "-c" "sleep 5 && awww clear ${settings.base} --transition-type none"];}
       {command = ["sh" "-c" "sleep 6 && awww img ${settings.wallpaper} -o DP-2 --transition-type none"];}
@@ -272,12 +271,12 @@
       # Applications
       "Mod+G".action.spawn = ["walker"];
       "Mod+V".action.spawn = ["walker" "--provider" "clipboard"];
-      "Mod+S".action.spawn = ["walker" "--provider" "websearch"];
-      "Mod+Ctrl+G".action.spawn = ["ghostty"];
-      "Mod+Ctrl+F".action.spawn = ["vivaldi"];
-      "Mod+Ctrl+N".action.spawn = ["nautilus"];
-      "Mod+Ctrl+C".action.spawn = ["codium"];
-      "Mod+Ctrl+V".action.spawn = ["vesktop"];
+      "Mod+S".action.spawn = ["walker" "--provide" "websearch"];
+      "Mod+Ctrl+G".action.spawn = ["systemd-run" "--user" "--scope" "ghostty"];
+      "Mod+Ctrl+F".action.spawn = ["systemd-run" "--user" "--scope" "vivaldy"];
+      "Mod+Ctrl+N".action.spawn = ["systemd-run" "--user" "--scope" "nautilus"];
+      "Mod+Ctrl+C".action.spawn = ["systemd-run" "--user" "--scope" "codium"];
+      "Mod+Ctrl+V".action.spawn = ["systemd-run" "--user" "--scope" "vesktop"];
 
       # Window Management
       "Mod+Q".action.close-window = {};
