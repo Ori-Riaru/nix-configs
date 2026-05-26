@@ -38,6 +38,9 @@
           "riaru.undo.it" = "${settings.serverLocalIP}";
           "riaru.home.kg" = "${settings.serverLocalIP}";
           "router.box" = "192.168.1.41";
+          "kumo.box" = "100.103.185.35";
+          "lain.box" = "100.127.40.4";
+          "slate.box" = "100.95.62.42";
         };
       };
       caching = {
