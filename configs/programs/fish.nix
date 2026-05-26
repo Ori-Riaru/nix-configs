@@ -6,15 +6,14 @@
       zoxide init fish | source
     '';
     interactiveShellInit = ''
-      clear
-
-      if timeout 1 ls ${settings.nasPath} >/dev/null 2>&1
-        cd ${settings.nasPath}
-      else if test -d "/data"
-        cd /data
-      else
-        cd $HOME
-      end
+      # clear
+      # if timeout 1 ls ${settings.nasPath} >/dev/null 2>&1
+      #   cd ${settings.nasPath}
+      # else if test -d "/data"
+      #   cd /data
+      # else
+      #   cd $HOME
+      # end
     '';
     shellAliases = {
       ".." = "cd ..";
@@ -125,12 +124,9 @@
           set -l entries (lsd -1)
           set -l count (count $entries)
 
-          if test $count -le $limit
-            lsd
-          else
-            lsd -1 | head -n $limit
-            echo "… ($count items total)"
-          end
+      where = {
+        body = ''
+          readlink (command which $argv[1])
         '';
       };
 
