@@ -8,27 +8,19 @@
     ../../configs/programs/sops.nix
     ../../configs/programs/sudo.nix
 
-    ../../configs/services/samba.nix
-    ../../configs/services/mastodon/mastodon.nix
-
     ../../configs/services/tailscale.nix
+    ../../configs/services/blocky.nix
+    ../../configs/services/inadyn.nix
+
     ../../configs/services/nfs.nix
     ../../configs/services/restic.nix
-    ../../configs/services/jellyfin.nix
-    ../../configs/services/blocky.nix
-    ../../configs/services/glance.nix
-    ../../configs/services/inadyn.nix
-    ../../configs/services/nextcloud.nix
+    
+    ../../configs/services/mastodon/mastodon.nix
     ../../configs/services/matrix.nix
     ../../configs/services/hydroxide.nix
-
-    #// ../../configs/services/copyparty.nix
-    #// ../../configs/services/n8n.nix
-    #// ../../configs/services/hytale.nix
-    #// ../../configs/services/minecraft.nix
-    #// ../../configs/services/factorio.nix
-    #// ../../configs/services/homeassistant.nix
-    #// ../../configs/services/palworld.nix
+    ../../configs/services/jellyfin.nix
+    ../../configs/services/nextcloud.nix
+    ../../configs/services/glance.nix
   ];
 
   environment = {
@@ -43,7 +35,7 @@
   # Bootloader
   boot.loader.grub = {
     enable = true;
-    device = "/dev/sdb";
+    device = "/dev/disk/by-id/ata-WDC_WD10EZEX-07WN4A0_WD-WCC6Y5JA163X";
     useOSProber = true;
   };
 
