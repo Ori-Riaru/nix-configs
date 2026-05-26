@@ -1,0 +1,18 @@
+#tabs-tabbar-container.top {
+    padding-top: 3px !important;
+    padding-bottom: 3px;
+}
+
+.tab {
+    border-radius: 6px !important;
+
+    &.active {    
+        color: white !important;
+        background: #222 !important;
+    }
+
+    &:hover {    
+        color: white !important;
+        background: #222 !important;
+    }
+}
