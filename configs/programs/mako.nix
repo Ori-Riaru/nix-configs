@@ -19,11 +19,12 @@
       width = 300;
       height = 1000;
       padding = 10;
+      outer-margin = "30,3,3,3";
 
       max-icon-size = 40;
 
-      max-visible = 5;
-      anchor = "top-left";
+      max-visible = 10;
+      anchor = "bottom-right";
 
       on-notify = "exec pw-play /home/riaru/.config/mako/notification.mp3";
     };
