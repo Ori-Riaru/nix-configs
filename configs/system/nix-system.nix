@@ -36,6 +36,7 @@
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
+    package = pkgs.lixPackageSets.stable.lix;
     settings = {
       trusted-users = ["root" "${settings.username}"];
       experimental-features = "nix-command flakes";
@@ -51,8 +52,8 @@
 
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 1w";
+      dates = "daily";
+      options = "--delete-older-than 14d";
     };
   };
 
