@@ -107,9 +107,9 @@
     };
 
     layout = {
-      gaps = settings.gap + 2;
+      gaps = settings.gap;
       center-focused-column = "never";
-      default-column-display = "tabbed";
+      default-column-display = "normal";
       preset-column-widths = [
         {proportion = 0.1666666667;}
         {proportion = 0.3333333334;}
@@ -127,17 +127,19 @@
       default-column-width = {proportion = 0.3333333334;}; # TODO: make host specific
 
       focus-ring = {
-        width = 2;
+        enable = false;
+        width = 1;
         active.color = "${settings.accent}";
+        inactive.color = "${settings.card}";
       };
 
       background-color = "transparent";
 
       border = {
-        enable = false;
-        width = 2;
-        active.color = "#ffc87f";
-        inactive.color = "#505050";
+        enable = true;
+        width = 3;
+        active.color = "${settings.accent}";
+        inactive.color = "${settings.card}";
         urgent.color = "${settings.red}";
       };
 
