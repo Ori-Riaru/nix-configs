@@ -50,7 +50,7 @@
           zxh404.vscode-proto3
 
           # Python
-          # ms-python.python
+          ms-python.python
           ms-toolsai.jupyter
 
           # C++
