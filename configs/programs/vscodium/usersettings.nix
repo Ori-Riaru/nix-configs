@@ -99,7 +99,7 @@ in {
 
     # Colors
 
-    "workbench.colorTheme" = "Experimental Dark";
+    "workbench.colorTheme" = "Dark 2026";
     "workbench.colorCustomizations" = {
       # === General ===
       "foreground" = settings.text;
