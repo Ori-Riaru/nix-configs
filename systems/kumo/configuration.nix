@@ -18,7 +18,7 @@
     ../../configs/services/mastodon/mastodon.nix
     ../../configs/services/matrix.nix
     ../../configs/services/hydroxide.nix
-    ../../configs/services/jellyfin.nix
+    ../../configs/services/jellyfin/jellyfin.nix
     ../../configs/services/nextcloud.nix
     ../../configs/services/glance.nix
   ];

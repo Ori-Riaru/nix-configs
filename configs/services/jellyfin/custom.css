@@ -1,0 +1,104 @@
+/* stylelint-disable selector-class-pattern */
+.countIndicator, .fullSyncIndicator, .mediaSourceIndicator, .playedIndicator {
+  border-radius: 6px;
+  background: #b0aafc;
+}
+
+
+.defaultCardBackground,
+.defaultCardBackground1,
+.defaultCardBackground2,
+.defaultCardBackground3,
+.defaultCardBackground4,
+.defaultCardBackground5 {
+  background: #b0aafc;
+}
+
+.cardScalable {
+ overflow: hidden;
+ border-radius: 6px;
+}
+
+.itemProgressBarForeground {
+  background: #b0aafc;
+}
+
+.paper-icon-button-light {
+  border-radius: 6px;
+}
+
+.paper-icon-button-light:hover:not(:disabled, .headerUserButtonRound >  .headerUserButtonRound ) {
+  color: #fff;
+  background: #b0aafcA0;
+}
+
+.cardOverlayFab-primary:hover {
+  transform: scale(1.1);
+}
+
+.emby-tab-button.show-focus:focus, .emby-tab-button:hover {
+  color: #b0aafcA0;
+}
+
+.headerUserButtonRound div {
+  border-radius: 6px;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+.mdl-slider::-webkit-slider-thumb {
+  background: #b0aafc;
+}
+
+/* Firefox */
+.mdl-slider::-moz-range-thumb {
+  background: #b0aafc;
+}
+
+/* Edge (legacy) */
+.mdl-slider::-ms-thumb {
+  background: #b0aafc;
+}
+
+/* Standard (future-proofing) */
+.mdl-slider::slider-thumb {
+  background: #b0aafc;
+}
+
+.mdl-slider-background-lower {
+  background: #b0aafc;
+}
+
+.mdl-spinner__layer,
+.mdl-spinner__layer-1,
+.mdl-spinner__layer-2,
+.mdl-spinner__layer-3,
+.mdl-spinner__layer-4  {
+ border-color: #b0aafc !important;
+
+}
+
+.pageTitleWithDefaultLogo {
+  display: none;
+}
+
+.splashPageContainer img {
+    filter: brightness(0) saturate(100%) invert(62%) sepia(53%) saturate(4087%) hue-rotate(226deg) brightness(102%) contrast(101%);
+}
+
+.button-flat:hover, .button-link {
+  color: #b0aafc;
+}
+
+[dir="ltr"] .detailRibbon, .detailPageContent, .detailPagePrimaryContent {
+  padding-left: 2% !important;
+}
+
+.layout-desktop .detailImageContainer .card {
+  top: 0;
+  transform: translateY(calc(-7.2em - 110%));
+  margin-bottom: -10000em;
+}
+
+.splashLogo {
+  display: none !important;
+}
