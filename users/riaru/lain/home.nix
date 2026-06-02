@@ -33,7 +33,7 @@
     ../../../configs/programs/krita.nix
     ../../../configs/programs/inkscape.nix
 
-    ../../../configs/programs/blender.nix
+    ../../../configs/programs/blender/blender.nix
     ../../../configs/programs/f3d.nix
     ../../../configs/programs/godot.nix
     ../../../configs/programs/prusa-slicer.nix

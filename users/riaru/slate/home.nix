@@ -17,7 +17,7 @@
     ../../../configs/programs/chromium.nix
     ../../../configs/programs/ghostty.nix
     ../../../configs/programs/obsidian.nix
-    ../../../configs/programs/blender.nix
+    ../../../configs/programs/blender/blender.nix
     ../../../configs/programs/inkscape.nix
     ../../../configs/programs/libre-office.nix
 
