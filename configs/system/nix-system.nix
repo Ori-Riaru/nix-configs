@@ -39,7 +39,7 @@
     package = pkgs.lixPackageSets.stable.lix;
     settings = {
       trusted-users = ["root" "${settings.username}"];
-      experimental-features = "nix-command flakes";
+      experimental-features = "nix-command flakes pipe-operator";
       flake-registry = "";
       nix-path = config.nix.nixPath;
       auto-optimise-store = true;
