@@ -51,4 +51,6 @@
     };
   };
   networking.firewall.allowedUDPPorts = [53];
+  services.resolved.settings.Resolve.DNSStubListener = false;
+  networking.nameservers = ["127.0.0.1"];
 }
