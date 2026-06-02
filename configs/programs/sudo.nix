@@ -1,13 +1,16 @@
 {
-  security.sudo.extraRules = [
-    {
-      users = ["riaru"];
-      commands = [
-        {
-          command = "ALL";
-          options = ["NOPASSWD"];
-        }
-      ];
-    }
-  ];
+  security.sudo-rs = {
+    enable = true;
+    extraRules = [
+      {
+        users = ["riaru"];
+        commands = [
+          {
+            command = "ALL";
+            options = ["NOPASSWD"];
+          }
+        ];
+      }
+    ];
+  };
 }
