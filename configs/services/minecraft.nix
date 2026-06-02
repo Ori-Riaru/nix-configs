@@ -6,19 +6,19 @@
   services.minecraft-server = {
     enable = false;
     eula = true;
-    dataDir = "/data/minecraft/";
+    package = pkgs.papermc;
+    dataDir = "/data/vanilla-june-2026/";
     openFirewall = true;
     declarative = true;
 
     serverProperties = {
-      server-port = "25566";
+      server-port = 25565;
       gamemode = "survival";
       difficulty = "hard";
+      motd = "AOEU";
     };
 
-    whitelist = {
-      riaru = "09aa071b-9237-4cba-861a-9ae7d5328f95";
-    };
+    jvmOpts = "-Xms8192M -Xmx8192M";
   };
 
   # Modded minecraft
@@ -26,7 +26,8 @@
 
   environment.systemPackages = with pkgs; [
     screen
-    openjdk8-bootstrap
+    # openjdk8-bootstrap
+    openjdk25
   ];
 
   # Launch Enigmatica 2 Expert Extended
