@@ -48,7 +48,7 @@
           "~" = "󰉋";
           "/mnt/nfs/riaru" = "";
           "Projects" = "";
-          "nix-configs" = "";
+          "/mnt/nfs/riaru/Projects/nix-configs" = "";
           ".config" = "";
           "Documents" = "󰈙 ";
           "Downloads" = " ";
