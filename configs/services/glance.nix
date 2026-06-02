@@ -239,7 +239,6 @@
                     "UCQeDjGVRTWAApRmP_xFWaRA" # Not David
                     "UC0intLFzLaudFG-xAvUEO-A" # Not Just Bikes
                     "UCSVbNLYVIBrNQmtOPCFcD1A" # Ooqui
-                    "UC-lHJZR3Gqxm24_Vd_AJ5Yw" # PewDiePie
                     "UCFR-QlAx0qFHN9-QmcrpHnQ" # Pezzza's Work
                     "UCeXksuVW8H1x9v4gh7DWoyQ" # Physics for the Birds
                     "UCiMxz108IEFwYsiYIp1ZvLw" # PixelzwithaZ
