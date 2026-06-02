@@ -22,7 +22,6 @@
     ../../../configs/programs/libre-office.nix
 
     ../../../configs/programs/krita.nix
-    ../../../configs/programs/cura.nix
     ../../../configs/programs/boxes.nix
     ../../../configs/programs/obs-studio.nix
     ../../../configs/programs/shotcut.nix
