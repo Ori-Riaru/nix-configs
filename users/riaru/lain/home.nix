@@ -56,6 +56,7 @@
     ../../../configs/programs/discord.nix
     ../../../configs/programs/signal.nix
     ../../../configs/programs/cinny-desktop.nix
+    ../../../configs/programs/easyeffects.nix
 
     # Media
     ../../../configs/programs/spotify/spotify.nix
