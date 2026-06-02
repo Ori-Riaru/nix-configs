@@ -12,11 +12,9 @@
     mutableExtensionsDir = false;
 
     profiles.default = let
-      extensions = inputs.nix-vscode-extensions.extensions.x86_64-linux;
+      extensions = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
     in {
       enableExtensionUpdateCheck = false;
-
-  
 
       extensions = with pkgs.vscode-extensions;
         [

@@ -8,6 +8,8 @@
     inputs.niri.nixosModules.niri
   ];
 
+  programs.niri.package = pkgs.niri;
+
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   systemd.user.services.niri-flake-polkit = lib.mkForce {

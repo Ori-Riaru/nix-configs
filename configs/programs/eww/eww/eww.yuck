@@ -1,0 +1,183 @@
+(defvar notification_panel_active false)
+(defvar control_panel_active false)
+
+(defwindow bar []
+  :monitor 0
+  :geometry (geometry :x "0"
+                      :y "0"
+                      :width 45
+                      :height "100%"
+                      :anchor "center right"
+			)
+  :stacking "foreground"
+  :exclusive true
+	(box :class "panel bar"
+		:hexpand false
+		:width 45
+ 		(overlay 
+			(box :orientation "vertical"
+				 :space-evenly false
+				(box :orientation "vertical"
+					:valign "start"
+					:vexpand true
+					:space-evenly false
+					(launcher)
+					(minimap)
+				)
+				(box :orientation "vertical"
+					:valign "end"
+					:space-evenly false
+					:vexpand true
+          			(systray :orientation "vertical")
+          			(lights)
+          			(audio)
+					(control_panel_toggle)
+				)
+			)
+			(box :orientation "vertical"
+				 :valign "center"
+				 :vexpand true
+				 :space-evenly false
+				(clock)
+			)
+		)
+	)
+)
+
+
+(deflisten windows :initial ""
+	"niri-minimap --output 'DP-3' --height 40 --aspect-ratio 1.25" 
+)
+
+(defwidget minimap [] 
+	(box :orientation "vertical" 
+		 :class "minimap"
+		 :space-evenly false
+		 :width 1
+		(literal :content windows)
+	)
+)
+
+(defwidget launcher []
+  	(button :onclick "walker" 
+        (label :class "launcher icon" 
+			   :text ""
+		)
+	)
+)
+
+
+(defwindow notification_panel []
+  :monitor 0
+  :geometry (geometry :x "3px"
+                      :y "0"
+                      :width "300px"
+                      :height "400px"
+                      :anchor "center right")
+  :stacking "foreground" 
+  :exclusive false
+  (box :orientation "vertical"
+       :class "panel notification-panel"
+    (calendar)
+    (box :orientation "vertical"
+            :valign "start"
+        (box :orientation "horizontal"
+             :halign "start"
+			"Test")
+        (box :orientation "horizontal"
+             :halign "start"
+			"Test")
+        (box :orientation "horizontal"
+			 :halign "start"
+            "Test")
+ 		(box :orientation "horizontal"
+			 :halign "start"
+            "Test")
+		)
+	)
+)
+
+(defpoll hour :interval "1s"
+  `date +%H`)
+(defpoll minute :interval "1s"
+  `date +%M`)
+(defpoll day :interval "1s"
+  `date +%d`)
+(defpoll month :interval "1s"
+  `date +%m`)
+
+  (defvar month_abbreviations '{
+	"01":"JA",
+	"02":"FE",
+	"03":"MR",
+	"04":"AL",
+	"05":"MA",
+	"06":"JN",
+	"07":"JL",
+	"08":"AU",
+	"09":"SE",
+	"10":"OC",
+	"11":"NO",
+	"12":"DE"
+}')
+(defvar day_abbreviations '{
+	"Mon":"MO",
+	"Tue":"TU",
+	"Wen":"WE",
+	"Thu":"TH",
+	"Fri":"FR",
+	"Sat":"SA",
+	"Sun":"SU"
+}')
+
+(defwidget clock []
+    (box :orientation "vertical"
+       (button :onclick "./scripts/toggle_notification_panel.sh" 
+        	(box :orientation "vertical"
+                 :halign "center"
+            	hour
+            	minute
+            	"—"
+				{month_abbreviations?.[month]}
+            	day
+				; "—"
+		    	; ""
+			)
+		)
+	)
+)
+
+
+(defwindow control_panel []
+	:monitor 0
+	:geometry (geometry :x "3px"
+						:y "3px"
+						:width "360px"
+					    :height "600px"
+						:anchor "bottom right")
+	(box :class 'panel' :orientation 'vertical'
+		"Test"
+		(scale)
+	)
+) 
+
+(defwidget control_panel_toggle []
+	(button :class "icon" 
+			:onclick "./scripts/toggle_control_panel.sh"
+		(label :class "control icon" :text 
+			""
+		)
+	)
+)
+
+(defwidget lights []
+    (button :onclick "kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &"
+        (box :class "icon" (label :class "light icon" :text "󱠂" ))
+	)
+)
+
+(defwidget audio []
+    (button :onclick "pavucontrol &"
+        (box :class "icon" (label :class "audio icon" :text ""))
+	)
+)

@@ -94,6 +94,11 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.home-manager.follows = "home-manager";
     # };
+
+    niri-minimap = {
+      url = "github:Ori-Riaru/niri-minimap";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -228,6 +233,7 @@
     packages =
       forAllSystems
       (system: import ./packages nixpkgs.legacyPackages.${system});
+
     overlays = import ./overlays {inherit inputs outputs;};
 
     nixosConfigurations = {
