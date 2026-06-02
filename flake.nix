@@ -299,7 +299,7 @@
       kernel-module.path = ./starters/kernel-module;
     };
 
-    # Shortcuts for nix-repl
+    # Shortcuts for nix repl
     lain = self.nixosConfigurations.lain;
     slate = self.nixosConfigurations.slate;
     kumo = self.nixosConfigurations.kumo;
@@ -308,5 +308,7 @@
     kumo-home = self.homeConfigurations."${settings.username}@kumo";
     settings = settings;
     nixpkgs = nixpkgs;
+    lib = nixpkgs.lib;
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
   };
 }
