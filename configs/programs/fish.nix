@@ -39,6 +39,7 @@
       run = "systemd-run --user";
       restart = "sudo reboot now";
       shutdown = "sudo shutdown now";
+      suspend = "systemctl suspend";
 
       cp = "cp -i";
       cpd = "pwd | wl-copy";
@@ -66,8 +67,7 @@
       os = "nh os switch";
       rebuild = "nh os switch; nh home switch";
       update = "nix flake update --flake ${settings.configPath}";
-      ns = "nix-shell";
-      nsp = "nix-shell -p";
+      ns = "nix shell";
       repl = "nix repl /mnt/nfs/riaru/Projects/nix-configs";
       pbrt = "/mnt/nfs/riaru/Projects/advanced-computer-graphics/assignment-2/pbrt-v3/build/pbrt";
 
@@ -105,15 +105,9 @@
         '';
       };
 
-      ns = {
-        body = ''
-          nix-shell --run "fish" $argv[1..]
-        '';
-      };
-
       nsp = {
         body = ''
-          nix-shell -p $argv[1] --run "fish" $argv[1..]
+          nix shell nixpkgs#$argv[1]
         '';
       };
 
