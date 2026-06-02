@@ -10,7 +10,7 @@
 
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts = [pkgs.firefoxpwa];
+    # nativeMessagingHosts = [pkgs.firefoxpwa];
     configPath = "${config.xdg.configHome}/mozilla/firefox";
     profiles.${settings.username} = {
       isDefault = true;
