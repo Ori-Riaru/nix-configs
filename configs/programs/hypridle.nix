@@ -77,12 +77,12 @@
         font_color = "0xff${lib.substring 1 7 settings.text}";
         fade_on_empty = false;
         fade_timeout = 1000;
-        placeholder_text = "";
+        placeholder_text = "$LAYOUT";
         hide_input = false;
         check_color = "0xff${lib.substring 1 7 settings.blue}";
         fail_color = "0xff${lib.substring 1 7 settings.red}";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-        capslock_color = "0xff${lib.substring 1 7 settings.yellow}";
+        capslock_color = "0xff${lib.substring 1 7 settings.orange}";
         position = "0, -140";
         halign = "center";
         valign = "center";

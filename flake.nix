@@ -116,45 +116,101 @@
       serverTailscaleIP = "100.103.185.35";
       nasPath = "/mnt/nfs/riaru";
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
+      secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
 
       # === Theming ===
 
       avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
       wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
-      secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
+      wallpaper2 = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper2.jpg";
 
-      accent = purple;
-      secondary = blue;
-      tertiary = yellow;
+      spacing-xs = 1; # px
+      spacing-s = 3; # px
+      spacing-m = 6; # px
+      spacing-l = 12; # px
+      spacing-xl = 24; # px
+      spacing-xxl = 48; # px
 
-      gap = 3; # px
+      gap = 3; #px
+
       radius = 6; # px
+      radius-s = 3; # px
 
-      text = "#DDDDDD";
-      subtext = "#777777";
-      hidden = "#333333";
-
-      base = "#080808";
-      section = "#111111";
-      card = "#181818";
-      overlay = "#222222";
-
-      red = "#e67378";
-      orange = "#faa795";
-      yellow = "#fceaa2";
-      green = "#85ed9b";
-      teal = "#86edbd";
-      cyan = "#94e3e9";
-      blue = "#94c5e9";
-      purple = "#a19afc";
-      pink = "#ffa2c9";
-      brown = "#9c7970";
-      white = "#ffffff";
-      grey = "#272727";
-      black = "#353535";
+      border-width = 2; # px
 
       font = "Inter";
       fontMonospace = "JetBrainsMono Nerd Font";
+
+      accent-bright = purple-bright;
+      accent = purple;
+      accent-dim = purple-dim;
+      accent-dark = purple-dark;
+      secondary-bright = blue-bright;
+      secondary = blue;
+      secondary-dim = blue-dim;
+      secondary-dark = blue-dark;
+
+      text = "#DDDDDD";
+      subtext = "#999999";
+      muted = "#666666";
+      hidden = "#303030";
+      float = "#2c2c2c";
+      overlay = "#222222";
+      card = "#181818";
+      section = "#111111";
+      base = "#080808";
+
+      red-dark = "#331617";
+      red-dim = "#573033";
+      red = "#eb767e";
+      red-bright = "#f5a9ae";
+
+      orange-dark = "#322117";
+      orange-dim = "#583d31";
+      orange = "#f3a18d";
+      orange-bright = "#f8c9bb";
+
+      yellow-dark = "#302712";
+      yellow-dim = "#564b28";
+      yellow = "#f4da9d";
+      yellow-bright = "#fff0ab";
+
+      green-dark = "#162d1b";
+      green-dim = "#325841";
+      green = "#87d99a";
+      green-bright = "#b2ecc0";
+
+      teal-dark = "#123027";
+      teal-dim = "#31594c";
+      teal = "#72d9aa";
+      teal-bright = "#a6ebcb";
+
+      cyan-dark = "#173034";
+      cyan-dim = "#34585e";
+      cyan = "#88d1d8";
+      cyan-bright = "#b7e6ea";
+
+      blue-dark = "#1a2b3d";
+      blue-dim = "#395674";
+      blue = "#88bddf";
+      blue-bright = "#b7d6ec";
+
+      purple-dark = "#392d60";
+      purple-dim = "#555194";
+      purple = "#b0aafc";
+      purple-bright = "#d0cbff";
+
+      pink-dark = "#3b1d2d";
+      pink-dim = "#613b4f";
+      pink = "#f4a0c9";
+      pink-bright = "#ffc7de";
+
+      brown-dark = "#322624";
+      brown-dim = "#534441";
+      brown = "#ab8a82";
+      brown-bright = "#c8ada8";
+
+      white = "FFFFFF";
     };
 
     inherit (self) outputs;

@@ -71,25 +71,64 @@
               "section": "${settings.section}",
               "card": "${settings.card}",
               "overlay": "${settings.overlay}",
-              "grey": "${settings.grey}",
-              "black": "${settings.black}",
+              "float": "${settings.float}",
+              "grey": "${settings.subtext}",
+              "black": "${settings.base}",
               "text": "${settings.text}",
               "subtext": "${settings.subtext}",
+              "muted": "${settings.muted}",
               "hidden": "${settings.hidden}",
-              "white": "${settings.white}",
+              "white": "${settings.text}",
               "red": "${settings.red}",
+              "red_bright": "${settings.red-bright}",
+              "red_dim": "${settings.red-dim}",
+              "red_dark": "${settings.red-dark}",
               "orange": "${settings.orange}",
+              "orange_bright": "${settings.orange-bright}",
+              "orange_dim": "${settings.orange-dim}",
+              "orange_dark": "${settings.orange-dark}",
               "yellow": "${settings.yellow}",
+              "yellow_bright": "${settings.yellow-bright}",
+              "yellow_dim": "${settings.yellow-dim}",
+              "yellow_dark": "${settings.yellow-dark}",
               "green": "${settings.green}",
+              "green_bright": "${settings.green-bright}",
+              "green_dim": "${settings.green-dim}",
+              "green_dark": "${settings.green-dark}",
               "teal": "${settings.teal}",
+              "teal_bright": "${settings.teal-bright}",
+              "teal_dim": "${settings.teal-dim}",
+              "teal_dark": "${settings.teal-dark}",
               "cyan": "${settings.cyan}",
+              "cyan_bright": "${settings.cyan-bright}",
+              "cyan_dim": "${settings.cyan-dim}",
+              "cyan_dark": "${settings.cyan-dark}",
               "blue": "${settings.blue}",
+              "blue_bright": "${settings.blue-bright}",
+              "blue_dim": "${settings.blue-dim}",
+              "blue_dark": "${settings.blue-dark}",
               "purple": "${settings.purple}",
+              "purple_bright": "${settings.purple-bright}",
+              "purple_dim": "${settings.purple-dim}",
+              "purple_dark": "${settings.purple-dark}",
               "pink": "${settings.pink}",
-              "brown": "$settings.brown",
-              "selection": "#2a2060",
-              "comment": "#554f99",
-              "accent_dim": "#6962c2"
+              "pink_bright": "${settings.pink-bright}",
+              "pink_dim": "${settings.pink-dim}",
+              "pink_dark": "${settings.pink-dark}",
+              "brown": "${settings.brown}",
+              "brown_bright": "${settings.brown-bright}",
+              "brown_dim": "${settings.brown-dim}",
+              "brown_dark": "${settings.brown-dark}",
+              "selection": "${settings.overlay}",
+              "comment": "${settings.muted}",
+              "accent_bright": "${settings.accent-bright}",
+              "accent": "${settings.accent}",
+              "accent_dim": "${settings.accent-dim}",
+              "accent_dark": "${settings.accent-dark}",
+              "secondary_bright": "${settings.secondary-bright}",
+              "secondary": "${settings.secondary}",
+              "secondary_dim": "${settings.secondary-dim}",
+              "secondary_dark": "${settings.secondary-dark}"
             },
             "styles": {
               "identifier": {
@@ -171,34 +210,34 @@
               },
               "focused": {
                 "color": "$section",
-                "background-color": "$purple",
+                "background-color": "$accent_bright",
                 "bold": true
               },
               "disabled-focused": {
                 "color": "$subtext",
-                "background-color": "$grey"
+                "background-color": "$accent_dim"
               },
               "scrollbar": {
                 "color": "$accent_dim",
                 "background-color": "$card"
               },
               "timeline-bar": {
-                "background-color": "$purple"
+                "background-color": "$accent"
               },
               "h1": {
-                "color": "$purple",
+                "color": "$accent",
                 "bold": true
               },
               "h2": {
-                "color": "$purple",
+                "color": "$accent",
                 "underline": true
               },
               "h3": {
-                "color": "$blue",
+                "color": "$secondary",
                 "bold": true
               },
               "h4": {
-                "color": "$blue",
+                "color": "$secondary",
                 "underline": true
               },
               "h5": {
@@ -213,7 +252,7 @@
                 "color": "$comment"
               },
               "hyperlink": {
-                "color": "$blue",
+                "color": "$secondary",
                 "underline": true
               },
               "list-glyph": {
@@ -227,7 +266,7 @@
                 "color": "$grey"
               },
               "table-header": {
-                "color": "$purple",
+                "color": "$accent_bright",
                 "bold": true
               },
               "quote-border": {
@@ -239,7 +278,7 @@
                 "background-color": "$card"
               },
               "footnote-border": {
-                "color": "$blue",
+                "color": "$secondary_dim",
                 "background-color": "$card"
               },
               "footnote-text": {
@@ -270,7 +309,7 @@
                 "color": "$accent_dim"
               },
               "keyword": {
-                "color": "$purple",
+                "color": "$accent",
                 "bold": true
               },
               "string": {
@@ -324,15 +363,15 @@
               },
               "diff-delete": {
                 "color": "$red",
-                "background-color": "#2a0d0f"
+                "background-color": "$red_dark"
               },
               "diff-add": {
                 "color": "$green",
-                "background-color": "#0d2a13"
+                "background-color": "$green_dark"
               },
               "diff-section": {
-                "color": "$blue",
-                "background-color": "$card",
+                "color": "$secondary",
+                "background-color": "$secondary_dark",
                 "bold": true
               },
               "spectrogram-low": {
@@ -351,7 +390,7 @@
                 "bold": true
               },
               "file": {
-                "color": "$blue",
+                "color": "$secondary",
                 "underline": true
               }
             },
@@ -387,7 +426,7 @@
               },
               "title": {
                 "color": "$section",
-                "background-color": "$purple",
+                "background-color": "$accent_bright",
                 "bold": true
               },
               "alert-title": {
@@ -401,7 +440,7 @@
               },
               "subtitle": {
                 "color": "$section",
-                "background-color": "$cyan",
+                "background-color": "$secondary",
                 "bold": true
               },
               "info": {
@@ -409,8 +448,8 @@
                 "background-color": "$card"
               },
               "title-hotkey": {
-                "color": "$yellow",
-                "background-color": "$purple",
+                "color": "$yellow_bright",
+                "background-color": "$accent_bright",
                 "underline": true,
                 "bold": true
               },
@@ -443,7 +482,7 @@
                 "color": "$subtext"
               },
               "info": {
-                "color": "$blue"
+                "color": "$secondary"
               },
               "stats": {
                 "color": "$teal"

@@ -1,12 +1,9 @@
-{
-  pkgs,
-  settings,
-  ...
-}: {
+{settings, ...}: {
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
     settings = {
+      bold-is-bright = true;
       confirm-close-surface = false;
 
       keybind = [
@@ -18,25 +15,25 @@
       font-size = 11;
       background = settings.section;
       foreground = settings.text;
-      selection-foreground = settings.base;
-      selection-background = settings.accent;
+      selection-foreground = settings.text;
+      selection-background = settings.overlay;
       cursor-color = settings.accent;
       palette = [
-        "0=${settings.black}"
-        "8=${settings.subtext}"
+        "0=${settings.base}"
         "1=${settings.red}"
-        "9=#FF5271"
         "2=${settings.teal}"
-        "10=#9FFFBC"
-        "3=${settings.orange}"
-        "11=${settings.yellow}"
+        "3=${settings.yellow}"
         "4=${settings.blue}"
-        "12=#ACD1FF"
         "5=${settings.purple}"
-        "13=#ADA0FF"
         "6=${settings.cyan}"
-        "14=#B9F7FF"
         "7=${settings.subtext}"
+        "8=${settings.section}"
+        "9=${settings.red-bright}"
+        "10=${settings.teal-bright}"
+        "11=${settings.yellow-bright}"
+        "12=${settings.blue-bright}"
+        "13=${settings.purple-bright}"
+        "14=${settings.cyan-bright}"
         "15=${settings.text}"
       ];
     };

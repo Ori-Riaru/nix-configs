@@ -48,7 +48,7 @@ in {
     "workbench.statusBar.visible" = false;
     "workbench.secondarySideBar.defaultVisibility" = "hidden";
     "workbench.startupEditor" = "none";
-    "workbench.editor.showTabs" = "single";
+    "workbench.editor.showTabs" = "multiple";
     "breadcrumbs.enabled" = false;
     "editor.minimap.renderCharacters" = false;
     "editor.minimap.side" = "right";
@@ -113,7 +113,7 @@ in {
       "quickInput.background" = settings.card;
       "editor.findWidgetBackground" = settings.card;
       "editorWidget.background" = settings.card;
-      "editorStickyScroll.background" = "#111111";
+      "editorStickyScroll.background" = settings.section;
       "editorStickyScrollHover.background" = settings.section;
 
       # === Editor ===
@@ -121,10 +121,10 @@ in {
       "editor.background" = settings.section;
       "editorGutter.background" = settings.section;
       "editor.lineHighlightBackground" = settings.card;
-      "editor.selectionBackground" = "${settings.white}22";
-      "editor.inactiveSelectionBackground" = "${settings.white}06";
+      "editor.selectionBackground" = "${settings.float}";
+      "editor.inactiveSelectionBackground" = "${settings.float}";
       "editor.selectionForeground" = settings.section;
-      "editorRuler.foreground" = "${settings.red}22";
+      "editorRuler.foreground" = "${settings.orange-dark}";
       "scrollbar.shadow" = "#0000";
       "editorGroup.border" = "#0000";
       "editorCursor.foreground" = settings.text;
@@ -175,7 +175,7 @@ in {
 
       "sideBarSectionHeader.background" = "${settings.section}";
       "sideBarSectionHeader.border" = "#0000";
-      "sideBar.foreground" = "#FFFFFF";
+      "sideBar.foreground" = settings.text;
 
       # Activity Bar
 
@@ -193,21 +193,21 @@ in {
       "terminal.background" = "${settings.section}";
       "terminal.foreground" = "${settings.text}";
       "terminalCursor.foreground" = "${settings.text}";
-      "terminal.ansiBlack" = "${settings.black}";
+      "terminal.ansiBlack" = "${settings.base}";
       "terminal.ansiBlue" = "${settings.blue}";
       "terminal.ansiCyan" = "${settings.cyan}";
       "terminal.ansiGreen" = "${settings.teal}";
       "terminal.ansiMagenta" = "${settings.purple}";
       "terminal.ansiRed" = "${settings.red}";
-      "terminal.ansiWhite" = "${settings.white}";
+      "terminal.ansiWhite" = "${settings.text}";
       "terminal.ansiYellow" = "${settings.orange}";
       "terminal.ansiBrightBlack" = "${settings.subtext}";
-      "terminal.ansiBrightBlue" = "#ACD1FF";
-      "terminal.ansiBrightCyan" = "#B9F7FF";
-      "terminal.ansiBrightGreen" = "${settings.green}";
-      "terminal.ansiBrightMagenta" = "#ADA0FF";
-      "terminal.ansiBrightRed" = "#FF5271";
-      "terminal.ansiBrightWhite" = "${settings.white}";
+      "terminal.ansiBrightBlue" = "$settings.blue-bright";
+      "terminal.ansiBrightCyan" = "${settings.cyan-bright}";
+      "terminal.ansiBrightGreen" = "${settings.green-bright}";
+      "terminal.ansiBrightMagenta" = "${settings.purple-bright}";
+      "terminal.ansiBrightRed" = "${settings.red-bright}";
+      "terminal.ansiBrightWhite" = "${settings.text}";
       "terminal.ansiBrightYellow" = "${settings.yellow}";
     };
 
@@ -617,11 +617,11 @@ in {
         (extension: extension.vscodeExtPublisher)
         (config.programs.vscode.profiles.default.extensions or [])
       )
-      ++ (
-        map
-        (extension: extension.vscodeExtName)
-        (config.programs.vscode.profiles.default.extensions or [])
-      )
+      # ++ (
+      #   map
+      #   (extension: extension.vscodeExtName)
+      #   (config.programs.vscode.profiles.default.extensions or [])
+      # )
       ++ (
         splitString "\n" (builtins.readFile ./lorem.txt)
       );
@@ -673,6 +673,7 @@ in {
     "markdown.extension.completion.enabled" = false;
     "markdown.extension.tableFormatter.enabled" = false;
     "markdownInline.showCheckboxCodeLens" = false;
+    "markdown-preview-enhanced.previewTheme" = "vscode.css";
 
     # Python
     "[python]" = {

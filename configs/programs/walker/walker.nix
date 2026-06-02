@@ -400,6 +400,7 @@
             }
             {
               text = "Nix Config";
+              keywords = ["nix-config"];
               icon = "";
               actions = {
                 "open" = "nautilus /mnt/nfs/riaru/Projects/nix-configs";
@@ -689,11 +690,6 @@
             content = settings.secondary;
           }
           {
-            keywords = ["tertiary"];
-            name = "Tertiary Hex";
-            content = settings.tertiary;
-          }
-          {
             keywords = ["text"];
             name = "Text Hex";
             content = settings.text;
@@ -779,19 +775,197 @@
             content = settings.brown;
           }
           {
-            keywords = ["white"];
-            name = "White Hex";
-            content = settings.white;
+            keywords = ["muted"];
+            name = "Muted Hex";
+            content = settings.muted;
           }
           {
-            keywords = ["grey"];
-            name = "Grey Hex";
-            content = settings.grey;
+            keywords = ["float"];
+            name = "Float Hex";
+            content = settings.float;
+          }
+
+          # Bright/Dim/Dark Hex Variants
+
+          {
+            keywords = ["accent" "bright"];
+            name = "Accent Bright Hex";
+            content = settings."accent-bright";
           }
           {
-            keywords = ["black"];
-            name = "Black Hex";
-            content = settings.black;
+            keywords = ["accent" "dim"];
+            name = "Accent Dim Hex";
+            content = settings."accent-dim";
+          }
+          {
+            keywords = ["accent" "dark"];
+            name = "Accent Dark Hex";
+            content = settings."accent-dark";
+          }
+          {
+            keywords = ["secondary" "bright"];
+            name = "Secondary Bright Hex";
+            content = settings."secondary-bright";
+          }
+          {
+            keywords = ["secondary" "dim"];
+            name = "Secondary Dim Hex";
+            content = settings."secondary-dim";
+          }
+          {
+            keywords = ["secondary" "dark"];
+            name = "Secondary Dark Hex";
+            content = settings."secondary-dark";
+          }
+          {
+            keywords = ["red" "bright"];
+            name = "Red Bright Hex";
+            content = settings."red-bright";
+          }
+          {
+            keywords = ["red" "dim"];
+            name = "Red Dim Hex";
+            content = settings."red-dim";
+          }
+          {
+            keywords = ["red" "dark"];
+            name = "Red Dark Hex";
+            content = settings."red-dark";
+          }
+          {
+            keywords = ["orange" "bright"];
+            name = "Orange Bright Hex";
+            content = settings."orange-bright";
+          }
+          {
+            keywords = ["orange" "dim"];
+            name = "Orange Dim Hex";
+            content = settings."orange-dim";
+          }
+          {
+            keywords = ["orange" "dark"];
+            name = "Orange Dark Hex";
+            content = settings."orange-dark";
+          }
+          {
+            keywords = ["yellow" "bright"];
+            name = "Yellow Bright Hex";
+            content = settings."yellow-bright";
+          }
+          {
+            keywords = ["yellow" "dim"];
+            name = "Yellow Dim Hex";
+            content = settings."yellow-dim";
+          }
+          {
+            keywords = ["yellow" "dark"];
+            name = "Yellow Dark Hex";
+            content = settings."yellow-dark";
+          }
+          {
+            keywords = ["green" "bright"];
+            name = "Green Bright Hex";
+            content = settings."green-bright";
+          }
+          {
+            keywords = ["green" "dim"];
+            name = "Green Dim Hex";
+            content = settings."green-dim";
+          }
+          {
+            keywords = ["green" "dark"];
+            name = "Green Dark Hex";
+            content = settings."green-dark";
+          }
+          {
+            keywords = ["teal" "bright"];
+            name = "Teal Bright Hex";
+            content = settings."teal-bright";
+          }
+          {
+            keywords = ["teal" "dim"];
+            name = "Teal Dim Hex";
+            content = settings."teal-dim";
+          }
+          {
+            keywords = ["teal" "dark"];
+            name = "Teal Dark Hex";
+            content = settings."teal-dark";
+          }
+          {
+            keywords = ["cyan" "bright"];
+            name = "Cyan Bright Hex";
+            content = settings."cyan-bright";
+          }
+          {
+            keywords = ["cyan" "dim"];
+            name = "Cyan Dim Hex";
+            content = settings."cyan-dim";
+          }
+          {
+            keywords = ["cyan" "dark"];
+            name = "Cyan Dark Hex";
+            content = settings."cyan-dark";
+          }
+          {
+            keywords = ["blue" "bright"];
+            name = "Blue Bright Hex";
+            content = settings."blue-bright";
+          }
+          {
+            keywords = ["blue" "dim"];
+            name = "Blue Dim Hex";
+            content = settings."blue-dim";
+          }
+          {
+            keywords = ["blue" "dark"];
+            name = "Blue Dark Hex";
+            content = settings."blue-dark";
+          }
+          {
+            keywords = ["purple" "bright"];
+            name = "Purple Bright Hex";
+            content = settings."purple-bright";
+          }
+          {
+            keywords = ["purple" "dim"];
+            name = "Purple Dim Hex";
+            content = settings."purple-dim";
+          }
+          {
+            keywords = ["purple" "dark"];
+            name = "Purple Dark Hex";
+            content = settings."purple-dark";
+          }
+          {
+            keywords = ["pink" "bright"];
+            name = "Pink Bright Hex";
+            content = settings."pink-bright";
+          }
+          {
+            keywords = ["pink" "dim"];
+            name = "Pink Dim Hex";
+            content = settings."pink-dim";
+          }
+          {
+            keywords = ["pink" "dark"];
+            name = "Pink Dark Hex";
+            content = settings."pink-dark";
+          }
+          {
+            keywords = ["brown" "bright"];
+            name = "Brown Bright Hex";
+            content = settings."brown-bright";
+          }
+          {
+            keywords = ["brown" "dim"];
+            name = "Brown Dim Hex";
+            content = settings."brown-dim";
+          }
+          {
+            keywords = ["brown" "dark"];
+            name = "Brown Dark Hex";
+            content = settings."brown-dark";
           }
 
           # RGB Colors
@@ -805,11 +979,6 @@
             keywords = ["secondary"];
             name = "Secondary RGB";
             content = hexToRgb settings.secondary;
-          }
-          {
-            keywords = ["tertiary"];
-            name = "Tertiary RGB";
-            content = hexToRgb settings.tertiary;
           }
           {
             keywords = ["text"];
@@ -897,19 +1066,197 @@
             content = hexToRgb settings.brown;
           }
           {
-            keywords = ["white"];
-            name = "White RGB";
-            content = hexToRgb settings.white;
+            keywords = ["muted"];
+            name = "Muted RGB";
+            content = hexToRgb settings.muted;
           }
           {
-            keywords = ["grey"];
-            name = "Grey RGB";
-            content = hexToRgb settings.grey;
+            keywords = ["float"];
+            name = "Float RGB";
+            content = hexToRgb settings.float;
+          }
+
+          # Bright/Dim/Dark RGB Variants
+
+          {
+            keywords = ["accent" "bright"];
+            name = "Accent Bright RGB";
+            content = hexToRgb settings."accent-bright";
           }
           {
-            keywords = ["black"];
-            name = "Black RGB";
-            content = hexToRgb settings.black;
+            keywords = ["accent" "dim"];
+            name = "Accent Dim RGB";
+            content = hexToRgb settings."accent-dim";
+          }
+          {
+            keywords = ["accent" "dark"];
+            name = "Accent Dark RGB";
+            content = hexToRgb settings."accent-dark";
+          }
+          {
+            keywords = ["secondary" "bright"];
+            name = "Secondary Bright RGB";
+            content = hexToRgb settings."secondary-bright";
+          }
+          {
+            keywords = ["secondary" "dim"];
+            name = "Secondary Dim RGB";
+            content = hexToRgb settings."secondary-dim";
+          }
+          {
+            keywords = ["secondary" "dark"];
+            name = "Secondary Dark RGB";
+            content = hexToRgb settings."secondary-dark";
+          }
+          {
+            keywords = ["red" "bright"];
+            name = "Red Bright RGB";
+            content = hexToRgb settings."red-bright";
+          }
+          {
+            keywords = ["red" "dim"];
+            name = "Red Dim RGB";
+            content = hexToRgb settings."red-dim";
+          }
+          {
+            keywords = ["red" "dark"];
+            name = "Red Dark RGB";
+            content = hexToRgb settings."red-dark";
+          }
+          {
+            keywords = ["orange" "bright"];
+            name = "Orange Bright RGB";
+            content = hexToRgb settings."orange-bright";
+          }
+          {
+            keywords = ["orange" "dim"];
+            name = "Orange Dim RGB";
+            content = hexToRgb settings."orange-dim";
+          }
+          {
+            keywords = ["orange" "dark"];
+            name = "Orange Dark RGB";
+            content = hexToRgb settings."orange-dark";
+          }
+          {
+            keywords = ["yellow" "bright"];
+            name = "Yellow Bright RGB";
+            content = hexToRgb settings."yellow-bright";
+          }
+          {
+            keywords = ["yellow" "dim"];
+            name = "Yellow Dim RGB";
+            content = hexToRgb settings."yellow-dim";
+          }
+          {
+            keywords = ["yellow" "dark"];
+            name = "Yellow Dark RGB";
+            content = hexToRgb settings."yellow-dark";
+          }
+          {
+            keywords = ["green" "bright"];
+            name = "Green Bright RGB";
+            content = hexToRgb settings."green-bright";
+          }
+          {
+            keywords = ["green" "dim"];
+            name = "Green Dim RGB";
+            content = hexToRgb settings."green-dim";
+          }
+          {
+            keywords = ["green" "dark"];
+            name = "Green Dark RGB";
+            content = hexToRgb settings."green-dark";
+          }
+          {
+            keywords = ["teal" "bright"];
+            name = "Teal Bright RGB";
+            content = hexToRgb settings."teal-bright";
+          }
+          {
+            keywords = ["teal" "dim"];
+            name = "Teal Dim RGB";
+            content = hexToRgb settings."teal-dim";
+          }
+          {
+            keywords = ["teal" "dark"];
+            name = "Teal Dark RGB";
+            content = hexToRgb settings."teal-dark";
+          }
+          {
+            keywords = ["cyan" "bright"];
+            name = "Cyan Bright RGB";
+            content = hexToRgb settings."cyan-bright";
+          }
+          {
+            keywords = ["cyan" "dim"];
+            name = "Cyan Dim RGB";
+            content = hexToRgb settings."cyan-dim";
+          }
+          {
+            keywords = ["cyan" "dark"];
+            name = "Cyan Dark RGB";
+            content = hexToRgb settings."cyan-dark";
+          }
+          {
+            keywords = ["blue" "bright"];
+            name = "Blue Bright RGB";
+            content = hexToRgb settings."blue-bright";
+          }
+          {
+            keywords = ["blue" "dim"];
+            name = "Blue Dim RGB";
+            content = hexToRgb settings."blue-dim";
+          }
+          {
+            keywords = ["blue" "dark"];
+            name = "Blue Dark RGB";
+            content = hexToRgb settings."blue-dark";
+          }
+          {
+            keywords = ["purple" "bright"];
+            name = "Purple Bright RGB";
+            content = hexToRgb settings."purple-bright";
+          }
+          {
+            keywords = ["purple" "dim"];
+            name = "Purple Dim RGB";
+            content = hexToRgb settings."purple-dim";
+          }
+          {
+            keywords = ["purple" "dark"];
+            name = "Purple Dark RGB";
+            content = hexToRgb settings."purple-dark";
+          }
+          {
+            keywords = ["pink" "bright"];
+            name = "Pink Bright RGB";
+            content = hexToRgb settings."pink-bright";
+          }
+          {
+            keywords = ["pink" "dim"];
+            name = "Pink Dim RGB";
+            content = hexToRgb settings."pink-dim";
+          }
+          {
+            keywords = ["pink" "dark"];
+            name = "Pink Dark RGB";
+            content = hexToRgb settings."pink-dark";
+          }
+          {
+            keywords = ["brown" "bright"];
+            name = "Brown Bright RGB";
+            content = hexToRgb settings."brown-bright";
+          }
+          {
+            keywords = ["brown" "dim"];
+            name = "Brown Dim RGB";
+            content = hexToRgb settings."brown-dim";
+          }
+          {
+            keywords = ["brown" "dark"];
+            name = "Brown Dark RGB";
+            content = hexToRgb settings."brown-dark";
           }
 
           # Misc

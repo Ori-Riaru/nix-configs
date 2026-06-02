@@ -31,12 +31,12 @@
     base16Scheme = {
       base00 = "${settings.section}";
       base01 = "${settings.card}";
-      base02 = "${settings.accent}";
-      base03 = "${settings.hidden}";
+      base02 = "${settings.overlay}";
+      base03 = "${settings.muted}";
       base04 = "${settings.subtext}";
       base05 = "${settings.text}";
       base06 = "${settings.white}";
-      base07 = "${settings.white}";
+      base07 = "${settings.purple}";
       base08 = "${settings.red}";
       base09 = "${settings.orange}";
       base0A = "${settings.yellow}";
@@ -51,15 +51,12 @@
 
     targets = {
       firefox.enable = false;
-      kitty.enable = false;
       spicetify.enable = false;
-      vscode.enable = false;
-      starship.enable = false;
-      waybar.enable = false;
-      spotify-player.enable = false;
+      vscodium.enable = false;
       ghostty.enable = false;
-      kde.enable = false;
-      vesktop.enable = false;
+      fish.enable = false;
+      starship.enable = false;
+      spotify-player.enable = false;
       hyprlock.enable = false;
     };
   };

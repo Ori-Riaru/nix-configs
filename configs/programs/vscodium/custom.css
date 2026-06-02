@@ -107,34 +107,34 @@
 
 /* Code Lens Color by type */
 .codelens-decoration a[title^=""] {
-  color: #ff596b !important;
+  color: #eb767e !important;
 
   &:hover {
-    color: #ff7a88 !important;
+    color: #f5a9ae !important;
   }
 }
 
 .codelens-decoration a[title^=""] {
-  color: #fffb77 !important;
+  color: #f4da9d !important;
 
   &:hover {
-    color: #fffc99 !important;
+    color: #fff0ab !important;
   }
 }
 
 .codelens-decoration a[title^=""] {
-  color: #83bbff !important;
+  color: #88bddf !important;
 
   &:hover {
-    color: #a0ccff !important;
+    color: #b7d6ec !important;
   }
 }
 
 .codelens-decoration a[title^=""] {
-  color: #99ff82 !important;
+  color: #87d99a !important;
 
   &:hover {
-    color: #b3ff9f !important;
+    color: #b2ecc0 !important;
   }
 }
 

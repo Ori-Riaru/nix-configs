@@ -9,37 +9,35 @@
 
   programs.kitty = {
     enable = true;
-    font = {
-      name = "${settings.fontMonospace}";
-      size = 11;
-    };
 
+    shellIntegration.enableFishIntegration = true;
     settings = {
       confirm_os_window_close = 0;
     };
-
-    shellIntegration.enableFishIntegration = true;
-
     keybindings = {
       "ctrl+c" = "copy_and_clear_or_interrupt";
     };
 
+    font = {
+      name = "${settings.fontMonospace}";
+      size = 11;
+    };
     extraConfig = ''
       background ${settings.section}
       foreground ${settings.text}
       cursor ${settings.accent}
-      selection_foreground ${settings.base}
-      selection_background ${settings.accent}
+      selection_foreground ${settings.text}
+      selection_background ${settings.overlay}
 
-      color0 ${settings.black}
-      color8 ${settings.subtext}
+      color0 ${settings.section}
+      color8 ${settings.overlay}
 
       color1 ${settings.red}
-      color9 #FF5271
+      color9 ${settings.red-bright}
 
       #: green
       color2 ${settings.teal}
-      color10 #9FFFBC
+      color10 ${settings.teal-bright}
 
       #: yellow
       color3 ${settings.orange}
@@ -47,15 +45,15 @@
 
       #: blue
       color4 ${settings.blue}
-      color12 #ACD1FF
+      color12 ${settings.blue-bright}
 
       #: magenta
       color5 ${settings.purple}
-      color13 #ADA0FF
+      color13 ${settings.purple-bright}
 
       #: cyan
       color6 ${settings.cyan}
-      color14 #B9F7FF
+      color14 ${settings.cyan-bright}
 
       #: white
       color7 ${settings.subtext}
