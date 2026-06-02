@@ -19,6 +19,7 @@
     ../../configs/programs/kanata.nix
     ../../configs/programs/sudo.nix
     ../../configs/services/tailscale.nix
+    ../../configs/system/silent-boot.nix
 
     ../../users/riaru
   ];

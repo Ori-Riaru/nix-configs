@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   settings,
   ...
@@ -26,6 +27,7 @@
     ../../configs/programs/sudo.nix
     ../../configs/programs/openrgb/openrgb-system.nix
     ../../configs/programs/sleepy-launcher.nix
+    ../../configs/system/silent-boot.nix
 
     ../../users/riaru
   ];
