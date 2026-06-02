@@ -15,6 +15,8 @@
     inputs.niri.homeModules.config
   ];
 
+  programs.niri.package = pkgs.niri;
+
   programs.niri.settings = {
     input = {
       keyboard = {
@@ -23,7 +25,7 @@
           variant = ",${settings.keyboard}";
           options = "";
         };
-        repeat-delay = 170;
+        repeat-delay = 180;
         repeat-rate = 30;
       };
 
@@ -143,24 +145,25 @@
         urgent.color = "${settings.red}";
       };
 
-      shadow = {
-        softness = 30;
-        spread = 5;
-        offset = {
-          x = 0;
-          y = 5;
-        };
-        color = "#0007";
-      };
+      # shadow = {
+      #   softness = 30;
+      #   spread = 5;
+      #   offset = {
+      #     x = 0;
+      #     y = 5;
+      #   };
+      #   color = "#0007";
+      # };
     };
 
     # Holds the previous frame until the resize is complete then immediately switches to the new frame
     animations.window-resize.custom-shader = ''
       vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
-          if (niri_clamped_progress < 0.99) {
+          float eps = 0.00001;
+          if (niri_clamped_progress < 1.0 - eps) {
               vec3 coords_prev_geo = niri_curr_geo_to_prev_geo * coords_curr_geo;
-              if (coords_prev_geo.x < 0.0 || coords_prev_geo.x > 1.0 ||
-                  coords_prev_geo.y < 0.0 || coords_prev_geo.y > 1.0) {
+              if (coords_prev_geo.x < eps || coords_prev_geo.x > 1.0 - eps ||
+                  coords_prev_geo.y < eps || coords_prev_geo.y > 1.0 - eps) {
                   return vec4(0.067, 0.067, 0.067, 1.0);
               }
               vec3 coords_tex_prev = niri_geo_to_tex_prev * coords_prev_geo;
@@ -172,7 +175,7 @@
       }
     '';
 
-    overview.backdrop-color = "#000000";
+    overview.backdrop-color = "${settings.base}";
 
     spawn-at-startup = [];
 
@@ -180,10 +183,6 @@
     screenshot-path = "~/Captures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
     window-rules = [
-      {
-        matches = [{app-id = "^org\\.wezfurlong\\.wezterm$";}];
-        default-column-width = {};
-      }
       {
         matches = [
           {
@@ -202,10 +201,6 @@
         open-floating = true;
       }
       {
-        matches = [{title = "Clipse GUI";}];
-        open-floating = true;
-      }
-      {
         matches = [];
         geometry-corner-radius = {
           top-left = settings.radius + 0.0;
@@ -214,10 +209,6 @@
           bottom-right = settings.radius + 0.0;
         };
         clip-to-geometry = true;
-      }
-      {
-        matches = [{app-id = "org.gnome.Nautilus";}];
-        default-column-width = {proportion = 0.1666666667;};
       }
     ];
 
