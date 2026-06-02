@@ -174,12 +174,7 @@
 
     overview.backdrop-color = "#000000";
 
-    spawn-at-startup = [
-      {command = ["sh" "-c" "sleep 4 && awww-daemon"];}
-      {command = ["sh" "-c" "sleep 5 && awww clear ${settings.base} --transition-type none"];}
-      {command = ["sh" "-c" "sleep 6 && awww img ${settings.wallpaper} -o DP-2 --transition-type none"];}
-      {command = ["sh" "-c" "sleep 5 && openrgb --profile off"];}
-    ];
+    spawn-at-startup = [];
 
     prefer-no-csd = true;
     screenshot-path = "~/Captures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
