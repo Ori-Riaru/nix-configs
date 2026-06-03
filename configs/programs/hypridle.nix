@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   settings,
   lib,
   ...
@@ -41,7 +42,7 @@
       };
 
       background = {
-        color = "0xff${lib.substring 1 7 settings.base}";
+        color = "0xff${lib.substring 1 7 config.userSettings.base}";
       };
 
       # Date label
@@ -49,9 +50,9 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
-          color = "0xff${lib.substring 1 7 settings.subtext}";
+          color = "0xff${lib.substring 1 7 config.userSettings.subtext}";
           font_size = 22;
-          font_family = settings.font;
+          font_family = config.userSettings.font;
           position = "0, 350";
           halign = "center";
           valign = "center";
@@ -61,9 +62,9 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%H:%M")"'';
-          color = "0xff${lib.substring 1 7 settings.text}";
+          color = "0xff${lib.substring 1 7 config.userSettings.text}";
           font_size = 120;
-          font_family = settings.font;
+          font_family = config.userSettings.font;
           position = "0, 200";
           halign = "center";
           valign = "center";
@@ -72,17 +73,17 @@
 
       # Password input field
       input-field = {
-        rounding = settings.radius;
-        inner_color = "0xff${lib.substring 1 7 settings.section}";
-        font_color = "0xff${lib.substring 1 7 settings.text}";
+        rounding = config.userSettings.radius;
+        inner_color = "0xff${lib.substring 1 7 config.userSettings.section}";
+        font_color = "0xff${lib.substring 1 7 config.userSettings.text}";
         fade_on_empty = false;
         fade_timeout = 1000;
         placeholder_text = "$LAYOUT";
         hide_input = false;
-        check_color = "0xff${lib.substring 1 7 settings.blue}";
-        fail_color = "0xff${lib.substring 1 7 settings.red}";
+        check_color = "0xff${lib.substring 1 7 config.userSettings.blue}";
+        fail_color = "0xff${lib.substring 1 7 config.userSettings.red}";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-        capslock_color = "0xff${lib.substring 1 7 settings.orange}";
+        capslock_color = "0xff${lib.substring 1 7 config.userSettings.orange}";
         position = "0, -140";
         halign = "center";
         valign = "center";

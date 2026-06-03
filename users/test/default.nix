@@ -13,7 +13,5 @@
     ];
 
     extraGroups = ["networkmanager" "wheel" "docker" "input"];
-
-    packages = with pkgs; [home-manager git];
   };
 }

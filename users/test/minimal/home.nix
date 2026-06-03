@@ -6,7 +6,7 @@
     ../../../configs/groups/niri-desktop.nix
 
     # CLI
-    ../../../configs/groups/cli-base.nix
+    ../../../configs/groups/cli-apps.nix
     ../../../configs/programs/btop.nix
 
     # Tools

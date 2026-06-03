@@ -1,9 +1,8 @@
-{settings, ...}: {
+{config, settings, ...}: {
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
     settings = {
-      bold-is-bright = true;
       confirm-close-surface = false;
 
       keybind = [
@@ -11,30 +10,30 @@
       ];
 
       # Themeing
-      font-family = settings.fontMonospace;
+      font-family = config.theme.fontMonospace;
       font-size = 11;
-      background = settings.section;
-      foreground = settings.text;
-      selection-foreground = settings.text;
-      selection-background = settings.overlay;
-      cursor-color = settings.accent;
+      background = config.theme.section;
+      foreground = config.theme.text;
+      selection-foreground = config.theme.text;
+      selection-background = config.theme.overlay;
+      cursor-color = config.theme.accent;
       palette = [
-        "0=${settings.base}"
-        "1=${settings.red}"
-        "2=${settings.teal}"
-        "3=${settings.yellow}"
-        "4=${settings.blue}"
-        "5=${settings.purple}"
-        "6=${settings.cyan}"
-        "7=${settings.subtext}"
-        "8=${settings.section}"
-        "9=${settings.red-bright}"
-        "10=${settings.teal-bright}"
-        "11=${settings.yellow-bright}"
-        "12=${settings.blue-bright}"
-        "13=${settings.purple-bright}"
-        "14=${settings.cyan-bright}"
-        "15=${settings.text}"
+        "0=${config.theme.base}"
+        "1=${config.theme.red}"
+        "2=${config.theme.teal}"
+        "3=${config.theme.yellow}"
+        "4=${config.theme.blue}"
+        "5=${config.theme.purple}"
+        "6=${config.theme.cyan}"
+        "7=${config.theme.subtext}"
+        "8=${config.theme.section}"
+        "9=${config.theme.red-bright}"
+        "10=${config.theme.teal-bright}"
+        "11=${config.theme.yellow-bright}"
+        "12=${config.theme.blue-bright}"
+        "13=${config.theme.purple-bright}"
+        "14=${config.theme.cyan-bright}"
+        "15=${config.theme.text}"
       ];
     };
   };

@@ -51,6 +51,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri-minimap = {
+      url = "github:Ori-Riaru/niri-minimap";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # copyparty = {
     #   url = "github:9001/copyparty";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -66,7 +71,7 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
 
-    # === Modifications ===
+    # === Modules ===
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -94,11 +99,6 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     #   inputs.home-manager.follows = "home-manager";
     # };
-
-    niri-minimap = {
-      url = "github:Ori-Riaru/niri-minimap";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -107,7 +107,7 @@
     home-manager,
     ...
   } @ inputs: let
-    settings = rec {
+    settings = {
       # === Primary User Settings ===
 
       username = "riaru";
@@ -117,31 +117,31 @@
       # === General ===
 
       keyboard = "dvorak"; # Only changes the layout not shortcuts
+      configPath = "/mnt/nfs/riaru/Projects/nix-configs";
+      secrets-dir = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/secrets";
       serverLocalIP = "192.168.1.101";
       serverTailscaleIP = "100.103.185.35";
       nasPath = "/mnt/nfs/riaru";
-      configPath = "/mnt/nfs/riaru/Projects/nix-configs";
-      secrets-dir = "/home/riaru/Projects/nix-configs/users/riaru/secrets";
+    };
 
-      # === Theming ===
+    # === Default Theme ===
+    # Default theme settings across all systems. Theme settings can be
+    # overwritten at either a per system or per user level
 
-      avatar = "/home/riaru/Projects/nix-configs/users/riaru/avatar.png";
-      wallpaper = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper.png";
-      wallpaper2 = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper2.jpg";
+    theme = rec {
+      spacing-xs = 1;
+      spacing-s = 3;
+      spacing-m = 6;
+      spacing-l = 12;
+      spacing-xl = 24;
+      spacing-xxl = 48;
 
-      spacing-xs = 1; # px
-      spacing-s = 3; # px
-      spacing-m = 6; # px
-      spacing-l = 12; # px
-      spacing-xl = 24; # px
-      spacing-xxl = 48; # px
+      gap = 3;
 
-      gap = 3; #px
+      radius = 6;
+      radius-s = 3;
 
-      radius = 6; # px
-      radius-s = 3; # px
-
-      border-width = 2; # px
+      border-width = 2;
 
       font = "Inter";
       fontMonospace = "JetBrainsMono Nerd Font";
@@ -155,6 +155,7 @@
       secondary-dim = blue-dim;
       secondary-dark = blue-dark;
 
+      white = "#FFFFFF";
       text = "#DDDDDD";
       subtext = "#999999";
       muted = "#666666";
@@ -164,6 +165,7 @@
       card = "#181818";
       section = "#111111";
       base = "#080808";
+      black = "#000000";
 
       red-dark = "#331617";
       red-dim = "#573033";
@@ -214,8 +216,6 @@
       brown-dim = "#534441";
       brown = "#ab8a82";
       brown-bright = "#c8ada8";
-
-      white = "FFFFFF";
     };
 
     inherit (self) outputs;
@@ -239,7 +239,7 @@
     nixosConfigurations = {
       # Desktop
       lain = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs settings;};
+        specialArgs = {inherit inputs outputs settings theme;};
         modules = [
           ./systems/lain/configuration.nix
         ];
@@ -247,7 +247,7 @@
 
       # Laptop
       slate = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs settings;};
+        specialArgs = {inherit inputs outputs settings theme;};
         modules = [
           ./systems/slate/configuration.nix
         ];
@@ -255,38 +255,9 @@
 
       # Server
       kumo = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs settings;};
+        specialArgs = {inherit inputs outputs settings theme;};
         modules = [
           ./systems/kumo/configuration.nix
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      # Desktop
-      "${settings.username}@lain" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs settings;};
-        modules = [
-          ./users/riaru/lain/home.nix
-        ];
-      };
-
-      # Laptop
-      "${settings.username}@slate" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs settings;};
-        modules = [
-          ./users/riaru/slate/home.nix
-        ];
-      };
-
-      # Server
-      "${settings.username}@kumo" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs settings;};
-        modules = [
-          ./users/riaru/kumo/home.nix
         ];
       };
     };
@@ -309,9 +280,9 @@
     lain = self.nixosConfigurations.lain;
     slate = self.nixosConfigurations.slate;
     kumo = self.nixosConfigurations.kumo;
-    lain-home = self.homeConfigurations."${settings.username}@lain";
-    slate-home = self.homeConfigurations."${settings.username}@slate";
-    kumo-home = self.homeConfigurations."${settings.username}@kumo";
+    lain-home = self.nixosConfigurations.lain.config.home-manager.users;
+    slate-home = self.nixosConfigurations.slate.config.home-manager.users;
+    kumo-home = self.nixosConfigurations.kumo.config.home-manager.users;
     settings = settings;
     nixpkgs = nixpkgs;
     lib = nixpkgs.lib;

@@ -3,7 +3,11 @@
   inputs,
   ...
 }: {
-  home.packages = with pkgs; [pavucontrol inputs.niri-minimap.packages.${pkgs.stdenv.hostPlatform.system}.default];
+  home.packages = with pkgs; [
+    inputs.niri-minimap.packages.${pkgs.stdenv.hostPlatform.system}.default
+    python314Packages.python-kasa
+    pavucontrol
+  ];
 
   programs.eww = {
     enable = true;
@@ -39,7 +43,7 @@
       Install.WantedBy = ["niri.service"];
     };
   };
-  
+
   home.file.".config/eww" = {
     source = ./eww;
     recursive = true;

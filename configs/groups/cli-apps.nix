@@ -1,6 +1,6 @@
 {
   imports = [
-    ../programs/fish.nix
+    ../programs/fish/fish.nix
     ../programs/starship.nix
     ../programs/zoxide.nix
     ../programs/micro.nix

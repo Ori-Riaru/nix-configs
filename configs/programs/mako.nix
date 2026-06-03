@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   settings,
   ...
 }: {
@@ -10,11 +11,11 @@
     settings = {
       default-timeout = 10000;
 
-      background-color = lib.mkForce settings.card;
-      text-color = lib.mkForce settings.text;
+      background-color = lib.mkForce config.theme.card;
+      text-color = lib.mkForce config.theme.text;
       border-size = 2;
-      border-radius = lib.mkForce settings.radius;
-      border-color = lib.mkForce settings.accent;
+      border-radius = lib.mkForce config.theme.radius;
+      border-color = lib.mkForce config.theme.accent;
 
       width = 300;
       height = 1000;

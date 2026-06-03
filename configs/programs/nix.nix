@@ -6,7 +6,6 @@
 }: {
   home.packages = with pkgs; [
     nixd
-    nix-init
   ];
 
   nix.package = lib.mkForce pkgs.lixPackageSets.stable.lix;

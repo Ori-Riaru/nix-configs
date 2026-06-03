@@ -63,9 +63,9 @@
         layer = "top";
         position = "top";
         height = 8;
-        margin-top = settings.gap;
-        margin-left = settings.gap;
-        margin-right = settings.gap;
+        margin-top = config.theme.gap;
+        margin-left = config.theme.gap;
+        margin-right = config.theme.gap;
         margin-bottom = 0;
         output = [
           "eDP-1"

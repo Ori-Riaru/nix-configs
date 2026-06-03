@@ -1,4 +1,4 @@
-{settings, ...}: {
+{config, settings, ...}: {
   programs.walker = {
     config.theme = "Neutral Dark";
 
@@ -12,11 +12,11 @@
             block-no-empty
         */
 
-        @define-color window_bg_color ${settings.card};
-        @define-color accent_bg_color ${settings.accent};
-        @define-color theme_fg_color ${settings.text};
-        @define-color error_bg_color ${settings.red};
-        @define-color error_fg_color ${settings.base};
+        @define-color window_bg_color ${config.theme.card};
+        @define-color accent_bg_color ${config.theme.accent};
+        @define-color theme_fg_color ${config.theme.text};
+        @define-color error_bg_color ${config.theme.red};
+        @define-color error_fg_color ${config.theme.base};
 
         * {
           all: unset;
@@ -25,7 +25,7 @@
         popover {
           background: lighter(@window_bg_color);
           border: 2px solid @accent_bg_color;
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
           padding: 10px;
         }
 
@@ -52,7 +52,7 @@
             0 15px 12px rgba(0, 0, 0, 0.22);
           background: @window_bg_color;
           padding: 20px;
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
           border: 2px solid @accent_bg_color;
         }
 
@@ -66,7 +66,7 @@
         }
 
         .search-container {
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
         }
 
         .input placeholder {
@@ -105,13 +105,13 @@
         }
 
         .item-box {
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
           padding: 10px;
         }
 
         .item-quick-activation {
           background: alpha(@accent_bg_color, 0.25);
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
           padding: 10px;
         }
 
@@ -141,7 +141,7 @@
         .preview {
           border: 0;
           padding: 10px;
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
           color: @theme_fg_color;
         }
 
@@ -207,7 +207,7 @@
 
         .keybind-label {
           padding: 2px 4px;
-          border-radius: ${toString settings.radius}px;
+          border-radius: ${toString config.theme.radius}px;
           border: 1px solid @theme_fg_color;
         }
 

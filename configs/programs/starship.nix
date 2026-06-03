@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   settings,
   ...
 }: {
@@ -13,17 +14,17 @@
     settings = {
       palette = "neutral_dark";
       palettes.neutral_dark = {
-        text = "${settings.text}";
-        foreground = "${settings.base}";
-        subtext = "${settings.subtext}";
-        background = "${settings.card}";
-        red = "${settings.red}";
-        orange = "${settings.orange}";
-        yellow = "${settings.yellow}";
-        green = "${settings.teal}";
-        cyan = "${settings.cyan}";
-        blue = "${settings.blue}";
-        purple = "${settings.purple}";
+        text = "${config.theme.text}";
+        foreground = "${config.theme.base}";
+        subtext = "${config.theme.subtext}";
+        background = "${config.theme.card}";
+        red = "${config.theme.red}";
+        orange = "${config.theme.orange}";
+        yellow = "${config.theme.yellow}";
+        green = "${config.theme.teal}";
+        cyan = "${config.theme.cyan}";
+        blue = "${config.theme.blue}";
+        purple = "${config.theme.purple}";
       };
 
       format = ''

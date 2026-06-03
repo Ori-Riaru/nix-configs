@@ -46,7 +46,7 @@
 
 
 (deflisten windows :initial ""
-	"niri-minimap --output 'DP-3' --height 40 --aspect-ratio 1.25" 
+	"niri-minimap --output 'Dell Inc. DELL G3223Q C3PM6P3' --height 40 --aspect-ratio 1.25" 
 )
 
 (defwidget minimap [] 

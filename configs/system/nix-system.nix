@@ -64,10 +64,15 @@
       outputs.overlays.modifications
       outputs.overlays.stable-packages
       outputs.overlays.master-packages
+      (import ../../configs/programs/vscodium/overlay.nix)
     ];
 
     config = {
       allowUnfree = true;
+      allowBroken = true;
+      permittedInsecurePackages = [
+        "electron-38.8.4"
+      ];
     };
   };
 }

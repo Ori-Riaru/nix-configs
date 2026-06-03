@@ -1,4 +1,12 @@
-{config, ...}: {
+{
+  config,
+  settings,
+  ...
+}: {
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [settings.username];
+  users.groups.input.members = [settings.username];
+
   services.kanata = {
     enable = true;
     keyboards = {

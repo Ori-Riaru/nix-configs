@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   settings,
   inputs,
   ...
@@ -13,7 +14,7 @@
 
     fonts = {
       monospace = {
-        name = settings.fontMonospace;
+        name = config.theme.fontMonospace;
       };
 
       sansSerif = {
@@ -29,22 +30,22 @@
 
     polarity = "dark";
     base16Scheme = {
-      base00 = "${settings.section}";
-      base01 = "${settings.card}";
-      base02 = "${settings.overlay}";
-      base03 = "${settings.muted}";
-      base04 = "${settings.subtext}";
-      base05 = "${settings.text}";
-      base06 = "${settings.white}";
-      base07 = "${settings.purple}";
-      base08 = "${settings.red}";
-      base09 = "${settings.orange}";
-      base0A = "${settings.yellow}";
-      base0B = "${settings.teal}";
-      base0C = "${settings.cyan}";
-      base0D = "${settings.blue}";
-      base0E = "${settings.purple}";
-      base0F = "${settings.brown}";
+      base00 = "${config.theme.section}";
+      base01 = "${config.theme.card}";
+      base02 = "${config.theme.overlay}";
+      base03 = "${config.theme.muted}";
+      base04 = "${config.theme.subtext}";
+      base05 = "${config.theme.text}";
+      base06 = "${config.theme.white}";
+      base07 = "${config.theme.purple}";
+      base08 = "${config.theme.red}";
+      base09 = "${config.theme.orange}";
+      base0A = "${config.theme.yellow}";
+      base0B = "${config.theme.teal}";
+      base0C = "${config.theme.cyan}";
+      base0D = "${config.theme.blue}";
+      base0E = "${config.theme.purple}";
+      base0F = "${config.theme.brown}";
     };
 
     image = ../../users/riaru/wallpaper.png;

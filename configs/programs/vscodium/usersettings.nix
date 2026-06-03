@@ -63,23 +63,23 @@ in {
     "editor.rulers" = [
       {
         "column" = 80;
-        "color" = "${settings.subtext}22";
+        "color" = "${config.theme.subtext}22";
       }
       {
         "column" = 100;
-        "color" = "${settings.red}22";
+        "color" = "${config.theme.red}22";
       }
       {
         "column" = 120;
-        "color" = "${settings.red}33";
+        "color" = "${config.theme.red}33";
       }
     ];
 
     # Fonts
 
     "editor.fontLigatures" = true;
-    "editor.fontFamily" = "${settings.fontMonospace}";
-    "terminal.integrated.fontFamily" = "${settings.fontMonospace}";
+    "editor.fontFamily" = "${config.theme.fontMonospace}";
+    "terminal.integrated.fontFamily" = "${config.theme.fontMonospace}";
     "editor.lineHeight" = 20;
     "workbench.iconTheme" = "charmed-icons";
     "workbench.productIconTheme" = "material-product-icons";
@@ -102,113 +102,113 @@ in {
     "workbench.colorTheme" = "Dark 2026";
     "workbench.colorCustomizations" = {
       # === General ===
-      "foreground" = settings.text;
-      "disableForeground" = settings.subtext;
+      "foreground" = config.theme.text;
+      "disableForeground" = config.theme.subtext;
       "widget.border" = "#0000";
-      "errorForeground" = settings.red;
-      "button.background" = settings.accent;
-      "button.hoverBackground" = settings.accent;
-      "input.background" = settings.card;
+      "errorForeground" = config.theme.red;
+      "button.background" = config.theme.accent;
+      "button.hoverBackground" = config.theme.accent;
+      "input.background" = config.theme.card;
       "focusBorder" = "#0000";
-      "quickInput.background" = settings.card;
-      "editor.findWidgetBackground" = settings.card;
-      "editorWidget.background" = settings.card;
-      "editorStickyScroll.background" = settings.section;
-      "editorStickyScrollHover.background" = settings.section;
+      "quickInput.background" = config.theme.card;
+      "editor.findWidgetBackground" = config.theme.card;
+      "editorWidget.background" = config.theme.card;
+      "editorStickyScroll.background" = config.theme.section;
+      "editorStickyScrollHover.background" = config.theme.section;
 
       # === Editor ===
-      "editor.foreground" = settings.text;
-      "editor.background" = settings.section;
-      "editorGutter.background" = settings.section;
-      "editor.lineHighlightBackground" = settings.card;
-      "editor.selectionBackground" = "${settings.float}";
-      "editor.inactiveSelectionBackground" = "${settings.float}";
-      "editor.selectionForeground" = settings.section;
-      "editorRuler.foreground" = "${settings.orange-dark}";
+      "editor.foreground" = config.theme.text;
+      "editor.background" = config.theme.section;
+      "editorGutter.background" = config.theme.section;
+      "editor.lineHighlightBackground" = config.theme.card;
+      "editor.selectionBackground" = "${config.theme.float}";
+      "editor.inactiveSelectionBackground" = "${config.theme.float}";
+      "editor.selectionForeground" = config.theme.section;
+      "editorRuler.foreground" = "${config.theme.orange-dark}";
       "scrollbar.shadow" = "#0000";
       "editorGroup.border" = "#0000";
-      "editorCursor.foreground" = settings.text;
+      "editorCursor.foreground" = config.theme.text;
 
-      "editorLineNumber.foreground" = settings.hidden;
-      "editorLineNumber.activeForeground" = settings.subtext;
-      "editorWarning.foreground" = settings.orange;
-      "editorIndentGuide.background1" = settings.hidden;
-      "editorIndentGuide.background2" = settings.hidden;
-      "editorIndentGuide.background3" = settings.hidden;
-      "editorIndentGuide.background4" = settings.hidden;
-      "editorIndentGuide.activeBackground1" = settings.hidden;
-      "editorIndentGuide.activeBackground2" = settings.hidden;
-      "editorIndentGuide.activeBackground3" = settings.hidden;
-      "editorIndentGuide.activeBackground4" = settings.hidden;
+      "editorLineNumber.foreground" = config.theme.hidden;
+      "editorLineNumber.activeForeground" = config.theme.subtext;
+      "editorWarning.foreground" = config.theme.orange;
+      "editorIndentGuide.background1" = config.theme.hidden;
+      "editorIndentGuide.background2" = config.theme.hidden;
+      "editorIndentGuide.background3" = config.theme.hidden;
+      "editorIndentGuide.background4" = config.theme.hidden;
+      "editorIndentGuide.activeBackground1" = config.theme.hidden;
+      "editorIndentGuide.activeBackground2" = config.theme.hidden;
+      "editorIndentGuide.activeBackground3" = config.theme.hidden;
+      "editorIndentGuide.activeBackground4" = config.theme.hidden;
 
-      "editorBracketHighlight.foreground1" = settings.text;
-      "editorBracketHighlight.foreground2" = settings.text;
-      "editorBracketHighlight.foreground3" = settings.text;
-      "editorBracketHighlight.foreground4" = settings.text;
-      "editorBracketHighlight.foreground5" = settings.text;
-      "editorBracketHighlight.foreground6" = settings.text;
-      "editorBracketHighlight.foreground7" = settings.text;
-      "editorBracketHighlight.foreground8" = settings.text;
-      "editorBracketHighlight.unmatchedForeground" = settings.text;
+      "editorBracketHighlight.foreground1" = config.theme.text;
+      "editorBracketHighlight.foreground2" = config.theme.text;
+      "editorBracketHighlight.foreground3" = config.theme.text;
+      "editorBracketHighlight.foreground4" = config.theme.text;
+      "editorBracketHighlight.foreground5" = config.theme.text;
+      "editorBracketHighlight.foreground6" = config.theme.text;
+      "editorBracketHighlight.foreground7" = config.theme.text;
+      "editorBracketHighlight.foreground8" = config.theme.text;
+      "editorBracketHighlight.unmatchedForeground" = config.theme.text;
 
       # Auto complete popup
       "editorWidget.border" = "#0000";
 
       # git status colors
-      "editorGutter.addedBackground" = settings.teal;
-      "editorGutter.deletedBackground" = settings.red;
-      "editorGutter.modifiedBackground" = settings.purple;
-      "editorGutter.addedSecondaryBackground" = settings.green;
-      "editorGutter.modifiedSecondaryBackground" = settings.blue;
-      "editorGutter.deletedSecondaryBackground" = settings.orange;
+      "editorGutter.addedBackground" = config.theme.teal;
+      "editorGutter.deletedBackground" = config.theme.red;
+      "editorGutter.modifiedBackground" = config.theme.purple;
+      "editorGutter.addedSecondaryBackground" = config.theme.green;
+      "editorGutter.modifiedSecondaryBackground" = config.theme.blue;
+      "editorGutter.deletedSecondaryBackground" = config.theme.orange;
 
-      "gitDecoration.untrackedResourceForeground" = settings.teal;
-      "gitDecoration.deletedResourceForeground" = settings.red;
-      "gitDecoration.modifiedResourceForeground" = settings.purple;
-      "gitDecoration.addedResourceForeground" = settings.green;
-      "gitDecoration.stageModifiedResourceForeground" = settings.blue;
-      "gitDecoration.stagedDeletedResourceForeground" = settings.orange;
+      "gitDecoration.untrackedResourceForeground" = config.theme.teal;
+      "gitDecoration.deletedResourceForeground" = config.theme.red;
+      "gitDecoration.modifiedResourceForeground" = config.theme.purple;
+      "gitDecoration.addedResourceForeground" = config.theme.green;
+      "gitDecoration.stageModifiedResourceForeground" = config.theme.blue;
+      "gitDecoration.stagedDeletedResourceForeground" = config.theme.orange;
 
       # === Side Bar ===
 
-      "sideBar.background" = "${settings.section}";
+      "sideBar.background" = "${config.theme.section}";
 
-      "sideBarSectionHeader.background" = "${settings.section}";
+      "sideBarSectionHeader.background" = "${config.theme.section}";
       "sideBarSectionHeader.border" = "#0000";
-      "sideBar.foreground" = settings.text;
+      "sideBar.foreground" = config.theme.text;
 
       # Activity Bar
 
-      "activityBar.foreground" = "${settings.text}";
-      "activityBarBadge.background" = "${settings.accent}";
+      "activityBar.foreground" = "${config.theme.text}";
+      "activityBarBadge.background" = "${config.theme.accent}";
 
       # Explorer
 
-      "list.errorForeground" = settings.red;
-      "list.warningForeground" = settings.orange;
-      "list.hoverBackground" = settings.card;
+      "list.errorForeground" = config.theme.red;
+      "list.warningForeground" = config.theme.orange;
+      "list.hoverBackground" = config.theme.card;
 
       # Terminal
 
-      "terminal.background" = "${settings.section}";
-      "terminal.foreground" = "${settings.text}";
-      "terminalCursor.foreground" = "${settings.text}";
-      "terminal.ansiBlack" = "${settings.base}";
-      "terminal.ansiBlue" = "${settings.blue}";
-      "terminal.ansiCyan" = "${settings.cyan}";
-      "terminal.ansiGreen" = "${settings.teal}";
-      "terminal.ansiMagenta" = "${settings.purple}";
-      "terminal.ansiRed" = "${settings.red}";
-      "terminal.ansiWhite" = "${settings.text}";
-      "terminal.ansiYellow" = "${settings.orange}";
-      "terminal.ansiBrightBlack" = "${settings.subtext}";
-      "terminal.ansiBrightBlue" = "$settings.blue-bright";
-      "terminal.ansiBrightCyan" = "${settings.cyan-bright}";
-      "terminal.ansiBrightGreen" = "${settings.green-bright}";
-      "terminal.ansiBrightMagenta" = "${settings.purple-bright}";
-      "terminal.ansiBrightRed" = "${settings.red-bright}";
-      "terminal.ansiBrightWhite" = "${settings.text}";
-      "terminal.ansiBrightYellow" = "${settings.yellow}";
+      "terminal.background" = "${config.theme.section}";
+      "terminal.foreground" = "${config.theme.text}";
+      "terminalCursor.foreground" = "${config.theme.text}";
+      "terminal.ansiBlack" = "${config.theme.base}";
+      "terminal.ansiBlue" = "${config.theme.blue}";
+      "terminal.ansiCyan" = "${config.theme.cyan}";
+      "terminal.ansiGreen" = "${config.theme.teal}";
+      "terminal.ansiMagenta" = "${config.theme.purple}";
+      "terminal.ansiRed" = "${config.theme.red}";
+      "terminal.ansiWhite" = "${config.theme.text}";
+      "terminal.ansiYellow" = "${config.theme.orange}";
+      "terminal.ansiBrightBlack" = "${config.theme.subtext}";
+      "terminal.ansiBrightBlue" = "${config.theme.blue-bright}";
+      "terminal.ansiBrightCyan" = "${config.theme.cyan-bright}";
+      "terminal.ansiBrightGreen" = "${config.theme.green-bright}";
+      "terminal.ansiBrightMagenta" = "${config.theme.purple-bright}";
+      "terminal.ansiBrightRed" = "${config.theme.red-bright}";
+      "terminal.ansiBrightWhite" = "${config.theme.text}";
+      "terminal.ansiBrightYellow" = "${config.theme.yellow}";
     };
 
     "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
@@ -233,7 +233,7 @@ in {
     #         "entity.other.attribute-name"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.text;
+    #         "foreground" = config.theme.text;
     #       };
     #     }
 
@@ -241,7 +241,7 @@ in {
     #       "name" = "comments";
     #       "scope" = ["comment"];
     #       "settings" = {
-    #         "foreground" = settings.green;
+    #         "foreground" = config.theme.green;
     #       };
     #     }
 
@@ -257,7 +257,7 @@ in {
     #         "string.quoted.other.nix"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.purple;
+    #         "foreground" = config.theme.purple;
     #       };
     #     }
 
@@ -270,7 +270,7 @@ in {
     #         "constant.other.color.rgb-value.hex"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.blue;
+    #         "foreground" = config.theme.blue;
     #       };
     #     }
 
@@ -290,7 +290,7 @@ in {
     #         "punctuation.separator.statement.and.shell"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.orange;
+    #         "foreground" = config.theme.orange;
     #       };
     #     }
 
@@ -313,7 +313,7 @@ in {
     #         "entity.name.command.shell"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.green;
+    #         "foreground" = config.theme.green;
     #       };
     #     }
 
@@ -330,7 +330,7 @@ in {
     #         "punctuation.definition.tag.begin"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.pink;
+    #         "foreground" = config.theme.pink;
     #       };
     #     }
     #     {
@@ -346,7 +346,7 @@ in {
     #         "support.type.builtin"
     #       ];
     #       "settings" = {
-    #         "foreground" = settings.blue;
+    #         "foreground" = config.theme.blue;
     #       };
     #     }
     #   ];
@@ -626,8 +626,8 @@ in {
         splitString "\n" (builtins.readFile ./lorem.txt)
       );
 
-    "highlightOnCopy.backgroundColor" = "${settings.accent}33";
-    "highlightOnCopy.foregroundColor" = settings.text;
+    "highlightOnCopy.backgroundColor" = "${config.theme.accent}33";
+    "highlightOnCopy.foregroundColor" = config.theme.text;
 
     "color-highlight.matchRgbWithNoFunction" = true;
     "color-highlight.matchWords" = true;
@@ -652,11 +652,11 @@ in {
     "gitlens.currentLine.enabled" = false;
 
     # Error Lens
-    "errorLens.errorForeground" = "${settings.red}";
-    "errorLens.errorBackground" = "${settings.red}33";
+    "errorLens.errorForeground" = "${config.theme.red}";
+    "errorLens.errorBackground" = "${config.theme.red}33";
 
-    "errorLens.warningBackground" = "${settings.orange}33";
-    "errorLens.warningForeground" = "${settings.orange}";
+    "errorLens.warningBackground" = "${config.theme.orange}33";
+    "errorLens.warningForeground" = "${config.theme.orange}";
 
     "errorLens.enabled" = true;
     "errorLens.codeLensEnabled" = false;

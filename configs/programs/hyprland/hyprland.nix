@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   settings,
   lib,
   ...
@@ -24,15 +25,15 @@
       };
 
       general = {
-        gaps_in = settings.gap;
-        gaps_out = settings.gap + 2;
+        gaps_in = config.theme.gap;
+        gaps_out = config.theme.gap + 2;
         border_size = 2;
-        "col.active_border" = lib.mkForce "0xff${lib.substring 1 7 settings.accent}";
+        "col.active_border" = lib.mkForce "0xff${lib.substring 1 7 config.theme.accent}";
         "col.inactive_border" = lib.mkForce "0xff505050";
       };
 
       decoration = {
-        rounding = settings.radius;
+        rounding = config.theme.radius;
         blur.enabled = false;
       };
 
@@ -67,7 +68,7 @@
 
       exec-once = [
         "clipse -listen"
-        "sh -c 'sleep 5 && swww clear ${settings.base}'"
+        "sh -c 'sleep 5 && swww clear ${config.theme.base}'"
         "sh -c 'sleep 5 && openrgb --profile off"
       ];
 

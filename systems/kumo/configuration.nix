@@ -1,27 +1,36 @@
 {lib, ...}: {
   imports = [
-    ./hardware-configuration.nix
-
-    ../../users/riaru
-
     ../../configs/groups/global.nix
-    ../../configs/programs/sops.nix
-    ../../configs/programs/sudo.nix
 
-    ../../configs/services/tailscale.nix
-    ../../configs/services/blocky.nix
-    ../../configs/services/inadyn.nix
+    # Hardware
+    ./hardware-configuration.nix
+    ../../configs/programs/sops.nix # Make global
+    ../../configs/programs/sudo.nix # Make global
+    ../../configs/services/tailscale.nix # Make global
 
+    # Private Services
     ../../configs/services/nfs.nix
     ../../configs/services/restic.nix
-    
-    ../../configs/services/mastodon/mastodon.nix
-    ../../configs/services/matrix.nix
+    ../../configs/services/blocky.nix
+    ../../configs/services/inadyn.nix
+    ../../configs/services/glance.nix
+
+    # Public Services
     ../../configs/services/hydroxide.nix
     ../../configs/services/jellyfin/jellyfin.nix
     ../../configs/services/nextcloud.nix
-    ../../configs/services/glance.nix
+    ../../configs/services/mastodon/mastodon.nix
+    ../../configs/services/matrix.nix
+    ../../configs/services/minecraft.nix
+
+    # Users
+    ../../users/riaru
+
+    # Misc
+    ../../configs/programs/fish/fish-system.nix
   ];
+
+  home-manager.users.riaru = import ../../users/riaru/kumo/home.nix;
 
   environment = {
     variables = {

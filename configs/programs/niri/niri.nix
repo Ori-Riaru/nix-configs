@@ -1,18 +1,12 @@
 {
   pkgs,
-  inputs,
   settings,
   config,
   ...
 }: {
   home.packages = with pkgs; [
     xwayland-satellite
-    brightnessctl
     python314Packages.python-kasa
-  ];
-
-  imports = [
-    inputs.niri.homeModules.config
   ];
 
   programs.niri.package = pkgs.niri;
@@ -109,7 +103,7 @@
     };
 
     layout = {
-      gaps = settings.gap;
+      gaps = config.theme.gap;
       center-focused-column = "never";
       default-column-display = "normal";
       preset-column-widths = [
@@ -131,8 +125,8 @@
       focus-ring = {
         enable = false;
         width = 1;
-        active.color = "${settings.accent}";
-        inactive.color = "${settings.card}";
+        active.color = "${config.theme.accent}";
+        inactive.color = "${config.theme.card}";
       };
 
       background-color = "transparent";
@@ -140,9 +134,9 @@
       border = {
         enable = true;
         width = 3;
-        active.color = "${settings.accent}";
-        inactive.color = "${settings.card}";
-        urgent.color = "${settings.red}";
+        active.color = "${config.theme.accent}";
+        inactive.color = "${config.theme.card}";
+        urgent.color = "${config.theme.red}";
       };
 
       # shadow = {
@@ -175,7 +169,7 @@
       }
     '';
 
-    overview.backdrop-color = "${settings.base}";
+    overview.backdrop-color = "${config.theme.base}";
 
     spawn-at-startup = [];
 
@@ -203,10 +197,10 @@
       {
         matches = [];
         geometry-corner-radius = {
-          top-left = settings.radius + 0.0;
-          top-right = settings.radius + 0.0;
-          bottom-left = settings.radius + 0.0;
-          bottom-right = settings.radius + 0.0;
+          top-left = config.theme.radius + 0.0;
+          top-right = config.theme.radius + 0.0;
+          bottom-left = config.theme.radius + 0.0;
+          bottom-right = config.theme.radius + 0.0;
         };
         clip-to-geometry = true;
       }
@@ -217,7 +211,7 @@
     binds = {
       "Mod+slash".action.show-hotkey-overlay = {};
 
-      "Mod+L".action.spawn = ["sh" "-c" "kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle"];
+      "Mod+L".action.spawn = ["sh" "-c" "${pkgs.python314Packages.python-kasa}/bin/kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle"];
 
       # System controls
       "Mod+Ctrl+L" = {
@@ -246,7 +240,7 @@
 
       # Brightness controls
       "XF86MonBrightnessUp" = {
-        action.spawn = ["brightnessctl" "set" "5%+"];
+        action.spawn = ["${pkgs.brightnessctl}bin/brightnessctl" "set" "5%+"];
         allow-when-locked = true;
       };
       "XF86MonBrightnessDown" = {

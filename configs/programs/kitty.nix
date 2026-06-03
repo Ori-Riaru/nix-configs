@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   settings,
   ...
 }: {
@@ -19,45 +20,45 @@
     };
 
     font = {
-      name = "${settings.fontMonospace}";
+      name = "${config.theme.fontMonospace}";
       size = 11;
     };
     extraConfig = ''
-      background ${settings.section}
-      foreground ${settings.text}
-      cursor ${settings.accent}
-      selection_foreground ${settings.text}
-      selection_background ${settings.overlay}
+      background ${config.theme.section}
+      foreground ${config.theme.text}
+      cursor ${config.theme.accent}
+      selection_foreground ${config.theme.text}
+      selection_background ${config.theme.overlay}
 
-      color0 ${settings.section}
-      color8 ${settings.overlay}
+      color0 ${config.theme.section}
+      color8 ${config.theme.overlay}
 
-      color1 ${settings.red}
-      color9 ${settings.red-bright}
+      color1 ${config.theme.red}
+      color9 ${config.theme.red-bright}
 
       #: green
-      color2 ${settings.teal}
-      color10 ${settings.teal-bright}
+      color2 ${config.theme.teal}
+      color10 ${config.theme.teal-bright}
 
       #: yellow
-      color3 ${settings.orange}
-      color11 ${settings.yellow}
+      color3 ${config.theme.orange}
+      color11 ${config.theme.yellow}
 
       #: blue
-      color4 ${settings.blue}
-      color12 ${settings.blue-bright}
+      color4 ${config.theme.blue}
+      color12 ${config.theme.blue-bright}
 
       #: magenta
-      color5 ${settings.purple}
-      color13 ${settings.purple-bright}
+      color5 ${config.theme.purple}
+      color13 ${config.theme.purple-bright}
 
       #: cyan
-      color6 ${settings.cyan}
-      color14 ${settings.cyan-bright}
+      color6 ${config.theme.cyan}
+      color14 ${config.theme.cyan-bright}
 
       #: white
-      color7 ${settings.subtext}
-      color15 ${settings.text}
+      color7 ${config.theme.subtext}
+      color15 ${config.theme.text}
     '';
   };
 }

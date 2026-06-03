@@ -356,7 +356,7 @@
             {
               text = "Toggle Lights";
               icon = "";
-              actions = {"Toggle lights" = "kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";};
+              actions = {"Toggle lights" = "${pkgs.python314Packages.python-kasa}/bin/kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";};
             }
           ];
         };
@@ -682,107 +682,107 @@
           {
             keywords = ["accent"];
             name = "Accent Hex";
-            content = settings.accent;
+            content = config.theme.accent;
           }
           {
             keywords = ["secondary"];
             name = "Secondary Hex";
-            content = settings.secondary;
+            content = config.theme.secondary;
           }
           {
             keywords = ["text"];
             name = "Text Hex";
-            content = settings.text;
+            content = config.theme.text;
           }
           {
             keywords = ["subtext"];
             name = "Subtext Hex";
-            content = settings.subtext;
+            content = config.theme.subtext;
           }
           {
             keywords = ["hidden"];
             name = "Hidden Text Hex";
-            content = settings.hidden;
+            content = config.theme.hidden;
           }
           {
             keywords = ["base"];
             name = "Base Hex";
-            content = settings.base;
+            content = config.theme.base;
           }
           {
             keywords = ["section"];
             name = "Section Hex";
-            content = settings.section;
+            content = config.theme.section;
           }
           {
             keywords = ["card"];
             name = "Card Hex";
-            content = settings.card;
+            content = config.theme.card;
           }
           {
             keywords = ["overlay"];
             name = "Overlay Hex";
-            content = settings.overlay;
+            content = config.theme.overlay;
           }
           {
             keywords = ["red"];
             name = "Red Hex";
-            content = settings.red;
+            content = config.theme.red;
           }
           {
             keywords = ["orange"];
             name = "Orange Hex";
-            content = settings.orange;
+            content = config.theme.orange;
           }
           {
             keywords = ["tertiary" "yellow"];
             name = "Yellow Hex";
-            content = settings.yellow;
+            content = config.theme.yellow;
           }
           {
             keywords = ["green"];
             name = "Green Hex";
-            content = settings.green;
+            content = config.theme.green;
           }
           {
             keywords = ["teal"];
             name = "Teal Hex";
-            content = settings.teal;
+            content = config.theme.teal;
           }
           {
             keywords = ["cyan"];
             name = "Cyan Hex";
-            content = settings.cyan;
+            content = config.theme.cyan;
           }
           {
             keywords = ["secondary" "blue"];
             name = "Blue Hex";
-            content = settings.blue;
+            content = config.theme.blue;
           }
           {
             keywords = ["accent" "purple"];
             name = "Purple Hex";
-            content = settings.purple;
+            content = config.theme.purple;
           }
           {
             keywords = ["pink"];
             name = "Pink Hex";
-            content = settings.pink;
+            content = config.theme.pink;
           }
           {
             keywords = ["brown"];
             name = "Brown Hex";
-            content = settings.brown;
+            content = config.theme.brown;
           }
           {
             keywords = ["muted"];
             name = "Muted Hex";
-            content = settings.muted;
+            content = config.theme.muted;
           }
           {
             keywords = ["float"];
             name = "Float Hex";
-            content = settings.float;
+            content = config.theme.float;
           }
 
           # Bright/Dim/Dark Hex Variants
@@ -790,182 +790,182 @@
           {
             keywords = ["accent" "bright"];
             name = "Accent Bright Hex";
-            content = settings."accent-bright";
+            content = config.theme.accent-bright;
           }
           {
             keywords = ["accent" "dim"];
             name = "Accent Dim Hex";
-            content = settings."accent-dim";
+            content = config.theme.accent-dim;
           }
           {
             keywords = ["accent" "dark"];
             name = "Accent Dark Hex";
-            content = settings."accent-dark";
+            content = config.theme.accent-dark;
           }
           {
             keywords = ["secondary" "bright"];
             name = "Secondary Bright Hex";
-            content = settings."secondary-bright";
+            content = config.theme.secondary-bright;
           }
           {
             keywords = ["secondary" "dim"];
             name = "Secondary Dim Hex";
-            content = settings."secondary-dim";
+            content = config.theme.secondary-dim;
           }
           {
             keywords = ["secondary" "dark"];
             name = "Secondary Dark Hex";
-            content = settings."secondary-dark";
+            content = config.theme.secondary-dark;
           }
           {
             keywords = ["red" "bright"];
             name = "Red Bright Hex";
-            content = settings."red-bright";
+            content = config.theme.red-bright;
           }
           {
             keywords = ["red" "dim"];
             name = "Red Dim Hex";
-            content = settings."red-dim";
+            content = config.theme.red-dim;
           }
           {
             keywords = ["red" "dark"];
             name = "Red Dark Hex";
-            content = settings."red-dark";
+            content = config.theme.red-dark;
           }
           {
             keywords = ["orange" "bright"];
             name = "Orange Bright Hex";
-            content = settings."orange-bright";
+            content = config.theme.orange-bright;
           }
           {
             keywords = ["orange" "dim"];
             name = "Orange Dim Hex";
-            content = settings."orange-dim";
+            content = config.theme.orange-dim;
           }
           {
             keywords = ["orange" "dark"];
             name = "Orange Dark Hex";
-            content = settings."orange-dark";
+            content = config.theme.orange-dark;
           }
           {
             keywords = ["yellow" "bright"];
             name = "Yellow Bright Hex";
-            content = settings."yellow-bright";
+            content = config.theme.yellow-bright;
           }
           {
             keywords = ["yellow" "dim"];
             name = "Yellow Dim Hex";
-            content = settings."yellow-dim";
+            content = config.theme.yellow-dim;
           }
           {
             keywords = ["yellow" "dark"];
             name = "Yellow Dark Hex";
-            content = settings."yellow-dark";
+            content = config.theme.yellow-dark;
           }
           {
             keywords = ["green" "bright"];
             name = "Green Bright Hex";
-            content = settings."green-bright";
+            content = config.theme.green-bright;
           }
           {
             keywords = ["green" "dim"];
             name = "Green Dim Hex";
-            content = settings."green-dim";
+            content = config.theme.green-dim;
           }
           {
             keywords = ["green" "dark"];
             name = "Green Dark Hex";
-            content = settings."green-dark";
+            content = config.theme.green-dark;
           }
           {
             keywords = ["teal" "bright"];
             name = "Teal Bright Hex";
-            content = settings."teal-bright";
+            content = config.theme.teal-bright;
           }
           {
             keywords = ["teal" "dim"];
             name = "Teal Dim Hex";
-            content = settings."teal-dim";
+            content = config.theme.teal-dim;
           }
           {
             keywords = ["teal" "dark"];
             name = "Teal Dark Hex";
-            content = settings."teal-dark";
+            content = config.theme.teal-dark;
           }
           {
             keywords = ["cyan" "bright"];
             name = "Cyan Bright Hex";
-            content = settings."cyan-bright";
+            content = config.theme.cyan-bright;
           }
           {
             keywords = ["cyan" "dim"];
             name = "Cyan Dim Hex";
-            content = settings."cyan-dim";
+            content = config.theme.cyan-dim;
           }
           {
             keywords = ["cyan" "dark"];
             name = "Cyan Dark Hex";
-            content = settings."cyan-dark";
+            content = config.theme.cyan-dark;
           }
           {
             keywords = ["blue" "bright"];
             name = "Blue Bright Hex";
-            content = settings."blue-bright";
+            content = config.theme.blue-bright;
           }
           {
             keywords = ["blue" "dim"];
             name = "Blue Dim Hex";
-            content = settings."blue-dim";
+            content = config.theme.blue-dim;
           }
           {
             keywords = ["blue" "dark"];
             name = "Blue Dark Hex";
-            content = settings."blue-dark";
+            content = config.theme.blue-dark;
           }
           {
             keywords = ["purple" "bright"];
             name = "Purple Bright Hex";
-            content = settings."purple-bright";
+            content = config.theme.purple-bright;
           }
           {
             keywords = ["purple" "dim"];
             name = "Purple Dim Hex";
-            content = settings."purple-dim";
+            content = config.theme.purple-dim;
           }
           {
             keywords = ["purple" "dark"];
             name = "Purple Dark Hex";
-            content = settings."purple-dark";
+            content = config.theme.purple-dark;
           }
           {
             keywords = ["pink" "bright"];
             name = "Pink Bright Hex";
-            content = settings."pink-bright";
+            content = config.theme.pink-bright;
           }
           {
             keywords = ["pink" "dim"];
             name = "Pink Dim Hex";
-            content = settings."pink-dim";
+            content = config.theme.pink-dim;
           }
           {
             keywords = ["pink" "dark"];
             name = "Pink Dark Hex";
-            content = settings."pink-dark";
+            content = config.theme.pink-dark;
           }
           {
             keywords = ["brown" "bright"];
             name = "Brown Bright Hex";
-            content = settings."brown-bright";
+            content = config.theme.brown-bright;
           }
           {
             keywords = ["brown" "dim"];
             name = "Brown Dim Hex";
-            content = settings."brown-dim";
+            content = config.theme.brown-dim;
           }
           {
             keywords = ["brown" "dark"];
             name = "Brown Dark Hex";
-            content = settings."brown-dark";
+            content = config.theme.brown-dark;
           }
 
           # RGB Colors
@@ -973,107 +973,107 @@
           {
             keywords = ["accent" "hex"];
             name = "Accent RGB";
-            content = hexToRgb settings.accent;
+            content = hexToRgb config.theme.accent;
           }
           {
             keywords = ["secondary"];
             name = "Secondary RGB";
-            content = hexToRgb settings.secondary;
+            content = hexToRgb config.theme.secondary;
           }
           {
             keywords = ["text"];
             name = "Text RGB";
-            content = hexToRgb settings.text;
+            content = hexToRgb config.theme.text;
           }
           {
             keywords = ["subtext"];
             name = "Subtext RGB";
-            content = hexToRgb settings.subtext;
+            content = hexToRgb config.theme.subtext;
           }
           {
             keywords = ["hidden"];
             name = "Hidden Text RGB";
-            content = hexToRgb settings.hidden;
+            content = hexToRgb config.theme.hidden;
           }
           {
             keywords = ["base"];
             name = "Base RGB";
-            content = hexToRgb settings.base;
+            content = hexToRgb config.theme.base;
           }
           {
             keywords = ["section"];
             name = "Section RGB";
-            content = hexToRgb settings.section;
+            content = hexToRgb config.theme.section;
           }
           {
             keywords = ["card"];
             name = "Card RGB";
-            content = hexToRgb settings.card;
+            content = hexToRgb config.theme.card;
           }
           {
             keywords = ["overlay"];
             name = "Overlay RGB";
-            content = hexToRgb settings.overlay;
+            content = hexToRgb config.theme.overlay;
           }
           {
             keywords = ["red"];
             name = "Red RGB";
-            content = hexToRgb settings.red;
+            content = hexToRgb config.theme.red;
           }
           {
             keywords = ["orange"];
             name = "Orange RGB";
-            content = hexToRgb settings.orange;
+            content = hexToRgb config.theme.orange;
           }
           {
             keywords = ["tertiary" "yellow"];
             name = "Yellow RGB";
-            content = hexToRgb settings.yellow;
+            content = hexToRgb config.theme.yellow;
           }
           {
             keywords = ["green"];
             name = "Green RGB";
-            content = hexToRgb settings.green;
+            content = hexToRgb config.theme.green;
           }
           {
             keywords = ["teal"];
             name = "Teal RGB";
-            content = hexToRgb settings.teal;
+            content = hexToRgb config.theme.teal;
           }
           {
             keywords = ["cyan"];
             name = "Cyan RGB";
-            content = hexToRgb settings.cyan;
+            content = hexToRgb config.theme.cyan;
           }
           {
             keywords = ["secondary" "blue"];
             name = "Blue RGB";
-            content = hexToRgb settings.blue;
+            content = hexToRgb config.theme.blue;
           }
           {
             keywords = ["accent" "purple"];
             name = "Purple RGB";
-            content = hexToRgb settings.purple;
+            content = hexToRgb config.theme.purple;
           }
           {
             keywords = ["pink"];
             name = "Pink RGB";
-            content = hexToRgb settings.pink;
+            content = hexToRgb config.theme.pink;
           }
           {
             keywords = ["brown"];
             name = "Brown RGB";
-            content = hexToRgb settings.brown;
+            content = hexToRgb config.theme.brown;
           }
           {
             keywords = ["muted"];
             name = "Muted RGB";
-            content = hexToRgb settings.muted;
+            content = hexToRgb config.theme.muted;
           }
           {
             keywords = ["float"];
             name = "Float RGB";
-            content = hexToRgb settings.float;
+            content = hexToRgb config.theme.float;
           }
 
           # Bright/Dim/Dark RGB Variants
@@ -1081,200 +1081,200 @@
           {
             keywords = ["accent" "bright"];
             name = "Accent Bright RGB";
-            content = hexToRgb settings."accent-bright";
+            content = hexToRgb config.theme.accent-bright;
           }
           {
             keywords = ["accent" "dim"];
             name = "Accent Dim RGB";
-            content = hexToRgb settings."accent-dim";
+            content = hexToRgb config.theme.accent-dim;
           }
           {
             keywords = ["accent" "dark"];
             name = "Accent Dark RGB";
-            content = hexToRgb settings."accent-dark";
+            content = hexToRgb config.theme.accent-dark;
           }
           {
             keywords = ["secondary" "bright"];
             name = "Secondary Bright RGB";
-            content = hexToRgb settings."secondary-bright";
+            content = hexToRgb config.theme.secondary-bright;
           }
           {
             keywords = ["secondary" "dim"];
             name = "Secondary Dim RGB";
-            content = hexToRgb settings."secondary-dim";
+            content = hexToRgb config.theme.secondary-dim;
           }
           {
             keywords = ["secondary" "dark"];
             name = "Secondary Dark RGB";
-            content = hexToRgb settings."secondary-dark";
+            content = hexToRgb config.theme.secondary-dark;
           }
           {
             keywords = ["red" "bright"];
             name = "Red Bright RGB";
-            content = hexToRgb settings."red-bright";
+            content = hexToRgb config.theme.red-bright;
           }
           {
             keywords = ["red" "dim"];
             name = "Red Dim RGB";
-            content = hexToRgb settings."red-dim";
+            content = hexToRgb config.theme.red-dim;
           }
           {
             keywords = ["red" "dark"];
             name = "Red Dark RGB";
-            content = hexToRgb settings."red-dark";
+            content = hexToRgb config.theme.red-dark;
           }
           {
             keywords = ["orange" "bright"];
             name = "Orange Bright RGB";
-            content = hexToRgb settings."orange-bright";
+            content = hexToRgb config.theme.orange-bright;
           }
           {
             keywords = ["orange" "dim"];
             name = "Orange Dim RGB";
-            content = hexToRgb settings."orange-dim";
+            content = hexToRgb config.theme.orange-dim;
           }
           {
             keywords = ["orange" "dark"];
             name = "Orange Dark RGB";
-            content = hexToRgb settings."orange-dark";
+            content = hexToRgb config.theme.orange-dark;
           }
           {
             keywords = ["yellow" "bright"];
             name = "Yellow Bright RGB";
-            content = hexToRgb settings."yellow-bright";
+            content = hexToRgb config.theme.yellow-bright;
           }
           {
             keywords = ["yellow" "dim"];
             name = "Yellow Dim RGB";
-            content = hexToRgb settings."yellow-dim";
+            content = hexToRgb config.theme.yellow-dim;
           }
           {
             keywords = ["yellow" "dark"];
             name = "Yellow Dark RGB";
-            content = hexToRgb settings."yellow-dark";
+            content = hexToRgb config.theme.yellow-dark;
           }
           {
             keywords = ["green" "bright"];
             name = "Green Bright RGB";
-            content = hexToRgb settings."green-bright";
+            content = hexToRgb config.theme.green-bright;
           }
           {
             keywords = ["green" "dim"];
             name = "Green Dim RGB";
-            content = hexToRgb settings."green-dim";
+            content = hexToRgb config.theme.green-dim;
           }
           {
             keywords = ["green" "dark"];
             name = "Green Dark RGB";
-            content = hexToRgb settings."green-dark";
+            content = hexToRgb config.theme.green-dark;
           }
           {
             keywords = ["teal" "bright"];
             name = "Teal Bright RGB";
-            content = hexToRgb settings."teal-bright";
+            content = hexToRgb config.theme.teal-bright;
           }
           {
             keywords = ["teal" "dim"];
             name = "Teal Dim RGB";
-            content = hexToRgb settings."teal-dim";
+            content = hexToRgb config.theme.teal-dim;
           }
           {
             keywords = ["teal" "dark"];
             name = "Teal Dark RGB";
-            content = hexToRgb settings."teal-dark";
+            content = hexToRgb config.theme.teal-dark;
           }
           {
             keywords = ["cyan" "bright"];
             name = "Cyan Bright RGB";
-            content = hexToRgb settings."cyan-bright";
+            content = hexToRgb config.theme.cyan-bright;
           }
           {
             keywords = ["cyan" "dim"];
             name = "Cyan Dim RGB";
-            content = hexToRgb settings."cyan-dim";
+            content = hexToRgb config.theme.cyan-dim;
           }
           {
             keywords = ["cyan" "dark"];
             name = "Cyan Dark RGB";
-            content = hexToRgb settings."cyan-dark";
+            content = hexToRgb config.theme.cyan-dark;
           }
           {
             keywords = ["blue" "bright"];
             name = "Blue Bright RGB";
-            content = hexToRgb settings."blue-bright";
+            content = hexToRgb config.theme.blue-bright;
           }
           {
             keywords = ["blue" "dim"];
             name = "Blue Dim RGB";
-            content = hexToRgb settings."blue-dim";
+            content = hexToRgb config.theme.blue-dim;
           }
           {
             keywords = ["blue" "dark"];
             name = "Blue Dark RGB";
-            content = hexToRgb settings."blue-dark";
+            content = hexToRgb config.theme.blue-dark;
           }
           {
             keywords = ["purple" "bright"];
             name = "Purple Bright RGB";
-            content = hexToRgb settings."purple-bright";
+            content = hexToRgb config.theme.purple-bright;
           }
           {
             keywords = ["purple" "dim"];
             name = "Purple Dim RGB";
-            content = hexToRgb settings."purple-dim";
+            content = hexToRgb config.theme.purple-dim;
           }
           {
             keywords = ["purple" "dark"];
             name = "Purple Dark RGB";
-            content = hexToRgb settings."purple-dark";
+            content = hexToRgb config.theme.purple-dark;
           }
           {
             keywords = ["pink" "bright"];
             name = "Pink Bright RGB";
-            content = hexToRgb settings."pink-bright";
+            content = hexToRgb config.theme.pink-bright;
           }
           {
             keywords = ["pink" "dim"];
             name = "Pink Dim RGB";
-            content = hexToRgb settings."pink-dim";
+            content = hexToRgb config.theme.pink-dim;
           }
           {
             keywords = ["pink" "dark"];
             name = "Pink Dark RGB";
-            content = hexToRgb settings."pink-dark";
+            content = hexToRgb config.theme.pink-dark;
           }
           {
             keywords = ["brown" "bright"];
             name = "Brown Bright RGB";
-            content = hexToRgb settings."brown-bright";
+            content = hexToRgb config.theme.brown-bright;
           }
           {
             keywords = ["brown" "dim"];
             name = "Brown Dim RGB";
-            content = hexToRgb settings."brown-dim";
+            content = hexToRgb config.theme.brown-dim;
           }
           {
             keywords = ["brown" "dark"];
             name = "Brown Dark RGB";
-            content = hexToRgb settings."brown-dark";
+            content = hexToRgb config.theme.brown-dark;
           }
 
           # Misc
 
           {
-            keywords = ["font" settings.font];
+            keywords = ["font" config.theme.font];
             name = "Font";
-            content = "${settings.font}";
+            content = "${config.theme.font}";
           }
           {
             keywords = [
               "monospace"
               "fontMonospace"
               "font"
-              settings.fontMonospace
+              config.theme.fontMonospace
             ];
             name = "Monospace Font";
-            content = "${settings.fontMonospace}";
+            content = "${config.theme.fontMonospace}";
           }
           {
             keywords = ["gap"];

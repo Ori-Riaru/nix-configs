@@ -5,16 +5,6 @@
       starship init fish | source
       zoxide init fish | source
     '';
-    interactiveShellInit = ''
-      # clear
-      # if timeout 1 ls ${settings.nasPath} >/dev/null 2>&1
-      #   cd ${settings.nasPath}
-      # else if test -d "/data"
-      #   cd /data
-      # else
-      #   cd $HOME
-      # end
-    '';
     shellAliases = {
       ".." = "cd ..";
       "..." = "cd ../..";
@@ -63,9 +53,9 @@
       gl = "git pull";
       lg = "lazygit";
 
+      rebuild = "nh os switch";
       home = "nh home switch";
       os = "nh os switch";
-      rebuild = "nh os switch; nh home switch";
       update = "nix flake update --flake ${settings.configPath}";
       ns = "nix shell";
       repl = "nix repl /mnt/nfs/riaru/Projects/nix-configs";

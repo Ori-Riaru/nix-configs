@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   settings,
   ...
 }: {
@@ -48,7 +49,7 @@
       colorScheme = "Neutral Dark";
     };
 
-    kscreenlocker.appearance.wallpaper = settings.wallpaper;
+    kscreenlocker.appearance.wallpaper = config.theme.wallpaper;
 
     fonts = {
       general = {

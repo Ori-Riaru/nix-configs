@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     # UI Fonts
     inter
+    inter-nerdfont
 
     # Monospace Fonts
     nerd-fonts.jetbrains-mono
