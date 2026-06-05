@@ -1,7 +1,5 @@
 {
-  pkgs,
   config,
-  settings,
   lib,
   ...
 }: {
@@ -44,11 +42,11 @@
       image = [
         {
           monitor = "";
-          path = "/var/lib/AccountsService/icons/${settings.username}";
+          path = "/var/lib/AccountsService/icons/${config.home.username}";
           size = 240;
           rounding = config.theme.radius;
           border_size = config.theme.border-width;
-          border_color = "0xff${lib.substring 1 7 config.theme.purple}";
+          border_color = "0xff${lib.substring 1 7 config.theme.overlay}";
           position = "0, 240";
           halign = "center";
           valign = "center";
@@ -129,7 +127,7 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%M")"'';
-          color = "0xff${lib.substring 1 7 config.theme.purple}";
+          color = "0xff${lib.substring 1 7 config.theme.accent}";
           font_size = 120;
           font_family = config.theme.fontMonospace;
           position = "120, -222";
@@ -166,11 +164,11 @@
 
         {
           monitor = "";
-          text = "󰒲"; # Idk how to fix cut of symbol :(
+          text = "󰒲";
           color = "0xff${lib.substring 1 7 config.theme.text}";
           font_size = 32;
-          font_family = "JetBrainsMono Nerd Font Propo";
-          position = "-512, 152";
+          font_family = "${config.theme.fontMonospace} Propo";
+          position = "-512, 144";
           halign = "right";
           valign = "bottom";
         }
@@ -179,28 +177,28 @@
           text = "";
           color = "0xff${lib.substring 1 7 config.theme.text}";
           font_size = 32;
-          font_family = "JetBrainsMono Nerd Font Propo";
-          position = "-392, 152";
+          font_family = "${config.theme.fontMonospace} Propo";
+          position = "-395, 144";
           halign = "right";
           valign = "bottom";
         }
         {
           monitor = "";
-          text = "⏻";
+          text = "";
           color = "0xff${lib.substring 1 7 config.theme.text}";
           font_size = 32;
-          font_family = "JetBrainsMono Nerd Font Propo";
-          position = "-272, 152";
+          font_family = "${config.theme.fontMonospace} Propo";
+          position = "-273, 144";
           halign = "right";
           valign = "bottom";
         }
         {
           monitor = "";
-          text = "󰍃";
+          text = "󰗽";
           color = "0xff${lib.substring 1 7 config.theme.text}";
           font_size = 32;
-          font_family = "JetbrainsMono Nerd Font Mono";
-          position = "-156, 156";
+          font_family = "${config.theme.fontMonospace} Propo";
+          position = "-155, 144";
           halign = "right";
           valign = "bottom";
         }
@@ -218,12 +216,12 @@
         hide_input = false;
         dots_size = 0.25;
         dots_spacing = 0.15;
-        check_color = "0xff${lib.substring 1 7 config.theme.purple}";
+        check_color = "0xff${lib.substring 1 7 config.theme.accent}";
         fail_color = "0xff${lib.substring 1 7 config.theme.red}";
         fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
         capslock_color = "0xff${lib.substring 1 7 config.theme.orange}";
-        outer_color = "0xff${lib.substring 1 7 config.theme.purple}";
-        outline_thickness = 2;
+        outer_color = "0xff${lib.substring 1 7 config.theme.accent}";
+        outline_thickness = config.theme.border-width;
         position = "0, -84";
         halign = "center";
         valign = "center";

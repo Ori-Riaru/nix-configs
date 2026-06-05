@@ -141,7 +141,8 @@
       radius = 6;
       radius-s = 3;
 
-      border-width = 2;
+      border-width-s = 2;
+      border-width = 3;
 
       font = "Inter";
       fontMonospace = "JetBrainsMono Nerd Font";
