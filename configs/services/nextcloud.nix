@@ -38,6 +38,7 @@
       maintenance_window_start = 4;
       default_phone_region = "CA";
       trusted_domains = [config.services.nextcloud.hostName];
+      "simpleSignUpLink.shown" = false;
     };
     extraAppsEnable = true;
     extraApps = {
@@ -47,17 +48,11 @@
       # Information about apps:
       #    https://github.com/helsinki-systems/nc4nix
 
-      # theming_customcss = pkgs.fetchNextcloudApp {
-      #   url = "https://github.com/nextcloud/theming_customcss/releases/download/v1.20.0/theming_customcss.tar.gz";
-      #   sha256 = "sha256-tDU6GIGX5PFr6+iBYjUl4iGcZKUmc/3MUBt5xD561uw=";
-      #   license = "gpl3";
-      # };
-
-      # duplicatefinder = pkgs.fetchNextcloudApp {
-      #   sha256 = "sha256-VoA0jHS2Nkfz/c1UKSKFTdzFGbXV2/chhWy9vbGYOSc=";
-      #   url = "https://github.com/eldertek/duplicatefinder/releases/download/v1.7.3/duplicatefinder-v1.7.3.tar.gz";
-      #   license = "gpl3";
-      # };
+      theming_customcss = pkgs.fetchNextcloudApp {
+        url = "https://github.com/nextcloud/theming_customcss/releases/download/v1.20.0/theming_customcss.tar.gz";
+        sha256 = "sha256-Fgu31s+K4MFUgvNe9mAVHi9C0iJnv40v1onUMk+lFZk=";
+        license = "gpl3";
+      };
 
       side_menu = pkgs.fetchNextcloudApp {
         url = "https://gitnet.fr/deblan/side_menu/releases/download/v5.2.2/side_menu_v5.2.2.tar.gz";
@@ -104,6 +99,12 @@
       # corners = pkgs.fetchNextcloudApp {
       #   url = "https://github.com/OliverParoczai/nextcloud-unroundedcorners/releases/download/v1.1.5/unroundedcorners-v1.1.5.tar.gz";
       #   sha256 = "sha256-0+fOJnPsuengy8TPzTKizDnDXTlZStalFDOv+dFlRgc=";
+      #   license = "gpl3";
+      # };
+
+      # duplicatefinder = pkgs.fetchNextcloudApp {
+      #   sha256 = "sha256-VoA0jHS2Nkfz/c1UKSKFTdzFGbXV2/chhWy9vbGYOSc=";
+      #   url = "https://github.com/eldertek/duplicatefinder/releases/download/v1.7.3/duplicatefinder-v1.7.3.tar.gz";
       #   license = "gpl3";
       # };
     };
