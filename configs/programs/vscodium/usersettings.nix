@@ -150,9 +150,13 @@ in {
       "editorBracketHighlight.foreground7" = config.theme.text;
       "editorBracketHighlight.foreground8" = config.theme.text;
       "editorBracketHighlight.unmatchedForeground" = config.theme.text;
-
-      # Auto complete popup
       "editorWidget.border" = "#0000";
+      "tab.border" = "#0000";
+      "tab.activeBorderTop" = "#0000";
+      "editorGroupHeader.tabsBackground" = "#0000";
+      "editorGroupHeader.tabsBorder" = "#0000";
+      "tab.activeBackground" = config.theme.overlay;
+      "tab.inactiveBackground" = config.theme.section;
 
       # git status colors
       "editorGutter.addedBackground" = config.theme.teal;

@@ -149,3 +149,15 @@ line on the guide
 .monaco-editor .view-ruler {
     box-shadow: 3px 0 0 0 var(--vscode-editorRuler-foreground) inset !important;
 }
+
+/* Tab card visuals */
+.tabs {
+  padding: 2px;
+}
+
+.tab.active {
+    overflow: hidden;
+
+    /* border: 2px solid #333 !important; */
+    border-radius: 6px
+}
