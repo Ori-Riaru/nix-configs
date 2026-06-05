@@ -159,7 +159,7 @@
 		"Test"
 		(scale)
 	)
-) 
+)
 
 (defwidget control_panel_toggle []
 	(button :class "icon" 
