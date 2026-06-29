@@ -17,6 +17,7 @@
     # Development
     ../../../configs/programs/git.nix
     ../../../configs/programs/opencode/opencode.nix
+    ../../../configs/programs/nix.nix
   ];
 
   home.stateVersion = "26.05";
