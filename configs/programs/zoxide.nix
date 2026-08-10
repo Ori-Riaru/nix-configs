@@ -1,4 +1,4 @@
- {pkgs, ...}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     zoxide
   ];
@@ -6,5 +6,6 @@
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+    options = ["--cmd cd"];
   };
 }
