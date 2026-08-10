@@ -58,6 +58,7 @@
           "calc"
           "snippets"
           "nirisessions"
+          "bluetooth"
           "menus:power"
           "menus:bookmarks"
           "menus:efi"
@@ -147,6 +148,8 @@
       "niriactions"
       "bitwarden"
     ];
+
+    settings.launch_prefix = "systemd-run --user --scope";
 
     provider = {
       "desktopapplications".settings = {
@@ -287,6 +290,24 @@
               text = "unicode";
               action = {open = "xdg-open 'https://charcuterie.elastiq.ch/#1F5C5' && ${focus-command}";};
             }
+            {
+              text = "Penpot";
+              action = {open = "xdg-open 'https://design.penpot.app/#' && ${focus-command}";};
+            }
+            {
+              text = "cs rin ru";
+              action = {open = "xdg-open 'https://cs.rin.ru/forum/' && ${focus-command}";};
+            }
+            {
+              text = "cs rin ru";
+              action = {open = "xdg-open '' && ${focus-command}";};
+            }
+            {
+              text = "Pinterest";
+              icon = "/home/riaru/.config/elephant/icons/pinterest.svg";
+              prefix = "pin;";
+              url = "https://ca.pinterest.com/search/pins/ && ${focus-command}";
+            }
           ];
         };
 
@@ -356,7 +377,7 @@
             {
               text = "Toggle Lights";
               icon = "";
-              actions = {"Toggle lights" = "${pkgs.python314Packages.python-kasa}/bin/kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";};
+              actions = {"Toggle lights" = "${pkgs.python314Packages.python-kasa}/bin/kasa --host 192.168.1.68 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";};
             }
           ];
         };
@@ -1294,7 +1315,7 @@
           {
             keywords = ["dash" "divider"];
             name = "Dash Divider";
-            content = "\----------------------------------------";
+            content = "\\----------------------------------------";
           }
         ];
       };
