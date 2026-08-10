@@ -18,7 +18,7 @@
       };
 
       sansSerif = {
-        name = "Inter";
+        name = config.theme.font;
       };
     };
 

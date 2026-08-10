@@ -31,7 +31,7 @@
 
         * {
           all: unset;
-          font-family: Inter;
+          font-family: ${config.theme.font};
         }
 
         .normal-icons {
