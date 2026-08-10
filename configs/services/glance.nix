@@ -162,7 +162,6 @@
                     "UCsyXL4K687fGa3fOrbX2yPQ" # Deadlock
                     "UC4teYwW5DI82AbRmV_Fq7TQ" # Deckard
                     "UCXSFnQc5niQR7jHMf0U7aQA" # Dev Detour
-                    "UCYeiozh-4QwuC1sjgCmB92w" # DevOps Toolbox
                     "UCmfJPEfaEMGTu6CaJNr0AEQ" # Doodley
                     "UCLNGY9N9Xmnc2kUpHoSJ5ng" # Dr. Zye
                     "UCEEVcDuBRDiwxfXAgQjLGug" # Dreams of Autonomy
@@ -173,7 +172,6 @@
                     "UCv67fDx_0CPnWK_XISUzdyQ" # EndVertex
                     "UCCZkc96h2dlElrfYmMWr8KQ" # Engineer Bo
                     "UCZ_cuJGBis0vi6U3bWmvDIg" # FaceDev
-                    "UCsBjURrPoezykLs9EqgamOA" # Fireship
                     "UCyNtlmLB73-7gtlBz00XOQQ" # Folding Ideas
                     "UCUPpIIEpCpuy-5BeSwFSLzQ" # Foudo
                     "UCDRhoKKIzUZrJPzLCHo9s-w" # Fractal Philosophy
@@ -186,7 +184,6 @@
                     "UCVbpA94Zek3v6wZ8E2Dh60g" # Hiding in Public
                     "UCkCGANrihzExmu9QiqZpPlQ" # How Money Works
                     "UCjWrRy5b2fntu1-u5EiFNtw" # HyperNeutrino
-                    "UCmEzz-dPBVrsy4ZluSsYHDg" # Hyperplexed
                     "UCJLZe_NoiG0hT7QCX_9vmqw" # I did a thing
                     "UCR1D15p_vdP3HkrH8wgjQRw" # Internet Historian
                     "UCeTfBygNb1TahcNpZyELO8g" # Jacob Geller
@@ -257,7 +254,6 @@
                     "UCSp46R5hLdz3v9FeQIiOEwQ" # Rei Akaridge
                     "UC-ufRLYrXxrIEApGn9VG5pQ" # Reject Convenience
                     "UCVVfZqD4M8RrshfCBsBK_Xg" # RemmitingFall
-                    "UChRxI4p6X8u7vCaRmpHK-rw" # Riloe
                     "UCOMNjGz5ZPKgK9dsg-Q5weQ" # SSSP
                     "UCmtyQOKKmrMVaKuRXz02jbQ" # Sebastian Lague
                     "UCpimbHDD86lfAg4-D8pLLlg" # Shoko
@@ -320,7 +316,6 @@
                     "UCf_mM4e4fKMnLHyagLPpA0A" # green hoodie cat
                     "UCc5MSmIx-pROLCviehbvlLw" # harry blends
                     "UClt01z1wHHT7c5lKcU8pxRQ" # hbomberguy
-                    "UC-BIyaiQIzNbjXErkDRCqXg" # ito can't sleep
                     "UCqf0X7s2oubwgX1MvBqH7ZA" # josh (with parentheses)
                     "UCkaRHEADYAt97-QeVcKXj2A" # kodiakwhale
                     "UCqSSszY8L-Qfn4HKAllnxVg" # leddoo
