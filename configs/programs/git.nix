@@ -5,14 +5,13 @@
 }: {
   home.packages = with pkgs; [
     gh
-    git
     lazygit
     git-filter-repo
-    git-lfs
   ];
 
   programs.git = {
     enable = true;
+    lfs.enable = true;
     settings = {
       user = {
         email = "${settings.email}";
@@ -20,6 +19,25 @@
       };
       init = {
         defaultBranch = "main";
+      };
+      pull = {
+        default = "current";
+        ff = "only";
+      };
+
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        mnemonicprefix = true;
+      };
+      merge = {
+        stat = "true";
+        conflictstyle = "zdiff3";
+        tool = "meld";
+      };
+      rerere = {
+        enabled = true;
+        autoupdate = true;
       };
     };
   };
