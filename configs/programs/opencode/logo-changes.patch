@@ -1,13 +1,61 @@
-diff --git a/packages/opencode/src/cli/logo.ts b/packages/opencode/src/cli/logo.ts
-index 44fb93c15..59febeb84 100644
---- a/packages/opencode/src/cli/logo.ts
-+++ b/packages/opencode/src/cli/logo.ts
-@@ -1,6 +1,6 @@
- export const logo = {
+diff --git i/packages/opencode/src/cli/logo.ts w/packages/opencode/src/cli/logo.ts
+index 9117d38..47e18d3 100644
+--- i/packages/opencode/src/cli/logo.ts
++++ w/packages/opencode/src/cli/logo.ts
+@@ -1 +1,5 @@
+-export * from "@opencode-ai/tui/logo"
++export const logo = { left: [] as string[], right: [] as string[] }
++
++export const go = { left: [] as string[], right: [] as string[] }
++
++export const marks = ""
+diff --git i/packages/opencode/src/cli/ui.ts w/packages/opencode/src/cli/ui.ts
+index 6ad6495..079a31f 100644
+--- i/packages/opencode/src/cli/ui.ts
++++ w/packages/opencode/src/cli/ui.ts
+@@ -2,12 +2,7 @@ import { EOL } from "os"
+ import { Schema } from "effect"
+ import { logo as glyphs } from "./logo"
+ 
+-const wordmark = [
+-  `⠀                                ▄     `,
+-  `█▀▀█ █▀▀█ █▀▀█ █▀▀▄ █▀▀▀ █▀▀█ █▀▀█ █▀▀█`,
+-  `█  █ █  █ █▀▀▀ █  █ █    █  █ █  █ █▀▀▀`,
+-  `▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀  ▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀`,
+-]
++const wordmark: string[] = []
+ 
+ export class CancelledError extends Schema.TaggedErrorClass<CancelledError>()("UICancelledError", {}) {}
+ 
+diff --git i/packages/tui/src/logo.ts w/packages/tui/src/logo.ts
+index a58a8cf..1a88602 100644
+--- i/packages/tui/src/logo.ts
++++ w/packages/tui/src/logo.ts
+@@ -1,11 +1,5 @@
+-export const logo = {
 -  left: ["                   ", "█▀▀█ █▀▀█ █▀▀█ █▀▀▄", "█__█ █__█ █^^^ █__█", "▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀~~▀"],
 -  right: ["             ▄     ", "█▀▀▀ █▀▀█ █▀▀█ █▀▀█", "█___ █__█ █__█ █^^^", "▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀"],
-+  left: [],
-+  right: [],
- }
+-}
++export const logo = { left: [] as string[], right: [] as string[] }
  
- export const marks = "_^~"
+-export const go = {
+-  left: ["    ", "█▀▀▀", "█_^█", "▀▀▀▀"],
+-  right: ["    ", "█▀▀█", "█__█", "▀▀▀▀"],
+-}
++export const go = { left: [] as string[], right: [] as string[] }
+ 
+-export const marks = "_^~,"
++export const marks = ","
+diff --git i/packages/tui/src/util/presentation.ts w/packages/tui/src/util/presentation.ts
+index cf432bf..eb28e1e 100644
+--- i/packages/tui/src/util/presentation.ts
++++ w/packages/tui/src/util/presentation.ts
+@@ -1,7 +1,4 @@
+-const logo = {
+-  left: ["                   ", "█▀▀█ █▀▀█ █▀▀█ █▀▀▄", "█__█ █__█ █^^^ █__█", "▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀~~▀"],
+-  right: ["             ▄     ", "█▀▀▀ █▀▀█ █▀▀█ █▀▀█", "█___ █__█ █__█ █^^^", "▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀"],
+-}
++const logo = { left: [] as string[], right: [] as string[] }
+ 
+ const reset = "\x1b[0m"
+ const bold = "\x1b[1m"
