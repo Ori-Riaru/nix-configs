@@ -3,6 +3,9 @@
     # UI Fonts
     inter
     inter-nerdfont
+    noto-fonts
+    roboto
+    geist-font
 
     # Monospace Fonts
     nerd-fonts.jetbrains-mono
