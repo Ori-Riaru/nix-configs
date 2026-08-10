@@ -56,6 +56,7 @@
       };
 
       "Dell Inc. DELL G3223Q C3PM6P3" = {
+        focus-at-startup = true;
         mode = {
           height = 2160;
           width = 3840;
