@@ -256,20 +256,41 @@
           }
           )
 
-          (deflayer qwerty
-            _ q w e r t    y u i o p
-            _ a s d f g    h j k l ;
-            _ z x c v b    n m , . /
+          (deflayermap qwerty
+
+            a (tap-hold $tap-time $hold-time a lmet)
+            s (tap-hold $tap-time $hold-time s lalt)
+            d (tap-hold $tap-time $hold-time d lsft)
+            f (tap-hold $tap-time $hold-time f lctl)
+
+            j (tap-hold $tap-time $hold-time j rctl)
+            k (tap-hold $tap-time $hold-time k rsft)
+            l (tap-hold $tap-time $hold-time l ralt)
+            ; (tap-hold $tap-time $hold-time ; rmet)
+            / -
+
             ${
             if config.networking.hostName == "lain"
-            then "_    lalt spc    _ @menu _     _"
-            else "lalt spc  _      _ _     @menu @menu"
+            then ''
+              spc  @esc
+              esc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
+              ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
+              ralt @bspc
+              rctl @bspc
+            ''
+            else ''
+              lalt @esc
+              spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
+              ralt (tap-hold $tap-time $hold-time ret (layer-while-held num))
+              rmet @bspc
+              rctl @bspc
+            ''
           }
           )
 
           (deflayer game
             _ tab  q w e r    t y    up   i     j
-            _ shft a s d f    g left down right ret
+            _ shft a s d f    g left down right p
             _ ctl  z x c v    b h    u    n     m
             ${
             if config.networking.hostName == "lain"
