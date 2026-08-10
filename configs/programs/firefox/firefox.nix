@@ -15,42 +15,42 @@
     profiles.${settings.username} = {
       isDefault = true;
 
-      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        darkreader
-        bitwarden
-        ublock-origin
-        fastforwardteam
-        tampermonkey
-        stylus
-        wayback-machine
-        istilldontcareaboutcookies
-        sponsorblock
-        return-youtube-dislikes
-        reddit-enhancement-suite
-        shinigami-eyes
-        sidebery
-        swift-selection-search
-        buster-captcha-solver
-        # user-agent-string-switcher
-        userchrome-toggle
-        windscribe
-        augmented-steam
-        auto-tab-discard
-        redirector
-        pwas-for-firefox
-        web-clipper-obsidian
+      # extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
+      #   darkreader
+      #   bitwarden
+      #   ublock-origin
+      #   fastforwardteam
+      #   tampermonkey
+      #   stylus
+      #   wayback-machine
+      #   istilldontcareaboutcookies
+      #   sponsorblock
+      #   return-youtube-dislikes
+      #   reddit-enhancement-suite
+      #   shinigami-eyes
+      #   sidebery
+      #   swift-selection-search
+      #   buster-captcha-solver
+      #   # user-agent-string-switcher
+      #   userchrome-toggle
+      #   windscribe
+      #   augmented-steam
+      #   auto-tab-discard
+      #   redirector
+      #   pwas-for-firefox
+      #   web-clipper-obsidian
 
-        # Missing downloads
-        # copy-url-with-ctrl-shift-c
-        # claude-usage-tracker
-        # deadname remover
-        # custom new page
-        # tweaks for youtube
-        # infy-scroll
-        # automail
-        # smart-prevent-duplicate-tabs
-        # steamdb
-      ];
+      #   # Missing downloads
+      #   # copy-url-with-ctrl-shift-c
+      #   # claude-usage-tracker
+      #   # deadname remover
+      #   # custom new page
+      #   # tweaks for youtube
+      #   # infy-scroll
+      #   # automail
+      #   # smart-prevent-duplicate-tabs
+      #   # steamdb
+      # ];
 
       settings = {
         # enable userchrome
