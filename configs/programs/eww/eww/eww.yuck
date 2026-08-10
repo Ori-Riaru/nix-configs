@@ -29,7 +29,8 @@
 					:space-evenly false
 					:vexpand true
           			(systray :orientation "vertical")
-          			(lights)
+          			(battery)
+					(lights)
           			(audio)
 					(control_panel_toggle)
 				)
@@ -167,6 +168,15 @@
 		(label :class "control icon" :text 
 			""
 		)
+	)
+)
+
+(defpoll battery_p :interval "60s"
+  `echo $(( ($(cat /sys/class/power_supply/BAT0/energy_now) * 100) / $(cat /sys/class/power_supply/BAT0/energy_full) ))`)
+
+(defwidget battery []
+	(label :class "battery" :text
+		{battery_p}
 	)
 )
 
