@@ -1,3 +1,5 @@
-{
-  programs.obs-studio.enable = true;
+{pkgs, ...}: {
+  home.packages = [
+    (pkgs.obs-studio.override { cudaSupport = true; })
+  ];
 }
