@@ -5,7 +5,7 @@
     # === Repositories ===
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-26.05";
 
     nur = {
       url = "github:nix-community/nur";
@@ -30,13 +30,13 @@
     # === Programs ===
 
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     elephant = {
-      url = "github:abenz1267/elephant/dev";
+      url = "github:abenz1267/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -125,8 +125,9 @@
     };
 
     # === Default Theme ===
-    # Default theme settings across all systems. Theme settings can be
-    # overwritten at either a per system or per user level
+
+    # Default theme settings that are propagated across all systems. Theme
+    # settings can be overwritten at either a per system or per user level
 
     theme = rec {
       spacing-xs = 1;
@@ -164,7 +165,7 @@
       float = "#2c2c2c";
       overlay = "#222222";
       card = "#181818";
-      section = "#111111";
+      section = "#141414";
       base = "#080808";
       black = "#000000";
 
