@@ -87,6 +87,19 @@
         };
       };
 
+      "Seiko Epson Corporation SEC144A      0x58010025" = {
+        mode = {
+          height = 2880;
+          width = 1600;
+          refresh = 90.002;
+        };
+        scale = 1;
+        position = {
+          x = 4992;
+          y = 160;
+        };
+      };
+
       # "Hewlett Packard HP 23cw 6CM5510JRK" = {
       #   mode = {
       #     height = 1080;
