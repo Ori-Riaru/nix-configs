@@ -1,3 +1,5 @@
-{
-  programs.mangohud.enable = true;
+{pkgs, ...}: {
+  home.packages = [
+    (pkgs.mangohud.override { nvidiaSupport = true; })
+  ];
 }
