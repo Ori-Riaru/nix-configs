@@ -6,10 +6,7 @@
 }: {
   home.packages = with pkgs; [
     xwayland-satellite
-    python314Packages.python-kasa
   ];
-
-  programs.niri.package = pkgs.niri;
 
   programs.niri.settings = {
     input = {
@@ -182,7 +179,18 @@
       }
     '';
 
-    overview.backdrop-color = "${config.theme.base}";
+    # overview.backdrop-color = "${config.theme.base}";
+
+    layer-rules = [
+      {
+        matches = [
+          {
+            namespace = "^awww-daemon$";
+          }
+        ];
+        place-within-backdrop = true;
+      }
+    ];
 
     spawn-at-startup = [];
 
