@@ -8,8 +8,6 @@
     inputs.niri.nixosModules.niri
   ];
 
-  programs.niri.package = pkgs.niri;
-
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   systemd.user.services.niri-flake-polkit = lib.mkForce {
@@ -29,4 +27,11 @@
   security.pam.services.swaylock = {};
 
   programs.niri.enable = true;
+
+  # portal-gnome refuses to initialize on Wayland if GDK_BACKEND is forced
+  # to anything other than exactly "wayland" (e.g. "wayland,x11" fails).
+  systemd.user.services.xdg-desktop-portal-gnome.environment = {
+    XDG_CURRENT_DESKTOP = "GNOME";
+    GDK_BACKEND = "wayland";
+  };
 }
