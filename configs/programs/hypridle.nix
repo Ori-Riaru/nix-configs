@@ -31,6 +31,7 @@
       animations = {
         enabled = true;
         animation = [
+          "fade, 0"
           "global, 1, 3, default"
         ];
       };
