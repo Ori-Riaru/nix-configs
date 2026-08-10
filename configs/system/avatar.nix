@@ -25,7 +25,9 @@
   createIconLink = entry: "ln -sfn '${entry.icon}' /var/lib/AccountsService/icons/${entry.name}\n";
 
   # Generate a list of commands for creating icon links for all users with icons.
-  makeFacesCommands = map createIconLink userList;
+  makeFacesCommands =
+    ["mkdir -p /var/lib/AccountsService/icons\n"]
+    ++ map createIconLink userList;
 in {
   options = {
     # Define the options for users, allowing the configuration of user icons.

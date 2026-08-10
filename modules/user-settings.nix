@@ -16,7 +16,7 @@ in {
     };
     wallpaper2 = mkOption {
       type = types.path;
-      default = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper2.jpg";
+      default = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/wallpaper2.png";
     };
     spacing-xs = mkOption {
       type = types.int;
