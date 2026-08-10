@@ -1,5 +1,9 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
-    blender
+    (blender.override {cudaSupport = true;})
   ];
 }
