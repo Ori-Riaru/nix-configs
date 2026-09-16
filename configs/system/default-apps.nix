@@ -118,19 +118,19 @@
         "audio/opus" = "io.bassi.Amberol.desktop";
 
         # === Video ===
-        "video/mp4" = "org.gnome.Showtime";
-        "video/x-msvideo" = "org.gnome.Showtime";
-        "video/quicktime" = "org.gnome.Showtime";
-        "video/x-matroska" = "org.gnome.Showtime";
-        "video/webm" = "org.gnome.Showtime";
-        "video/ogg" = "org.gnome.Showtime";
-        "video/x-flv" = "org.gnome.Showtime";
-        "video/x-ms-wmv" = "org.gnome.Showtime";
-        "application/x-matroska" = "org.gnome.Showtime";
-        "video/3gpp" = "org.gnome.Showtime";
-        "video/3gpp2" = "org.gnome.Showtime";
-        "video/mp2t" = "org.gnome.Showtime";
-        "video/vnd.avi" = "org.gnome.Showtime";
+        "video/mp4" = "org.gnome.Showtime.desktop";
+        "video/x-msvideo" = "org.gnome.Showtime.desktop";
+        "video/quicktime" = "org.gnome.Showtime.desktop";
+        "video/x-matroska" = "org.gnome.Showtime.desktop";
+        "video/webm" = "org.gnome.Showtime.desktop";
+        "video/ogg" = "org.gnome.Showtime.desktop";
+        "video/x-flv" = "org.gnome.Showtime.desktop";
+        "video/x-ms-wmv" = "org.gnome.Showtime.desktop";
+        "application/x-matroska" = "org.gnome.Showtime.desktop";
+        "video/3gpp" = "org.gnome.Showtime.desktop";
+        "video/3gpp2" = "org.gnome.Showtime.desktop";
+        "video/mp2t" = "org.gnome.Showtime.desktop";
+        "video/vnd.avi" = "org.gnome.Showtime.desktop";
 
         # === 3D ===
         "application/x-blender" = "blender.desktop";
