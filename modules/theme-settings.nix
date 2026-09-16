@@ -84,7 +84,22 @@
       type = types.str;
       default = theme.secondary-dark;
     };
-
+    tertiary-bright = mkOption {
+      type = types.str;
+      default = theme.tertiary-bright;
+    };
+    tertiary = mkOption {
+      type = types.str;
+      default = theme.tertiary;
+    };
+    tertiary-dim = mkOption {
+      type = types.str;
+      default = theme.tertiary-dim;
+    };
+    tertiary-dark = mkOption {
+      type = types.str;
+      default = theme.tertiary-dark;
+    };
     white = mkOption {
       type = types.str;
       default = theme.white;

@@ -98,9 +98,29 @@ in {
       type = types.str;
       default = sys "secondary-dark";
     };
+    tertiary-bright = mkOption {
+      type = types.str;
+      default = sys "tertiary-bright";
+    };
+    tertiary = mkOption {
+      type = types.str;
+      default = sys "tertiary";
+    };
+    tertiary-dim = mkOption {
+      type = types.str;
+      default = sys "tertiary-dim";
+    };
+    tertiary-dark = mkOption {
+      type = types.str;
+      default = sys "tertiary-dark";
+    };
     white = mkOption {
       type = types.str;
       default = sys "white";
+    };
+    black = mkOption {
+      type = types.str;
+      default = sys "black";
     };
     text = mkOption {
       type = types.str;
