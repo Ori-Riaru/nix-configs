@@ -48,7 +48,7 @@
           rounding = config.theme.radius;
           border_size = config.theme.border-width;
           border_color = "0xff${lib.substring 1 7 config.theme.overlay}";
-          position = "0, 240";
+          position = "0, 180";
           halign = "center";
           valign = "center";
         }
@@ -116,7 +116,7 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%H")"'';
-          color = "0xff${lib.substring 1 7 config.theme.text}";
+          color = "0xff${lib.substring 1 7 config.theme.accent}";
           font_size = 120;
           font_family = config.theme.fontMonospace;
           position = "120, -60";
@@ -128,7 +128,7 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "$(date +"%M")"'';
-          color = "0xff${lib.substring 1 7 config.theme.accent}";
+          color = "0xff${lib.substring 1 7 config.theme.tertiary}";
           font_size = 120;
           font_family = config.theme.fontMonospace;
           position = "120, -222";
@@ -156,7 +156,7 @@
           color = "0xff${lib.substring 1 7 config.theme.text}";
           font_size = 48;
           font_family = config.theme.font;
-          position = "0, 48";
+          position = "0, 0";
           halign = "center";
           valign = "center";
         }
@@ -206,6 +206,7 @@
       ];
 
       # --- Password input ---
+
       input-field = {
         size = "480, 72";
         rounding = config.theme.radius;
@@ -223,7 +224,7 @@
         capslock_color = "0xff${lib.substring 1 7 config.theme.orange}";
         outer_color = "0xff${lib.substring 1 7 config.theme.accent}";
         outline_thickness = config.theme.border-width;
-        position = "0, -84";
+        position = "0, -100";
         halign = "center";
         valign = "center";
       };
