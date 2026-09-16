@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  home.packgages = with pkgs; [
+  home.packages = with pkgs; [
     ryubing
   ];
 }
