@@ -1,6 +1,5 @@
-{...}: {
-  services.kdeconnect = {
-    enable = true;
-    indicator = false;
-  };
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    valent
+  ];
 }
