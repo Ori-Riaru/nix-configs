@@ -3,7 +3,30 @@
   settings,
   ...
 }: {
-  services.jellyfin.enable = true;
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.seerr = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.sonarr = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.radarr = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.lidarr = {
+    enable = true;
+    openFirewall = true;
+  };
+  services.prowlarr = {
+    enable = true;
+    openFirewall = true;
+  };
 
   environment.systemPackages = [
     pkgs.master.jellyfin
@@ -28,5 +51,5 @@
     };
   };
 
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [80 443 5055 8989 7878 8686 9696];
 }
