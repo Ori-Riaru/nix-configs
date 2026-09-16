@@ -38,6 +38,7 @@
           "${pkgs.awww}/bin/awww clear ${lib.replaceStrings ["#"] [""] config.theme.base}"
           "${pkgs.awww}/bin/awww img ${config.theme.wallpaper} --outputs DP-2 --transition-type none"
           "${pkgs.awww}/bin/awww img ${config.theme.wallpaper2} --outputs DP-3 --transition-type none"
+          "${pkgs.awww}/bin/awww img ${config.theme.wallpaper2} --outputs eDP-1 --transition-type none"
         ];
       };
       Install.WantedBy = ["niri.service"];
