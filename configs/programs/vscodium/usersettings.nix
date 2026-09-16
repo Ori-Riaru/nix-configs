@@ -62,12 +62,8 @@ in {
     "diffEditor.experimental.showMoves" = true;
     "editor.rulers" = [
       {
-        "column" = 80;
-        "color" = "${config.theme.subtext}22";
-      }
-      {
         "column" = 100;
-        "color" = "${config.theme.red}22";
+        "color" = "${config.theme.red}11";
       }
       {
         "column" = 120;
@@ -357,7 +353,9 @@ in {
     # };
 
     # Extension settings
-    "extensions.autoUpdate" = false;
+    "extensions.autoCheckUpdates" = false;
+    "extensions.autoUpdate" = "off";
+    "update.mode" = "none";
 
     "cSpell.userWords" =
       [
