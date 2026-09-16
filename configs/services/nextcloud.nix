@@ -49,8 +49,8 @@
       #    https://github.com/helsinki-systems/nc4nix
 
       theming_customcss = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/theming_customcss/releases/download/v1.21.0/theming_customcss-v1.21.0.tar.gz";
-        sha256 = "sha256-gJcQJv0tD7lykS+26cLr5zlujJjajNqITWmTv0ki2T0=";
+        url = "https://github.com/nextcloud-releases/theming_customcss/releases/download/v1.22.0/theming_customcss-v1.22.0.tar.gz";
+        sha256 = "sha256-CUE7rV1yVIzRH8mogwGxuMB2Che3vRPbadTz0o3tgTE=";
         license = "agpl3Plus";
       };
 
@@ -67,20 +67,20 @@
       # };
 
       mail = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/mail/releases/download/v5.10.10/mail-v5.10.10.tar.gz";
-        sha256 = "sha256-s5AQlgs3zYQF/iZVHh6K9+uuFa/8ugqpOYC+hsVqqHg=";
+        url = "https://github.com/nextcloud-releases/mail/releases/download/v5.11.5/mail-v5.11.5.tar.gz";
+        sha256 = "sha256-WNrLQWrH36G3EcelwV1QLKLV+fC0UlOgWX6znSnq+IE=";
         license = "gpl3";
       };
 
       contacts = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/contacts/releases/download/v8.7.5/contacts-v8.7.5.tar.gz";
-        sha256 = "sha256-mTUhggHOP40Gs74xoLbfn7uiP2mTck/zeZaG3Yc8Pqk=";
+        url = "https://github.com/nextcloud-releases/contacts/releases/download/v8.8.1/contacts-v8.8.1.tar.gz";
+        sha256 = "sha256-KuPtvZDtzESrjC0xcmYeXRlIIFqgpNPnEvxm0lATKfc=";
         license = "gpl3";
       };
 
       deck = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/deck/releases/download/v1.18.3/deck-v1.18.3.tar.gz";
-        sha256 = "sha256-rMdFmPR+W47OIzwCinIpvDXhP4qlivep10c2jUSo5k0=";
+        url = "https://github.com/nextcloud-releases/deck/releases/download/v1.18.4/deck-v1.18.4.tar.gz";
+        sha256 = "sha256-2KcGPN1iJdGdwogzpxcFBsrG9eQpoCDiO82MLYMVvDk=";
         license = "gpl3";
       };
 
@@ -91,14 +91,14 @@
       };
 
       calendar = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/calendar/releases/download/v6.5.2/calendar-v6.5.2.tar.gz";
-        sha256 = "sha256-hsfZxdBFWz4jFU5EsSySRYZjV3KF5Zd4oDglyENqsUM=";
+        url = "https://github.com/nextcloud-releases/calendar/releases/download/v6.5.4/calendar-v6.5.4.tar.gz";
+        sha256 = "sha256-Z8d3puqXRAnp0ijCP8YPK+jmddN2UxtrGxJfLwNlc40=";
         license = "gpl3";
       };
 
       forms = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/forms/releases/download/v5.3.5/forms-v5.3.5.tar.gz";
-        sha256 = "sha256-ismV8Hv6XrOF3ukbcewpOwZXo+nFFnS2tCdw0foUC8M=";
+        url = "https://github.com/nextcloud-releases/forms/releases/download/v5.3.6/forms-v5.3.6.tar.gz";
+        sha256 = "sha256-f+LNscBPLdFI1t0VivnivlcG0HIWrqlQk7pYDcfGWIA=";
         license = "gpl3";
       };
 
