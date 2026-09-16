@@ -85,61 +85,61 @@
       nodejs = {
         symbol = "";
         style = "bg:blue";
-        format = "[](fg:green)[[$symbol( $version)](fg:foreground bg:green)]($style)[](fg:green) ";
+        format = "[](fg:green)[[$symbol](fg:foreground bg:green)]($style)[](fg:green) ";
       };
 
       c = {
         symbol = " ";
         style = "bg:blue";
-        format = "[](fg:blue)[[$symbol( $version)](fg:foreground bg:blue)]($style)[](fg:blue) ";
+        format = "[](fg:blue)[[$symbol](fg:foreground bg:blue)]($style)[](fg:blue) ";
       };
 
       rust = {
         symbol = "";
         style = "bg:orange";
-        format = "[](fg:orange)[[$symbol( $version)](fg:foreground bg:orange)]($style)[](fg:orange) ";
+        format = "[](fg:orange)[[$symbol](fg:foreground bg:orange)]($style)[](fg:orange) ";
       };
 
       nix_shell = {
         symbol = "";
         style = "bg:blue";
-        format = "[](fg:blue)[[$symbol( $version)](fg:foreground bg:blue)]($style)[](fg:blue) ";
+        format = "[](fg:blue)[[$symbol](fg:foreground bg:blue)]($style)[](fg:blue) ";
       };
 
       golang = {
         symbol = "";
         style = "bg:blue";
-        format = "[](fg:blue)[[$symbol( $version)](fg:foreground bg:blue)]($style)[](fg:blue) ";
+        format = "[](fg:blue)[[$symbol](fg:foreground bg:blue)]($style)[](fg:blue) ";
       };
 
       php = {
         symbol = "";
         style = "bg:blue";
-        format = "[](fg:purple)[[$symbol( $version)](fg:foreground bg:blue)]($style)[](fg:purple) ";
+        format = "[](fg:purple)[[$symbol](fg:foreground bg:blue)]($style)[](fg:purple) ";
       };
 
       java = {
         symbol = "m ";
         style = "bg:blue";
-        format = "[](fg:red)[[$symbol( $version)](fg:foreground bg:red)]($style)[](fg:red) ";
+        format = "[](fg:red)[[$symbol](fg:foreground bg:red)]($style)[](fg:red) ";
       };
 
       kotlin = {
         symbol = "";
         style = "bg:blue";
-        format = "[](fg:purple)[[ $symbol( $version) ](fg:foreground bg:purple)]($style)[](fg:purple) ";
+        format = "[](fg:purple)[[ $symbol](fg:foreground bg:purple)]($style)[](fg:purple) ";
       };
 
       haskell = {
         symbol = "";
         style = "bg:purple";
-        format = "[](fg:purple)[[ $symbol( $version) ](fg:foreground bg:purple)]($style)[](fg:purple) ";
+        format = "[](fg:purple)[[ $symbol](fg:foreground bg:purple)]($style)[](fg:purple) ";
       };
 
       python = {
         symbol = "";
         style = "bg:yellow";
-        format = "[](fg:yellow)[[ $symbol($version) ](fg:foreground bg:yellow)]($style)[](fg:yellow) ";
+        format = "[](fg:yellow)[[ $symbol](fg:foreground bg:yellow)]($style)[](fg:yellow) ";
       };
 
       docker_context = {
