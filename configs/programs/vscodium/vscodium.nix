@@ -59,18 +59,6 @@
           "when" = "editorTextFocus";
         }
 
-        # Expand region shortcuts
-        {
-          key = "ctrl+e";
-          command = "expand_region";
-          when = "editorTextFocus";
-        }
-        {
-          key = "ctrl+shift+e";
-          command = "undo_expand_region";
-          when = "editorTextFocus && editorHasSelection";
-        }
-
         # Pallet and open shortcuts
         {
           key = "ctrl+o";
