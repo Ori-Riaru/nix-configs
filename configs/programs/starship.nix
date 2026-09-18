@@ -89,7 +89,7 @@
       };
 
       c = {
-        symbol = " ";
+        symbol = "";
         style = "bg:blue";
         format = "[](fg:blue)[[$symbol](fg:foreground bg:blue)]($style)[](fg:blue) ";
       };
@@ -119,7 +119,7 @@
       };
 
       java = {
-        symbol = "m ";
+        symbol = "";
         style = "bg:blue";
         format = "[](fg:red)[[$symbol](fg:foreground bg:red)]($style)[](fg:red) ";
       };
