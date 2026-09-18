@@ -29,7 +29,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.master.jellyfin
+    pkgs.jellyfin
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
   ];
