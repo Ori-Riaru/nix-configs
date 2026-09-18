@@ -33,6 +33,7 @@
       };
       customDNS = {
         mapping = {
+          "derp.v0id.nl" = "${settings.serverLocalIP}";
           "my.v0id.nl" = "${settings.serverLocalIP}";
           "signal.v0id.nl" = "${settings.serverLocalIP}";
           "riaru.undo.it" = "${settings.serverLocalIP}";
