@@ -1,7 +1,7 @@
 {
   services.nfs.server = {
     enable = true;
-    nproc = 10;
+    nproc = 12;
     exports = ''
       /export 192.168.1.0/24(rw,fsid=0,no_subtree_check,no_root_squash) 100.64.0.0/10(rw,fsid=0,no_subtree_check,no_root_squash)
       /export/riaru 192.168.1.0/24(rw,nohide,insecure,no_subtree_check,async,no_root_squash) 100.64.0.0/10(rw,nohide,insecure,no_subtree_check,async,no_root_squash)

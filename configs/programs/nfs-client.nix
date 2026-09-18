@@ -15,6 +15,8 @@
   };
 
   config = {
+    services.cachefilesd.enable = true;
+
     boot.supportedFilesystems = ["nfs"];
 
     fileSystems = {
@@ -23,13 +25,18 @@
         fsType = "nfs";
         options = [
           "nfsvers=4.2"
-          "nconnect=16"
+          "nconnect=12"
+          "fsc"
           "_netdev"
           "x-systemd.automount"
           "noauto"
           "x-systemd.idle-timeout=600"
-          "x-systemd.mount-timeout=15"
-          "timeo=150"
+          "x-systemd.mount-timeout=30"
+          "timeo=600"
+          "retrans=2"
+          "actimeo=600"
+          "lookupcache=positive"
+          "nordirplus"
           "rsize=1048576"
           "wsize=1048576"
         ];
@@ -39,13 +46,18 @@
         fsType = "nfs";
         options = [
           "nfsvers=4.2"
-          "nconnect=16"
+          "nconnect=12"
+          "fsc"
           "_netdev"
           "x-systemd.automount"
           "noauto"
           "x-systemd.idle-timeout=600"
-          "x-systemd.mount-timeout=15"
-          "timeo=150"
+          "x-systemd.mount-timeout=30"
+          "timeo=600"
+          "retrans=2"
+          "actimeo=600"
+          "lookupcache=positive"
+          "nordirplus"
           "rsize=1048576"
           "wsize=1048576"
         ];
