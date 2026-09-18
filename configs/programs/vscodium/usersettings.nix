@@ -703,6 +703,11 @@ in {
       "editor.defaultFormatter" = "REditorSupport.r";
     };
 
+    # C
+    "[c]" = {
+      "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
+    };
+
     # cpp
     "clang-format.fallbackStyle" = "Google";
     "[cpp]" = {
