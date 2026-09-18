@@ -20,7 +20,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d /mnt/share 0755 riaru users -"
-    "d /mnt/share/riaru 0755 riaru users -"
+    "d /mnt/smb 0755 riaru users -"
+    "d /mnt/smb/riaru 0755 riaru users -"
   ];
 }
