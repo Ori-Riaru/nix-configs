@@ -238,7 +238,7 @@
         action.spawn = "hyprlock";
         hotkey-overlay.title = "Lock the Screen";
       };
-      "Mod+escape".action.quit = {};
+      "Mod+escape".action.quit = {}; 
 
       # Volume controls
       "XF86AudioRaiseVolume" = {
@@ -260,11 +260,11 @@
 
       # Brightness controls
       "XF86MonBrightnessUp" = {
-        action.spawn = ["${pkgs.brightnessctl}bin/brightnessctl" "set" "5%+"];
+        action.spawn = ["${pkgs.brightnessctl}/bin/brightnessctl" "set" "2.5%+"];
         allow-when-locked = true;
       };
       "XF86MonBrightnessDown" = {
-        action.spawn = ["brightnessctl" "set" "5%-"];
+        action.spawn = ["${pkgs.brightnessctl}/bin/brightnessctl" "set" "2.5%-"];
         allow-when-locked = true;
       };
 
@@ -313,7 +313,7 @@
         action.spawn = [
           "sh"
           "-c"
-          "niri-msg output Dell Inc. Dell S2417DG #ASMB1cSQQmDd toggle && niri-msg output Hewlett Packard HP 23cw 6CM5510JRK toggle"
+          "niri-msg output 'Dell Inc. Dell S2417DG #ASMB1cSQQmDd' toggle && niri-msg output 'Hewlett Packard HP 23cw 6CM5510JRK' toggle"
         ];
       };
 
