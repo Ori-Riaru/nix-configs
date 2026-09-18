@@ -20,5 +20,7 @@
     ../programs/zip.nix
     ../programs/cloc.nix
     ../programs/lnav.nix
+    ../programs/yq.nix
+    ../programs/unrar.nix
   ];
 }
