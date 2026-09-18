@@ -5,11 +5,19 @@
 }: {
   home.packages = with pkgs; [
     nautilus
+    nautilus-python
     # nautilus-hide
-    code-nautilus
     p7zip
     unrar
   ];
+
+  # Let nautilus load the nautilus-python loader (.so)
+  home.sessionVariables.NAUTILUS_4_EXTENSION_DIR =
+    "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
+
+  # VS Code (VSCodium) context menu items
+  home.file.".local/share/nautilus-python/extensions/vscodium.py".source =
+    ./nautilus/vscodium.py;
 
   xdg.desktopEntries."org.gnome.Nautilus" = {
     name = "Files";
