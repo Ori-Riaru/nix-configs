@@ -118,11 +118,9 @@
       center-focused-column = "never";
       default-column-display = "normal";
       preset-column-widths = [
-        {proportion = 0.1666666667;}
         {proportion = 0.3333333334;}
         {proportion = 0.5;}
         {proportion = 0.6666666667;}
-        {proportion = 0.8333333334;}
         {proportion = 1.0;}
       ];
       preset-window-heights = [
@@ -131,7 +129,7 @@
         {proportion = 0.66667;}
       ];
 
-      default-column-width = {proportion = 0.3333333334;}; # TODO: make host specific
+      default-column-width = {proportion = 0.3333333334;};
 
       focus-ring = {
         enable = false;
