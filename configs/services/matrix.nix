@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  keyFile = "/run/livekit.key";
+  keyFile = "/var/lib/livekit/key";
 in {
   # === Continuwuity ===
 
@@ -18,12 +18,14 @@ in {
       allow_encryption = true;
       trusted_servers = ["matrix.org"];
       turn_uris = [
-        "turn:signal.v0id.nl?transport=udp"
-        "turn:signal.v0id.nl?transport=tcp"
-        "turns:signal.v0id.nl?transport=udp"
-        "turns:signal.v0id.nl?transport=tcp"
+        "turn:signal.v0id.nl:3478?transport=udp"
+        "turn:signal.v0id.nl:3478?transport=tcp"
+        "turns:signal.v0id.nl:5349?transport=tcp"
       ];
       turn_secret_file = config.sops.secrets.turn_secret.path;
+      turn_ttl = 10800;
+      dns_cache_entries = 0;
+      cache_capacity_modifier = 2.0;
       matrix_rtc.foci = [
         {
           type = "livekit";
@@ -75,36 +77,6 @@ in {
   services.livekit = {
     enable = true;
     openFirewall = false;
-    # settings = {
-    #   room.auto_create = false;
-    #   rtc = {
-    #     tcp_port = 7881;
-    #     port_range_start = 50100;
-    #     port_range_end = 50200;
-    #     use_external_ip = true;
-    #     enable_loopback_candidate = false;
-    #     turn_servers = [
-    #       {
-    #         host = "signal.v0id.nl";
-    #         port = 3478;
-    #         protocol = "udp";
-    #         secret = "";
-    #       }
-    #       {
-    #         host = "signal.v0id.nl";
-    #         port = 3478;
-    #         protocol = "tcp";
-    #         secret = "";
-    #       }
-    #       {
-    #         host = "signal.v0id.nl";
-    #         port = 5349;
-    #         protocol = "tls";
-    #         secret = "";
-    #       }
-    #     ];
-    #   };
-    # };
     inherit keyFile;
   };
 
@@ -163,6 +135,10 @@ in {
     livekitUrl = "wss://signal.v0id.nl/livekit/sfu/";
     inherit keyFile;
   };
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/livekit 0750 livekit livekit -"
+  ];
 
   systemd.services.livekit-key = {
     before = ["lk-jwt-service.service" "livekit.service"];
