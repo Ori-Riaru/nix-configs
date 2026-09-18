@@ -5,6 +5,7 @@
 }: {
   home.packages = with pkgs; [
     inputs.niri-minimap.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.calendar.packages.${pkgs.stdenv.hostPlatform.system}.default
     python314Packages.python-kasa
     pavucontrol
   ];

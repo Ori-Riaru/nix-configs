@@ -45,6 +45,13 @@
 	)
 )
 
+(defwidget launcher []
+  	(button :onclick "walker" 
+        (label :class "launcher icon" 
+			   :text ""
+		)
+	)
+)
 
 (deflisten windows :initial ""
 	"niri-minimap --output 'Dell Inc. DELL G3223Q C3PM6P3' --output 'eDP-1' --height 40 --aspect-ratio 1.25" 
@@ -56,45 +63,6 @@
 		 :space-evenly false
 		 :width 1
 		(literal :content windows)
-	)
-)
-
-(defwidget launcher []
-  	(button :onclick "walker" 
-        (label :class "launcher icon" 
-			   :text ""
-		)
-	)
-)
-
-
-(defwindow notification_panel []
-  :monitor 0
-  :geometry (geometry :x "3px"
-                      :y "0"
-                      :width "300px"
-                      :height "400px"
-                      :anchor "center right")
-  :stacking "foreground" 
-  :exclusive false
-  (box :orientation "vertical"
-       :class "panel notification-panel"
-    (calendar)
-    (box :orientation "vertical"
-            :valign "start"
-        (box :orientation "horizontal"
-             :halign "start"
-			"Test")
-        (box :orientation "horizontal"
-             :halign "start"
-			"Test")
-        (box :orientation "horizontal"
-			 :halign "start"
-            "Test")
- 		(box :orientation "horizontal"
-			 :halign "start"
-            "Test")
-		)
 	)
 )
 
@@ -149,16 +117,81 @@
 )
 
 
+(defwindow notification_panel []
+  :monitor 0
+  :geometry (geometry :x "3px"
+                      :y "0"
+					  :width "360px"
+                      :height "600px"
+                      :anchor "center right")
+  :stacking "foreground" 
+  :exclusive false
+	(box :orientation "vertical"
+       :class "panel notification-panel"
+	   :space-evenly false
+		"Calendar"
+		(scroll :vscroll true 
+				:vexpand true
+			(literal :content calendar_events)
+		)
+		"Notifications"
+		(scroll :vscroll true 
+				:vexpand true
+			(box :class "notification-item" :orientation "vertical"
+					:valign "start"
+				(box :orientation "vertical"
+					(label :halign "start" :text "Test Hello")	
+					(label :halign "start" :text "sub test Hello")	
+				)
+			)
+		)
+	)
+)
+
+(defpoll calendar_events :interval "1h"
+	`fast_dav_test`
+)
+
 (defwindow control_panel []
 	:monitor 0
 	:geometry (geometry :x "3px"
 						:y "3px"
 						:width "360px"
-					    :height "600px"
 						:anchor "bottom right")
-	(box :class 'panel' :orientation 'vertical'
-		"Test"
-		(scale)
+	(box :class 'panel' :orientation 'vertical' :space-evenly false
+		(box :space-evenly false
+			(image :path "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/avatar.png"
+					:image-width 64
+					:image-height 64
+			)
+			(label :text "Ori Riaru")
+			(box :hexpand true :halign "end"
+				(button :class "power-button" :width 32 :height 32 :onclick "niri msg action quit" "󰍃")
+				(button :class "power-button" :width 32 :height 32 :onclick "systemctl reboot" "")
+				(button :class "power-button" :width 32 :height 32 :onclick "loginctl lock-session" "")
+				(button :class "power-button" :width 32 :height 32 :onclick "sh -c 'loginctl lock-session && sleep 1 && systemctl suspend'" "󰒲")
+				(button :class "power-button" :width 32 :height 32 :onclick "systemctl poweroff" "⏻")
+			)
+		)
+
+		(box 
+			(button :height 64 "Wifi")
+			(button :height 64 "Bluetooth")
+			(button :height 64 "Caffine")
+			(button :height 64 :onclick "kasa --host 192.168.1.70 --username 'ori-riaru@proton.me' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &" "Lights")
+		)
+		(label :text "Brightness")
+		(scale :min 0 :max 100)
+		(label :text "Volume")
+		(scale :min 0 :max 100)
+		(box :orientation "vertical"
+			(image)
+			(box
+				(button "<<")
+				(button "||")
+				(button ">>")
+			)
+		)
 	)
 )
 
@@ -181,7 +214,7 @@
 )
 
 (defwidget lights []
-    (button :onclick "kasa --host 192.168.1.67 --username 'ori-riaru@proton.me' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &"
+    (button :onclick "kasa --host 192.168.1.70 --username 'ori-riaru@proton.me' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &"
         (box :class "icon" (label :class "light icon" :text "󱠂" ))
 	)
 )

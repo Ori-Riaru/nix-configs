@@ -2,6 +2,7 @@
 /* stylelint-disable no-invalid-double-slash-comments */
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable property-no-unknown */
+/* stylelint-disable selector-type-no-unknown */
 
 * {
     min-width: 0;
@@ -17,9 +18,14 @@
 }
 
 .panel {
+    padding: 6px;
     border: 3px solid #222;
     border-radius: 6px;
     background: #181818;
+}
+
+.bar {
+    padding: 0;
 }
 
 .icon {
@@ -59,45 +65,96 @@
         border: 2px solid #e06b72;
         background: #2e1516;
     }
-}
 
-// Windows can be targeted using their a modified app id which allows for styling
-// each application individually. 
+    // Windows can be targeted using their a modified app id which allows for styling
+    // each application individually. 
+    
+    &.vivaldi-stable {
+        border: 2px solid #573033;
+        background: #2e1516;
 
-.window.vivaldi-stable {
-    border: 2px solid #573033;
-    background: #2e1516;
+        &.focused {
+            border: 2px solid #e06b72;
+            background: #331617;
+        }
+    }
 
-    &.focused {
-        border: 2px solid #e06b72;
-        background: #331617;
+    &.com-mitchellh-ghostty {
+        border: 2px solid #395674;
+        background: #1a2b3d;
+
+        &.focused {
+            border: 2px solid #88bddf;
+            background: #395674;
+        }
+    }
+
+    &.org-gnome-Nautilus {
+        border: 2px solid #564b28;
+        background: #302712;
+
+        &.focused {
+            border: 2px solid #f4da9d;
+            background: #564b28;
+        }
     }
 }
 
-.window.com-mitchellh-ghostty {
-    border: 2px solid #395674;
-    background: #1a2b3d;
-
-    &.focused {
-        border: 2px solid #88bddf;
-        background: #395674;
-    }
+.notification-panel {
+    border-color: #b0aafc;
 }
 
-.window.org-gnome-Nautilus {
-    border: 2px solid #564b28;
-    background: #302712;
-
-    &.focused {
-        border: 2px solid #f4da9d;
-        background: #564b28;
-    }
-}
-
-
-/* stylelint-disable-next-line selector-type-no-unknown */
-calendar {
-    margin: 10px;
-    border: none;
+.calendar-item, .notification-item {
+    margin-bottom: 3px;
+    padding: 6px;
     border-radius: 6px;
+    background: #222;
+}
+
+.calendar-item {
+    .calendar-indicator {
+        min-width: 10px;
+        min-height: 10px;
+        border-radius: 50%;
+        background: #b0aafc;
+    }
+
+    &.lectures .calendar-indicator {
+        background: #88bddf;
+    }
+
+    &.labs .calendar-indicator {
+        background: #f3a18d;
+    }
+}
+
+.calendar-divider {
+    padding: 6px;
+    padding-left: 6px;
+}
+
+scale {
+    min-height: 32px;
+    padding: 0 12px;
+
+    trough {
+        min-height: 4px;
+        border-radius: 2px;
+        background: #333;
+    }
+
+    highlight {
+        min-height: 4px;
+        border-radius: 2px;
+        background: #b0aafc;
+    }
+
+    slider {
+        min-width: 16px;
+        min-height: 16px;
+        margin: -8px;
+        border-radius: 50%;
+
+        background: #eee;
+    }
 }
