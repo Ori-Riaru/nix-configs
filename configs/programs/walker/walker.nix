@@ -3,12 +3,24 @@
   inputs,
   settings,
   config,
+  lib,
   ...
 }: {
   imports = [
     inputs.walker.homeManagerModules.walker
     ./theme.nix
-    # ./menus/
+    ./menus/bookmarks.nix
+    ./menus/create.nix
+    ./menus/efi.nix
+    ./menus/folders.nix
+    ./menus/fonts.nix
+    ./menus/power.nix
+    ./menus/projects.nix
+    ./menus/rebuild.nix
+    ./menus/smarthome.nix
+    ./menus/system.nix
+    ./menus/colors.nix
+    ./menus/nix.nix
   ];
 
   home.file.".config/elephant/icons" = {
@@ -17,15 +29,9 @@
   };
 
   home.packages = with pkgs; [
-    wtype # for snippets
-    jq # for chromium bookmark import
-    sqlite # for firefox based bookmark import
-    efibootmgr # for windows reboot menu
-    (pkgs.writeShellScriptBin "boot-windows" ''
-      WINDOWS_ENTRY=$(efibootmgr | grep -i "Windows Boot Manager" | cut -c5-8)
-      sudo efibootmgr --bootnext $WINDOWS_ENTRY
-      sudo reboot
-    '')
+    wtype
+    sqlite
+    bitwarden-cli
   ];
 
   # MANUAL
@@ -33,12 +39,26 @@
   # rbw login
   programs.rbw = {
     enable = true;
-    settings = {
-      email = settings.email;
-      pinentry = pkgs.pinentry-gnome3;
-      lock_timeout = 24 * 60 * 365;
-    };
   };
+  
+  home.activation.rbwConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    config="$HOME/.config/rbw/config.json"
+    pinentry="${pkgs.pinentry-gnome3}/bin/pinentry"
+    mkdir -p "$(dirname "$config")"
+    if [ -L "$config" ] && echo "$(readlink -f "$config")" | grep -q '^/nix/store/'; then
+      rm -f "$config"
+    fi
+    if [ ! -f "$config" ]; then
+      printf '%s\n' \
+        '{' \
+        '  "email": "${settings.email}",' \
+        '  "lock_timeout": 525600,' \
+        '  "pinentry": ""' \
+        '}' > "$config"
+      chmod 600 "$config"
+    fi
+    sed -i "s#\"pinentry\": \".*\"#\"pinentry\": \"$pinentry\"#" "$config"
+  '';
 
   programs.walker = {
     enable = true;
@@ -61,9 +81,14 @@
           "bluetooth"
           "menus:power"
           "menus:bookmarks"
+          "menus:colors"
+          "menus:layoutPrefs"
           "menus:efi"
           "menus:smarthome"
           "menus:folders"
+          "menus:create"
+          "menus:rebuild"
+          "menus:projects"
         ];
         prefixes = [
           {
@@ -102,21 +127,16 @@
             prefix = "@";
             provider = "bitwarden";
           }
+          {
+            prefix = "+";
+            provider = "menus:create";
+          }
+          {
+            prefix = "&";
+            provider = "menus:add";
+          }
         ];
         clipboard.time_format = "relative";
-
-        actions."menus:folders" = [
-          {
-            action = "open";
-            label = "Open";
-            bind = "Return";
-          }
-          {
-            action = "open_terminal";
-            label = "Open Terminal";
-            bind = "shift Return";
-          }
-        ];
       };
 
       keybinds.quick_activate = [];
@@ -134,15 +154,10 @@
       "menus"
       "websearch"
       "clipboard"
-      "windows"
       "unicode"
       "snippets"
       "providerlist"
-      "symbols"
-      "runner"
-      "calc"
       "bluetooth"
-      "desktopapplications"
       "files"
       "nirisessions"
       "niriactions"
@@ -154,483 +169,6 @@
     provider = {
       "desktopapplications".settings = {
         launch_prefix = "systemd-run --user --scope";
-      };
-
-      "menus" = {
-        toml."Bookmarks" = {
-          name = "bookmarks";
-          name_pretty = "Bookmarks";
-          icon = "bookmarks-symbolic";
-          entries = let
-            focus-command = ''
-              sleep 0.1 && \
-              current_id="$(niri msg --json focused-window | jq -r '.id')" && \
-              current_app="$(niri msg --json windows | jq -r --arg id "$current_id" '.[] | select(.id == ($id|tonumber)) | .app_id')" && \
-              [ "$current_app" = "vivaldi-stable" ] || \
-              niri msg action focus-window --id "$(
-                niri msg --json windows \
-                  | jq -r '.[] | select(.app_id == "vivaldi-stable") | .id' \
-                  | head -n 1
-              )"
-            '';
-          in [
-            {
-              text = "Youtube";
-              icon = "youtube";
-              keywords = ["youtube" "yt"];
-              actions = {open = "xdg-open https://www.youtube.com/feed/subscriptions && ${focus-command}";};
-            }
-            {
-              text = "Online Fix";
-              icon = "online fix";
-              keywords = ["online fix"];
-              actions = {open = "xdg-open https://online-fix.me/ && ${focus-command}";};
-            }
-            {
-              text = "Jellyfin";
-              icon = "jellyfin";
-              keywords = ["jellyfin"];
-              actions = {open = "xdg-open https://riaru.undo.it/web && ${focus-command}";};
-            }
-            {
-              text = "Github";
-              icon = "github";
-              keywords = ["gh" "github" "git"];
-              actions = {open = "xdg-open https://github.com && ${focus-command}";};
-            }
-            {
-              text = "Mastodon";
-              icon = "/home/riaru/.config/elephant/icons/mastodon.svg";
-              keywords = ["mastodon" "void" "my void"];
-              actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
-            }
-            {
-              text = "Void";
-              icon = "/home/riaru/.config/elephant/icons/void.png";
-              keywords = ["mastodon" "void" "my void"];
-              actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
-            }
-            {
-              text = "Lemmy";
-              icon = "/home/riaru/.config/elephant/icons/lemmy.svg";
-              keywords = ["lemmy" "phtn"];
-              actions = {open = "xdg-open https://phtn.app/?type=Subscribed && ${focus-command}";};
-            }
-            {
-              text = "Anilist";
-              icon = "/home/riaru/.config/elephant/icons/anilist.svg";
-              keywords = ["anilist" "list" "ani"];
-              actions = {open = "xdg-open https://anilist.co/user/Riaru/animelist && ${focus-command}";};
-            }
-            {
-              text = "Proton";
-              icon = "/home/riaru/.config/elephant/icons/proton.svg";
-              keywords = ["proton" "mail"];
-              actions = {open = "xdg-open https://mail.proton.me/u/1/inbox && ${focus-command}";};
-            }
-            {
-              text = "Claude";
-              icon = "/home/riaru/.config/elephant/icons/claude.svg";
-              keywords = ["claude" "ai"];
-              actions = {open = "xdg-open https://claude.ai/new && ${focus-command}";};
-            }
-            {
-              text = "ChatGPT";
-              icon = "/home/riaru/.config/elephant/icons/chatgpt.svg";
-              keywords = ["chatgpt" "ai"];
-              actions = {open = "xdg-open https://chatgpt.com && ${focus-command}";};
-            }
-            {
-              text = "Gemini";
-              icon = "/home/riaru/.config/elephant/icons/gemini.svg";
-              keywords = ["gemini" "ai"];
-              actions = {open = "xdg-open https://gemini.google.com/app && ${focus-command}";};
-            }
-            {
-              text = "Letterboxd";
-              icon = "/home/riaru/.config/elephant/icons/letterboxd.svg";
-              keywords = ["letterboxd" "movies" "movie"];
-              actions = {open = "xdg-open https://letterboxd.com/riaru/films/by/entry-rating/ && ${focus-command}";};
-            }
-            {
-              text = "Dashboard";
-              icon = "x-office-calendar";
-              keywords = ["dashboard" "school"];
-              actions = {open = "xdg-open $(cat '${config.sops.secrets.dashboard_url.path}') && ${focus-command}";};
-            }
-            {
-              text = "Google Docs";
-              icon = "google-docs";
-              keywords = ["docs"];
-              actions = {open = "xdg-open https://docs.google.com/document/u/0/ && ${focus-command}";};
-            }
-            {
-              text = "Google Slides";
-              icon = "google-slides";
-              actions = {open = "xdg-open https://docs.google.com/presentation/u/0/ && ${focus-command}";};
-            }
-            {
-              text = "Google Drive";
-              icon = "google-drive";
-              keywords = ["cloud" "drive"];
-              actions = {open = "xdg-open https://drive.google.com/drive/u/0/home && ${focus-command}";};
-            }
-            {
-              text = "Word";
-              icon = "ms-word";
-              keywords = ["docs"];
-              actions = {open = "xdg-open https://word.cloud.microsoft/ && ${focus-command}";};
-            }
-            {
-              text = "Miruro";
-              keywords = ["anime"];
-              actions = {open = "xdg-open https://www.miruro.to/ && ${focus-command}";};
-            }
-            {
-              text = "unicode";
-              action = {open = "xdg-open 'https://charcuterie.elastiq.ch/#1F5C5' && ${focus-command}";};
-            }
-            {
-              text = "Penpot";
-              action = {open = "xdg-open 'https://design.penpot.app/#' && ${focus-command}";};
-            }
-            {
-              text = "cs rin ru";
-              action = {open = "xdg-open 'https://cs.rin.ru/forum/' && ${focus-command}";};
-            }
-            {
-              text = "cs rin ru";
-              action = {open = "xdg-open '' && ${focus-command}";};
-            }
-            {
-              text = "Pinterest";
-              icon = "/home/riaru/.config/elephant/icons/pinterest.svg";
-              prefix = "pin;";
-              url = "https://ca.pinterest.com/search/pins/ && ${focus-command}";
-            }
-          ];
-        };
-
-        toml."power" = {
-          name = "power";
-          name_pretty = "Power";
-          icon = "system-shutdown-symbolic";
-          entries = [
-            {
-              text = "Shutdown";
-              keywords = ["shutdown" "power off" "off"];
-              icon = "system-shutdown-symbolic";
-              actions = {shutdown = "systemctl poweroff";};
-            }
-            {
-              text = "Restart";
-              keywords = ["reboot"];
-              icon = "system-reboot-symbolic";
-              actions = {restart = "systemctl reboot";};
-            }
-            {
-              text = "Suspend";
-              keywords = ["suspend" "sleep"];
-              icon = "system-suspend-symbolic";
-              actions = {suspend = "loginctl lock-session; sleep 1; systemctl suspend";};
-            }
-            {
-              text = "Hibernate";
-              keywords = ["sleep"];
-              icon = "drive-harddisk-symbolic";
-              actions = {hibernate = "loginctl lock-session; sleep 1; systemctl Hibernate";};
-            }
-            {
-              text = "Logout";
-              keywords = ["logout"];
-              icon = "system-log-out-symbolic";
-              actions = {logout = "niri msg action quit || loginctl terminate-session \"$XDG_SESSION_ID\"";};
-            }
-            {
-              text = "Lock";
-              keywords = ["lock" "lockscreen"];
-              icon = "system-lock-screen-symbolic";
-              actions = {lock = "loginctl lock-session";};
-            }
-          ];
-        };
-
-        toml."efi" = {
-          name = "efi";
-          name_pretty = "EFI";
-          icon = "󰋊";
-          entries = [
-            {
-              text = "Boot Windows";
-              keywords = ["reboot" "restart" "windows"];
-              icon = "󰖳";
-              actions = {"boot windows" = "boot-windows";};
-            }
-          ];
-        };
-
-        toml."smarthome" = {
-          name = "smarthome";
-          name_pretty = "Smart Home";
-          icon = "";
-          entries = [
-            {
-              text = "Toggle Lights";
-              icon = "";
-              actions = {"Toggle lights" = "${pkgs.python314Packages.python-kasa}/bin/kasa --host 192.168.1.68 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle";};
-            }
-          ];
-        };
-
-        toml."folders" = {
-          name = "folders";
-          name_pretty = "Folders";
-          icon = "";
-          entries = [
-            {
-              text = "Home";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru'";
-              };
-            }
-            {
-              text = "Home Local";
-              icon = "";
-              actions = {
-                "open" = "nautilus ~/";
-                "open_terminal" = "ghostty --working-directory='/home/riaru'";
-              };
-            }
-            {
-              text = "Bulk";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk'";
-              };
-            }
-            {
-              text = "Config";
-              icon = "";
-              actions = {
-                "open" = "nautilus ~/.config";
-                "open_terminal" = "ghostty --working-directory='/home/riaru/.config'";
-              };
-            }
-            {
-              text = "Nix Config";
-              keywords = ["nix-config"];
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Projects/nix-configs";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Projects/nix-configs'";
-              };
-            }
-            {
-              text = "Projects";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Projects";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Projects'";
-              };
-            }
-            {
-              text = "Captures";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Captures";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Captures'";
-              };
-            }
-            {
-              text = "Documents";
-              icon = "󰈙";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Documents";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Documents'";
-              };
-            }
-            {
-              text = "Downloads";
-              icon = "󰉍";
-              actions = {
-                "open" = "nautilus ~/Downloads";
-                "open_terminal" = "ghostty --working-directory='/home/riaru/Downloads'";
-              };
-            }
-            {
-              text = "Games Local";
-              icon = "";
-              actions = {
-                "open" = "nautilus ~/Games";
-                "open_terminal" = "ghostty --working-directory='/home/riaru/Games'";
-              };
-            }
-            {
-              text = "Games Nas";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk/Games";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Games'";
-              };
-            }
-            {
-              text = "Installs Local";
-              icon = "󱊞";
-              actions = {
-                "open" = "nautilus ~/Games/Installs";
-                "open_terminal" = "ghostty --working-directory='/home/riaru/Games/Installs'";
-              };
-            }
-            {
-              text = "Prefix Local";
-              icon = "";
-              actions = {
-                "open" = "nautilus ~/Games/Prefixes";
-                "open_terminal" = "ghostty --working-directory='/home/riaru/Games/Prefixes'";
-              };
-            }
-            {
-              text = "Installs NAS";
-              icon = "󱊞";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk/Games/Installs";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Games/Installs'";
-              };
-            }
-            {
-              text = "Prefix NAS";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Games/Prefixes";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Games/Prefixes'";
-              };
-            }
-            {
-              text = "Archive";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Projects/z-archive";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Projects/z-archive'";
-              };
-            }
-            {
-              text = "Backups";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk/Backups";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Backups'";
-              };
-            }
-            {
-              text = "Movies";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk/Movies";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Movies'";
-              };
-            }
-            {
-              text = "Books";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk/Books";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Books'";
-              };
-            }
-            {
-              text = "Shows";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/bulk/Shows";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Shows'";
-              };
-            }
-            {
-              text = "Music";
-              icon = "";
-              actions = {
-                "open" = "nautilus /mnt/nfs/riaru/Music";
-                "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Music'";
-              };
-            }
-          ];
-        };
-
-        lua.fonts = ''
-          Name = "fonts"
-          NamePretty = "Fonts"
-          Icon = "font-select"
-          HideFromProviderlist = false
-          Cache = false
-          function GetEntries()
-              local entries = {}
-              local seen_fonts = {}
-              local preview_text =
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum."
-              local handle = io.popen("fc-list : family | head -100")
-              if handle then
-                  for line in handle:lines() do
-                      local font_name = line:match("^([^,]+)")
-                      if font_name then
-                          font_name = font_name:gsub("^%s*(.-)%s*$", "%1")
-                          if not seen_fonts[font_name] then
-                              seen_fonts[font_name] = true
-                              local escaped_font = font_name:gsub("&", "&amp;"):gsub("<", "&lt;"):gsub(">", "&gt;")
-                              local preview_markup = "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 22' weight='bold'>"
-                                  .. font_name
-                                  .. "</span>\n\n"
-                                  .. "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 15' weight='bold'>Standard Weight Text</span>\n"
-                                  .. "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 12'>"
-                                  .. preview_text
-                                  .. "</span>\n\n"
-                                  .. "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 15' weight='bold'>Bold Text</span>\n"
-                                  .. "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 12' weight='bold'>"
-                                  .. preview_text
-                                  .. "</span>\n\n"
-                                  .. "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 15' weight='bold'>Italic Text</span>\n"
-                                  .. "<span font_desc='"
-                                  .. escaped_font
-                                  .. " 12' style='italic'>"
-                                  .. preview_text
-                                  .. "</span>"
-                              table.insert(entries, {
-                                  Text = font_name,
-                                  Value = font_name,
-                                  Preview = preview_markup,
-                                  PreviewType = "pango",
-                                  Actions = {
-                                      copy = "echo '" .. font_name .. "' | wl-copy && notify-send 'Copied' '" .. font_name .. "'",
-                                  },
-                              })
-                          end
-                      end
-                  end
-                  handle:close()
-              end
-              if #entries == 0 then
-                  table.insert(entries, {
-                      Text = "No fonts found",
-                      Value = "",
-                  })
-              end
-              return entries
-          end
-        '';
       };
 
       "bitwarden".settings = {
@@ -677,16 +215,8 @@
         command = "wl-copy; wtype -M ctrl v -m ctrl";
       };
 
-      "snippets".settings = let
-        hexToRgb = hex: let
-          clean = builtins.substring 1 (builtins.stringLength hex - 1) hex;
-          r = fromTOML "x=0x${builtins.substring 0 2 clean}";
-          g = fromTOML "x=0x${builtins.substring 2 2 clean}";
-          b = fromTOML "x=0x${builtins.substring 4 2 clean}";
-        in "${toString r.x},${toString g.x},${toString b.x}";
-      in {
+      "snippets".settings = {
         command = "wl-copy %CONTENT%; wtype -M ctrl v -m ctrl";
-        icon = "preferences-color-symbolic";
         snippets = [
           # login
           {
@@ -699,621 +229,13 @@
             name = "ori.riaru@gmail.com";
             content = "ori.riaru@gmail.com";
           }
-          # Hex Colors
-          {
-            keywords = ["accent"];
-            name = "Accent Hex";
-            content = config.theme.accent;
-          }
-          {
-            keywords = ["secondary"];
-            name = "Secondary Hex";
-            content = config.theme.secondary;
-          }
-          {
-            keywords = ["text"];
-            name = "Text Hex";
-            content = config.theme.text;
-          }
-          {
-            keywords = ["subtext"];
-            name = "Subtext Hex";
-            content = config.theme.subtext;
-          }
-          {
-            keywords = ["hidden"];
-            name = "Hidden Text Hex";
-            content = config.theme.hidden;
-          }
-          {
-            keywords = ["base"];
-            name = "Base Hex";
-            content = config.theme.base;
-          }
-          {
-            keywords = ["section"];
-            name = "Section Hex";
-            content = config.theme.section;
-          }
-          {
-            keywords = ["card"];
-            name = "Card Hex";
-            content = config.theme.card;
-          }
-          {
-            keywords = ["overlay"];
-            name = "Overlay Hex";
-            content = config.theme.overlay;
-          }
-          {
-            keywords = ["red"];
-            name = "Red Hex";
-            content = config.theme.red;
-          }
-          {
-            keywords = ["orange"];
-            name = "Orange Hex";
-            content = config.theme.orange;
-          }
-          {
-            keywords = ["tertiary" "yellow"];
-            name = "Yellow Hex";
-            content = config.theme.yellow;
-          }
-          {
-            keywords = ["green"];
-            name = "Green Hex";
-            content = config.theme.green;
-          }
-          {
-            keywords = ["teal"];
-            name = "Teal Hex";
-            content = config.theme.teal;
-          }
-          {
-            keywords = ["cyan"];
-            name = "Cyan Hex";
-            content = config.theme.cyan;
-          }
-          {
-            keywords = ["secondary" "blue"];
-            name = "Blue Hex";
-            content = config.theme.blue;
-          }
-          {
-            keywords = ["accent" "purple"];
-            name = "Purple Hex";
-            content = config.theme.purple;
-          }
-          {
-            keywords = ["pink"];
-            name = "Pink Hex";
-            content = config.theme.pink;
-          }
-          {
-            keywords = ["brown"];
-            name = "Brown Hex";
-            content = config.theme.brown;
-          }
-          {
-            keywords = ["muted"];
-            name = "Muted Hex";
-            content = config.theme.muted;
-          }
-          {
-            keywords = ["float"];
-            name = "Float Hex";
-            content = config.theme.float;
-          }
-
-          # Bright/Dim/Dark Hex Variants
-
-          {
-            keywords = ["accent" "bright"];
-            name = "Accent Bright Hex";
-            content = config.theme.accent-bright;
-          }
-          {
-            keywords = ["accent" "dim"];
-            name = "Accent Dim Hex";
-            content = config.theme.accent-dim;
-          }
-          {
-            keywords = ["accent" "dark"];
-            name = "Accent Dark Hex";
-            content = config.theme.accent-dark;
-          }
-          {
-            keywords = ["secondary" "bright"];
-            name = "Secondary Bright Hex";
-            content = config.theme.secondary-bright;
-          }
-          {
-            keywords = ["secondary" "dim"];
-            name = "Secondary Dim Hex";
-            content = config.theme.secondary-dim;
-          }
-          {
-            keywords = ["secondary" "dark"];
-            name = "Secondary Dark Hex";
-            content = config.theme.secondary-dark;
-          }
-          {
-            keywords = ["red" "bright"];
-            name = "Red Bright Hex";
-            content = config.theme.red-bright;
-          }
-          {
-            keywords = ["red" "dim"];
-            name = "Red Dim Hex";
-            content = config.theme.red-dim;
-          }
-          {
-            keywords = ["red" "dark"];
-            name = "Red Dark Hex";
-            content = config.theme.red-dark;
-          }
-          {
-            keywords = ["orange" "bright"];
-            name = "Orange Bright Hex";
-            content = config.theme.orange-bright;
-          }
-          {
-            keywords = ["orange" "dim"];
-            name = "Orange Dim Hex";
-            content = config.theme.orange-dim;
-          }
-          {
-            keywords = ["orange" "dark"];
-            name = "Orange Dark Hex";
-            content = config.theme.orange-dark;
-          }
-          {
-            keywords = ["yellow" "bright"];
-            name = "Yellow Bright Hex";
-            content = config.theme.yellow-bright;
-          }
-          {
-            keywords = ["yellow" "dim"];
-            name = "Yellow Dim Hex";
-            content = config.theme.yellow-dim;
-          }
-          {
-            keywords = ["yellow" "dark"];
-            name = "Yellow Dark Hex";
-            content = config.theme.yellow-dark;
-          }
-          {
-            keywords = ["green" "bright"];
-            name = "Green Bright Hex";
-            content = config.theme.green-bright;
-          }
-          {
-            keywords = ["green" "dim"];
-            name = "Green Dim Hex";
-            content = config.theme.green-dim;
-          }
-          {
-            keywords = ["green" "dark"];
-            name = "Green Dark Hex";
-            content = config.theme.green-dark;
-          }
-          {
-            keywords = ["teal" "bright"];
-            name = "Teal Bright Hex";
-            content = config.theme.teal-bright;
-          }
-          {
-            keywords = ["teal" "dim"];
-            name = "Teal Dim Hex";
-            content = config.theme.teal-dim;
-          }
-          {
-            keywords = ["teal" "dark"];
-            name = "Teal Dark Hex";
-            content = config.theme.teal-dark;
-          }
-          {
-            keywords = ["cyan" "bright"];
-            name = "Cyan Bright Hex";
-            content = config.theme.cyan-bright;
-          }
-          {
-            keywords = ["cyan" "dim"];
-            name = "Cyan Dim Hex";
-            content = config.theme.cyan-dim;
-          }
-          {
-            keywords = ["cyan" "dark"];
-            name = "Cyan Dark Hex";
-            content = config.theme.cyan-dark;
-          }
-          {
-            keywords = ["blue" "bright"];
-            name = "Blue Bright Hex";
-            content = config.theme.blue-bright;
-          }
-          {
-            keywords = ["blue" "dim"];
-            name = "Blue Dim Hex";
-            content = config.theme.blue-dim;
-          }
-          {
-            keywords = ["blue" "dark"];
-            name = "Blue Dark Hex";
-            content = config.theme.blue-dark;
-          }
-          {
-            keywords = ["purple" "bright"];
-            name = "Purple Bright Hex";
-            content = config.theme.purple-bright;
-          }
-          {
-            keywords = ["purple" "dim"];
-            name = "Purple Dim Hex";
-            content = config.theme.purple-dim;
-          }
-          {
-            keywords = ["purple" "dark"];
-            name = "Purple Dark Hex";
-            content = config.theme.purple-dark;
-          }
-          {
-            keywords = ["pink" "bright"];
-            name = "Pink Bright Hex";
-            content = config.theme.pink-bright;
-          }
-          {
-            keywords = ["pink" "dim"];
-            name = "Pink Dim Hex";
-            content = config.theme.pink-dim;
-          }
-          {
-            keywords = ["pink" "dark"];
-            name = "Pink Dark Hex";
-            content = config.theme.pink-dark;
-          }
-          {
-            keywords = ["brown" "bright"];
-            name = "Brown Bright Hex";
-            content = config.theme.brown-bright;
-          }
-          {
-            keywords = ["brown" "dim"];
-            name = "Brown Dim Hex";
-            content = config.theme.brown-dim;
-          }
-          {
-            keywords = ["brown" "dark"];
-            name = "Brown Dark Hex";
-            content = config.theme.brown-dark;
-          }
-
-          # RGB Colors
-
-          {
-            keywords = ["accent" "hex"];
-            name = "Accent RGB";
-            content = hexToRgb config.theme.accent;
-          }
-          {
-            keywords = ["secondary"];
-            name = "Secondary RGB";
-            content = hexToRgb config.theme.secondary;
-          }
-          {
-            keywords = ["text"];
-            name = "Text RGB";
-            content = hexToRgb config.theme.text;
-          }
-          {
-            keywords = ["subtext"];
-            name = "Subtext RGB";
-            content = hexToRgb config.theme.subtext;
-          }
-          {
-            keywords = ["hidden"];
-            name = "Hidden Text RGB";
-            content = hexToRgb config.theme.hidden;
-          }
-          {
-            keywords = ["base"];
-            name = "Base RGB";
-            content = hexToRgb config.theme.base;
-          }
-          {
-            keywords = ["section"];
-            name = "Section RGB";
-            content = hexToRgb config.theme.section;
-          }
-          {
-            keywords = ["card"];
-            name = "Card RGB";
-            content = hexToRgb config.theme.card;
-          }
-          {
-            keywords = ["overlay"];
-            name = "Overlay RGB";
-            content = hexToRgb config.theme.overlay;
-          }
-          {
-            keywords = ["red"];
-            name = "Red RGB";
-            content = hexToRgb config.theme.red;
-          }
-          {
-            keywords = ["orange"];
-            name = "Orange RGB";
-            content = hexToRgb config.theme.orange;
-          }
-          {
-            keywords = ["tertiary" "yellow"];
-            name = "Yellow RGB";
-            content = hexToRgb config.theme.yellow;
-          }
-          {
-            keywords = ["green"];
-            name = "Green RGB";
-            content = hexToRgb config.theme.green;
-          }
-          {
-            keywords = ["teal"];
-            name = "Teal RGB";
-            content = hexToRgb config.theme.teal;
-          }
-          {
-            keywords = ["cyan"];
-            name = "Cyan RGB";
-            content = hexToRgb config.theme.cyan;
-          }
-          {
-            keywords = ["secondary" "blue"];
-            name = "Blue RGB";
-            content = hexToRgb config.theme.blue;
-          }
-          {
-            keywords = ["accent" "purple"];
-            name = "Purple RGB";
-            content = hexToRgb config.theme.purple;
-          }
-          {
-            keywords = ["pink"];
-            name = "Pink RGB";
-            content = hexToRgb config.theme.pink;
-          }
-          {
-            keywords = ["brown"];
-            name = "Brown RGB";
-            content = hexToRgb config.theme.brown;
-          }
-          {
-            keywords = ["muted"];
-            name = "Muted RGB";
-            content = hexToRgb config.theme.muted;
-          }
-          {
-            keywords = ["float"];
-            name = "Float RGB";
-            content = hexToRgb config.theme.float;
-          }
-
-          # Bright/Dim/Dark RGB Variants
-
-          {
-            keywords = ["accent" "bright"];
-            name = "Accent Bright RGB";
-            content = hexToRgb config.theme.accent-bright;
-          }
-          {
-            keywords = ["accent" "dim"];
-            name = "Accent Dim RGB";
-            content = hexToRgb config.theme.accent-dim;
-          }
-          {
-            keywords = ["accent" "dark"];
-            name = "Accent Dark RGB";
-            content = hexToRgb config.theme.accent-dark;
-          }
-          {
-            keywords = ["secondary" "bright"];
-            name = "Secondary Bright RGB";
-            content = hexToRgb config.theme.secondary-bright;
-          }
-          {
-            keywords = ["secondary" "dim"];
-            name = "Secondary Dim RGB";
-            content = hexToRgb config.theme.secondary-dim;
-          }
-          {
-            keywords = ["secondary" "dark"];
-            name = "Secondary Dark RGB";
-            content = hexToRgb config.theme.secondary-dark;
-          }
-          {
-            keywords = ["red" "bright"];
-            name = "Red Bright RGB";
-            content = hexToRgb config.theme.red-bright;
-          }
-          {
-            keywords = ["red" "dim"];
-            name = "Red Dim RGB";
-            content = hexToRgb config.theme.red-dim;
-          }
-          {
-            keywords = ["red" "dark"];
-            name = "Red Dark RGB";
-            content = hexToRgb config.theme.red-dark;
-          }
-          {
-            keywords = ["orange" "bright"];
-            name = "Orange Bright RGB";
-            content = hexToRgb config.theme.orange-bright;
-          }
-          {
-            keywords = ["orange" "dim"];
-            name = "Orange Dim RGB";
-            content = hexToRgb config.theme.orange-dim;
-          }
-          {
-            keywords = ["orange" "dark"];
-            name = "Orange Dark RGB";
-            content = hexToRgb config.theme.orange-dark;
-          }
-          {
-            keywords = ["yellow" "bright"];
-            name = "Yellow Bright RGB";
-            content = hexToRgb config.theme.yellow-bright;
-          }
-          {
-            keywords = ["yellow" "dim"];
-            name = "Yellow Dim RGB";
-            content = hexToRgb config.theme.yellow-dim;
-          }
-          {
-            keywords = ["yellow" "dark"];
-            name = "Yellow Dark RGB";
-            content = hexToRgb config.theme.yellow-dark;
-          }
-          {
-            keywords = ["green" "bright"];
-            name = "Green Bright RGB";
-            content = hexToRgb config.theme.green-bright;
-          }
-          {
-            keywords = ["green" "dim"];
-            name = "Green Dim RGB";
-            content = hexToRgb config.theme.green-dim;
-          }
-          {
-            keywords = ["green" "dark"];
-            name = "Green Dark RGB";
-            content = hexToRgb config.theme.green-dark;
-          }
-          {
-            keywords = ["teal" "bright"];
-            name = "Teal Bright RGB";
-            content = hexToRgb config.theme.teal-bright;
-          }
-          {
-            keywords = ["teal" "dim"];
-            name = "Teal Dim RGB";
-            content = hexToRgb config.theme.teal-dim;
-          }
-          {
-            keywords = ["teal" "dark"];
-            name = "Teal Dark RGB";
-            content = hexToRgb config.theme.teal-dark;
-          }
-          {
-            keywords = ["cyan" "bright"];
-            name = "Cyan Bright RGB";
-            content = hexToRgb config.theme.cyan-bright;
-          }
-          {
-            keywords = ["cyan" "dim"];
-            name = "Cyan Dim RGB";
-            content = hexToRgb config.theme.cyan-dim;
-          }
-          {
-            keywords = ["cyan" "dark"];
-            name = "Cyan Dark RGB";
-            content = hexToRgb config.theme.cyan-dark;
-          }
-          {
-            keywords = ["blue" "bright"];
-            name = "Blue Bright RGB";
-            content = hexToRgb config.theme.blue-bright;
-          }
-          {
-            keywords = ["blue" "dim"];
-            name = "Blue Dim RGB";
-            content = hexToRgb config.theme.blue-dim;
-          }
-          {
-            keywords = ["blue" "dark"];
-            name = "Blue Dark RGB";
-            content = hexToRgb config.theme.blue-dark;
-          }
-          {
-            keywords = ["purple" "bright"];
-            name = "Purple Bright RGB";
-            content = hexToRgb config.theme.purple-bright;
-          }
-          {
-            keywords = ["purple" "dim"];
-            name = "Purple Dim RGB";
-            content = hexToRgb config.theme.purple-dim;
-          }
-          {
-            keywords = ["purple" "dark"];
-            name = "Purple Dark RGB";
-            content = hexToRgb config.theme.purple-dark;
-          }
-          {
-            keywords = ["pink" "bright"];
-            name = "Pink Bright RGB";
-            content = hexToRgb config.theme.pink-bright;
-          }
-          {
-            keywords = ["pink" "dim"];
-            name = "Pink Dim RGB";
-            content = hexToRgb config.theme.pink-dim;
-          }
-          {
-            keywords = ["pink" "dark"];
-            name = "Pink Dark RGB";
-            content = hexToRgb config.theme.pink-dark;
-          }
-          {
-            keywords = ["brown" "bright"];
-            name = "Brown Bright RGB";
-            content = hexToRgb config.theme.brown-bright;
-          }
-          {
-            keywords = ["brown" "dim"];
-            name = "Brown Dim RGB";
-            content = hexToRgb config.theme.brown-dim;
-          }
-          {
-            keywords = ["brown" "dark"];
-            name = "Brown Dark RGB";
-            content = hexToRgb config.theme.brown-dark;
-          }
-
-          # Misc
-
-          {
-            keywords = ["font" config.theme.font];
-            name = "Font";
-            content = "${config.theme.font}";
-          }
-          {
-            keywords = [
-              "monospace"
-              "fontMonospace"
-              "font"
-              config.theme.fontMonospace
-            ];
-            name = "Monospace Font";
-            content = "${config.theme.fontMonospace}";
-          }
-          {
-            keywords = ["gap"];
-            name = "Gap Size";
-            content = "4px";
-          }
-          {
-            keywords = ["radius"];
-            name = "Border Radius";
-            content = "6px";
-          }
           {
             keywords = ["equal" "divider"];
             name = "Equal Divider";
             content = "========================================";
           }
           {
-            keywords = ["dash" "divider"];
+            keywords = ["divider"];
             name = "Dash Divider";
             content = "\\----------------------------------------";
           }
@@ -1328,7 +250,7 @@
         text_prefix = "";
         engine_finder_prefix = "e;";
         engine_finder_default_single = false;
-        browser_profile_path = "/home/riaru/.mozilla/firefox/riaru";
+        browser_profile_path = "${config.xdg.configHome}/mozilla/firefox/${settings.username}";
 
         entries = [
           {
@@ -1365,13 +287,13 @@
             suggestions_path = "1";
           }
           {
-            name = "Nixpkgs";
+            name = "Nixpkgs Issues";
             icon = "nix-snowflake";
             prefix = "ngh;";
             url = "https://github.com/NixOS/nixpkgs/issues?q=is%3Aissue%20state%3Aopen%20%TERM%";
           }
           {
-            name = "Nixpkgs";
+            name = "Nixpkgs Search";
             icon = "nix-snowflake";
             prefix = "ngl;";
             url = "https://noogle.dev/q/?term=%TERM%";
@@ -1381,7 +303,7 @@
             icon = "youtube";
             prefix = "yt;";
             url = "https://www.youtube.com/results?search_query=%TERM%";
-            suggestions_url = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=%TERM%";
+            suggestions_url = "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=%TERM%";
             suggestions_path = "1";
           }
           {
@@ -1457,12 +379,6 @@
           {
             name = "Github Repo";
             icon = "github";
-            prefix = "gh;";
-            url = "https://github.com/search?type=repositories&q=%TERM%";
-          }
-          {
-            name = "Github Repo";
-            icon = "github";
             prefix = "repo;";
             url = "https://github.com/search?type=repositories&q=%TERM%";
           }
@@ -1470,7 +386,7 @@
             name = "Github Code";
             icon = "github";
             prefix = "code;";
-            url = "https://github.com/search?type=repositories&q=%TERM%";
+            url = "https://github.com/search?type=code&q=%TERM%";
           }
           {
             name = "Newegg";
@@ -1589,7 +505,6 @@
   };
 
   nix = {
-    package = pkgs.nix;
     settings = {
       extra-substituters = [
         "https://walker.cachix.org"
