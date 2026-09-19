@@ -76,15 +76,6 @@
     functions = {
       fish_greeting = "";
 
-      auto_newline = {
-        body = ''
-          if test "$argv[1]" != "clear" -a "$argv[1]" != "c" -a "$argv[1]" != "cl"
-            echo
-          end
-        '';
-        onEvent = "fish_postexec";
-      };
-
       init = {
         body = ''
           if test (count $argv) -gt 1
