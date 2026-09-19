@@ -4,7 +4,7 @@
   inputs = {
     # === Repositories ===
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-master.url = "github:nixos/nixpkgs/3ca0a2f28eb1ccbb559647d715b98105ad52e96c";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-26.05";
 
     nur = {
@@ -36,7 +36,7 @@
     };
 
     elephant = {
-      url = "github:abenz1267/elephant";
+      url = "github:abenz1267/elephant/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -53,6 +53,11 @@
 
     niri-minimap = {
       url = "github:Ori-Riaru/niri-minimap";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    calendar = {
+      url = "git+file:///mnt/nfs/riaru/Projects/fast_dav_test";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -84,8 +89,10 @@
       inputs.nur.follows = "nur";
     };
 
+    # Pinned to c2fc2f/buildGo126Module until Mic92/sops-nix#984 (buildGoModule fix) merges.
+    # TODO: revert to "github:Mic92/sops-nix" after the PR is merged upstream.
     sops-nix = {
-      url = "github:Mic92/sops-nix";
+      url = "github:c2fc2f/sops-nix/buildGo126Module";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -121,6 +128,7 @@
       secrets-dir = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/secrets";
       serverLocalIP = "192.168.1.101";
       serverTailscaleIP = "100.103.185.35";
+      kasaIP = "192.168.1.70";
       nasPath = "/mnt/nfs/riaru";
     };
 
@@ -156,6 +164,10 @@
       secondary = blue;
       secondary-dim = blue-dim;
       secondary-dark = blue-dark;
+      tertiary-bright = red-bright;
+      tertiary = red;
+      tertiary-dim = red-dim;
+      tertiary-dark = red-dark;
 
       white = "#FFFFFF";
       text = "#DDDDDD";
@@ -206,7 +218,7 @@
 
       purple-dark = "#392d60";
       purple-dim = "#555194";
-      purple = "#b0aafc";
+      purple = "#B6A3FF";
       purple-bright = "#d0cbff";
 
       pink-dark = "#3b1d2d";
@@ -234,7 +246,11 @@
   in {
     packages =
       forAllSystems
-      (system: import ./packages nixpkgs.legacyPackages.${system});
+      (system:
+        import ./packages {
+          pkgs = nixpkgs.legacyPackages.${system};
+          inherit inputs;
+        });
 
     overlays = import ./overlays {inherit inputs outputs;};
 
@@ -266,16 +282,23 @@
 
     templates = {
       web.path = ./starters/web;
+      typescript.path = ./starters/typescript;
+      javascript.path = ./starters/web;
+      c.path = ./starters/c;
       cpp.path = ./starters/cpp;
+      zig.path = ./starters/zig;
+      go.path = ./starters/go;
       opengl.path = ./starters/opengl;
       r.path = ./starters/r;
       r-notebook.path = ./starters/r-notebook;
       rust.path = ./starters/rust;
       java.path = ./starters/java;
       python.path = ./starters/python;
+      python-venv.path = ./starters/python-venv;
       python-notebook.path = ./starters/python-notebook;
-      typescript.path = ./starters/typescript;
       kernel-module.path = ./starters/kernel-module;
+      bash.path = ./starters/bash;
+      godot.path = ./starters/godot;
     };
 
     # Shortcuts for nix repl
