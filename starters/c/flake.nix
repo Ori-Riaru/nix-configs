@@ -18,6 +18,7 @@
     in {
       devShells.default = pkgs.mkShell {
         packages = with pkgs; [
+          cmake
           gcc
           gnumake
           clang-tools
