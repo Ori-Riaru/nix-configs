@@ -11,16 +11,10 @@
     ./hardware-configuration.nix
     ../../configs/system/nvidia.nix
     ../../configs/system/systemd-boot.nix
-    ../../configs/system/silent-boot.nix
     ../../configs/system/audio.nix
     ../../configs/system/bluetooth.nix
     ../../configs/system/printing.nix
-    ../../configs/system/virtulization.nix
-
-    # Nix
-    ../../configs/programs/sops.nix # Make global
-    ../../configs/programs/sudo.nix # Make global
-    ../../configs/services/tailscale.nix # Make global
+    ../../configs/system/virtualization.nix
 
     # User
     ../../users/riaru
@@ -38,6 +32,8 @@
     ../../configs/programs/kdeconnect/kdeconnect-system.nix
     ../../configs/programs/openrgb/openrgb-system.nix
     ../../configs/programs/sleepy-launcher.nix
+    ../../configs/programs/appimage.nix
+    ../../configs/programs/nautilus-system.nix
 
     # Misc
     ../../configs/programs/fish/fish-system.nix

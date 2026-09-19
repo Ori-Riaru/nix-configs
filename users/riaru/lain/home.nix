@@ -15,6 +15,7 @@
     ../../../configs/programs/mouse.nix
     ../../../configs/programs/nvtop.nix
     ../../../configs/programs/screen-savers.nix
+    ../../../configs/system/networking-home.nix
 
     # Utilities
     ../../../configs/programs/libre-office.nix
@@ -64,7 +65,7 @@
     ../../../configs/programs/spotify/spotify.nix
 
     # Gaming
-    ../../../configs/programs/heroic.nix
+    ../../../configs/programs/heroic/heroic.nix
     ../../../configs/programs/prism-launcher.nix
     ../../../configs/programs/mangohud.nix
     ../../../configs/programs/shadps4.nix

@@ -4,9 +4,6 @@
 
     # Hardware
     ./hardware-configuration.nix
-    ../../configs/programs/sops.nix # Make global
-    ../../configs/programs/sudo.nix # Make global
-    ../../configs/services/tailscale.nix # Make global
 
     # Private Services
     ../../configs/services/nfs.nix
@@ -14,6 +11,7 @@
     ../../configs/services/blocky.nix
     ../../configs/services/inadyn.nix
     ../../configs/services/glance.nix
+    ../../configs/services/derp.nix
 
     # Public Services
     ../../configs/services/hydroxide.nix

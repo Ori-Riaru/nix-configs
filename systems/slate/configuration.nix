@@ -7,14 +7,9 @@
     ../../configs/system/systemd-boot.nix
     ../../configs/system/printing.nix
     ../../configs/system/bluetooth.nix
-    ../../configs/system/virtulization.nix
+    ../../configs/system/virtualization.nix
     ../../configs/system/audio.nix
-
-    # Nix
-    ../../configs/programs/sops.nix # Make global
-    ../../configs/programs/sudo.nix # Make global
-    ../../configs/system/silent-boot.nix # Make global
-    ../../configs/services/tailscale.nix # Make global
+    ../../configs/system/power-profiles.nix
 
     # Users
     ../../users/riaru
@@ -33,7 +28,15 @@
   ];
 
   networking.hostName = "slate";
-  home-manager.users.riaru = import ../../users/riaru/lain/home.nix;
+  home-manager.users.riaru = import ../../users/riaru/slate/home.nix;
+
+  networking.hosts.${settings.serverTailscaleIP} = [
+    "riaru.home.kg"
+    "riaru.undo.it"
+    "my.v0id.nl"
+    "signal.v0id.nl"
+    "livekit.v0id.nl"
+  ];
 
   services.nfs-client.serverIP = settings.serverTailscaleIP;
 

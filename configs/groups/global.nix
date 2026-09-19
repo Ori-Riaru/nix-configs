@@ -9,6 +9,10 @@
     ../system/fonts-system.nix
     ../system/xdg.nix
     ../system/home-manager.nix
+    ../system/silent-boot.nix
+    ../programs/sops.nix
+    ../programs/sudo.nix
+    ../services/tailscale.nix
     ../../modules/theme-settings.nix
     # ../system/uutils.nix # Broken because of https://github.com/uutils/coreutils/pull/11346
   ];
