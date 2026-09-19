@@ -1,7 +1,11 @@
-pkgs: {
+{
+  pkgs,
+  inputs,
+}: {
   simple-kickoff = pkgs.callPackage ./simple-kickoff.nix {};
   sddm-theme-corners = pkgs.callPackage ./sddm-theme-corners.nix {};
   kde-geometry-change = pkgs.callPackage ./kde-geometry-change.nix {};
   clipse-gui = pkgs.callPackage ./clipse-gui.nix {};
   niri-taskbar = pkgs.callPackage ./niri-taskbar.nix {};
+  eigen-blender = pkgs.callPackage ./eigen-blender.nix {};
 }
