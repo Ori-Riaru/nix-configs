@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   settings,
   config,
   ...
@@ -681,6 +682,7 @@ in {
     "[python]" = {
       "editor.defaultFormatter" = "charliermarsh.ruff";
     };
+    "mypy.mypyPath" = "${pkgs.python3Packages.mypy}/bin/mypy";
 
     # Stylelint
     "stylelint.enable" = true;
