@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    (opencode.overrideAttrs (oldAttrs: {
+    (master.opencode.overrideAttrs (oldAttrs: {
       patches =
         (oldAttrs.patches or [])
         ++ [
