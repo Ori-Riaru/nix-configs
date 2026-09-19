@@ -57,10 +57,6 @@ in {
   home.packages = with pkgs; [
     wl-clipboard
     go
-    gopls
-    rust-analyzer
-    python3Packages.python-lsp-server
-    typescript-language-server
   ];
 
   programs.micro = {
@@ -138,7 +134,7 @@ in {
 
       # === LSP plugin (mirrors the VSCodium language servers) ===
 
-      "lsp.server" = "rust=rust-analyzer,nix=nixd,go=gopls,python=pylsp,c=clangd,cpp=clangd,typescript=typescript-language-server --stdio,javascript=typescript-language-server --stdio";
+      "lsp.server" = "rust=${pkgs.rust-analyzer}/bin/rust-analyzer,nix=${pkgs.nixd}/bin/nixd,go=${pkgs.gopls}/bin/gopls,python=${pkgs.python3Packages.python-lsp-server}/bin/pylsp,c=${pkgs.clang-tools}/bin/clangd,cpp=${pkgs.clang-tools}/bin/clangd,typescript=${pkgs.typescript-language-server}/bin/typescript-language-server --stdio,javascript=${pkgs.typescript-language-server}/bin/typescript-language-server --stdio";
       "lsp.formatOnSave" = true;
       "lsp.tabcompletion" = true;
     };
