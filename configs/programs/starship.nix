@@ -32,6 +32,8 @@
 
       add_newline = false;
 
+      scan_timeout = 50;
+
       character = {
         disabled = false;
         format = "$symbol";
@@ -127,25 +129,25 @@
       kotlin = {
         symbol = "";
         style = "bg:blue";
-        format = "[](fg:purple)[[ $symbol](fg:foreground bg:purple)]($style)[](fg:purple) ";
+        format = "[](fg:purple)[[$symbol](fg:foreground bg:purple)]($style)[](fg:purple) ";
       };
 
       haskell = {
         symbol = "";
         style = "bg:purple";
-        format = "[](fg:purple)[[ $symbol](fg:foreground bg:purple)]($style)[](fg:purple) ";
+        format = "[](fg:purple)[[$symbol](fg:foreground bg:purple)]($style)[](fg:purple) ";
       };
 
       python = {
         symbol = "";
         style = "bg:yellow";
-        format = "[](fg:yellow)[[ $symbol](fg:foreground bg:yellow)]($style)[](fg:yellow) ";
+        format = "[](fg:yellow)[[$symbol](fg:foreground bg:yellow)]($style)[](fg:yellow) ";
       };
 
       docker_context = {
         symbol = "";
         style = "bg:bg3";
-        format = "[](fg:blue)[[ $symbol( $context) ](fg:foreground bg:blue)]($style)[](fg:blue) ";
+        format = "[](fg:blue)[[$symbol( $context) ](fg:foreground bg:blue)]($style)[](fg:blue) ";
       };
 
       username = {
