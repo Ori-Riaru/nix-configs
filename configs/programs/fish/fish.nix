@@ -61,8 +61,8 @@
       repl = "nix repl /mnt/nfs/riaru/Projects/nix-configs";
       pbrt = "/mnt/nfs/riaru/Projects/advanced-computer-graphics/assignment-2/pbrt-v3/build/pbrt";
 
-      oc = "opencode";
-      ocr = "opencode --continue";
+      oc = "opencode --auto";
+      ocr = "opencode --auto --continue";
       code = "codium";
       c = "codium";
       f = "files";
