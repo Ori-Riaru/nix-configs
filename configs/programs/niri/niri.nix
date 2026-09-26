@@ -120,6 +120,8 @@
       gaps = config.theme.gap;
       center-focused-column = "never";
       default-column-display = "normal";
+      empty-workspace-above-first = true;
+
       preset-column-widths = [
         {proportion = 0.3333333334;}
         {proportion = 0.5;}
@@ -241,7 +243,7 @@
         action.spawn = "hyprlock";
         hotkey-overlay.title = "Lock the Screen";
       };
-      "Mod+escape".action.quit = {}; 
+      "Mod+escape".action.quit = {};
 
       # Volume controls
       "XF86AudioRaiseVolume" = {
