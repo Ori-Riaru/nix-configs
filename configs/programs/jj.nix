@@ -1,5 +1,15 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    jujutsu
-  ];
+{
+  pkgs,
+  settings,
+  ...
+}: {
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = settings.usernameFull;
+        email = settings.email;
+      };
+    };
+  };
 }
