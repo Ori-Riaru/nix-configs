@@ -4,6 +4,7 @@
 
     vencord = {
       themes = {
+        "adblock2" = "@import url(https://allpurposemat.codeberg.page/Disblock-Origin/DisblockOrigin.theme.css)";
         "adblock" = "@import url(https://croissantdunord.github.io/discord-adblock/adblock.css);";
         "color" = "@import url(https://KillYoy.github.io/DiscordNight/DiscordNight.css)";
       };
@@ -52,7 +53,9 @@
             enabled = true;
             remainInIdle = true;
           };
+          AddAttachments.enabled = true;
         };
+        FixYoutubeEmbeds.enabled=true;
       };
     };
   };
