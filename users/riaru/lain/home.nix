@@ -33,12 +33,14 @@
 
     # Development
     ../../../configs/programs/git.nix
+    ../../../configs/programs/jj.nix
     ../../../configs/programs/vscodium/vscodium.nix
     ../../../configs/programs/nix.nix
     ../../../configs/programs/opencode/opencode.nix
     ../../../configs/programs/act.nix
     ../../../configs/programs/unityhub.nix
     ../../../configs/programs/stylelint.nix
+    ../../../configs/programs/devtoolbox.nix
 
     # Terminal & CLI
     ../../../configs/groups/cli-apps.nix

@@ -36,6 +36,7 @@
     ../../../configs/programs/act.nix
     ../../../configs/programs/unityhub.nix
     ../../../configs/programs/stylelint.nix
+    ../../../configs/programs/devtoolbox.nix
 
     # Communication
     ../../../configs/programs/discord.nix
@@ -45,14 +46,14 @@
     ../../../configs/programs/easyeffects.nix
 
     # Media & Creative
-    ../../../configs/programs/obs-studio.nix
+    # ../../../configs/programs/obs-studio.nix
     ../../../configs/programs/shotcut.nix
     ../../../configs/programs/gimp.nix
     ../../../configs/programs/krita.nix
     ../../../configs/programs/inkscape.nix
     ../../../configs/programs/f3d.nix
     ../../../configs/programs/godot.nix
-    ../../../configs/programs/spotify/spotify.nix
+    # ../../../configs/programs/spotify/spotify.nix
 
     # Gaming
     ../../../configs/programs/heroic/heroic.nix
