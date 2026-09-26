@@ -483,6 +483,10 @@ in {
         # Rust
         "tauri"
 
+        # Closure
+        "defn"
+        "println"
+
         # === Program / Application Specific ===
 
         # Apps
@@ -765,6 +769,11 @@ in {
     "go.inlayHints.functionTypeParameters" = true;
     "go.inlayHints.parameterNames" = true;
     "go.inlayHints.rangeVariableTypes" = true;
+
+    # Clojure
+    "[clojure]" = {
+      "editor.defaultFormatter" = "betterthantomorrow.calva";
+    };
 
     # Nix
     "[nix]" = {

@@ -143,6 +143,9 @@
           dandehoon.vscode-generic-expand-selection
           dioxuslabs.dioxus
 
+          # Closure
+          betterthantomorrow.calva
+
           # Generic
           mguellsegarra.highlight-on-copy
           jakearl.search-editor-apply-changes

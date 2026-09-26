@@ -68,6 +68,33 @@
           key = "ctrl+p";
           command = "workbench.action.showCommands";
         }
+        # Notebook shortcuts
+        {
+          "key" = "shift+enter";
+          "command" = "notebook.cell.executeAndSelectBelow";
+        }
+        {
+          "key" = "ctrl+enter";
+          "command" = "-notebook.cell.execute";
+        }
+        {
+          "key" = "ctrl+enter";
+          "command" = "-editor.action.insertLineAfter";
+          "when" = "editorTextFocus && !editorReadonly";
+        }
+        {
+          "key" = "ctrl+enter";
+          "command" = "-jupyter.runByLineStop";
+          "when" = "notebookCellResource in 'jupyter.notebookeditor.runByLineCells'";
+        }
+        {
+          "key" = "ctrl+enter";
+          "command" = "runCommands";
+          "args" = {
+            "commands" = ["notebook.cell.execute"];
+          };
+          "when" = "notebookEditorFocused && notebookCellListFocused && !notebookCellExecuting";
+        }
       ];
     };
   };
