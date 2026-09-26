@@ -24,6 +24,9 @@
         tap = true;
         natural-scroll = true;
       };
+      # Pen tablet has no video output, so constrain its absolute range to the main monitor.
+      tablet.map-to-output = "Dell Inc. DELL G3223Q C3PM6P3";
+
       focus-follows-mouse.enable = true;
       focus-follows-mouse.max-scroll-amount = "25%";
     };
