@@ -1,4 +1,8 @@
-{config, settings, ...}: {
+{
+  config,
+  settings,
+  ...
+}: {
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
@@ -26,7 +30,7 @@
         "5=${config.theme.purple}"
         "6=${config.theme.cyan}"
         "7=${config.theme.subtext}"
-        "8=${config.theme.section}"
+        "8=${config.theme.muted}"
         "9=${config.theme.red-bright}"
         "10=${config.theme.teal-bright}"
         "11=${config.theme.yellow-bright}"
