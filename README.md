@@ -31,7 +31,7 @@ My personal Nixos configurations. They are not intended to be used by others how
 
 ### Desktop
 
-- [Niri](./configs/programs/niri/niri.nix) / [Waybar](./configs/programs/waybar/waybar.nix) / [Walker](./configs/programs/walker.nix)
+- [Niri](./configs/programs/niri/niri.nix) / [Eww Bar](./configs/programs/eww/) / [Walker](./configs/programs/walker.nix)
 
 ![niri preview](./.github/niri-preview.png)
 
@@ -78,14 +78,14 @@ My personal Nixos configurations. They are not intended to be used by others how
 Many application and websites have been themed to match my custom color scheme
 
 | Fonts     |                                                    | \   | \   |     | Spacing  |     |                            |
-| -----------| ----------------------------------------------------| -----| -----| -----| ----------| -----| ----------------------------|
+| --------- | -------------------------------------------------- | --- | --- | --- | -------- | --- | -------------------------- |
 | UI        | [Inter](https://fonts.google.com/specimen/Inter)   | \   | \   |     | `gap`    | 0px | Gap Between Major Sections |
 | Monospace | [JetBrainMono](https://www.jetbrains.com/lp/mono/) | \   | \   |     | `radius` | 2px | Radius of Cards            |
 
 <details><summary>Full Color List and Descriptions</summary>
 
 | Color              | Hex     | Swatch                                                       | Usage                                                             |     |
-| --------------------| ---------| --------------------------------------------------------------| -------------------------------------------------------------------| -----|
+| ------------------ | ------- | ------------------------------------------------------------ | ----------------------------------------------------------------- | --- |
 | Text               |         |                                                              |                                                                   |     |
 | `Text`             | #eeeeee | ![Text](./.github/swatches/text.png)                         | Basic text, Headers                                               |     |
 | `Subtext`          | #aaaaaa | ![Subtext](./.github/swatches/subtext.png)                   | Subtext, Placeholder, Comments                                    |     |
