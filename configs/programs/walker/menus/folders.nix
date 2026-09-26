@@ -156,7 +156,7 @@
       }
       {
         text = "Movies";
-        icon = "";
+        icon = "";
         actions = {
           "open" = "nautilus /mnt/nfs/bulk/Movies";
           "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Movies'";
@@ -164,7 +164,7 @@
       }
       {
         text = "Books";
-        icon = "";
+        icon = "";
         actions = {
           "open" = "nautilus /mnt/nfs/bulk/Books";
           "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Books'";
@@ -172,7 +172,7 @@
       }
       {
         text = "Shows";
-        icon = "";
+        icon = "";
         actions = {
           "open" = "nautilus /mnt/nfs/bulk/Shows";
           "open_terminal" = "ghostty --working-directory='/mnt/nfs/bulk/Shows'";
@@ -180,10 +180,18 @@
       }
       {
         text = "Music";
-        icon = "";
+        icon = "";
         actions = {
           "open" = "nautilus /mnt/nfs/riaru/Music";
           "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Music'";
+        };
+      }
+      {
+        text = "Notes";
+        icon = "";
+        actions = {
+          "open" = "nautilus /mnt/nfs/riaru/Music";
+          "open_terminal" = "ghostty --working-directory='/mnt/nfs/riaru/Notes'";
         };
       }
     ];
