@@ -35,14 +35,14 @@
       inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
-    elephant = {
-      url = "github:abenz1267/elephant/dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # elephant = {
+    #   url = "github:Ori-Riaru/elephant/fix-vendorhash";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     walker = {
-      url = "github:abenz1267/walker/dev";
-      inputs.elephant.follows = "elephant";
+      url = "github:Ori-Riaru/walker/update-flake";
+      # inputs.elephant.follows = "elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -177,7 +177,7 @@
       float = "#2c2c2c";
       overlay = "#222222";
       card = "#181818";
-      section = "#141414";
+      section = "#111111";
       base = "#080808";
       black = "#000000";
 
