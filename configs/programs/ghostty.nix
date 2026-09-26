@@ -11,6 +11,7 @@
 
       keybind = [
         "performable:ctrl+c=copy_to_clipboard"
+        "ctrl+f=start_search"
       ];
 
       # Themeing
