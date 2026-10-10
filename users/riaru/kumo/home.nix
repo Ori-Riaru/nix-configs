@@ -12,7 +12,7 @@
     ../../../configs/groups/cli-apps.nix
     ../../../configs/programs/ghostty.nix
     ../../../configs/programs/btop.nix
-    ../../../configs/programs/speedtest-cli.nix
+    ../../../configs/programs/speedtest-go.nix
 
     # Development
     ../../../configs/programs/git.nix

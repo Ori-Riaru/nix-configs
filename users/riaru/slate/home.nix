@@ -54,6 +54,7 @@
     ../../../configs/programs/f3d.nix
     ../../../configs/programs/godot.nix
     # ../../../configs/programs/spotify/spotify.nix
+    ../../../configs/programs/plezy.nix
 
     # Gaming
     ../../../configs/programs/heroic/heroic.nix
@@ -67,6 +68,7 @@
     ../../../configs/programs/baobab.nix
     ../../../configs/programs/gparted.nix
     ../../../configs/programs/mission-control.nix
+    ../../../configs/programs/aria2.nix
 
     # Styling
     ../../../configs/programs/stylix.nix

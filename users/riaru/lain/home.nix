@@ -30,6 +30,7 @@
     ../../../configs/programs/chromium.nix
     ../../../configs/programs/vivaldi/vivaldi.nix
     ../../../configs/programs/obsidian.nix
+    ../../../configs/programs/aria2.nix
 
     # Development
     ../../../configs/programs/git.nix
@@ -53,6 +54,7 @@
     ../../../configs/programs/cinny-desktop.nix
     ../../../configs/programs/kdeconnect/kdeconnect-home.nix
     ../../../configs/programs/easyeffects.nix
+    ../../../configs/programs/telegram.nix
 
     # Media
     ../../../configs/programs/obs-studio.nix
@@ -60,11 +62,12 @@
     ../../../configs/programs/gimp.nix
     ../../../configs/programs/krita.nix
     ../../../configs/programs/inkscape.nix
-    ../../../configs/programs/blender/blender.nix
+    # ../../../configs/programs/blender/blender.nix
     ../../../configs/programs/f3d.nix
     ../../../configs/programs/godot.nix
     ../../../configs/programs/prusa-slicer.nix
     ../../../configs/programs/spotify/spotify.nix
+    ../../../configs/programs/plezy.nix
 
     # Gaming
     ../../../configs/programs/heroic/heroic.nix
