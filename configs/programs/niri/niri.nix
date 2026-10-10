@@ -216,6 +216,9 @@
           {
             app-id = "org.gnome.Loupe";
           }
+          {
+            title = "AriaEx - Vivaldi";
+          }
         ];
         open-floating = true;
       }
@@ -236,7 +239,7 @@
     binds = {
       "Mod+slash".action.show-hotkey-overlay = {};
 
-      "Mod+L".action.spawn = ["sh" "-c" "${pkgs.python314Packages.python-kasa}/bin/kasa --host 192.168.1.68 --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle"];
+      "Mod+L".action.spawn = ["sh" "-c" "${pkgs.python314Packages.python-kasa}/bin/kasa --host ${settings.kasaIP} --username 'ori-riaru@proton.me' --password $(cat ${config.sops.secrets.kasa_pass.path}) toggle"];
 
       # System controls
       "Mod+Ctrl+L" = {
