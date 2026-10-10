@@ -20,7 +20,7 @@
     enable = true;
 
     # MANUAL update required when new version available.
-    package = pkgs.nextcloud34;
+    package = pkgs.nextcloud35;
 
     hostName = "riaru.home.kg";
     https = true;
@@ -67,20 +67,20 @@
       # };
 
       mail = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/mail/releases/download/v5.11.5/mail-v5.11.5.tar.gz";
-        sha256 = "sha256-WNrLQWrH36G3EcelwV1QLKLV+fC0UlOgWX6znSnq+IE=";
+        url = "https://github.com/nextcloud-releases/mail/releases/download/v5.12.3/mail-v5.12.3.tar.gz";
+        sha256 = "sha256-by814Ufc0o3d28oUYC5cLmn9FPymQ7qGev0ZKWazC/M=";
         license = "gpl3";
       };
 
       contacts = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/contacts/releases/download/v8.8.1/contacts-v8.8.1.tar.gz";
-        sha256 = "sha256-KuPtvZDtzESrjC0xcmYeXRlIIFqgpNPnEvxm0lATKfc=";
+        url = "https://github.com/nextcloud-releases/contacts/releases/download/v8.9.1/contacts-v8.9.1.tar.gz";
+        sha256 = "sha256-olzfRIsZJjG46Ot63cMbQDgrM4cbEFIfQwisWm4EV78=";
         license = "gpl3";
       };
 
       deck = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/deck/releases/download/v1.18.4/deck-v1.18.4.tar.gz";
-        sha256 = "sha256-2KcGPN1iJdGdwogzpxcFBsrG9eQpoCDiO82MLYMVvDk=";
+        url = "https://github.com/nextcloud-releases/deck/releases/download/v1.19.0/deck-v1.19.0.tar.gz";
+        sha256 = "sha256-SUauPg95OdjN1sOnLzXMyScD0sWmlFhtZc4C1yTT6qg=";
         license = "gpl3";
       };
 
@@ -91,14 +91,14 @@
       };
 
       calendar = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/calendar/releases/download/v6.5.4/calendar-v6.5.4.tar.gz";
-        sha256 = "sha256-Z8d3puqXRAnp0ijCP8YPK+jmddN2UxtrGxJfLwNlc40=";
+        url = "https://github.com/nextcloud-releases/calendar/releases/download/v6.6.2/calendar-v6.6.2.tar.gz";
+        sha256 = "sha256-foNjLUQ20wN6NNHHPLwG1cy26PwQ8JaoakOgUVWIUpw=";
         license = "gpl3";
       };
 
       forms = pkgs.fetchNextcloudApp {
-        url = "https://github.com/nextcloud-releases/forms/releases/download/v5.3.6/forms-v5.3.6.tar.gz";
-        sha256 = "sha256-f+LNscBPLdFI1t0VivnivlcG0HIWrqlQk7pYDcfGWIA=";
+        url = "https://github.com/nextcloud-releases/forms/releases/download/v5.4.0/forms-v5.4.0.tar.gz";
+        sha256 = "sha256-/fjUsXViNBHkxcR/DpflTrcP2Xuiv44/gu+PKUQ3ihk=";
         license = "gpl3";
       };
 
