@@ -28,6 +28,14 @@
     openFirewall = true;
   };
 
+  systemd.tmpfiles.rules = let
+    mediaAcl = "u:sonarr:rwx,d:u:sonarr:rwx,u:radarr:rwx,d:u:radarr:rwx,u:jellyfin:rwx,d:u:jellyfin:rwx";
+  in [
+    "A+ /mnt/bulk/data - - - - ${mediaAcl}"
+    "A+ /mnt/bulk/data/Movies - - - - ${mediaAcl}"
+    "A+ /mnt/bulk/data/Shows - - - - ${mediaAcl}"
+  ];
+
   environment.systemPackages = [
     pkgs.jellyfin
     pkgs.jellyfin-web
