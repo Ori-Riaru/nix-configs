@@ -8,4 +8,5 @@
   clipse-gui = pkgs.callPackage ./clipse-gui.nix {};
   niri-taskbar = pkgs.callPackage ./niri-taskbar.nix {};
   eigen-blender = pkgs.callPackage ./eigen-blender.nix {};
+  plezy-fix = pkgs.callPackage ./plezy {};
 }
