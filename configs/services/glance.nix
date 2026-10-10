@@ -135,7 +135,6 @@
                     "UChHxJaKDqH4bOs0pX3hkKnA" # Basically Homeless
                     "UCshObcm-nLhbu8MY50EZ5Ng" # Benn Jordan
                     "UCdBXOyqr8cDshsp7kcKDAkg" # Big A
-                    "UCp7EwodJcppc6GqiRcnCpOw" # Blender Secrets
                     "UC9pXmjxsQHeFH9vgCeRsHcw" # Brendan Galea
                     "UCvW5ZYoNR2fkn0xkanZKdWA" # Bryce Bostwick
                     "UC2C_jShtL725hvbm1arSV9w" # CGP Grey
@@ -236,7 +235,6 @@
                     "UCQeDjGVRTWAApRmP_xFWaRA" # Not David
                     "UC0intLFzLaudFG-xAvUEO-A" # Not Just Bikes
                     "UCSVbNLYVIBrNQmtOPCFcD1A" # Ooqui
-                    "UCFR-QlAx0qFHN9-QmcrpHnQ" # Pezzza's Work
                     "UCeXksuVW8H1x9v4gh7DWoyQ" # Physics for the Birds
                     "UCiMxz108IEFwYsiYIp1ZvLw" # PixelzwithaZ
                     "UC2YWpSMLrUNUoPoavgmiIoQ" # PolyaMath
@@ -303,7 +301,6 @@
                     "UCwPdVunI5mD-dpuLogOawbw" # adumb
                     "UCUVzyC4knaI7IHeMKyRaDYw" # allen's lab
                     "UCsyoRY68bchruU8JgIA3dyQ" # astryuuna
-                    "UC5--wS0Ljbin1TjWQX6eafA" # bigboxSWE
                     "UCCokj-ZnFWavlYfQNtHHn4Q" # brahkie
                     "UCV4Rx1m-9HmtqHET7GjnVOA" # braintruffle
                     "UCUmd1iHHPmGO-CXVmwPuLyA" # camwing
