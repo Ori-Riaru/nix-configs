@@ -41,14 +41,13 @@
       trusted-users = ["root" "${settings.username}"];
       experimental-features = ["nix-command" "flakes"];
       flake-registry = "";
-      nix-path = config.nix.nixPath;
       auto-optimise-store = true;
+      nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
     channel.enable = false;
 
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
 
     gc = {
       automatic = true;
