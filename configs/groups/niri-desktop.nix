@@ -10,5 +10,6 @@
     ../programs/nautilus.nix
     ../programs/papirus-icons.nix
     ../programs/eww/eww.nix
+    ../programs/wl-clipboard.nix
   ];
 }
