@@ -41,7 +41,7 @@
       trusted-users = ["root" "${settings.username}"];
       experimental-features = ["nix-command" "flakes"];
       flake-registry = "";
-      auto-optimise-store = true;
+      auto-optimise-store = false;
       nix-path = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
     };
 
