@@ -14,6 +14,7 @@
     "clippy",
     "colorcolumn",
     "colorschemes",
+    "conflictstyle",
     "continuwuity",
     "Continuwuity",
     "copyparty",
@@ -100,6 +101,7 @@
     "mkparents",
     "mlft",
     "mmid",
+    "mnemonicprefix",
     "monado",
     "movemouse",
     "mrgt",
@@ -137,6 +139,7 @@
     "reditorsupport",
     "relativeruler",
     "renderdoc",
+    "rerere",
     "restic",
     "rght",
     "rmtrailingws",
@@ -197,7 +200,8 @@
     "xaver",
     "yandeu",
     "yoavbls",
-    "yzhang"
+    "yzhang",
+    "zdiff"
   ],
   "markdown.extension.completion.enabled": false,
   "markdown.extension.tableFormatter.enabled": false,

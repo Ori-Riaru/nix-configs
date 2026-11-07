@@ -19,10 +19,10 @@
     hashedPasswordFile = config.sops.secrets.riaru_pass.path;
     extraGroups = ["networkmanager" "wheel" "input" "dialout" "plugdev" "libvirtd"];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPf7Rker14xM3UE6t0OK7HAzXcnPqHixlROW20iH3Jcr ori-riaru@proton.me"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOOLwfJlOTbw13vefasXyluHJsiuA9NguSdNed9QE1k ori-riaru@proton.me"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJEYpUzmHss3lwkSxrA9WCx6dQZynVX3KQwWOGjY7jU7 ori@riaru.xyz"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJEAAD4dhmMbBSTGcg+8TmAcJePsTgxuh9bETQJs5GGO riaru@kumo"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOyeGBIa7CxXB0b4pqNVQCm409s0ZDLA+i24Y+gpX5FT riaru@lain"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINlxYWwjG++2l8nJc0SHtN3KW4THiVuPt8CJFDGI/o+a riaru@slate"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAEVabm2hts9a3QQ6QOY73iyB43pJ4Snc88Utl5cfugJ ori-riaru@proton.me"
     ];
   };
 }

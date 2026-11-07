@@ -17,7 +17,9 @@
       user = {
         email = "${settings.email}";
         name = "${settings.usernameFull}";
+        signingkey = "/home/riaru/.ssh/signature.pub";
       };
+
       init = {
         defaultBranch = "main";
       };
@@ -25,7 +27,8 @@
         default = "current";
         ff = "only";
       };
-
+      commit.gpgsign = true;
+      gpg.format = "ssh";
       diff = {
         algorithm = "histogram";
         colorMoved = "plain";
