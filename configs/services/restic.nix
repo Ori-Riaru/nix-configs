@@ -4,7 +4,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   systemd.tmpfiles.rules = [
     "d /mnt/bulk/data/Backups/restic/home 0755 root root -"
     "d /mnt/bulk/data/Backups/restic/nextcloud 0755 root root -"
@@ -37,13 +38,13 @@
       ];
       passwordFile = config.sops.secrets.restic_pass.path;
       pruneOpts = [
-        "--keep-daily 7"
+        "--keep-daily 14"
         "--keep-weekly 4"
         "--keep-monthly 12"
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Mon,Wed,Fri 04:00:00";
         Persistent = true;
       };
     };
@@ -62,13 +63,12 @@
       backupCleanupCommand = "rm -f /var/backup/nextcloud/mysql.sql";
       passwordFile = config.sops.secrets.restic_pass.path;
       pruneOpts = [
-        "--keep-daily 7"
-        "--keep-weekly 4"
+        "--keep-weekly 8"
         "--keep-monthly 12"
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "Tue,Fri 04:30:00";
         Persistent = true;
       };
     };
@@ -93,7 +93,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Mon,Thu 05:00:00";
         Persistent = true;
       };
     };
@@ -104,7 +104,7 @@
       # continuwuity runs as DynamicUser, so /var/lib/continuwuity is a symlink
       # to /var/lib/private/continuwuity. restic does not follow symlinks, so the
       # real path must be given or the backup only stores a dangling symlink.
-      paths = ["/var/lib/private/continuwuity"];
+      paths = [ "/var/lib/private/continuwuity" ];
       passwordFile = config.sops.secrets.restic_pass.path;
       pruneOpts = [
         "--keep-weekly 4"
@@ -112,7 +112,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "*-*-* 03:30:00";
         Persistent = true;
       };
     };
@@ -138,7 +138,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Wed 05:30:00";
         Persistent = true;
       };
     };
@@ -158,7 +158,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "*-*-* 03:00:00";
         Persistent = true;
       };
     };
@@ -166,7 +166,7 @@
     palworld = {
       repository = "/mnt/bulk/data/Backups/restic/palworld";
       initialize = true;
-      paths = ["/data/palworld"];
+      paths = [ "/data/palworld" ];
       passwordFile = config.sops.secrets.restic_pass.path;
       pruneOpts = [
         "--keep-weekly 4"
@@ -174,7 +174,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Fri 05:30:00";
         Persistent = true;
       };
     };
@@ -182,7 +182,7 @@
     hytale = {
       repository = "/mnt/bulk/data/Backups/restic/hytale";
       initialize = true;
-      paths = ["/data/hytale"];
+      paths = [ "/data/hytale" ];
       passwordFile = config.sops.secrets.restic_pass.path;
       pruneOpts = [
         "--keep-weekly 4"
@@ -190,7 +190,7 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Sun 05:00:00";
         Persistent = true;
       };
     };
@@ -209,20 +209,11 @@
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Sun 05:30:00";
         Persistent = true;
       };
     };
 
-    # irreplaceable system state and secrets that live outside the nix config.
-    # whole of /etc (restic-password in /etc/nixos, ssh host keys, machine-id,
-    # static profiles), whole of /var/lib (acme, samba, tailscale, hydroxide,
-    # livekit, derper/factorio, hass, n8n workflows, the postgresql cluster,
-    # legacy nextcloud state, nixos idmap, ...), /srv (palworld saves) and the
-    # samba share. ssh keys and the sops age key are also included here (in
-    # addition to the home job) so they survive even if the home repo is
-    # unreadable. swapfile is recreated on restore and mysql is dumped in the
-    # nextcloud job, so both are excluded.
     system = {
       repository = "/mnt/bulk/data/Backups/restic/system";
       initialize = true;
@@ -256,13 +247,12 @@
       ];
       passwordFile = config.sops.secrets.restic_pass.path;
       pruneOpts = [
-        "--keep-daily 7"
-        "--keep-weekly 4"
+        "--keep-weekly 8"
         "--keep-monthly 12"
         "--keep-yearly 10"
       ];
       timerConfig = {
-        OnCalendar = "*-*-* 05:00:00";
+        OnCalendar = "Tue,Sat 05:00:00";
         Persistent = true;
       };
     };
