@@ -220,7 +220,7 @@
         snippets = [
           # login
           {
-            keywords = ["proton" "email" settings.email];
+            keywords = ["email" settings.email];
             name = settings.email;
             content = settings.email;
           }

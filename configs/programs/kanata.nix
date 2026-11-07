@@ -38,8 +38,9 @@
 
           (defalias
             ;; Text macros
-            email (macro o r i - r i a r u S-2 p r o t o n . m e)
+            email (macro o r i S-2 r i a r u . x y z)
             google (macro o r i . r i a r u S-2 g m a i l . c o m)
+            proton (macro o r i - r i a r u S-2 p r o t o n . m e)
 
             ;; General shortcuts
             undo       C-z

@@ -73,8 +73,8 @@ in {
       {
         text = "Proton";
         icon = "/home/riaru/.config/elephant/icons/proton.svg";
-        keywords = ["proton" "mail"];
-        actions = {open = "xdg-open https://mail.proton.me/u/1/inbox && ${focus-command}";};
+        keywords = ["email" "mail"];
+        actions = {open = "xdg-open https://ksuite.infomaniak.com/2478802/mail/0 && ${focus-command}";};
       }
       {
         text = "Claude";

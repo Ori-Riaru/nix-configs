@@ -119,7 +119,7 @@
 
       username = "riaru";
       usernameFull = "Ori Riaru";
-      email = "ori-riaru@proton.me";
+      email = "ori@riaru.xyz";
 
       # === General ===
 

@@ -48,7 +48,7 @@
                         }
                         {
                           title = "Proton";
-                          url = "https://mail.proton.me/u/4/inbox";
+                          url = "https://ksuite.infomaniak.com/2478802/mail/0";
                         }
                         {
                           title = "Online Fix";
