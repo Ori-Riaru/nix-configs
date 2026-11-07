@@ -67,8 +67,8 @@
                           url = "https://riaru.undo.it/web";
                         }
                         {
-                          title = "Void";
-                          url = "https://my.v0id.nl";
+                          title = "Mastodon";
+                          url = "https://mas.riaru.xyz";
                         }
                         {
                           title = "Lemmy";
@@ -92,7 +92,7 @@
                 }
                 {
                   type = "iframe";
-                  source = "https://riaru.home.kg/apps/calendar/timeGridWeek/now";
+                  source = "https://cloud.riaru.xyz/apps/calendar/timeGridWeek/now";
                   height = 1024;
                 }
               ];

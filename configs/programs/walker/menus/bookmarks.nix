@@ -50,13 +50,13 @@ in {
         text = "Mastodon";
         icon = "/home/riaru/.config/elephant/icons/mastodon.svg";
         keywords = ["mastodon" "void" "my void"];
-        actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
+        actions = {open = "xdg-open https://mas.riaru.xyz && ${focus-command}";};
       }
       {
         text = "Void";
         icon = "/home/riaru/.config/elephant/icons/void.png";
         keywords = ["mastodon" "void" "my void"];
-        actions = {open = "xdg-open https://my.v0id.nl && ${focus-command}";};
+        actions = {open = "xdg-open https://mas.riaru.xyz && ${focus-command}";};
       }
       {
         text = "Lemmy";
@@ -164,29 +164,29 @@ in {
         text = "Mail";
         icon = "/home/riaru/.config/elephant/icons/mail.svg";
         keywords = ["mail" "nextcloud"];
-        actions = {open = "xdg-open https://riaru.home.kg/apps/mail/box/unified && ${focus-command}";};
+        actions = {open = "xdg-open https://cloud.riaru.xyz/apps/mail/box/unified && ${focus-command}";};
       }
       {
         text = "Files";
         icon = "/home/riaru/.config/elephant/icons/files.svg";
         keywords = ["files" "drive"];
-        actions = {open = "xdg-open https://riaru.home.kg/apps/files/files && ${focus-command}";};
+        actions = {open = "xdg-open https://cloud.riaru.xyz/apps/files/files && ${focus-command}";};
       }
       {
         text = "Calendar";
         icon = "/home/riaru/.config/elephant/icons/calendar.svg";
-        actions = {open = "xdg-open https://riaru.home.kg/apps/calendar/timeGridWeek/now && ${focus-command}";};
+        actions = {open = "xdg-open https://cloud.riaru.xyz/apps/calendar/timeGridWeek/now && ${focus-command}";};
       }
       {
         text = "Contacts";
         icon = "/home/riaru/.config/elephant/icons/contacts.svg";
-        actions = {open = "xdg-open 'https://riaru.home.kg/apps/contacts/All%20contacts' && ${focus-command}";};
+        actions = {open = "xdg-open 'https://cloud.riaru.xyz/apps/contacts/All%20contacts' && ${focus-command}";};
       }
       {
         text = "Nextcloud Settings";
         icon = "/home/riaru/.config/elephant/icons/nextcloud-settings.svg";
         keywords = ["settings" "nextcloud"];
-        actions = {open = "xdg-open https://riaru.home.kg/settings/user && ${focus-command}";};
+        actions = {open = "xdg-open https://cloud.riaru.xyz/settings/user && ${focus-command}";};
       }
     ];
   };

@@ -57,6 +57,22 @@
         proxyWebsockets = true;
       };
     };
+    virtualHosts."jellyfin.riaru.xyz" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://localhost:8096";
+        proxyWebsockets = true;
+      };
+    };
+    virtualHosts."mov.riaru.xyz" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://localhost:8096";
+        proxyWebsockets = true;
+      };
+    };
   };
 
   networking.firewall.allowedTCPPorts = [80 443 5055 8989 7878 8686 9696];

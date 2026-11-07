@@ -5,13 +5,16 @@
     # Hardware
     ./hardware-configuration.nix
 
+    # Shared identity domain (riaru.xyz apex / well-known)
+    ../../configs/services/riaru-xyz.nix
+
     # Private Services
     ../../configs/services/nfs.nix
     ../../configs/services/restic.nix
     ../../configs/services/blocky.nix
     ../../configs/services/inadyn.nix
     ../../configs/services/glance.nix
-    ../../configs/services/derp.nix
+    # ../../configs/services/derp.nix
 
     # Public Services
     ../../configs/services/hydroxide.nix

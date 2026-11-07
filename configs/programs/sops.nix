@@ -30,6 +30,7 @@
       "nextcloud_admin_pass" = {};
       "riaru_pass" = {};
       "afraid_pass" = {};
+      "cloudflare_token" = {};
       "restic_pass" = {};
       "copyparty_pass" = lib.mkIf (config.services ? "copyparty" && config.services.copyparty.enable) {
         owner = config.services.copyparty.user;
@@ -45,6 +46,12 @@
       "afraid_pass.conf" = {
         content = ''
           password = "${config.sops.placeholder.afraid_pass}"
+        '';
+        owner = "inadyn";
+      };
+      "cloudflare_pass.conf" = {
+        content = ''
+          password = "${config.sops.placeholder.cloudflare_token}"
         '';
         owner = "inadyn";
       };

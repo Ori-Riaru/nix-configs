@@ -33,11 +33,21 @@
       };
       customDNS = {
         mapping = {
-          "derp.v0id.nl" = "${settings.serverLocalIP}";
-          "my.v0id.nl" = "${settings.serverLocalIP}";
-          "signal.v0id.nl" = "${settings.serverLocalIP}";
+          "riaru.xyz" = "${settings.serverLocalIP}";
+          "ori.riaru.xyz" = "${settings.serverLocalIP}";
+          "jellyfin.riaru.xyz" = "${settings.serverLocalIP}";
+          "cloud.riaru.xyz" = "${settings.serverLocalIP}";
+          "matrix.riaru.xyz" = "${settings.serverLocalIP}";
+          "livekit.riaru.xyz" = "${settings.serverLocalIP}";
+          "mas.riaru.xyz" = "${settings.serverLocalIP}";
+          "derp.riaru.xyz" = "${settings.serverLocalIP}";
+          "mov.riaru.xyz" = "${settings.serverLocalIP}";
+
+          # Old free dns
           "riaru.undo.it" = "${settings.serverLocalIP}";
           "riaru.home.kg" = "${settings.serverLocalIP}";
+
+          # Local Only
           "router.box" = "192.168.1.41";
           "kumo.box" = "100.103.185.35";
           "lain.box" = "100.127.40.4";

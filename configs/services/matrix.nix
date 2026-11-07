@@ -12,15 +12,15 @@ in {
   services.matrix-continuwuity = {
     enable = true;
     settings.global = {
-      server_name = "signal.v0id.nl";
+      server_name = "riaru.xyz";
       allow_registration = true;
       allow_federation = true;
       allow_encryption = true;
       trusted_servers = ["matrix.org"];
       turn_uris = [
-        "turn:signal.v0id.nl:3478?transport=udp"
-        "turn:signal.v0id.nl:3478?transport=tcp"
-        "turns:signal.v0id.nl:5349?transport=tcp"
+        "turn:matrix.riaru.xyz:3478?transport=udp"
+        "turn:matrix.riaru.xyz:3478?transport=tcp"
+        "turns:matrix.riaru.xyz:5349?transport=tcp"
       ];
       turn_secret_file = config.sops.secrets.turn_secret.path;
       turn_ttl = 10800;
@@ -29,7 +29,7 @@ in {
       matrix_rtc.foci = [
         {
           type = "livekit";
-          livekit_service_url = "https://signal.v0id.nl/livekit/jwt/";
+          livekit_service_url = "https://livekit.riaru.xyz/livekit/jwt/";
         }
       ];
     };
@@ -45,7 +45,7 @@ in {
     max-port = 51200;
     use-auth-secret = true;
     static-auth-secret-file = config.sops.secrets.turn_secret.path;
-    realm = "signal.v0id.nl";
+    realm = "matrix.riaru.xyz";
     cert = "${config.security.acme.certs.${realm}.directory}/full.pem";
     pkey = "${config.security.acme.certs.${realm}.directory}/key.pem";
     extraConfig = ''
@@ -95,19 +95,19 @@ in {
         enable_loopback_candidate = false;
         turn_servers = [
           {
-            host = "signal.v0id.nl";
+            host = "matrix.riaru.xyz";
             port = 3478;
             protocol = "udp";
             secret = config.sops.placeholder.turn_secret;
           }
           {
-            host = "signal.v0id.nl";
+            host = "matrix.riaru.xyz";
             port = 3478;
             protocol = "tcp";
             secret = config.sops.placeholder.turn_secret;
           }
           {
-            host = "signal.v0id.nl";
+            host = "matrix.riaru.xyz";
             port = 5349;
             protocol = "tls";
             secret = config.sops.placeholder.turn_secret;
@@ -132,7 +132,7 @@ in {
 
   services.lk-jwt-service = {
     enable = true;
-    livekitUrl = "wss://signal.v0id.nl/livekit/sfu/";
+    livekitUrl = "wss://livekit.riaru.xyz/livekit/sfu/";
     inherit keyFile;
   };
 
@@ -157,7 +157,7 @@ in {
     };
     unitConfig.ConditionPathExists = "!${keyFile}";
   };
-  systemd.services.lk-jwt-service.environment.LIVEKIT_FULL_ACCESS_HOMESERVERS = "signal.v0id.nl";
+  systemd.services.lk-jwt-service.environment.LIVEKIT_FULL_ACCESS_HOMESERVERS = "riaru.xyz";
 
   # === Misc ===
 
@@ -168,7 +168,7 @@ in {
   };
 
   networking.firewall = {
-    allowedTCPPorts = [80 443 3478 5349 7881];
+    allowedTCPPorts = [80 443 3478 5349 7881 8448];
     allowedUDPPorts = [3478 5349];
     allowedUDPPortRanges = [
       {
@@ -189,7 +189,7 @@ in {
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
 
-    virtualHosts."signal.v0id.nl" = {
+    virtualHosts."matrix.riaru.xyz" = {
       enableACME = true;
       forceSSL = true;
 
@@ -198,19 +198,28 @@ in {
           proxyPass = "http://127.0.0.1:6167";
         };
         "/.well-known/matrix/server" = {
-          return = ''200 '{"m.server":"signal.v0id.nl:443"}' '';
+          return = ''200 '{"m.server":"matrix.riaru.xyz:443"}' '';
           extraConfig = ''
             default_type application/json;
+            add_header Cache-Control "public, max-age=3600";
           '';
         };
         "/.well-known/matrix/client" = {
-          return = ''200 '{"m.homeserver":{"base_url":"https://signal.v0id.nl"},"org.matrix.msc4143.rtc_foci":[{"type":"livekit","livekit_service_url":"https://signal.v0id.nl/livekit/jwt"}]}' '';
+          return = ''200 '{"m.homeserver":{"base_url":"https://matrix.riaru.xyz"},"org.matrix.msc4143.rtc_foci":[{"type":"livekit","livekit_service_url":"https://livekit.riaru.xyz/livekit/jwt"}]}' '';
           extraConfig = ''
             default_type application/json;
             add_header Access-Control-Allow-Origin "*";
+            add_header Cache-Control "public, max-age=3600";
           '';
         };
+      };
+    };
 
+    virtualHosts."livekit.riaru.xyz" = {
+      enableACME = true;
+      forceSSL = true;
+
+      locations = {
         "^~ /livekit/jwt/" = {
           priority = 400;
           proxyPass = "http://127.0.0.1:${toString config.services.lk-jwt-service.port}/";

@@ -22,7 +22,7 @@
     # MANUAL update required when new version available.
     package = pkgs.nextcloud35;
 
-    hostName = "riaru.home.kg";
+    hostName = "cloud.riaru.xyz";
     https = true;
 
     home = "/data/nextcloud";

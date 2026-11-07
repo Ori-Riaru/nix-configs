@@ -30,14 +30,6 @@
   networking.hostName = "slate";
   home-manager.users.riaru = import ../../users/riaru/slate/home.nix;
 
-  networking.hosts.${settings.serverTailscaleIP} = [
-    "riaru.home.kg"
-    "riaru.undo.it"
-    "my.v0id.nl"
-    "signal.v0id.nl"
-    "livekit.v0id.nl"
-  ];
-
   services.nfs-client.serverIP = settings.serverTailscaleIP;
 
   # Enable Auto Rotate
