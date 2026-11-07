@@ -61,6 +61,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    site-router = {
+      url = "git+file:///mnt/nfs/riaru/Projects/site-router";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # copyparty = {
     #   url = "github:9001/copyparty";
     #   inputs.nixpkgs.follows = "nixpkgs";

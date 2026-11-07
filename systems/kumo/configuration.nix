@@ -19,6 +19,7 @@
     ../../configs/services/nextcloud.nix
     ../../configs/services/mastodon/mastodon.nix
     ../../configs/services/matrix.nix
+    ../../configs/services/site-router.nix
     ../../configs/services/minecraft.nix
 
     # Users
