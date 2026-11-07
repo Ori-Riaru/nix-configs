@@ -102,7 +102,7 @@
 (defwidget clock []
     (box :orientation "vertical"
        (button :onclick "./scripts/toggle_notification_panel.sh" 
-        	(box :orientation "vertical"
+        	(box :class "card" :orientation "vertical"
                  :halign "center"
             	hour
             	minute
@@ -178,7 +178,7 @@
 			(button :height 64 "Wifi")
 			(button :height 64 "Bluetooth")
 			(button :height 64 "Caffine")
-			(button :height 64 :onclick "kasa --host 192.168.1.70 --username 'ori-riaru@proton.me' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &" "Lights")
+			(button :height 64 :onclick "kasa --host 192.168.1.70 --username 'ori@riaru.xyz' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &" "Lights")
 		)
 		(label :text "Brightness")
 		(scale :min 0 :max 100)
@@ -214,7 +214,7 @@
 )
 
 (defwidget lights []
-    (button :onclick "kasa --host 192.168.1.70 --username 'ori-riaru@proton.me' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &"
+    (button :onclick "kasa --host 192.168.1.70 --username 'ori@riaru.xyz' --password $(cat '/home/riaru/.config/sops-nix/secrets/kasa_pass') toggle &"
         (box :class "icon" (label :class "light icon" :text "󱠂" ))
 	)
 )
