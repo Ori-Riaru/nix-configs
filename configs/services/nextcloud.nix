@@ -24,7 +24,6 @@
 
     hostName = "riaru.home.kg";
     https = true;
-    config.adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
 
     home = "/data/nextcloud";
 
