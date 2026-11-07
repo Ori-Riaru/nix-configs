@@ -21,16 +21,16 @@
     jvmOpts = "-Xms8192M -Xmx8192M";
   };
 
-  # Modded minecraft
-  networking.firewall.allowedTCPPorts = [config.services.minecraft-server.serverProperties.server-port];
-
   environment.systemPackages = with pkgs; [
     screen
     # openjdk8-bootstrap
     openjdk25
   ];
 
-  # Launch Enigmatica 2 Expert Extended
-  # cd /data/minecraft/e2ee
-  # ./start-server.sh
+  # Modded minecraft
+
+  # use flake + direnv to get modpack specific versions
+
+  networking.firewall.allowedTCPPorts = [25565];
+  networking.firewall.allowedUDPPorts = [25565];
 }
