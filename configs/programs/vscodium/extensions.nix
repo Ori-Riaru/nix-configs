@@ -129,6 +129,9 @@
 
           philsinatra.nested-comments
           oven.bun-vscode
+          mjkimr.ext-direct-file-copy
+
+          fabiospampinato.vscode-open-in-application
           #// wallabyjs.quokka-vscode
           #// wallabyjs.console-ninja
 
