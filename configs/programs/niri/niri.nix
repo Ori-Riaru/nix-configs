@@ -165,7 +165,7 @@
     };
 
     # Holds the previous frame until the resize is complete then immediately switches to the new frame
-    animations.window-resize.custom-shader = ''
+    animations.window-resize.custom-shader.text = ''
       vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
           float eps = 0.00001;
           if (niri_clamped_progress < 1.0 - eps) {
