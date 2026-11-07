@@ -1,7 +1,11 @@
+# Nextcloud
+# 
+#
 {
   config,
   settings,
   pkgs,
+  lib,
   ...
 }: {
   networking.firewall.allowedTCPPorts = [80 443];
@@ -38,6 +42,12 @@
       default_phone_region = "CA";
       trusted_domains = [config.services.nextcloud.hostName];
       "simpleSignUpLink.shown" = false;
+      trusted_proxies = [
+        "127.0.0.1"
+        "::1"
+      ];
+      log_type = "file";
+      logfile = "/data/nextcloud/nextcloud.log";
     };
     extraAppsEnable = true;
     extraApps = {
@@ -113,5 +123,13 @@
       #   license = "gpl3";
       # };
     };
+  };
+
+  services.mysql.settings.mysqld = lib.mkIf config.services.nextcloud.enable {
+    innodb_log_file_size = "256M";
+    table_open_cache = 4000;
+    table_definition_cache = 4000;
+    slow_query_log = 1;
+    long_query_time = 2;
   };
 }

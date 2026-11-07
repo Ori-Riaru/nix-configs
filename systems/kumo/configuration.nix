@@ -24,7 +24,7 @@
     ../../configs/services/matrix.nix
     ../../configs/services/site-router.nix
     ../../configs/services/vaultwarden.nix
-    ../../configs/services/minecraft.nix
+    # ../../configs/services/minecraft.nix
 
     # Users
     ../../users/riaru
@@ -50,6 +50,10 @@
     enable = true;
     device = "/dev/disk/by-id/ata-WDC_WD10EZEX-07WN4A0_WD-WCC6Y5JA163X";
     useOSProber = true;
+  };
+
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
   };
 
   networking.hostName = "kumo";

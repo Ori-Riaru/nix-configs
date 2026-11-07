@@ -1,4 +1,9 @@
 {settings, ...}: {
+  systemd.services.glance = {
+    after = ["tailscaled.service"];
+    requires = ["tailscaled.service"];
+  };
+
   services.glance = {
     enable = true;
     openFirewall = true;

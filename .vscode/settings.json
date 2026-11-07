@@ -200,5 +200,9 @@
     "yzhang"
   ],
   "markdown.extension.completion.enabled": false,
-  "markdown.extension.tableFormatter.enabled": false
+  "markdown.extension.tableFormatter.enabled": false,
+  "editor.defaultFormatter": "xaver.clang-format",
+  "[c]": {
+    "editor.defaultFormatter": "xaver.clang-format"
+  }
 }

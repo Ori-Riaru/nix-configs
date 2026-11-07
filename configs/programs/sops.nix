@@ -27,7 +27,6 @@
     };
 
     secrets = {
-      "nextcloud_admin_pass" = {};
       "riaru_pass" = {};
       "afraid_pass" = {};
       "cloudflare_token" = {};

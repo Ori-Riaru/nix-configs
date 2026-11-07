@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ../../../modules/user-settings.nix
     ../../../configs/system/home-global
@@ -42,6 +42,7 @@
     ../../../configs/programs/unityhub.nix
     ../../../configs/programs/stylelint.nix
     ../../../configs/programs/devtoolbox.nix
+    ../../../configs/programs/micro.nix
 
     # Terminal & CLI
     ../../../configs/groups/cli-apps.nix
