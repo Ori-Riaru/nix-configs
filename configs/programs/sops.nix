@@ -32,6 +32,8 @@
       "afraid_pass" = {};
       "cloudflare_token" = {};
       "restic_pass" = {};
+      "vaultwarden_admin_token" = {};
+      "vaultwarden_smtp_pass" = {};
       "copyparty_pass" = lib.mkIf (config.services ? "copyparty" && config.services.copyparty.enable) {
         owner = config.services.copyparty.user;
         group = config.services.copyparty.group;
