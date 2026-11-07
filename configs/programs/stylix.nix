@@ -11,6 +11,7 @@
 
   stylix = {
     enable = true;
+    overlays.enable = false;
 
     fonts = {
       monospace = {
