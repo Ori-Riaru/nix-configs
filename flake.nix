@@ -4,7 +4,7 @@
   inputs = {
     # === Repositories ===
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/3ca0a2f28eb1ccbb559647d715b98105ad52e96c";
+    nixpkgs-master.url = "github:nixos/nixpkgs/31a68c07febce8a2ed0ff76a5cf3cfa184b6b701";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-26.05";
 
     nur = {
