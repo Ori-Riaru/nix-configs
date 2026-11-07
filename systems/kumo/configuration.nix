@@ -30,6 +30,7 @@
     ../../users/riaru
 
     # Misc
+    ../../configs/services/crowdsec.nix
     ../../configs/programs/fish/fish-system.nix
   ];
 
