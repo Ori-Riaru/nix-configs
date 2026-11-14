@@ -30,7 +30,6 @@
       initialize = true;
       paths = [
         "/data/nfs/riaru"
-        "/home/riaru"
       ];
       exclude = [
         "**/.cache"
