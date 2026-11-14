@@ -8,16 +8,13 @@
     # Shared identity domain (riaru.xyz apex / well-known)
     ../../configs/services/riaru-xyz.nix
 
-    # Private Services
+    # Local Services
     ../../configs/services/nfs.nix
     ../../configs/services/restic.nix
     ../../configs/services/blocky.nix
     ../../configs/services/inadyn.nix
-    ../../configs/services/glance.nix
-    # ../../configs/services/derp.nix
 
     # Public Services
-    ../../configs/services/hydroxide.nix
     ../../configs/services/jellyfin/jellyfin.nix
     ../../configs/services/nextcloud.nix
     ../../configs/services/mastodon/mastodon.nix
