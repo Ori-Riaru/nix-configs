@@ -69,6 +69,7 @@
     ../../../configs/programs/prusa-slicer.nix
     ../../../configs/programs/spotify/spotify.nix
     ../../../configs/programs/plezy.nix
+    ../../../configs/programs/finamp.nix
 
     # Gaming
     ../../../configs/programs/heroic/heroic.nix
