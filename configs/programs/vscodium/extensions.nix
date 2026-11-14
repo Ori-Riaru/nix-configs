@@ -111,7 +111,7 @@
           qwtel.sqlite-viewer
           drinfinite.batch-rename
           sleistner.vscode-fileutils
-          pcode-pl.vscode-autohide-plus
+          # pcode-pl.vscode-autohide-plus
           wix.vscode-import-cost
           markdown-inline-preview.markdown-inline-preview
           davidanson.vscode-markdownlint
