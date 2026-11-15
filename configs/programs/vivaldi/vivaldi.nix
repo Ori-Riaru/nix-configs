@@ -6,4 +6,6 @@
     })
     vivaldi-ffmpeg-codecs
   ];
+
+  home.file.".config/vivaldi/customcss/custom.css".text = builtins.readFile ./custom.css;
 }
