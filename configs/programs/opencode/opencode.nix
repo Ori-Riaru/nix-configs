@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    (master.opencode.overrideAttrs (oldAttrs: {
+    (opencode.overrideAttrs (oldAttrs: {
       patches =
         (oldAttrs.patches or [])
         ++ [
@@ -9,12 +9,15 @@
     }))
   ];
 
-  home.file.".config/opencode/opencode.json".text = ''
-    {
-      "$schema": "https://opencode.ai/config.json",
-      "autoupdate": false
-    }
-  '';
+  home.file.".config/opencode/opencode.json".text = builtins.toJSON {
+    "$schema" = "https://opencode.ai/config.json";
+    autoupdate = false;
+    agents = {
+      general = {
+        system = builtins.readFile ./system-prompt.md;
+      };
+    };
+  };
 
   home.file.".config/opencode/tui.json".text = ''
     {
