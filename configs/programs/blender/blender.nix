@@ -95,6 +95,10 @@
       url = "https://extensions.blender.org/download/sha256:a9f904decb1ef8a7c65e1e1f7c3a982c26541931d18f87cd59776cd40643ebd9/add-on-wiggle-2-v2.4.0.zip?repository=%2Fapi%2Fv1%2Fextensions%2F&blender_version_min=4.2.0";
       hash = "sha256-2ojO7joOPSb9LhIGHd+j6+5NWQdzFTnHAO/pXiW9xzk=";
     };
+    "l0c_vertex_group_util" = {
+      url = "https://extensions.blender.org/download/sha256:c315d0732933ab6236d7e554b62def874863091c39a51b0ca0c1cd2b5d20d364/add-on-l0c-vertex-group-util-v0.1.0.zip?repository=%2Fapi%2Fv1%2Fextensions%2F&blender_version_min=5.2.0";
+      hash = "sha256-OVr7hK92wgAQYQpZFMrDydDaQB2O8Aa59rrpz8xTY08=";
+    };
   };
 
   fetchExtension = {
