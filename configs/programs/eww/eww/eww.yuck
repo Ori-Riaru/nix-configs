@@ -28,8 +28,9 @@
 					:valign "end"
 					:space-evenly false
 					:vexpand true
+					(downloads)
+					(battery)
           			(systray :orientation "vertical")
-          			(battery)
 					(lights)
           			(audio)
 					(control_panel_toggle)
@@ -49,6 +50,18 @@
   	(button :onclick "walker" 
         (label :class "launcher icon" 
 			   :text ""
+		)
+	)
+)
+
+(deflisten downloads :initial ""
+	"niri-minimap downloads"
+)
+
+(defwidget downloads []
+	(button
+		(label :class "icon"
+			:text {downloads != "" ? "" : ""}
 		)
 	)
 )
