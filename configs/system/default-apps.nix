@@ -18,6 +18,8 @@
         "application/x-extension-xhtml" = "vivaldi-stable.desktop";
 
         # === Text / Code ===
+        "application/x-empty" = "codium.desktop";
+        "inode/x-empty" = "codium.desktop";
         "text/plain" = "codium.desktop";
         "text/markdown" = "codium.desktop";
         "text/x-markdown" = "codium.desktop";
@@ -59,6 +61,7 @@
         "text/x-log" = "codium.desktop";
         "application/toml" = "codium.desktop";
         "application/x-yaml" = "codium.desktop";
+        "application/octet-stream" = "codium.desktop";
 
         # === Document ===
         "application/pdf" = "vivaldi-stable.desktop";
@@ -157,9 +160,6 @@
         "application/zstd" = "org.gnome.Nautilus.desktop";
         "application/x-zstd-compressed-tar" = "org.gnome.Nautilus.desktop";
         "application/epub+zip" = "vivaldi-stable.desktop";
-
-        # === Fallback ===
-        "application/octet-stream" = "codium.desktop";
       };
     };
   };

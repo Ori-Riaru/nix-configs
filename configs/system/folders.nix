@@ -9,6 +9,6 @@
   home.file = {
     "Games/.keep".text = "";
     "Temp/.keep".text = "";
-    "Templates/Text Document".text = "";
+    "Templates/Text Document.txt".text = "\n";
   };
 }
