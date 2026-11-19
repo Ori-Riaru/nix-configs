@@ -119,7 +119,7 @@
     layout = {
       gaps = config.theme.gap;
       center-focused-column = "never";
-      default-column-display = "normal";
+      default-column-display = "tabbed";
       empty-workspace-above-first = true;
 
       preset-column-widths = [
