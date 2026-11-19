@@ -53,8 +53,8 @@
     ../../../configs/programs/inkscape.nix
     ../../../configs/programs/f3d.nix
     ../../../configs/programs/godot.nix
-    # ../../../configs/programs/spotify/spotify.nix
     ../../../configs/programs/plezy.nix
+    ../../../configs/programs/finamp.nix
 
     # Gaming
     ../../../configs/programs/heroic/heroic.nix
