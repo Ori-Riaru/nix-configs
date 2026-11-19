@@ -142,7 +142,6 @@
           #// kdl-org.kdl # KDL language support
           #// letrieu.expand-region
           eww-yuck.yuck
-          eduarddyckman.vscode-parinfer
           dandehoon.vscode-generic-expand-selection
           dioxuslabs.dioxus
 
