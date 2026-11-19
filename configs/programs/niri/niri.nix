@@ -134,7 +134,7 @@
         {proportion = 0.66667;}
       ];
 
-      default-column-width = {proportion = 0.3333333334;};
+      default-column-width = {proportion = 0.5;};
 
       focus-ring = {
         enable = false;
