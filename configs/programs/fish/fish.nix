@@ -111,6 +111,17 @@
           end
         '';
       };
+
+      obsidian = {
+        body = ''
+          if test (count $argv) -eq 0
+            command obsidian ${settings.nasPath}/Notes
+          else
+            command obsidian $argv
+          end
+        '';
+        description = "Open Obsidian (default vault: Notes)";
+      };
     };
   };
 }
