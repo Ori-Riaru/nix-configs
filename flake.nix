@@ -4,7 +4,7 @@
   inputs = {
     # === Repositories ===
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/31a68c07febce8a2ed0ff76a5cf3cfa184b6b701";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-26.05";
 
     nur = {
@@ -52,7 +52,7 @@
     };
 
     niri-minimap = {
-      url = "github:Ori-Riaru/niri-minimap";
+      url = "git+file:///mnt/nfs/riaru/Projects/niri-minimap";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -94,10 +94,8 @@
       inputs.nur.follows = "nur";
     };
 
-    # Pinned to c2fc2f/buildGo126Module until Mic92/sops-nix#984 (buildGoModule fix) merges.
-    # TODO: revert to "github:Mic92/sops-nix" after the PR is merged upstream.
     sops-nix = {
-      url = "github:c2fc2f/sops-nix/buildGo126Module";
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
