@@ -65,6 +65,7 @@
       ocr = "opencode --auto --continue";
       code = "codium &>/dev/null";
       codium = "codium &>/dev/null";
+      zed = "zeditor";
       c = "codium";
       f = "files";
       fs = "files";
