@@ -63,7 +63,8 @@
 
       oc = "opencode --auto";
       ocr = "opencode --auto --continue";
-      code = "codium";
+      code = "codium &>/dev/null";
+      codium = "codium &>/dev/null";
       c = "codium";
       f = "files";
       fs = "files";
