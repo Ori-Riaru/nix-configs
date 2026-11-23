@@ -22,6 +22,7 @@
     ../../configs/services/site-router.nix
     ../../configs/services/vaultwarden.nix
     # ../../configs/services/minecraft.nix
+    ../../configs/services/headscale.nix
 
     # Users
     ../../users/riaru

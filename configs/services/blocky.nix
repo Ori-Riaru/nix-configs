@@ -42,16 +42,17 @@
           "mas.riaru.xyz" = "${settings.serverLocalIP}";
           "derp.riaru.xyz" = "${settings.serverLocalIP}";
           "mov.riaru.xyz" = "${settings.serverLocalIP}";
+          "tail.riaru.xyz" = "${settings.serverLocalIP}";
 
           # Old free dns
           "riaru.undo.it" = "${settings.serverLocalIP}";
           "riaru.home.kg" = "${settings.serverLocalIP}";
 
           # Local Only
-          "router.box" = "192.168.1.41";
-          "kumo.box" = "100.103.185.35";
-          "lain.box" = "100.127.40.4";
-          "slate.box" = "100.95.62.42";
+          "router.internal" = "192.168.1.41";
+          "kumo.internal" = "100.64.0.2";
+          "lain.internal" = "100.64.0.3";
+          "slate.internal" = "100.64.0.1";
         };
       };
       caching = {
