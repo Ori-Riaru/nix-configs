@@ -236,7 +236,7 @@
           }
           {
             keywords = ["divider"];
-            name = "Dash Divider";
+            name = "Minus Divider";
             content = "\\----------------------------------------";
           }
         ];
