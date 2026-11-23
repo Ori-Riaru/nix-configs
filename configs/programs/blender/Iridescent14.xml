@@ -445,7 +445,7 @@
             <gradients>
               <ThemeGradientColors
                 background_type="SINGLE_COLOR"
-                high_gradient="#111111"
+                high_gradient="#141414"
                 gradient="#0c0c0c"
                 >
               </ThemeGradientColors>

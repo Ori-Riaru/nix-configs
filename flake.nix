@@ -130,7 +130,7 @@
       configPath = "/mnt/nfs/riaru/Projects/nix-configs";
       secrets-dir = "/mnt/nfs/riaru/Projects/nix-configs/users/riaru/secrets";
       serverLocalIP = "192.168.1.101";
-      serverTailscaleIP = "100.103.185.35";
+      serverTailscaleIP = "100.64.0.2";
       kasaIP = "192.168.1.70";
       nasPath = "/mnt/nfs/riaru";
     };
@@ -178,9 +178,9 @@
       muted = "#666666";
       hidden = "#303030";
       float = "#2c2c2c";
-      overlay = "#222222";
+      overlay = "#242424";
       card = "#181818";
-      section = "#111111";
+      section = "#141414";
       base = "#080808";
       black = "#000000";
 

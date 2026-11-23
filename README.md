@@ -92,7 +92,7 @@ Many application and websites have been themed to match my custom color scheme
 | `Hidden`           | #606060 | ![Hidden](./.github/swatches/hidden.png)                     | Disabled, Hidden                                                  |     |
 | Backgrounds        |         |                                                              |                                                                   |     |
 | `base`             | #000000 | ![Base](./.github/swatches/base.png)                         | Window backgrounds                                                |     |
-| `section`          | #111111 | ![Section](./.github/swatches/section.png)                   | Major Section, Content Only Window                                |     |
+| `section`          | #141414 | ![Section](./.github/swatches/section.png)                   | Major Section, Content Only Window                                |     |
 | `card`             | #181818 | ![Card](.github/swatches/card.png)                           | Card, Input, highlighted button                                   |     |
 | `overlay`          | #222222 | ![Overlay](./.github/swatches/overlay.png)                   | Search Overlay,                                                   |     |
 | Customizations     |         |                                                              |                                                                   |     |
