@@ -7,318 +7,377 @@
   users.groups.uinput.members = [settings.username];
   users.groups.input.members = [settings.username];
 
-  services.kanata = {
+  services.kanata = let
+    defsrc =
+      if config.networking.hostName == "lain"
+      then ''
+        (defsrc
+                q    w    e    r    t    y    u    i    o    p
+          lshft a    s    d    f    g    h    j    k    l    ;    '
+                z    x    c    v    b    n    m    ,    .    /
+                              spc  esc  ret  ralt
+        )
+      ''
+      else ''
+        (defsrc
+                q     w     e     r     t     y     u     i     o     p
+          caps  a     s     d     f     g     h     j     k     l     ;     '
+                z     x     c     v     b     n     m     ,     .     /
+                                  lalt  spc   ralt  rctrl
+        )
+      '';
+
+    allLayers = [
+      "default"
+      "qwerty"
+      "game"
+      "game-type"
+      "gamenum"
+      "nav"
+      "nav-shift"
+      "menu"
+      "sym"
+      "num"
+      "gallium"
+    ];
+    only = on:
+      builtins.concatStringsSep " "
+      (builtins.filter (l: !(builtins.elem l on)) allLayers);
+  in {
     enable = true;
-    keyboards = {
-      "default" = {
-        port = 8008;
-        extraDefCfg = ''
-          process-unmapped-keys yes
-          concurrent-tap-hold yes
-          override-release-on-activation yes
-          dynamic-macro-max-presses 1000
-        '';
+    
+    keyboards."default" = {
+      port = 8008;
+      extraDefCfg = ''
+        process-unmapped-keys yes
+        concurrent-tap-hold yes
+        override-release-on-activation yes
+        dynamic-macro-max-presses 1000
+        tap-hold-require-prior-idle 130
+        chords-v2-min-idle 100
+      '';
 
-        config = ''
-          (defvar
-            tap-time   160
-            hold-time  180
-            chord-time 200
-          )
+      config = ''
+        ${defsrc}
 
-          ;; Base keyboard layout
-          (defsrc
-            tab   q w e r t y u i o p
-            lctrl a s d f g h j k l ;
-            lshft z x c v b n m , . /
-            lalt spc esc ret ralt rmet rctl
-          )
+        ;; === Varibles ===
 
-          ;; === Aliases & Shortcuts ===
+        (defvar
+          t-index  170
+          t-middle 191
+          t-ring   210
+          t-pinky  230
+          t-thumb  200
+          nav-hold 200
+          repress  150
+        )
 
-          (defalias
-            ;; Text macros
-            email (macro o r i S-2 r i a r u . x y z)
-            google (macro o r i . r i a r u S-2 g m a i l . c o m)
-            proton (macro o r i - r i a r u S-2 p r o t o n . m e)
+        (defhands
+          (left  caps q w e r t a s d f g z x c v b)
+          (right y u i o p h j k l ; ' n m , . /)
+        )
 
-            ;; General shortcuts
-            undo       C-z
-            redo       C-S-z
-            cut        C-x
-            paste      C-v
-            cliphist   M-v
-            websearch  M-s
-            copy       C-c
-            find       C-f
-            replace    C-h
-            save       C-s
-            sall       C-a
-            sexpand    C-e
-            sline      C-l
-            back       A-left
-            forward    A-rght
-            screenshot M-p
-            pick-color M-c
-            close      C-w
+        (defalias
 
-            ;; Window management
-            open      C-o
-            pallet    C-p
-            launch    M-g
-            overview  M-o
-            quit      M-q
-            size      M-r
-            size-back M-C-r
-            h-up      M-h
-            h-down    M-C-h
-            full      M-f
-            max       M-S-f
-            float     M-w
+          ;; --- Text macros ---
+           
+          email  (macro o r i S-2 r i a r u . x y z)
+          google (macro o r i . r i a r u S-2 g m a i l . c o m)
+          proton (macro o r i - r i a r u S-2 p r o t o n . m e)
 
-            ;; Focus movement
-            monitor M-d
-            focus-left   (tap-hold $tap-time $hold-time M-left  lmet)
-            focus-up     (tap-hold $tap-time $hold-time M-up    lalt)
-            focus-down   (tap-hold $tap-time $hold-time M-down  lshft)
-            focus-right  (tap-hold $tap-time $hold-time M-right lctrl)
-            move-monitor M-C-d
-            move-left    M-C-lft
-            move-up      M-C-up
-            move-down    M-C-down
-            move-right   M-C-rght
+          ;; --- shortcuts ---
+          
+          undo       C-z
+          redo       C-S-z
+          cut        C-x
+          paste      C-v
+          copy       C-c
+          find       C-f
+          replace    C-h
+          save       C-s
+          sall       C-a
+          sexpand    C-e
+          sline      C-l
+          back       A-left
+          forward    A-rght
+          close      C-w
+          cliphist   M-v
+          websearch  M-s
+          screenshot M-p
+          pick-color M-c
+          cw         (caps-word 2000)
 
-            ;; Applications
-            ghostty  M-C-g
-            browser  M-C-f
-            nautilus M-C-n
-            codium   M-C-c
-            vesktop  M-C-v
-            lights   M-l
+          ;; Window managment
+          
+          open         C-o
+          pallet       C-p
+          launch       M-g
+          overview     M-o
+          quit         M-q
+          size         M-r
+          size-back    M-C-r
+          h-up         M-h
+          h-down       M-C-h
+          full         M-f
+          max          M-S-f
+          float        M-w
+          monitor      M-d
+          move-monitor M-C-d
+          move-left    M-C-left
+          move-up      M-C-up
+          move-down    M-C-down
+          move-right   M-C-rght
 
-            ;; Modifiers
-            esc  (tap-hold $tap-time $hold-time esc (layer-while-held left-num))
-            tab  (tap-hold $tap-time $hold-time tab lalt)
-            bspc (tap-hold $tap-time $hold-time bspc (layer-while-held menu))
+          ;; Applications
 
-            ;; Dynamic macro recording/playback
-            m-rec-1  (dynamic-macro-record 1)
-            m-rec-2  (dynamic-macro-record 2)
-            m-play-1 (dynamic-macro-play 1)
-            m-play-2 (dynamic-macro-play 2)
-            m-stop   (dynamic-macro-record-stop-truncate 1)
+          ghostty  M-C-g
+          browser  M-C-f
+          nautilus M-C-n
+          zed      M-C-c
+          vesktop  M-C-v
+          lights   M-l
 
-            ;; Layer switching
-            game      (layer-switch game)
-            gametype  (layer-switch game-type)
-            base      (layer-switch default)
-            qwerty    (layer-switch qwerty)
-            menu      (layer-while-held menu)
-            nav-shift (layer-while-held nav-shift)
-            gamenum   (tap-hold $tap-time $hold-time esc (layer-while-held gamenum))
-          )
+          ;; Dynamic macros
 
-          ;; === Key Overrides ===
+          m-rec-1  (dynamic-macro-record 1)
+          m-rec-2  (dynamic-macro-record 2)
+          m-play-1 (dynamic-macro-play 1)
+          m-play-2 (dynamic-macro-play 2)
+          m-stop   (dynamic-macro-record-stop-truncate 1)
 
-          (defoverrides
-            (lsft .)    (,)
-            (rsft .)    (,)
-            (lsft ,)    (lsft .)
-            (lsft bspc) (del)
-            (rsft bspc) (del)
-          )
+          ;; Home row and thumb key
 
-          ;;  === Chord Definitions ===
+          t-esc   (tap-hold-release 0 $t-thumb esc (layer-while-held num) (require-prior-idle 0))
+          t-spc   (tap-hold 0 $nav-hold spc (layer-while-held nav))
+          t-sym   (tap-hold-release 0 $t-thumb ret (layer-while-held sym) (require-prior-idle 0))
+          t-bspc  (tap-hold-release 160 $t-thumb bspc (layer-while-held menu) (require-prior-idle 0))
+          gamenum (tap-hold-release 0 $t-thumb esc (layer-while-held gamenum) (require-prior-idle 0))
 
-          (defchordsv2
-            ;; Global chords
-            (s d          ) tab    $chord-time first-release (game gamenum qwerty  nav)
-            (x c) (caps-word 1000) $chord-time first-release (game gamenum qwerty)
-            (w e) /                $chord-time first-release (game gamenum qwerty)
-            (q w) S-`              $chord-time first-release (game gamenum qwerty)
+          focus-left  (tap-hold-release 0 $t-thumb M-left  lmet (require-prior-idle 0))
+          focus-up    (tap-hold-release 0 $t-thumb M-up    lalt (require-prior-idle 0))
+          focus-down  (tap-hold-release 0 $t-thumb M-down  lsft (require-prior-idle 0))
+          focus-right (tap-hold-release 0 $t-thumb M-right lctl (require-prior-idle 0))
 
-            ;; Navigation chords
-            (p spc)   C-v    $chord-time first-release  (game qwerty gamenum num)
-            (j k)     home   $chord-time first-release (default game qwerty gamenum num)
-            (j k spc) home   $chord-time first-release (default game qwerty gamenum num)
-            (k l)     end    $chord-time first-release (default game qwerty gamenum num)
-            (k l spc) end    $chord-time first-release (default game qwerty gamenum num)
-            (d j k)   S-home $chord-time first-release (default game qwerty gamenum num)
-            (d k l)   S-end  $chord-time first-release (default game qwerty gamenum num)
+          hm-a (tap-hold-opposite-hand-release $t-pinky  a lmet
+                  (timeout hold) (unknown-hand hold) (neutral-keys s)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
+          hm-o (tap-hold-opposite-hand-release $t-ring   o lalt
+                  (timeout hold) (unknown-hand hold) (neutral-keys a)
+                  (tap-repress-timeout $repress))
+          hm-e (tap-hold-opposite-hand-release $t-middle e lsft
+                  (timeout hold) (unknown-hand hold) (neutral-keys f)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
+          hm-u (tap-hold-opposite-hand-release $t-index  u lctl
+                  (timeout hold) (unknown-hand hold) (neutral-keys d)
+                  (tap-repress-timeout $repress))
 
-            ;; Number/Symbol chord
-            (a s) }     $chord-time first-release (default game qwerty gamenum nav)
-            ;;(s d) S-} $chord-time first-release (default game qwerty gamenum nav)
-            (d f) S-0   $chord-time first-release (default game qwerty gamenum nav)
-            (a f) S-,   $chord-time first-release (default game qwerty gamenum nav)
-          )
-
-          ;; === Layers ===
-
-          ;; Default layer
-          (deflayermap (default)
-            q '
-            w -
-            e .
-            r p
-            t y
-            y f
-            u g
-            i c
-            o r
-            p l
-
-            a (tap-hold $tap-time $hold-time a lmet)
-            s (tap-hold $tap-time $hold-time o lalt)
-            d (tap-hold $tap-time $hold-time e lsft)
-            f (tap-hold $tap-time $hold-time u lctl)
-            g i
-            h d
-            j (tap-hold $tap-time $hold-time h rctl)
-            k (tap-hold $tap-time $hold-time t rsft)
-            l (tap-hold $tap-time $hold-time n ralt)
-            ; (tap-hold $tap-time $hold-time s rmet)
-
-            z ;
-            x q
-            c j
-            v k
-            b x
-            n b
-            m m
-            , w
-            . v
-            / z
+          hm-h (tap-hold-opposite-hand-release $t-index  h rctl
+                  (timeout hold) (unknown-hand hold) (neutral-keys k)
+                  (tap-repress-timeout $repress))
+          hm-t (tap-hold-opposite-hand-release $t-middle t rsft
+                  (timeout hold) (unknown-hand hold) (neutral-keys j)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
+          hm-n (tap-hold-opposite-hand-release $t-ring   n ralt
+                  (timeout hold) (unknown-hand hold) (neutral-keys ;)
+                  (tap-repress-timeout $repress))
+          hm-s (tap-hold-opposite-hand-release $t-pinky  s rmet
+                  (timeout hold) (unknown-hand hold) (neutral-keys l)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
 
 
-          ${
-            if config.networking.hostName == "lain"
-            then ''
-              spc  @esc
-              esc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-              ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
-              ralt @bspc
-              rctl @bspc
-            ''
-            else ''
-              lalt @esc
-              spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-              ralt (tap-hold $tap-time $hold-time ret (layer-while-held num))
-              rmet @bspc
-              rctl @bspc
-            ''
-          }
-          )
+          hq-a    (tap-hold-opposite-hand-release $t-pinky  a lmet
+                     (timeout hold) (unknown-hand hold) (neutral-keys s)
+                     (require-prior-idle 55) (tap-repress-timeout $repress))
+          hq-s    (tap-hold-opposite-hand-release $t-ring   s lalt
+                     (timeout hold) (unknown-hand hold) (neutral-keys a)
+                     (tap-repress-timeout $repress))
+          hq-d    (tap-hold-opposite-hand-release $t-middle d lsft
+                     (timeout hold) (unknown-hand hold) (neutral-keys f)
+                     (require-prior-idle 55) (tap-repress-timeout $repress))
+          hq-f    (tap-hold-opposite-hand-release $t-index  f lctl
+                     (timeout hold) (unknown-hand hold) (neutral-keys d)
+                     (tap-repress-timeout $repress))
 
-          (deflayer num
-           _ `   S-3 S-7 S-\    S-5 /   1 2 3 =
-           _ <   [   S-[ S-9    S-6 S-8 4 5 6 0
-           _ S-2 S-4 S-/ S-1    \   S-= 7 8 9 -
-           ${
-            if config.networking.hostName == "lain"
-            then "_ .          @nav-shift    ret @bspc _     _"
-            else ". @nav-shift _             _   ret   @bspc @bspc"
-          }
-          )
+          hq-j    (tap-hold-opposite-hand-release $t-index  j rctl
+                     (timeout hold) (unknown-hand hold) (neutral-keys k)
+                     (tap-repress-timeout $repress))
+          hq-k    (tap-hold-opposite-hand-release $t-middle k rsft
+                     (timeout hold) (unknown-hand hold) (neutral-keys j)
+                     (require-prior-idle 55) (tap-repress-timeout $repress))
+          hq-l    (tap-hold-opposite-hand-release $t-ring   l ralt
+                     (timeout hold) (unknown-hand hold) (neutral-keys ;)
+                     (tap-repress-timeout $repress))
+          hq-scln (tap-hold-opposite-hand-release $t-pinky  ; rmet
+                     (timeout hold) (unknown-hand hold) (neutral-keys l)
+                     (require-prior-idle 55) (tap-repress-timeout $repress))
 
-          (deflayer nav
-            _ @quit       @full      @launch     @open           @pallet  @save @undo    @copy  @cut @paste
-            _ @focus-left @focus-up  @focus-down @focus-right    @monitor @find lft      up     down rght
-            _ @back       @size-back @size       @forward        @float   @sall @sexpand @sline _    _
-            ${
-            if config.networking.hostName == "lain"
-            then "_ _ _    @nav-shift del        _   _"
-            else "_ _ _    _          @nav-shift del del"
-          }
-          )
 
-          (deflayer nav-shift
-            _ @close     @max     @websearch _              _             @cliphist F1 F2 F3 F10
-            _ @move-left @move-up @move-down @move-right    @move-monitor @replace  F4 F5 F6 F11
-            _ _          @h-up    @h-down    _              _             _         F7 F8 F9 F12
-            _ _ _    _ _ _ _
-          )
+          hg-n (tap-hold-opposite-hand-release $t-pinky  n lmet
+                  (timeout hold) (unknown-hand hold) (neutral-keys s)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
+          hg-r (tap-hold-opposite-hand-release $t-ring   r lalt
+                  (timeout hold) (unknown-hand hold) (neutral-keys a)
+                  (tap-repress-timeout $repress))
+          hg-t (tap-hold-opposite-hand-release $t-middle t lsft
+                  (timeout hold) (unknown-hand hold) (neutral-keys f)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
+          hg-s (tap-hold-opposite-hand-release $t-index  s lctl
+                  (timeout hold) (unknown-hand hold) (neutral-keys d)
+                  (tap-repress-timeout $repress))
 
-          (deflayer menu
-            _ @email   @google   _        @screenshot    @pick-color @lights @base @game @gametype @qwerty
-            _ @codium  @nautilus @browser @ghostty       @vesktop    _       left  up    down    right
-            _ @m-rec-1 @m-rec-2  @m-stop  @m-play-1      @m-play-2   prev    pp    volu  voldwn  next
-            _ _ _    _ _ _ _
-          )
+          hg-h (tap-hold-opposite-hand-release $t-index  h rctl
+                  (timeout hold) (unknown-hand hold) (neutral-keys k)
+                  (tap-repress-timeout $repress))
+          hg-a (tap-hold-opposite-hand-release $t-middle a rsft
+                  (timeout hold) (unknown-hand hold) (neutral-keys j)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
+          hg-e (tap-hold-opposite-hand-release $t-ring   e ralt
+                  (timeout hold) (unknown-hand hold) (neutral-keys ;)
+                  (tap-repress-timeout $repress))
+          hg-i (tap-hold-opposite-hand-release $t-pinky  i rmet
+                  (timeout hold) (unknown-hand hold) (neutral-keys l)
+                  (require-prior-idle 55) (tap-repress-timeout $repress))
 
-          (deflayer left-num
-            S-0  = 1 2 3 /   S-5    S-\ S-7 S-3 `
-            S-9  0 4 5 6 S-8 S-6    S-9 S-[ [   <
-            bspc - 7 8 9 S-= \      S-1 S-4 S-/ S-2
-            ${
-            if config.networking.hostName == "lain"
-            then "_ mlft mrgt    _ @menu _     _"
-            else "mlft mrgt _    _ _     @menu @menu"
-          }
-          )
+          ;; --- Utils ---
+         
+          ;; Shifted symbols
 
-          (deflayermap qwerty
+          !    S-1
+          @    S-2
+          #    S-3
+          $    S-4
+          %    S-5
+          ^    S-6
+          &    S-7
+          *    S-8
+          lpar S-9
+          rpar S-0
+          _    S-min
+          +    S-eql
+          {    S-lbrc
+          }    S-rbrc
+          |    S-bksl
+          :    S-scln
+          dq   S-apo
+          ?    S-/
+          <    S-comm
+          >    S-.
+          ~    S-grv
+          
+          ;; Layer switching
 
-            a (tap-hold $tap-time $hold-time a lmet)
-            s (tap-hold $tap-time $hold-time s lalt)
-            d (tap-hold $tap-time $hold-time d lsft)
-            f (tap-hold $tap-time $hold-time f lctl)
+          game      (layer-switch game)
+          gametype  (layer-switch game-type)
+          base      (layer-switch default)
+          qwerty    (layer-switch qwerty)
+          gallium   (layer-switch gallium)
+          nav-shift (layer-while-held nav-shift)
+        )
 
-            j (tap-hold $tap-time $hold-time j rctl)
-            k (tap-hold $tap-time $hold-time k rsft)
-            l (tap-hold $tap-time $hold-time l ralt)
-            ; (tap-hold $tap-time $hold-time ; rmet)
-            / -
+        ;; === Overrides ===
+        ;; Swaps the shift behaviour of keys
+        
+        (defoverrides
+          (lsft bspc) (del)
+          (rsft bspc) (del)
+          (lsft .) (lsft /)
+          (rsft .) (lsft /)
+          (lsft /) (\)
+          (rsft /) (\)
+        )
 
-            ${
-            if config.networking.hostName == "lain"
-            then ''
-              spc  @esc
-              esc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-              ret  (tap-hold $tap-time $hold-time ret (layer-while-held num))
-              ralt @bspc
-              rctl @bspc
-            ''
-            else ''
-              lalt @esc
-              spc  (tap-hold $tap-time $hold-time spc (layer-while-held nav))
-              ralt (tap-hold $tap-time $hold-time ret (layer-while-held num))
-              rmet @bspc
-              rctl @bspc
-            ''
-          }
-          )
+        (defchordsv2
+          (x c) @cw 50 first-release (${only ["default" "gallium"]})
+          (s d) tab 50 first-release (${only ["default" "gallium"]})
+        )
 
-          (deflayer game
-            _ tab  q w e r    t y    up   i     j
-            _ shft a s d f    g left down right p
-            _ ctl  z x c v    b h    u    n     m
-            ${
-            if config.networking.hostName == "lain"
-            then "_        @gamenum spc    _     @bspc _     _"
-            else "@gamenum spc      _      _     _     @bspc @bspc"
-          }
-          )
+        ;; === Layers ===
 
-          (deflayer game-type
-            _ tab  ' , . p    y f g c r
-            _ shft a o e u    i d h t n
-            _ ctl  ; q j k    x b m w v
-            ${
-            if config.networking.hostName == "lain"
-            then "_ @gamenum spc    _ @bspc _     _"
-            else "@gamenum spc _    _ _     @bspc @bspc"
-          }
-          )
+        ;; --- Primary Typing ---
 
-          (deflayer gamenum
-            _ _   1 2 3 - +      F1 F2  F3  F4
-            _ alt 4 5 6 0 S-8    F5 F6  F7  F8
-            _ `   7 8 9 . =      F9 F10 F11 F12
-            _ _ _    _ _ _ _
-          )
-        '';
-      };
+        (deflayer default
+                  '       -       .       p       y       f       g       c       r       l
+          @_      @hm-a   @hm-o   @hm-e   @hm-u   i       d       @hm-h   @hm-t   @hm-n   @hm-s   ,
+                  ;       q       j       k       x       b       m       w       v       z
+                                          @t-esc  @t-spc  @t-sym  @t-bspc
+        )
+              
+        (deflayer qwerty
+                   q        w        e        r        t        y        u        i        o        p
+          caps     @hq-a    @hq-s    @hq-d    @hq-f    g        h        @hq-j    @hq-k    @hq-l    @hq-scln '
+                   z        x        c        v        b        n        m        ,        .        /
+                                              @t-esc   @t-spc   @t-sym   @t-bspc
+        )
+
+        (deflayer gallium
+                  b       l       d       c       v       j       f       o       u       ,
+          -       @hg-n   @hg-r   @hg-t   @hg-s   g       y       @hg-h   @hg-a   @hg-e   @hg-i   /
+                  x       q       m       w       z       k       p       '       ;       .
+                                          @t-esc  @t-spc  @t-sym  @t-bspc
+        )
+
+        ;; --- Symbols ---
+
+        (deflayer num
+                  =       1       2       3       /       @%     @{      }      @?      @>
+         bspc     0       4       5       6       @*      @!     @lpar   @rpar  @_      @<      XX
+                  @^      7       8       9       @+     bksl    [       ]      @$      @@
+                                          XX      XX     XX      XX
+        )
+
+        (deflayer sym
+                @%    grv   @dq   '     @~    @+    =     /     @_    @*
+          XX    @^    [     @{    @lpar @<    @>    @rpar @}    ]     @@    XX
+                bksl  @$    @#    @&    @|    @!    @?    ;     @:    -
+                                  XX    XX    XX    XX
+        )
+
+        ;; --- Shortcuts ---
+
+        (deflayer nav
+                       @quit        @full        @launch      @open        @pallet      @save        @undo        @copy        @cut         @paste
+          XX           @focus-left  @focus-up    @focus-down  @focus-right @monitor     @find        left         up           down         rght         '
+                       @back        @size-back   @size        @forward     @float       @sall        @sexpand     home         end          @sline
+                                                              XX           XX           @nav-shift   del
+        )
+
+        (deflayer nav-shift
+                        @close        @max          @websearch    @cw           @redo         @cliphist     F1            F2            F3            F4
+          XX            @move-left    @move-up      @move-down    @move-right   @move-monitor @replace      F5            F6            F7            F8           '
+                        _             @h-up         @h-down       _             _             _             F9            F10           F11           F12
+                                                                  XX            XX            XX            XX
+        )
+
+        (deflayer menu
+                      @email      @google     @proton     @screenshot @pick-color @lights     @base       @game       @gametype   @qwerty
+          XX          @zed        @nautilus   @browser    @ghostty    @vesktop    @gallium    left        up          down        rght        '
+                      @m-rec-1    @m-rec-2    @m-stop     @m-play-1   @m-play-2   prev        pp          volu        voldwn      next
+                                                          _           _           XX          XX
+        )
+
+        ;; --- Gaming ---
+
+        (deflayer game
+                    tab      q        w        e        r        t        y        up       i        _
+          @gametype lsft     a        s        d        f        g        left     down     rght     _        p
+                    ctl      z        x        c        v        b        _        _        _        m
+                                              @gamenum spc      XX       @t-bspc
+        )
+ 
+        (deflayer game-type
+                    tab      '        ,        .        p        y        f        g        c        r
+          @gametype shft     a        o        e        u        i        d        h        t        n        s
+                    ctl      ;        q        j        k        x        b        m        w        v
+                                               @gamenum spc      XX       @t-bspc
+        )
+
+        (deflayer gamenum
+               shft  1    2    3    -    @+   F1   F2   F3   F4
+          ,    alt   4    5    6    0    @*   F5   F6   F7   F8   _
+               ctl   7    8    9    .    =    F9   F10  F11  F12
+                              XX   XX   XX   XX
+        )
+      '';
     };
   };
 }
