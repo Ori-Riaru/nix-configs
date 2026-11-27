@@ -30,7 +30,7 @@
   ];
 
   # Leaf entry: creates a template file directly (no prompts) and opens the
-  # containing folder in vscodium.
+  # containing folder in Zed.
   mkEntry = {
     category,
     target,
@@ -319,7 +319,7 @@ in {
                         Icon = icon,
                         Keywords = { "config", "nix", "open", root, label:lower() },
                         Actions = {
-                            open = "codium '" .. line .. "'",
+                            open = "zeditor '" .. line .. "'",
                             open_terminal = "ghostty --working-directory='" .. dir .. "'",
                             open_files = "nautilus '" .. dir .. "'",
                         },

@@ -13,8 +13,8 @@
 
   home.sessionVariables.NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
 
-  home.file.".local/share/nautilus-python/extensions/vscodium.py".source =
-    ./nautilus/vscodium.py;
+  home.file.".local/share/nautilus-python/extensions/zed.py".source =
+    ./nautilus/zed.py;
 
   home.file.".local/share/nautilus-python/extensions/ghostty.py".source =
     ./nautilus/ghostty.py;

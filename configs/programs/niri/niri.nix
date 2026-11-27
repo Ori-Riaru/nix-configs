@@ -283,7 +283,7 @@
       "Mod+Ctrl+G".action.spawn = ["systemd-run" "--user" "--scope" "ghostty"];
       "Mod+Ctrl+F".action.spawn = ["systemd-run" "--user" "--scope" "vivaldy"];
       "Mod+Ctrl+N".action.spawn = ["systemd-run" "--user" "--scope" "nautilus"];
-      "Mod+Ctrl+C".action.spawn = ["systemd-run" "--user" "--scope" "codium"];
+      "Mod+Ctrl+C".action.spawn = ["systemd-run" "--user" "--scope" "zeditor"];
       "Mod+Ctrl+V".action.spawn = ["systemd-run" "--user" "--scope" "vesktop"];
 
       # Window Management

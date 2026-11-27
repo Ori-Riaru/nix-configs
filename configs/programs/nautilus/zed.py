@@ -3,13 +3,13 @@ import subprocess
 
 from gi.repository import GObject, Nautilus
 
-VSCODE_BIN = "codium"
-VSCODE_LABEL = "Open in Codium"
+ZED_BIN = "zeditor"
+ZED_LABEL = "Open in Zed"
 
 
-class VSCodiumExtension(GObject.GObject, Nautilus.MenuProvider):
+class ZedExtension(GObject.GObject, Nautilus.MenuProvider):
     def _launch(self, _menu, files, new_window):
-        args = [VSCODE_BIN]
+        args = [ZED_BIN]
         has_folder = False
 
         for file_ in files:
@@ -22,7 +22,7 @@ class VSCodiumExtension(GObject.GObject, Nautilus.MenuProvider):
                 has_folder = True
 
         if new_window or has_folder:
-            args.insert(1, "--new-window")
+            args.insert(1, "--new")
 
         if len(args) > 1:
             subprocess.Popen(args, start_new_session=True)
@@ -46,18 +46,18 @@ class VSCodiumExtension(GObject.GObject, Nautilus.MenuProvider):
     def get_file_items(self, files):
         items = [
             self._item(
-                "VSCodiumExtension::open",
-                VSCODE_LABEL,
-                "Open the selected files with Codium",
+                "ZedExtension::open",
+                ZED_LABEL,
+                "Open the selected files with Zed",
                 files,
             )
         ]
         if self._has_folder(files):
             items.append(
                 self._item(
-                    "VSCodiumExtension::open-new-window",
-                    VSCODE_LABEL + " (New Window)",
-                    "Open the selected files in a new Codium window",
+                    "ZedExtension::open-new-window",
+                    ZED_LABEL + " (New Window)",
+                    "Open the selected files in a new Zed window",
                     files,
                     new_window=True,
                 )
@@ -67,9 +67,9 @@ class VSCodiumExtension(GObject.GObject, Nautilus.MenuProvider):
     def get_background_items(self, current_folder):
         return [
             self._item(
-                "VSCodiumExtension::open-background",
-                VSCODE_LABEL,
-                "Open the current folder with Codium",
+                "ZedExtension::open-background",
+                ZED_LABEL,
+                "Open the current folder with Zed",
                 [current_folder],
             )
         ]

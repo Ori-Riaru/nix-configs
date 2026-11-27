@@ -60,7 +60,7 @@
       notify-send "Create" "Created ''${name} (''${template})''${git_msg}"
 
       if [ -z "$no_open_flag" ]; then
-        codium "$projectsPath/$name" &
+        zeditor "$projectsPath/$name" &
       fi
     '')
 
@@ -143,7 +143,7 @@
               create_entry("create-starter rust", "Rust Project", "create-starter: rust", "rust", { "create", "rust", "cargo", "project", "starter", "template" }),
               create_entry("create-starter go", "Go Project", "create-starter: go", "text-x-script", { "create", "go", "golang", "project", "starter", "template" }),
               create_entry("create-starter zig", "Zig Project", "create-starter: zig", "text-x-script", { "create", "zig", "project", "starter", "template" }),
-              create_entry("create-starter java", "Java Project", "create-starter: java", "text-x-java", { "create", "java", "project", "starter", "template" }),
+               create_entry("create-starter java", "Java Project", "create-starter: java", "text-x-java", { "create", "java", "project", "starter", "template" }),
               create_entry("create-starter bash", "Bash Script", "create-starter: bash", "text-x-script", { "create", "bash", "shell", "script", "starter", "template" }),
               create_entry("create-starter godot --no-open", "Godot Project", "create-starter: godot", "application-x-executable", { "create", "godot", "game", "gdscript", "project", "starter", "template" }),
           }

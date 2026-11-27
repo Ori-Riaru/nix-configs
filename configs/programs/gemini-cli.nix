@@ -4,7 +4,7 @@
     settings = {
       general = {
         previewFeatures = true;
-        preferredEditor = "vscodium";
+        preferredEditor = "zed";
         disableUpdateNag = true;
         enableAutoUpdateNotification = false;
       };

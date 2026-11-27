@@ -66,12 +66,12 @@
       code = "codium &>/dev/null";
       codium = "codium &>/dev/null";
       zed = "zeditor";
-      c = "codium";
+      e = "zeditor";
       f = "files";
       fs = "files";
       tt = "toipe";
       monkeytype = "toipe";
-      configs = "codium ${settings.configPath}";
+      configs = "zeditor ${settings.configPath}";
       bats = "bat --style plain";
     };
 

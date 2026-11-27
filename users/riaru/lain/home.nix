@@ -43,6 +43,7 @@
     ../../../configs/programs/stylelint.nix
     ../../../configs/programs/devtoolbox.nix
     ../../../configs/programs/micro.nix
+    ../../../configs/programs/zed.nix
 
     # Terminal & CLI
     ../../../configs/groups/cli-apps.nix

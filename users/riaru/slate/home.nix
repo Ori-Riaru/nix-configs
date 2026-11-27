@@ -37,6 +37,7 @@
     ../../../configs/programs/unityhub.nix
     ../../../configs/programs/stylelint.nix
     ../../../configs/programs/devtoolbox.nix
+    ../../../configs/programs/zed.nix
 
     # Communication
     ../../../configs/programs/discord.nix

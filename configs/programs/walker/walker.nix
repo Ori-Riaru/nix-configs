@@ -40,7 +40,7 @@
   programs.rbw = {
     enable = true;
   };
-  
+
   home.activation.rbwConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
     config="$HOME/.config/rbw/config.json"
     pinentry="${pkgs.pinentry-gnome3}/bin/pinentry"
@@ -189,8 +189,8 @@
                     app_id = "org.gnome.Nautilus";
                   }
                   {
-                    command = "niri msg action spawn -- codium";
-                    app_id = "codium";
+                    command = "niri msg action spawn -- zeditor";
+                    app_id = "dev.zed.Zed";
                   }
                   {
                     command = "niri msg action spawn -- ghostty";

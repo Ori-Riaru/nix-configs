@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Create a template config module in the nix-configs repo and open the
-# containing folder in vscodium. Used by the walker "Nix Config" menu.
+# containing folder in Zed. Used by the walker "Nix Config" menu.
 #
 # Usage: nix-add-config <program|service|group|system> <home|system> [--template package|module|daemon|manual]
 
@@ -175,4 +175,4 @@ MOD
 esac
 
 cd "$dir"
-codium . "$file" &
+zeditor . "$file" &

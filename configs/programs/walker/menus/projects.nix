@@ -42,7 +42,7 @@
                     Icon = "folder",
                     Keywords = { "project", "open", name:lower() },
                     Actions = {
-                        open = "codium '" .. path .. "'",
+                        open = "zeditor '" .. path .. "'",
                         open_terminal = "ghostty --working-directory='" .. path .. "'",
                         open_files = "nautilus '" .. path .. "'",
                     },
